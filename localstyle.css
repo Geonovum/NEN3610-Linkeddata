@@ -1,0 +1,40 @@
+/*******************************************************************************
+ *                              Local stylesheet                               *
+ * 
+ * Local stylesheet:
+ * NEN3610-Linkeddata
+ *
+ ******************************************************************************/
+
+/******************************************************************************/
+/*                              Generic section                               */
+/******************************************************************************/
+
+section.generic {
+    background-color: #EDEDED;
+    border-left-width: .5em;
+    border-left-style: solid;
+    border-color: #A1A1A1;
+    padding: .5em;
+}
+
+/******************************************************************************/
+/*                                Table style                                 */
+/******************************************************************************/
+
+table, th, td {
+    background-color: #F2F2F2;
+    border-collapse: collapse;}
+table {
+    border: 1px solid #000000;
+    width: 100%;
+}
+caption {
+    font-style: italic;
+    text-align: left;
+}
+th, td {
+    border: 1px inset #CCCCCC;
+    hyphens: auto;
+    padding: 0.25em;
+}
