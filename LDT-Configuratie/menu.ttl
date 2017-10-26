@@ -1,0 +1,45 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+stage:Menu a elmo:Part;
+	elmo:appearance elmo:NavbarSearchAppearance;
+	elmo:index "~";
+	elmo:data [
+		rdfs:label "NEN3610"@nl;
+		elmo:data [
+			elmo:index "1";
+			rdfs:label "Begrippen";
+		];
+		elmo:data [
+			elmo:index "2";
+			rdfs:label "Model";
+			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/model"];
+			elmo:data [elmo:index "2"; rdfs:label "Diagram"; html:link "query/model-diagram"];
+			elmo:data [elmo:index "3"; rdfs:label "Semantisch model (download)"; html:link "query/semantisch-model.yed"];
+		];
+		elmo:data [
+			elmo:index "3";
+			rdfs:label "Metamodel";
+			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/metamodel"];
+			elmo:data [elmo:index "2"; rdfs:label "Diagram"; html:link "query/metamodel-diagram"];
+		];
+		elmo:data [
+			elmo:index "4";
+			rdfs:label "IM Golf";
+			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/imgolf"];
+			elmo:data [elmo:index "2"; rdfs:label "Diagram"; html:link "query/imgolf-diagram"];
+		];
+		elmo:data [
+			elmo:index "5";
+			rdfs:label "Beheer";
+			elmo:data [elmo:index "1"; rdfs:label "Begrippen"; html:link "/nen3610/container/begrippen"];
+			elmo:data [elmo:index "2"; rdfs:label "Referenties"; html:link "/nen3610/container/referenties"];
+			elmo:data [elmo:index "3"; rdfs:label "Vocabulaire"; html:link "/nen3610/container/vocabulaire"];
+			elmo:data [elmo:index "4"; rdfs:label "Structuur"; html:link "/nen3610/container/structuur"];
+			elmo:data [elmo:index "5"; rdfs:label "Metamodel"; html:link "/nen3610/container/metamodel"];
+			elmo:data [elmo:index "6"; rdfs:label "IM Golf"; html:link "/nen3610/container/imgolf"];
+		];
+	];
+.
