@@ -1,0 +1,42 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
+
+stage:Begrippen a elmo:Representation;
+	elmo:url-pattern "/query/begrippen$";
+	elmo:contains stage:Menu;
+	elmo:fragment [
+		elmo:applies-to "scheme";
+		rdfs:label "Begrippenkader";
+	];
+	elmo:fragment [
+		elmo:applies-to "begrip";
+		rdfs:label "Begrip";
+	];
+	elmo:fragment [
+		elmo:applies-to "definition";
+		rdfs:label "Definitie"
+	];
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		SELECT ?scheme ?scheme_label ?begrip ?begrip_label ?definition
+		WHERE {
+			GRAPH ?g {
+				?begrip rdf:type skos:Concept.
+				?begrip rdfs:label ?begrip_label.
+				OPTIONAL {?begrip skos:definition ?definition}
+				OPTIONAL {
+					?begrip skos:inScheme ?scheme.
+					?scheme rdfs:label ?scheme_label.
+				}
+			}
+			FILTER (?g = container:begrippen
+				||	?g = container:imgolf
+			)
+		}
+		ORDER BY ?scheme ?begrip_label
+	''';
+.

@@ -11,6 +11,7 @@ stage:Menu a elmo:Part;
 		elmo:data [
 			elmo:index "1";
 			rdfs:label "Begrippen";
+			html:link "query/begrippen";
 		];
 		elmo:data [
 			elmo:index "2";
