@@ -22,11 +22,11 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-@prefix concept: <http://localhost:8080/nen3610/imgolf/id/concept/>.
-@prefix schema: <http://localhost:8080/nen3610/imgolf/id/conceptscheme/>.
-@prefix collectie: <http://localhost:8080/nen3610/imgolf/id/collectie/>.
+@prefix concept: <http://linkeddata.ordina.nl/nen3610/imgolf/id/concept/>.
+@prefix schema: <http://linkeddata.ordina.nl/nen3610/imgolf/id/conceptscheme/>.
+@prefix collectie: <http://linkeddata.ordina.nl/nen3610/imgolf/id/collectie/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
-@prefix imgolf: <http://localhost:8080/nen3610/def/imgolf#>.
+@prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
 @prefix shape: <http://definities.geostandaarden.nl/def/imgolf/>.
 @prefix nen3610concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 
