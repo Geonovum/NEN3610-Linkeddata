@@ -28,7 +28,7 @@
 @prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
 @prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
 
-# Conceptschema
+# Begrippenkader
 schema:NEN3610 a skos:ConceptScheme;
 	rdfs:label "NEN3610 begrippenkader";
 .
@@ -128,4 +128,23 @@ concept:Weg a skos:Concept;
 	dct:source referentie:NEN3610-2011;
 	skosthes:broaderGeneric concept:ConcreetObject;
 .
+concept:Terrein a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Terrein"@nl;
+	skos:prefLabel "Terrein"@nl;
+	skos:definition "Een terrein is een door een fysiek voorkomen gekarakteriseerd zichtbaar begrensd stuk grond";
+	skos:scopeNote "Terrein wordt gebruikt om een zichtbaar (tastbaar) begrensd stuk grond aan te geven waarvoor een bepaald fysiek voorkomen typerend is. Voorbeelden zijn: bos, landschap, bebouwing, landbouwgebied. Belangrijk is dat het stuk grond een zichtbare grens heeft met aangrenzende geo-objecten.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:FunctioneelGebied a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Functioneel gebied"@nl;
+	skos:prefLabel "Functioneel gebied"@nl;
+	skos:definition "Een functioneel gebied is een begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven";
+	skos:scopeNote "Voorbeelden zijn: bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark, recreatiegebied.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:GeoObject;
+.
+
 # Nog aanvullen met overige elementen uit het semantische model

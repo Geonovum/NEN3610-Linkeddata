@@ -10,7 +10,6 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix dc: <http://purl.org/dc/elements/1.1>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
-@prefix wdrs: <http://www.w3.org/2007/05/powder-s#>.
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -109,6 +108,14 @@ metamodel:Class a sh:NodeShape;
 		sh:path dct:subject;
 		sh:class skos:Concept;
 	];
+	sh:property [
+		rdfs:label "naam";
+		sh:name "rdfs:label";
+		sh:path rdfs:label;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
 .
 metamodel:DatatypeProperty a sh:NodeShape;
 	rdfs:label "Eigenschap"@nl;
@@ -122,6 +129,14 @@ metamodel:DatatypeProperty a sh:NodeShape;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
+	sh:property [
+		rdfs:label "naam";
+		sh:name "rdfs:label";
+		sh:path rdfs:label;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
 .
 metamodel:ObjectProperty a sh:NodeShape;
 	rdfs:label "Relatie"@nl;
@@ -132,6 +147,14 @@ metamodel:ObjectProperty a sh:NodeShape;
 		sh:name "rdfs:isDefinedBy";
 		sh:path rdfs:isDefinedBy;
 		sh:class owl:Ontology;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "naam";
+		sh:name "rdfs:label";
+		sh:path rdfs:label;
+		sh:datatype xsd:string;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -167,6 +190,35 @@ metamodel:PropertyShape a sh:NodeShape;
 		sh:maxCount 1;
 		sh:node [ sh:xone (metamodel:DatatypeProperty metamodel:ObjectProperty)]
 	];
+	sh:property [
+		rdfs:label "datatype";
+		sh:name "sh:datatype";
+		sh:path sh:datatype;
+		sh:class rdfs:Datatype;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "relatie met";
+		sh:name "sh:class";
+		sh:path sh:class;
+		sh:class owl:Class;
+	];
+	sh:property [
+		rdfs:label "minimum cardinaliteit";
+		sh:name "sh:minCount";
+		sh:path sh:minCount;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "maximum cardinaliteit";
+		sh:name "sh:maxCount";
+		sh:path sh:maxCount;
+		sh:maxCount 1;
+	];
+.
+metamodel:Datatype a sh:NodeShape;
+	sh:targetClass rdfs:Datatype;
+	sh:name "rdfs:Datatype";
 .
 
 #Tijdmodel

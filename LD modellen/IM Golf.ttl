@@ -22,24 +22,74 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 
-@prefix concept: <http://definities.geostandaarden.nl/imgolf/id/concept/>.
+@prefix concept: <http://localhost:8080/nen3610/imgolf/id/concept/>.
+@prefix schema: <http://localhost:8080/nen3610/imgolf/id/conceptscheme/>.
+@prefix collectie: <http://localhost:8080/nen3610/imgolf/id/collectie/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
-@prefix imgolf: <http://definities.geostandaarden.nl/def/imgolf#>.
+@prefix imgolf: <http://localhost:8080/nen3610/def/imgolf#>.
 @prefix shape: <http://definities.geostandaarden.nl/def/imgolf/>.
+@prefix nen3610concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 
 # Ontology
 <http://definities.geostandaarden.nl/def/imgolf> a owl:Ontology;
 	rdfs:label "IM Golf Vocabulaire";
 .
 
+# Begrippenkader
+schema:IMGolf a skos:ConceptScheme;
+	rdfs:label "IM Golf begrippenkader";
+.
+
+# Collecties
+collectie:TypeParcoursDelen a skos:Collection;
+	rdfs:label "Type parcoursdelen";
+	skos:member concept:fairway, concept:green, concept:rough, concept:semi-rough;
+.
+
 # Begrippen
 concept:Golfbaan a skos:Concept;
 	rdfs:label "Golfbaan";
 	skos:prefLabel "Golfbaan";
-	skos:definition "Een golfbaan is een perceel waarop de sport golf wordt gespeeld.";
+	skos:inScheme schema:IMGolf;
+	skos:definition "Een golfbaan is een perceel waarop de sport golf wordt gespeeld."@nl;
 	skos:scopeNote "De baan bestaat uit een reeks holes.";
 	dct:source <http://nl.wikipedia.org/wiki/Golfbaan>
 .
+
+concept:fairway a skos:Concept;
+	rdfs:label "Fairway"@en;
+	skos:prefLabel "Fairway"@en;
+	skos:inScheme schema:IMGolf;
+	skos:definition "Tussen de green en de tee-box gelegen terrein waar het gras wat korter is dan in het eromheen gelegen terrein."@nl;
+	skosthes:broaderGeneric nen3610concept:Terrein;
+	skos:related concept:tee-box;
+	skos:related concept:green;
+.
+
+concept:tee-box a skos:Concept;
+	rdfs:label "Tee-box"@en;
+	skos:prefLabel "Tee-box"@en;
+	skos:inScheme schema:IMGolf;
+.
+
+concept:green a skos:Concept;
+	rdfs:label "Green"@en;
+	skos:prefLabel "Green"@en;
+	skos:inScheme schema:IMGolf;
+.
+
+concept:rough a skos:Concept;
+	rdfs:label "Rough"@en;
+	skos:prefLabel "Rough"@en;
+	skos:inScheme schema:IMGolf;
+.
+
+concept:semi-rough a skos:Concept;
+	rdfs:label "Semi-rough"@en;
+	skos:prefLabel "Semi-rough"@en;
+	skos:inScheme schema:IMGolf;
+.
+
 # Classes
 imgolf:Golfbaan a owl:Class;
 	rdfs:subClassOf nen3610:FunctioneelGebied;
@@ -63,6 +113,25 @@ imgolf:Parkbaan a owl:Class;
 imgolf:Parcours a owl:Class;
 	rdfs:subClassOf nen3610:GeoObject;
 	rdfs:label "Parcours";
+.
+
+imgolf:ParcoursDeel a owl:Class;
+	rdfs:subClassOf nen3610:GeoObject;
+	rdfs:label "ParcoursDeel";
+.
+
+# Properties
+imgolf:hole a owl:ObjectProperty;
+	rdfs:label "hole";
+.
+imgolf:parcoursDeel a owl:ObjectProperty;
+	rdfs:label "parcoursDeel";
+.
+imgolf:nummer a owl:DatatypeProperty;
+	rdfs:label "nummer";
+.
+imgolf:par a owl:DatatypeProperty;
+	rdfs:label "par";
 .
 
 # Shapes
@@ -111,12 +180,47 @@ shape:Parcours a sh:NodeShape;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
+	sh:property [
+		sh:name "parcoursDeel";
+		sh:path imgolf:parcoursDeel;
+		sh:class imgolf:ParcoursDeel;
+		sh:minCount 1;
+	];
+.
+
+shape:ParcoursDeel a sh:NodeShape;
+	sh:name "ParcoursDeel";
+	sh:targetClass imgolf:ParcoursDeel;
+	sh:property [
+		sh:name "geo:hasGeometry";
+		sh:path geo:hasGeometry;
+		sh:class geo:Surface;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		sh:name "typeParcoursDeel";
+		sh:path imgolf:typeParcoursDeel;
+		sh:in (concept:fairway concept:green concept:rough concept:rough concept:semi-rough);
+		sh:node shape:TypeParcoursDeel;
+	];
+.
+shape:TypeParcoursDeel a sh:NodeShape;
+	sh:name "Type Parcoursdeel";
+	sh:property [
+		sh:path [ sh:inversePath skos:member];
+		sh:hasValue collectie:TypeParcoursDelen;
+	];
 .
 
 # Shapes voor visualisatie
 shape:MultiSurface a sh:NodeShape;
 	sh:name "geo:MultiSurface";
 	sh:targetClass geo:MultiSurface
+.
+shape:Surface a sh:NodeShape;
+	sh:name "geo:Surface";
+	sh:targetClass geo:Surface
 .
 
 # Bugje om superclass shape te tonen
