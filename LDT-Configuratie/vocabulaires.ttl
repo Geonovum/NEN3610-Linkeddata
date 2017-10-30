@@ -1,0 +1,66 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+stage:Model a elmo:Representation;
+	elmo:url-pattern "/query/model$";
+	elmo:index "1";
+	elmo:contains stage:Menu;
+	elmo:appearance elmo:VocabularyAppearance;
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		CONSTRUCT {
+			?s?p?o
+		}
+		WHERE {
+			GRAPH ?g {
+				?s?p?o
+			}
+			FILTER (?g = container:begrippen
+				||	?g = container:vocabulaire
+				||	?g = container:structuur
+			)
+		}
+	''';
+.
+
+stage:Metamodel a elmo:Representation;
+	elmo:url-pattern "/query/metamodel$";
+	elmo:index "1";
+	elmo:contains stage:Menu;
+	elmo:appearance elmo:VocabularyAppearance;
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		CONSTRUCT {
+			?s?p?o
+		}
+		WHERE {
+			GRAPH container:metamodel {
+				?s?p?o
+			}
+		}
+	''';
+.
+
+stage:IMGolf a elmo:Representation;
+	elmo:url-pattern "/query/imgolf$";
+	elmo:index "1";
+	elmo:contains stage:Menu;
+	elmo:appearance elmo:VocabularyAppearance;
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		CONSTRUCT {
+			?s?p?o
+		}
+		WHERE {
+			GRAPH ?g {
+				?s?p?o
+			}
+			FILTER (?g = container:imgolf
+				||	?g = container:vocabulaire
+				||	?g = container:structuur
+			)
+		}
+	''';
+.

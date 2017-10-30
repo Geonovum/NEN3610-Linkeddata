@@ -1,0 +1,98 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
+
+stage:Begrip a elmo:Representation;
+	elmo:applies-to [rdf:type skos:Concept];
+	elmo:contains stage:Menu;
+	elmo:contains stage:Begrip_content;
+	elmo:contains stage:Begrip_glossary;
+.
+
+stage:Begrip_content a elmo:Part;
+	elmo:fragment [
+		elmo:applies-to rdfs:label;
+		elmo:appearance elmo:HiddenAppearance;
+	];
+	elmo:fragment [
+		elmo:applies-to rdf:type;
+		elmo:appearance elmo:HiddenAppearance;
+	];
+	elmo:fragment [
+		elmo:index "0";
+		elmo:applies-to skos:prefLabel;
+		rdfs:label "Term"@nl;
+	];
+	elmo:fragment [
+		elmo:index "1";
+		elmo:applies-to skos:definition;
+		rdfs:label "Definitie"@nl;
+		html:glossary stage:Begrip_glossary;
+	];
+	elmo:fragment [
+		elmo:index "2";
+		elmo:applies-to skos:scopeNote;
+		rdfs:label "Toelichting"@nl;
+	];
+	elmo:fragment [
+		elmo:index "3";
+		elmo:applies-to skos:memberOf;
+		rdfs:label "Collectie"@nl;
+	];
+	elmo:fragment [
+		elmo:index "4";
+		elmo:applies-to dc:source;
+		rdfs:label "Bron"@nl;
+		elmo:appearance elmo:GlobalLink;
+	];
+	elmo:fragment [
+		elmo:index "5";
+		elmo:applies-to skosthes:broaderGeneric;
+		rdfs:label "Specialisatie van"@nl;
+	];
+	elmo:fragment [
+		elmo:index "6";
+		elmo:applies-to skos:related;
+		rdfs:label "Gerelateerd aan"@nl;
+	];
+	elmo:fragment [
+		elmo:index "6";
+		elmo:applies-to skosthes:broaderPartitive;
+		rdfs:label "Onderdeel van"@nl;
+	];
+	elmo:index "1";
+	elmo:query '''
+		CONSTRUCT {
+			<@SUBJECT@> ?p ?o.
+			?o rdfs:label ?olabel
+		}
+		WHERE {
+			<@SUBJECT@> ?p ?o.
+			OPTIONAL {?o rdfs:label ?olabel}
+		}
+	''';
+.
+
+stage:Begrip_glossary a elmo:Part;
+	elmo:appearance elmo:HiddenAppearance;
+	elmo:query '''
+		prefix skos: <http://www.w3.org/2004/02/skos/core#>
+		prefix orl: <http://bp4mc2.org/orl#>
+		prefix elmo: <http://bp4mc2.org/elmo/def#>
+		construct {
+			?begrip elmo:name ?begrip_label
+		}
+		where {
+			select ?begrip ?begrip_label
+			where {
+				<@SUBJECT@> ?p ?begrip.
+				?begrip rdf:type skos:Concept.
+				?begrip rdfs:label ?begrip_label
+			}
+			limit 500
+		}
+	''';
+.

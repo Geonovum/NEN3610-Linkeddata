@@ -1,0 +1,47 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix yed: <http://bp4mc2.org/yed#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+stage:SemantischModel a elmo:Representation;
+	elmo:url-pattern "/query/semantisch-model(|.yed)$";
+	elmo:index "1";
+	elmo:contains stage:Menu;
+	elmo:fragment [
+		elmo:applies-to rdfs:subClassOf;
+		rdfs:label "";
+		yed:sourceArrow "none";
+		yed:targetArrow "white_delta";
+	];
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		PREFIX dct: <http://purl.org/dc/terms/>
+		CONSTRUCT {
+			?class rdf:type owl:Class.
+			?class rdfs:label ?classlabel.
+			?class rdfs:subClassOf ?superclass.
+			?class rdfs:comment ?definition.
+			?class rdfs:comment ?comment.
+			?class rdfs:seeAlso ?reference.
+		}
+		WHERE {
+			GRAPH container:vocabulaire {
+				?class rdf:type owl:Class.
+				?class rdfs:label ?classlabel.
+				OPTIONAL {?class rdfs:subClassOf ?superclass}
+				OPTIONAL {?class rdfs:comment ?comment}
+				OPTIONAL {?class rdfs:seeAlso ?reference}
+			}
+			OPTIONAL {
+				GRAPH container:vocabulaire {
+					?class dct:subject ?concept.
+				}
+				GRAPH container:begrippen {
+					?concept skos:definition ?definition.
+				}
+			}
+		}
+	''';
+.

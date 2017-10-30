@@ -1,0 +1,74 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix container: <http://linkeddata.ordina.nl/nen3610/container/>.
+@prefix containerlocal: <http://localhost:8080/nen3610/container/>.
+
+container:begrippen a elmo:Container;
+	rdfs:label "Upload begrippen";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:begrippen;
+	elmo:representation elmo:UploadRepresentation;
+.
+container:referenties a elmo:Container;
+	rdfs:label "Upload referenties";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:referenties;
+	elmo:representation elmo:UploadRepresentation;
+.
+container:vocabulaire a elmo:Container;
+	rdfs:label "Upload vocabulaire";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:vocabulaire;
+	elmo:representation elmo:UploadRepresentation;
+.
+container:structuur a elmo:Container;
+	rdfs:label "Upload structuur";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:structuur;
+	elmo:representation elmo:UploadRepresentation;
+.
+container:metamodel a elmo:Container;
+	rdfs:label "Upload metamodel";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:metamodel;
+	elmo:representation elmo:UploadRepresentation;
+.
+container:imgolf a elmo:Container;
+	rdfs:label "Upload IM Golf model";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:imgolf;
+	elmo:representation elmo:UploadRepresentation;
+.
+
+containerlocal:begrippen a elmo:Container;
+	rdfs:label "Upload begrippen";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:referenties a elmo:Container;
+	rdfs:label "Upload referenties";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:vocabulaire a elmo:Container;
+	rdfs:label "Upload vocabulaire";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:structuur a elmo:Container;
+	rdfs:label "Upload structuur";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:metamodel a elmo:Container;
+	rdfs:label "Upload metamodel";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:imgolf a elmo:Container;
+	rdfs:label "Upload IM Golf model";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
