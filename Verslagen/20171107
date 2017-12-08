@@ -1,0 +1,49 @@
+**NEN 3610 - LD Sessie 2017-11-07**
+
+| **Onderwerp** | **Acties/Verslag** |
+| --- | --- |
+| **Aan** |   |
+| **Van** | **Paul J** |
+| **Datum** | **2017-11-07** |
+| **Status** |   |
+
+**Aanwezig:**
+
+Pano Maria (Kadaster), Marco Brattinga (Kadaster), Hans Schevers (Building Bits),  Ronald van Lanen (RHDHV), Linda van den Brink (Geonovum), Niels Hoffmann (Prov Noord Holland), Marinus Vonhof (Stichting Rioned), Paul Janssen (Geonovum)
+
+**Acties:**
+
+- Volgende afspraak: 15 december
+- Toevoegen Linked datasets aan Github of sturen naar Paul
+- Marco of Pano zetten één of meer LD sets in Github en passen format aan met eventueel DCAT termen . (Marco, Pano)
+- Schrijven aan tekst:
+- 3. Review standaarden. (Paul, Linda)
+- 4. Transformatieproces (Marco).
+- 4. Toevoegen tekst over verschillende stijlen van UML naar LD transformatie. Eerste tekst over SHACL, RDF, SKOS  methode (Marco).
+
+We constateren drie verschillende stijlen: Kadastermethode, COINS, GWSW. De drie stijlen worden kort beschreven. Op een bepaald metaniveau komen de stijlen samen. Beschrijf M1, M2 en M3 opdeling in metaniveau&#39;s en hoe dit relateert aan dit document (Paul)
+
+- 5. Metamodel NEN 3610 (Paul)
+- 6. Metamodel LD (Marco)
+- 7. Transformatieregels: UML mappen naar OWL (Pano)
+- 8. Voorbeeld UML golfbaan in LD. Implementeer in verschillende stijlen. Eerste indeling  (Paul)
+- 9. NEN 3610 als LD (-): Het NEN3610 zoals dat in het OTL IMGeo IMBOR project wordt gemaakt is hele concrete input voor hfd 9.
+
+**Korte samenvatting:**
+
+- GWSW (en Gellish) definieert een klasse door een discriminerend attribuut. In een NEN 3610 UML model is dit attribuut niet benoemd maar zit het resultaat daarvan in een &#39;typeEnumeratie&#39;. Deze typen worden naar klassen vertaald. Een GWSW ontologie wijkt daarmee af van de source van de vertaling. Het wordt semantisch rijker Dit is verklaarbaar omdat in de ontologie de &#39;betekenis&#39; van gegevens centraal staat. In het UML is de structuur vaak een uitgangspunt. Strikt genomen is een &#39;typeattribuut&#39; geen inhoudelijke kenmerk van een klasse, het leidt tot subklassen.
+- Dit soort uitgangspunten opnemen bij de verschillende stijlen.
+- Marinus laat een roundtrip van IMGolf naar GWSW en weer terug naar een UML diagram zijn. Dat laatste is dan een UML beschrijving van de IMGolf ontologie. Laat goed de verschillen zien. Visualisatie van een ontologie is een onderwerp. Marco gebruikt een visualisatie die lijkt op UML maar ook laat zien dat het geen UML is.
+- Decompositie is een onderwerp in mapping naar OWL:
+  - In UML zit compositie en aggregatie.
+  - zit in Gellish.
+  - Marco: zit in uitbreiding van SKOS.
+  - mereologische relatie zit niet in OWL.
+  - dct:partOf is een zwakke relatie
+  - belangrijk voor bouwwereld
+- Samenvattend: welke aspecten adresseren we nu:
+  - stijlen van LD. Veel OWL of weinig OWL en veel SHACL.
+  - visualiseren van LD model
+  - enumeraties
+  - properties objectificeren
+  - compositie
