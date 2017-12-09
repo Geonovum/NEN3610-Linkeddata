@@ -23,164 +23,126 @@
     <h2>Inleiding</h2>
     <p> - Dit document is in bewerking - </p>
 
-Steeds meer wordt linked data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt UML als formele taal voor het vastleggen van semantiek en beveelt GML aan als technische uitwisselingsformat. NEN 3610 is hiermee niet voorbereid om semantiek en gegevensdeling en uitwisseling middels linked data te realiseren.<br><br>
+    Steeds meer wordt linked data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt UML als formele taal voor het vastleggen van semantiek en beveelt GML aan als technische uitwisselingsformat. NEN 3610 is hiermee niet voorbereid om semantiek en gegevensdeling en uitwisseling middels linked data te realiseren.<br><br> NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br> In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als linked data betrokken zijn samen te brengen rond het onderdwerp NEN 3610 toegepast in linked data. Het doel daarvan is te komen tot een gezamelijke werkwijze die zorgt voor interoperabiliteit tussen linked geo-data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.<br><br> Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, implementeren in linked data. De relatie tussen het bronmodel, NEN 3610 informatiemodel, en het doel, de ontologie, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-linked data codering maar specifiek die van uit een NEN 3610 bronmodel.<br><br> Bij het maken van een informatiemodel staat de use case altijd centraal als kader waaraan een model moet voldoen. Dit geldt ook voor de transformatie van een NEN 3610 model naar linked data. De linked data toepassing kan een ander doel hebben dan met het NEN 3610 model beoogd is. Er zijn wat dat betreft ook verschillende alternatieve oplosingen voor de transformatie mogelijk. Waar dat zo is geven we dat in dit document aan.<br><br> Het project is een open samenwerking tussen de geinteresseerde partijen. Doormiddel van kennisdeling en aansluiting met internationale ontwikkelingen worden coderingsregels opgesteld die een NEN 3610 UML model transformeren naar een ontologie in RDFS indien nodig gecombineerd met SKOS en SHACL.<br><br>
 
-NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
-
-In dit document wordt hier een begin  mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als linked data betrokken zijn samen te brengen rond het onderdwerp NEN 3610 toegepast in linked data. Het doel daarvan is te komen tot een gezamelijke werkwijze die zorgt voor interoperabiliteit tussen linked geo-data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.<br><br>
-
-Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, implementeren in linked data. De relatie tussen het bronmodel, NEN 3610 informatiemodel, en het doel, de ontologie, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-linked data codering maar specifiek die van uit een NEN 3610 bronmodel.<br><br>
-
-Bij het maken van een informatiemodel staat de use case altijd centraal als kader waaraan een model moet voldoen. Dit geldt ook voor de transformatie van een NEN 3610 model naar linked data. De linked data toepassing kan een ander doel hebben dan met het NEN 3610 model beoogd is. Er zijn wat dat betreft ook verschillende alternatieve oplosingen voor de transformatie mogelijk. Waar dat zo is geven we dat in dit document aan.<br><br>
-
-Het project is een open samenwerking tussen de geinteresseerde partijen. Doormiddel van kennisdeling en aansluiting met internationale ontwikkelingen worden coderingsregels opgesteld die een NEN 3610 UML model transformeren naar een ontologie in RDFS indien nodig gecombineerd met SKOS en SHACL.<br><br>
-
-<b>Leeswijzer:</b>
-
-Het document begint met een beeld van hoe operationeel linked data ingezet wordt door een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Er zijn ook internationaal initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk drie gegeven. In de transformatie of encoding, staat een goede beschrijving van het bronformaat en het doelformaat centraal. In Hoofdstuk vier en vijf worden respectievelijk het metamodel van NEN 3610 en die van geo in RDF beschreven. Hoofdstuk zes beschrijft het conceptuele transformatieproces en in hoofdstuk zeven zijn de transformatie- of encodingsregels opgenomen. In het laatste hoofdstuk wordt aan de hand van een voorbeeldmodel de transformatie toegepast. 
+    <b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel linked data ingezet wordt door een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Er zijn ook internationaal initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk drie gegeven. In de transformatie of encoding, staat een goede beschrijving van het bronformaat en het doelformaat centraal. In Hoofdstuk vier en vijf worden respectievelijk het metamodel van NEN 3610 en die van geo in RDF beschreven. Hoofdstuk zes beschrijft het conceptuele transformatieproces en in hoofdstuk zeven zijn de transformatie- of encodingsregels opgenomen. In het laatste hoofdstuk wordt aan de hand van een voorbeeldmodel de transformatie toegepast.
 
 
   </section>
-    <section id='Nederlandse LOD Cloud voor geodata-sets'>
+  <section id='Nederlandse LOD Cloud voor geodata-sets'>
     <h2>Nederlandse LOD Cloud voor geodata-sets</h2>
-    <p>In dit hoofdstuk wordt een overzicht gegeven van de huidige LD geo-datasets in Nederland. De opsomming is niet volledig maar geeft een beeld van het huidige niveau van LD implementatie voor geo-datasets.  <br>
-      De intentie is om een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.
-      </p>
+    <p>In dit hoofdstuk wordt een overzicht gegeven van de huidige LD geo-datasets in Nederland. De opsomming is niet volledig maar geeft een beeld van het huidige niveau van LD implementatie voor geo-datasets. <br> De intentie is om een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.
+    </p>
 
-<p>Van elke dataset is opgenomen:</p>
-<p>- naam:</p>
-<p>- url:</p>
-<p>- ontologie (link naar of gegevens over de ontologie):</p>
-<p>- methode (hoe is de dataset tot standgekomen, afgeleid uit UML, specifieke opmerkingen):</p>
-   
+    <p>Van elke dataset is opgenomen:</p>
+    <p>- naam:</p>
+    <p>- url:</p>
+    <p>- ontologie (link naar of gegevens over de ontologie):</p>
+    <p>- methode (hoe is de dataset tot standgekomen, afgeleid uit UML, specifieke opmerkingen):</p>
+
   </section>
   <section id='inventarisatie'>
     <h2>review beschikbare standaarden, handleidingen</h2>
     <p>Er zijn een aantal standaarden en handleidingen die relevant zijn voor de implementatie van geo in LD. Het gaat hierbij specifiek om standaarden die gericht zijn op de relatie tussen modellering van geo-informatie en implementatie daarvan in LD. Van elke standaard wordt kort het toepassingsgebied, een samenvatting en de relevantie voor het NEN 3610 - LD profiel beschreven </p>
 
     <p>naam:</p>
-    <p>url:</p>   
+    <p>url:</p>
     <p>type document: standaard, richtlijn, best practice etc.</p>
-    <p>organisatie:</p>  
+    <p>organisatie:</p>
     <p>scope:</p>
     <p>omschrijving:</p>
     <p>relevantie:</p>
     <p>inhoudelijke opmerkingen:</p>
-    
+
     <p>Lijst van standaarden en handreikingen:</p>
     <ul>
-	<li>ISO 19150-2: 2015 -  Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</li>
-        <li>INSPIRE - Guidelines for the RDF encoding of spatial data</li>  
-        <li>W3C - Spatial Data on the Web Best Practices</li>  
+      <li>ISO 19150-2: 2015 - Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</li>
+      <li>INSPIRE - Guidelines for the RDF encoding of spatial data</li>
+      <li>W3C - Spatial Data on the Web Best Practices</li>
     </ul>
-	<section id='iso19150-2'>
-		<h3>ISO 19150-2</h3>
-		<p>naam: ISO 19150-2: 2015 -  Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</p>
-    <p>url:</p>   
-    <p>type document: standaard, richtlijn, best practice etc.</p>
-    <p>organisatie:</p>  
-    <p>scope:</p>
-    <p>omschrijving:</p>
-    <p>relevantie:</p>
-    <p>inhoudelijke opmerkingen:</p>
-	 </section>
-	  
-	<section id='inspire-rdfguidelines'>
-		<h3>INSPIRE RDF guidelines</h3>
-		<p>INSPIRE - Guidelines for the RDF encoding of spatial data</p>
-    <p>url:</p>   
-    <p>type document: standaard, richtlijn, best practice etc.</p>
-    <p>organisatie:</p>  
-    <p>scope:</p>
-    <p>omschrijving:</p>
-    <p>relevantie:</p>
-    <p>inhoudelijke opmerkingen:</p>
-	 </section> 
-	</section>	
- <section id='Transformatie proces'>
+    <section id='iso19150-2'>
+      <h3>ISO 19150-2</h3>
+      <p>naam: ISO 19150-2: 2015 - Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</p>
+      <p>url:</p>
+      <p>type document: standaard, richtlijn, best practice etc.</p>
+      <p>organisatie:</p>
+      <p>scope:</p>
+      <p>omschrijving:</p>
+      <p>relevantie:</p>
+      <p>inhoudelijke opmerkingen:</p>
+    </section>
+
+    <section id='inspire-rdfguidelines'>
+      <h3>INSPIRE RDF guidelines</h3>
+      <p>INSPIRE - Guidelines for the RDF encoding of spatial data</p>
+      <p>url:</p>
+      <p>type document: standaard, richtlijn, best practice etc.</p>
+      <p>organisatie:</p>
+      <p>scope:</p>
+      <p>omschrijving:</p>
+      <p>relevantie:</p>
+      <p>inhoudelijke opmerkingen:</p>
+    </section>
+  </section>
+  <section id='Transformatie proces'>
     <h2>Transformatie proces</h2>
     <p>Beschrijving van transformatieproces NEN3610-UML -> NEN3610-LD</p>
-  </section>  	
+  </section>
 
-  
- <section id='Source: Metamodel NEN3610'>
+
+  <section id='Source: Metamodel NEN3610'>
     <h2>Source: Metamodel NEN3610</h2>
     <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
 
 
-<p>Metamodel NEN 3610. (2017-11-9)</p>
+    <p>Metamodel NEN 3610. (2017-11-9)</p>
 
-<p>Het NEN 3610 - metamodel omschrijft de metaklassen die
-gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een
-type informatie-element. De instanties van de metaklassen zijn de benoemde
-informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te
-herkennen aan de UML conventies die voor dat element gelden of het specifiek
-benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat
-hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature
-Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is
-daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
+    <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
 
 
 
     <figure>
       <img src="media/metamodel_attributes.png" height="795">
-      <figcaption>Figuur X: Metamodel van NEN 3610. Aanpassing op General
-Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
+      <figcaption>Figuur X: Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
     </figure>
 
 
 
-<p>Toelichting op metamodel NEN 3610.</p>
+    <p>Toelichting op metamodel NEN 3610.</p>
 
-<p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle
-objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature
-type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610
-vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus
-als stereotype <<FeatureType>>. Dit is identiek aan de ISO191xx set
-van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer
-eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn
-attributen of  relaties naar andere objecttypen. Een relatie wordt gerealiseerd
-door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol
-van het ‘target objecttype’.<br>
-Attributen hebben een waardetype dat door een datatype wordt beschreven. Een
-datatype is primitief (integer, characterstring boolean, gm_surface enz), een
-waardelijst, een union of gewoon een datatype. In het laatste geval is het een
-complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert
-een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een
-niet uitbreidbare waardelijst in de namespace van het model. Een
-codeList is een externe lijst waarvan de waarden buiten het model worden
-beheerd.</p>
+    <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype
+      <<FeatureType>>. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br> Attributen hebben een waardetype dat door een datatype wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een union of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
+    </p>
 
 
 
 
-  
-    </section>  
- <section id='Target: Metamodel Linked Data'>
+
+  </section>
+  <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
     <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
   </section>
-  
 
-  
-	<section id='Transformatie regels - encoding'>
+
+
+  <section id='Transformatie regels - encoding'>
     <h2>Transformatie regels - encoding</h2>
     <p>Uitwerking van details voor transformatie van UML constructen naar LD encoding</p>
   </section>
- 
-  
-    <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire'>
+
+
+  <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire'>
     <h2>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h2>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, wordt een transformatie naar RDFS, SKOS en SHACL uitgevoerd</p>
   </section>
-    
-<section id='NEN 3610 zelf als Linked Data'>
+
+  <section id='NEN 3610 zelf als Linked Data'>
     <h2>NEN 3610 zelf als Linked Data</h2>
-    <p>NEN 3610 beschrijft algemene regels voor het opstellen van een UML informatiemodel, standaard modelleerconstructies en een semantisch model.<br>
-	In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in RDF.
-	</p>
+    <p>NEN 3610 beschrijft algemene regels voor het opstellen van een UML informatiemodel, standaard modelleerconstructies en een semantisch model.<br> In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in RDF.
+    </p>
   </section>
-  
+
 </body>
 
 </html>
