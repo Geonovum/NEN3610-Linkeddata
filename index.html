@@ -71,14 +71,18 @@
     </ul>
     <section id='iso19150-2'>
       <h3>ISO 19150-2</h3>
-      <p>naam: ISO 19150-2: 2015 - Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</p>
-      <p>url:</p>
-      <p>type document: standaard, richtlijn, best practice etc.</p>
-      <p>organisatie:</p>
-      <p>scope:</p>
-      <p>omschrijving:</p>
-      <p>relevantie:</p>
-      <p>inhoudelijke opmerkingen:</p>
+      <p><b>naam:</b> ISO 19150-2: 2015 - Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</p>
+      <p><b>url:</b> https://www.nen.nl/NEN-Shop/Norm/ISO-1915022015-en.htm</p>
+      <p><b>type document:</b> internationale standaard</p>
+      <p><b>organisatie:</b> ISO TC/211</p>
+      <p><b>scope:</b> Beschrijving van conversieregels van UML klassediagrammen (application schema's) naar OWL. Het betreft specifiek regels voor het vertalen van de UML klassediagrammen (in de meeste gevallen applicatieon scheam's) de die in de ISO 191xx set van geo-standaarden opgenomen zijn. Daarnaast zijn conversieregels beschreven voor conversie van informatiemodellen (application schema) gebaseerd op het General Feature Model van 19109.</p>
+      <p><b>omschrijving:</b> Deel 2 in een set van ISO TC/211 Geo-informatie standaarden over gebruik van ontologien als model en implementatie omgeving.
+	  De 19150-2 gaat specifiek over conversieregels van UML klassediagrammen naar OWL. Van alle UML constructies zijn conversieregels naar OWL opgenomen. De conversie wordt ondersteund door conversie-scripts, zie https://github.com/ISO-TC211/GOM. Alle in de 191xx standaarden opgenomen UML modellen zijn naar ontologien vertaald en gepubliceerd op https://github.com/ISO-TC211/GOM/tree/master/isotc211_GOM_harmonizedOntology .<br>
+	  </p>
+      <p><b>relevantie:</b> Lijkt heel relevant omdat het onderwerp overeenkomt met wat we in het NEN 3610-LD project doen: vertaalregels voor een NEN 3610 model naar linked data beschrijven. De 19150-2 neemt ook het zelfde UML metamodel (GFM 19109) als NEN 3610 als bronmodel.<Br>
+	  Er zijn echter weinig bekende practische toepassingen van de 19150-2. Ook de ontwikkelde ontologien worden niet echt gebruikt.</p>
+      <p><b>inhoudelijke opmerkingen:</b> De 19150-2 geeft de conversieregels van UML naar OWL maar adresseerd niet de use case, het gebruik van de gegenereerde ontologien. Het blijft in de conversie heel dicht bij het oorspronkelijk UML en de ontologien missen daardoor de aansluiting met de praktijk van linked data. Het levert als het ware correcte ontologien op maar ze missen de linked data view daarop. Dit maakt het resultaat van de conversie weinig bruikbaar. Men zou verwachten dat bijvoorbeeld het spatial schema, 19107, het model van geometrietypen een bruikbaar RDF vocabulair zou opleveren. Hier wordt echter aan getwijfeld en men adviseert het gebruik van al bestaand RDF-vocabulair op dit terrein bijvoorbeeld GeoSPARQL.<br></p>
+	  <p>Ondanks dit is het een goed startpunt voor het begrijpen van de conversie tussen UML en OWL. Het document Are3NA-RDF_vocabulary (https://ies-svn.jrc.ec.europa.eu/attachments/download/1188/ARE3NA-RDF_vocabulary_guidelines_Final.pdf) gaat verder in op de specifieke bruikbaarheid van de ISO 19150-2 maar nemen deze standaard ook als startpunt voor aanpassingen voor een beter toepasbare conversie.</p>
     </section>
 
     <section id='inspire-rdfguidelines'>
