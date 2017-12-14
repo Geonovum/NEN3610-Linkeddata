@@ -14,7 +14,7 @@ stage:MetamodelDiagram	a	elmo:Representation;
 		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
 		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 		construct {
-			<urn:image> html:img "https://github.com/architolk/NEN3610-Linkeddata/raw/shacl-skos/LD%20modellen/visualisaties/metamodel.png".
+			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/metamodel.png".
 			<urn:image> html:width "1185".
 			<urn:image> html:height "569".
 			<urn:image> html:top "0".
@@ -33,9 +33,28 @@ stage:IMGolfDiagram	a	elmo:Representation;
 		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
 		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 		construct {
-			<urn:image> html:img "https://github.com/architolk/NEN3610-Linkeddata/raw/shacl-skos/LD%20modellen/visualisaties/imgolf.png".
-			<urn:image> html:width "1215".
-			<urn:image> html:height "652".
+			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/imgolf.png".
+			<urn:image> html:width "1545".
+			<urn:image> html:height "889".
+			<urn:image> html:top "0".
+			<urn:image> html:left "0".
+		}
+		where {
+		}
+	'''
+.
+
+stage:IMGolfClassificatie	a	elmo:Representation;
+	elmo:url-pattern	"/query/imgolf-classificatie$";
+	elmo:contains	stage:Menu;
+	elmo:appearance elmo:ImageAppearance;
+	elmo:query '''
+		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
+		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+		construct {
+			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/imgolf-classificatie.png".
+			<urn:image> html:width "2182".
+			<urn:image> html:height "714".
 			<urn:image> html:top "0".
 			<urn:image> html:left "0".
 		}
@@ -52,9 +71,28 @@ stage:SemantischModelDiagram	a	elmo:Representation;
 		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
 		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 		construct {
-			<urn:image> html:img "https://github.com/architolk/NEN3610-Linkeddata/raw/shacl-skos/LD%20modellen/visualisaties/semantisch-model.png".
+			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/semantisch-model.png".
 			<urn:image> html:width "698".
 			<urn:image> html:height "646".
+			<urn:image> html:top "0".
+			<urn:image> html:left "0".
+		}
+		where {
+		}
+	'''
+.
+
+stage:ModelDiagram	a	elmo:Representation;
+	elmo:url-pattern	"/query/model-diagram$";
+	elmo:contains	stage:Menu;
+	elmo:appearance elmo:ImageAppearance;
+	elmo:query '''
+		prefix html: <http://www.w3.org/1999/xhtml/vocab#>
+		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+		construct {
+			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/model.png".
+			<urn:image> html:width "627".
+			<urn:image> html:height "229".
 			<urn:image> html:top "0".
 			<urn:image> html:left "0".
 		}

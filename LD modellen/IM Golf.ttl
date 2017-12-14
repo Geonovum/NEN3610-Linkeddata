@@ -41,9 +41,13 @@ schema:IMGolf a skos:ConceptScheme;
 .
 
 # Collecties
-collectie:TypeParcoursDelen a skos:Collection;
-	rdfs:label "Type parcoursdelen";
-	skos:member concept:fairway, concept:green, concept:rough, concept:semi-rough;
+collectie:ToegankelijkheidValues a skos:Collection;
+  rdfs:label "Toegankelijkheidvalues";
+  skos:member concept:Openbaar, concept:Besloten;
+.
+collectie:NatuurwaardeValues a skos:Collection;
+  rdfs:label "NatuurwaardenValues";
+  skos:member concept:HogeNatuurwaarde, concept:LageNatuurwaarde, concept:GeenNatuurwaarde
 .
 
 # Begrippen
@@ -55,83 +59,338 @@ concept:Golfbaan a skos:Concept;
 	skos:scopeNote "De baan bestaat uit een reeks holes.";
 	dct:source <http://nl.wikipedia.org/wiki/Golfbaan>
 .
+concept:Linksbaan a skos:Concept;
+  rdfs:label "Linksbaan";
+  skos:prefLabel "Linksbaan";
+  skos:altLabel "Zeebaan";
+  skos:inScheme schema:IMGolf;
+  skosthes:broaderGeneric concept:Golfbaan;
+  skos:definition "Bevindt zich in het gebied vlak langs de kustlijn en kenmerkt zich door het feit dat ze open is (weinig bomen) en relatief hoge rough heeft. Ook zijn de greens en fairways doorgaans vrij hard.";
+  dct:source <http://nl.wikipedia.org/wiki/Golfbaan>
+.
+concept:Bosbaan a skos:Concept;
+  rdfs:label "Bosbaan";
+  skos:prefLabel "Bosbaan";
+  skos:inScheme schema:IMGolf;
+  skosthes:broaderGeneric concept:Golfbaan;
+  skos:definition "Bevindt zich doorgaans in bosrijke gebieden.";
+  dct:source <http://nl.wikipedia.org/wiki/Golfbaan>
+.
+concept:Parkbaan a skos:Concept;
+  rdfs:label "Parkbaan";
+  skos:prefLabel "Parkbaan";
+  skos:inScheme schema:IMGolf;
+  skosthes:broaderGeneric concept:Golfbaan;
+  skos:definition "Bevindt zich niet in een bosrijk gebied of aan de kust.";
+  dct:source <http://nl.wikipedia.org/wiki/Golfbaan>
+.
 
-concept:fairway a skos:Concept;
+concept:Hole a skos:Concept;
+  rdfs:label "Hole";
+  skos:prefLabel "Hole";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Het parcours of het putje op de green";
+  skos:narrowerGeneric concept:Parcours;
+  skos:narrowerGeneric concept:Putje;
+.
+
+concept:Parcours a skos:Concept;
+  rdfs:label "Parcours";
+  skos:prefLabel "Parcours";
+  skos:altLabel "Hole";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Eén van de speelvelden van een golfbaan.";
+  skos:broaderPartitive concept:Golfbaan;
+  skos:editorialNote "Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen.";
+  skos:scopeNote "Ieder parcours bestaat in de regel uit de volgende onderdelen: Tee-box, Green, Hole, Fairway, Rough, Fringe / Apron, Hindernissen.";
+  dct:source <http://nl.wikipedia.org/wiki/Hole_(golf)>;
+.
+
+concept:ParcoursDeel a skos:Concept;
+  rdfs:label "Parcoursdeel";
+  skos:prefLabel "Parcoursdeel";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Deel van het terrein van de hole (parcours).";
+  skos:scopeNote "Elk parcours heeft verschillende onderdelen zoals de green, de fairway, de semi-rough en de rough.";
+  skos:broaderPartitive concept:Parcours;
+	skosthes:broaderGeneric nen3610concept:Terrein;
+  dct:source <http://nl.wikipedia.org/wiki/Golfbaan#Onderdelen_van_een_golfbaan>
+.
+
+concept:Tee a skos:Concept;
+	rdfs:label "Tee"@en;
+	skos:prefLabel "Tee"@en;
+  skos:altLabel "Tee-box";
+  skos:definition "De afslagplaats aan het begin van een hole.";
+	skos:inScheme schema:IMGolf;
+  skos:broaderGeneric concept:ParcoursDeel;
+  dct:source <http://nl.wikipedia.org/wiki/Tee_(golf)>
+.
+
+concept:Fairway a skos:Concept;
 	rdfs:label "Fairway"@en;
 	skos:prefLabel "Fairway"@en;
 	skos:inScheme schema:IMGolf;
 	skos:definition "Tussen de green en de tee-box gelegen terrein waar het gras wat korter is dan in het eromheen gelegen terrein."@nl;
-	skosthes:broaderGeneric nen3610concept:Terrein;
-	skos:related concept:tee-box;
-	skos:related concept:green;
+  skos:broaderGeneric concept:ParcoursDeel;
+	skos:related concept:Tee;
+	skos:related concept:Green;
 .
-
-concept:tee-box a skos:Concept;
-	rdfs:label "Tee-box"@en;
-	skos:prefLabel "Tee-box"@en;
-	skos:inScheme schema:IMGolf;
-.
-
-concept:green a skos:Concept;
+concept:Green a skos:Concept;
 	rdfs:label "Green"@en;
 	skos:prefLabel "Green"@en;
 	skos:inScheme schema:IMGolf;
+  skos:broaderGeneric concept:ParcoursDeel;
+  skos:definition "Het laatste deel van het parcours, waar het gras zeer kort wordt gemaaid.";
+  skos:broaderPartitive concept:Parcours
 .
-
-concept:rough a skos:Concept;
+concept:Rough a skos:Concept;
 	rdfs:label "Rough"@en;
 	skos:prefLabel "Rough"@en;
 	skos:inScheme schema:IMGolf;
+  skos:broaderGeneric concept:ParcoursDeel;
+  skos:definition "Onderdeel van een Hole bestaande uit het niet speciaal geprepareerd terrein.";
+  skos:broaderPartitive concept:Parcours
 .
-
-concept:semi-rough a skos:Concept;
+concept:Semi-rough a skos:Concept;
 	rdfs:label "Semi-rough"@en;
 	skos:prefLabel "Semi-rough"@en;
 	skos:inScheme schema:IMGolf;
+  skos:definition "Het minder kort geschoren gras naast de fairway.";
+  skos:broaderPartitive concept:Parcours
+.
+
+concept:Putje a skos:Concept;
+  rdfs:label "Putje"@en;
+  skos:prefLabel "Putje"@en;
+  skos:altLabel "Hole";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Met een vlag gemarkeerd punt waarin de bal geslagen moet worden.";
+  skos:scopeNote "De hole wordt regelmatig van plek veranderd, omdat de green dan niet onregelmatig slijt.";
+.
+
+concept:Besloten a skos:Concept;
+  rdfs:label "besloten";
+  skos:prefLabel "openbaar"@nl;
+  skos:inScheme schema:IMGolf;
+  skos:definition "Alleen toegankelijk voor leden."@nl;
+  skos:inScheme schema:IMGolf
+.
+concept:Openbaar a skos:Concept;
+  rdfs:label "openbaar";
+  skos:prefLabel "openbaar"@nl;
+  skos:inScheme schema:IMGolf;
+  skos:definition "Toegankelijk voor iedereen"@nl;
+  skos:inScheme schema:IMGolf
+.
+
+concept:Hindernis a skos:Concept;
+  rdfs:label "Hindernis";
+  skos:prefLabel "Hindernis"@nl;
+  skos:inScheme schema:IMGolf;
+  skos:definition "Een obstakel op het parcours in de vorm van een zand- of waterpartij.";
+  skos:broaderPartitive concept:Parcours;
+  skos:scopeNote "Om een bal uit een bunker te slaan wordt vaak een speciale club gebruik; als een bal in het water terecht komt ben je verder van huis.";
+.
+concept:Bunker a skos:Concept;
+  rdfs:label "Bunker";
+  skos:prefLabel "Bunker";
+  skos:inScheme schema:IMGolf;
+  skosthes:broaderGeneric concept:Hindernis;
+  skos:definition "Een met zand gevulde hindernis op een golfbaan.";
+.
+concept:Waterpartij a skos:Concept;
+  rdfs:label "Waterpartij";
+  skos:prefLabel "Waterpartij";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Een met water gevulde hindernis op een golfbaan.";
+  skosthes:broaderGeneric concept:Hindernis
+.
+  
+concept:HogeNatuurwaarde a skos:Concept;
+  rdfs:label "hoge natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:prefLabel "hoog"
+.
+concept:LageNatuurwaarde a skos:Concept;
+  rdfs:label "lage natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:prefLabel "laag";
+.
+concept:GeenNatuurwaarde a skos:Concept;
+  rdfs:label "geen natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:prefLabel "geen";
+.
+
+concept:Golfbaannaam a skos:Concept;
+  rdfs:label "Golfbaannaam";
+  skos:prefLabel "Golfbaannaam";
+  skos:inScheme schema:IMGolf;
+  skos:definition "De benaming van de golfbaan.";
+  skos:scopeNote "De naam wordt weergegeven in de lijst van alle golfbanen van nederland.";
+  skos:related concept:Golfbaan
+.
+
+concept:Toegang a skos:Concept;
+  rdfs:label "Toegang";
+  skos:prefLabel "Toegang";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Informatie over de toegang tot de golfbaan.";
+  skos:related concept:Golfbaan;
+.
+
+concept:Natuurwaarde a skos:Concept;
+  rdfs:label "Natuurwaarde";
+  skos:prefLabel "Natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:definition "De natuurwaarde van een gebied is de waarde die aan een bepaald gebied wordt toegekend, gezien vanuit het perspectief van natuurbescherming.";
+  dct:source <https://nl.wikipedia.org/wiki/Natuurwaarde>;
+.
+
+concept:Gebruiksstatus a skos:Concept;
+  rdfs:label "Gebruiksstatus";
+  skos:prefLabel "Gebruiksstatus";
+  skos:inScheme schema:IMGolf;
+  skos:definition "Status van exploitatie van de golfbaan.";
+  skos:related concept:Golfbaan
+.
+
+concept:Nummer a skos:Concept;
+  rdfs:label "Nummer";
+  skos:prefLabel "Nummer";
+  skos:inScheme schema:IMGolf;
+  skos:definition "De getalaanduiding voor het parcours.";
+  skos:scopeNote "Meestal heeft een golfbaan 18 'holes' of parcoursen. De eerste heeft als waarde van dit attribuut 1, de laatste 18.";
+  skos:related concept:Golfbaan
+.
+
+concept:Par a skos:Concept;
+  rdfs:label "Par";
+  skos:prefLabel "Par";
+  skos:altLabel "Par staat voor Professional Average Result.";
+  skos:inScheme schema:IMGolf;
+  skos:definition "het aantal slagen waarin een gemiddelde professionele golfer een hole zou moeten kunnen spelen.";
+  skos:related concept:Parcours;
+  dct:source <http://nl.wikipedia.org/wiki/Par_(golf)>
 .
 
 # Classes
 imgolf:Golfbaan a owl:Class;
+  dct:subject concept:Golfbaan;
 	rdfs:subClassOf nen3610:FunctioneelGebied;
 #	rdfs:subClassOf <http://schema.org/GolfCourse>;
 #	rdfs:subClassOf <http://dbpedia.org/resource/Golf_course>;
 	rdfs:label "Golfbaan";
 .
 imgolf:Linksbaan a owl:Class;
+  dct:subject concept:Linksbaan;
 	rdfs:subClassOf imgolf:Golfbaan;
 	rdfs:label "Linksbaan";
 .
 imgolf:Bosbaan a owl:Class;
+  dct:subject concept:Bosbaan;
 	rdfs:subClassOf imgolf:Golfbaan;
 	rdfs:label "Bosbaan";
 .
 imgolf:Parkbaan a owl:Class;
+  dct:subject concept:Parkbaan;
 	rdfs:subClassOf imgolf:Golfbaan;
 	rdfs:label "Parkbaan";
 .
 
 imgolf:Parcours a owl:Class;
+  dct:subject concept:Parcours;
 	rdfs:subClassOf nen3610:GeoObject;
 	rdfs:label "Parcours";
 .
 
 imgolf:ParcoursDeel a owl:Class;
+  dct:subject concept:ParcoursDeel;
 	rdfs:subClassOf nen3610:GeoObject;
 	rdfs:label "ParcoursDeel";
+.
+imgolf:Fairway a owl:Class;
+  dct:subject concept:Fairway;
+  rdfs:subClassOf imgolf:ParcoursDeel;
+  rdfs:label "Fairway";
+.
+imgolf:Green a owl:Class;
+  dct:subject concept:Green;
+  rdfs:subClassOf imgolf:ParcoursDeel;
+  rdfs:label "Green";
+.
+imgolf:Rough a owl:Class;
+  dct:subject concept:Rough;
+  rdfs:subClassOf imgolf:ParcoursDeel;
+  rdfs:label "Rough";
+.
+imgolf:Semi-rough a owl:Class;
+  dct:subject concept:Semi-rough;
+  rdfs:subClassOf imgolf:ParcoursDeel;
+  rdfs:label "Semi-rough";
+.
+
+imgolf:Tee a owl:Class;
+  dct:subject concept:Tee;
+  rdfs:subClassOf nen3610:GeoObject;
+  rdfs:label "Tee";
+.
+
+imgolf:Hindernis a owl:Class;
+  dct:subject concept:Hindernis;
+  rdfs:subClassOf nen3610:GeoObject;
+  rdfs:label "Hindernis";
+.
+imgolf:Bunker a owl:Class;
+  dct:subject concept:Bunker;
+  rdfs:subClassOf imgolf:Hindernis;
+  rdfs:label "Bunker"
+.
+imgolf:Waterpartij a owl:Class;
+  dct:subject concept:Waterpartij;
+  rdfs:subClassOf imgolf:Hindernis;
+  rdfs:label "Waterpartij"
+.
+
+imgolf:Hole a owl:Class;
+  dct:subject concept:Putje;
+  rdfs:subClassOf nen3610:GeoObject;
+  rdfs:label "Hole";
 .
 
 # Properties
 imgolf:hole a owl:ObjectProperty;
+  dct:subject concept:Hole;
 	rdfs:label "hole";
 .
 imgolf:parcoursDeel a owl:ObjectProperty;
+  dct:subject concept:ParcoursDeel;
 	rdfs:label "parcoursDeel";
 .
 imgolf:nummer a owl:DatatypeProperty;
+  dct:subject concept:Nummer;
 	rdfs:label "nummer";
 .
 imgolf:par a owl:DatatypeProperty;
+  dct:subject concept:Par;
 	rdfs:label "par";
+.
+imgolf:naam a owl:DatatypeProperty;
+  dct:subject concept:Golfbaannaam;
+  rdfs:label "naam";
+.
+imgolf:toegang a owl:ObjectProperty;
+  dct:subject concept:Toegang;
+  rdfs:label "toegang";
+.
+imgolf:natuurwaarde a owl:ObjectProperty;
+  dct:subject concept:Natuurwaarde;
+  rdfs:label "natuurwaarde";
+.
+imgolf:gebruiksstatus a owl:ObjectProperty;
+  dct:subject concept:Gebruiksstatus;
+  rdfs:label "gebruiksstatus"
 .
 
 # Shapes
@@ -142,12 +401,85 @@ shape:Golfbaan a sh:NodeShape;
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
 		sh:class geo:MultiSurface;
+    sh:minCount 1;
+    sh:maxCount 1;
 	];
+  sh:property [
+    sh:name "naam";
+    sh:path imgolf:naam;
+    sh:datatype xsd:string;
+    sh:minCount 1;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:name "toegang";
+    sh:path imgolf:toegang;
+    sh:nodeKind sh:BlankNode;
+    sh:node shape:ToegangGolfbaan;
+    sh:minCount 1;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:name "natuurwaarde";
+    sh:path imgolf:natuurwaarde;
+    sh:node shape:NatuurwaardeValue;
+    sh:minCount 1;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:name "gebruiksstatus";
+    sh:path imgolf:gebruiksstatus;
+    sh:node shape:GebruiksstatusValue;
+    sh:minCount 1;
+    sh:maxCount 1;
+  ];
 	sh:property [
 		sh:name "hole";
 		sh:path imgolf:hole;
 		sh:class imgolf:Parcours
 	];
+.
+shape:ToegangGolfbaan a sh:NodeShape;
+  sh:name "Toegang golfbaan (datatype)";
+  sh:property [
+    sh:path imgolf:toegankelijkheid;
+    sh:name "toegankelijkheid";
+		sh:in (concept:openbaar concept:besloten);
+		sh:node shape:ToegankelijkheidValue;
+  ];
+  sh:property [
+    sh:path imgolf:vereisten;
+    sh:name "vereisten";
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:path imgolf:etiquette;
+    sh:name "vereisten";
+    sh:datatype xsd:string;
+    sh:maxCount 1;
+  ];
+.
+shape:ToegankelijkheidValue a sh:NodeShape;
+	sh:name "ToegankelijkheidValue";
+	sh:property [
+		sh:path [ sh:inversePath skos:member];
+		sh:hasValue collectie:ToegankelijkheidValues;
+	];
+.
+shape:NatuurwaardeValue a sh:NodeShape;
+  sh:name "NatuurwaardeValue";
+	sh:property [
+		sh:path [ sh:inversePath skos:member];
+		sh:hasValue collectie:NatuurwaardeValues;
+	];
+.
+shape:GebruiksstatusValue a sh:NodeShape;
+  sh:name "brt:Status";
+  sh:property [
+    sh:path [ sh:inversePath skos:member];
+    sh:hasValue <http://brt.basisregistraties.overheid.nl/top10nl/id/collectie/Status>
+  ];
 .
 # Shapes om te zorgen dat deze subclasses in het diagram worden getoond
 shape:Bosbaan a sh:NodeShape;
@@ -167,16 +499,23 @@ shape:Parcours a sh:NodeShape;
 	sh:name "Parcours";
 	sh:targetClass imgolf:Parcours;
 	sh:property [
+		sh:name "geo:hasGeometry";
+		sh:path geo:hasGeometry;
+		sh:class geo:MultiSurface;
+    sh:minCount 1;
+    sh:maxCount 1;
+	];
+	sh:property [
 		sh:name "nummer";
 		sh:path imgolf:nummer;
-		sh:datatype sh:integer;
+		sh:datatype xsd:integer;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
 	sh:property [
 		sh:name "par";
-		sh:path imgolf:nummer;
-		sh:datatype sh:integer;
+		sh:path imgolf:par;
+		sh:datatype xsd:integer;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -186,6 +525,19 @@ shape:Parcours a sh:NodeShape;
 		sh:class imgolf:ParcoursDeel;
 		sh:minCount 1;
 	];
+  sh:property [
+    sh:name "afslagplaats";
+    sh:path imgolf:afslagplaats;
+    sh:class imgolf:Tee;
+    sh:minCount 1;
+    sh:maxCount 1;
+  ];
+  sh:property [
+    sh:name "hindernis";
+    sh:path imgolf:hindernis;
+    sh:class imgolf:Hindernis;
+    sh:maxCount 1;
+  ];
 .
 
 shape:ParcoursDeel a sh:NodeShape;
@@ -198,18 +550,74 @@ shape:ParcoursDeel a sh:NodeShape;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
+.
+# Shapes om te zorgen dat deze subclasses in het diagram worden getoond
+shape:Fairway a sh:NodeShape;
+	sh:name "Fairway";
+	sh:targetClass imgolf:Fairway
+.
+shape:Green a sh:NodeShape;
+	sh:name "Green";
+	sh:targetClass imgolf:Green;
+  sh:property [
+    sh:name "hole";
+    sh:path imgolf:hole;
+    sh:class imgolf:Hole;
+    sh:minCount 1;
+    sh:maxCount 1
+  ]
+.
+shape:Rough a sh:NodeShape;
+	sh:name "Rough";
+	sh:targetClass imgolf:Rough
+.
+shape:Semi-rough a sh:NodeShape;
+	sh:name "Semi-rough";
+	sh:targetClass imgolf:Semi-rough
+.
+
+shape:Tee a sh:NodeShape;
+  sh:name "Tee";
+  sh:targetClass imgolf:Tee;
 	sh:property [
-		sh:name "typeParcoursDeel";
-		sh:path imgolf:typeParcoursDeel;
-		sh:in (concept:fairway concept:green concept:rough concept:rough concept:semi-rough);
-		sh:node shape:TypeParcoursDeel;
+		sh:name "geo:hasGeometry";
+		sh:path geo:hasGeometry;
+		sh:class geo:Surface;
+		sh:minCount 1;
+		sh:maxCount 1;
 	];
 .
-shape:TypeParcoursDeel a sh:NodeShape;
-	sh:name "Type Parcoursdeel";
+
+shape:Hindernis a sh:NodeShape;
+  sh:name "Hindernis";
+  sh:targetClass imgolf:Hindernis;
 	sh:property [
-		sh:path [ sh:inversePath skos:member];
-		sh:hasValue collectie:TypeParcoursDelen;
+		sh:name "geo:hasGeometry";
+		sh:path geo:hasGeometry;
+		sh:class geo:Surface;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+.
+# Shapes om te zorgen dat deze subclasses in het diagram worden getoond
+shape:Waterpartij a sh:NodeShape;
+  sh:name "Waterpartij";
+  sh:targetClass imgolf:Waterpartij;
+.
+shape:Bunker a sh:NodeShape;
+  sh:name "Bunker";
+  sh:targetClass imgolf:Bunker;
+.
+
+shape:Hole a sh:NodeShape;
+  sh:name "Hole";
+  sh:targetClass imgolf:Hole;
+	sh:property [
+		sh:name "geo:hasGeometry";
+		sh:path geo:hasGeometry;
+		sh:class geo:Point;
+		sh:minCount 1;
+		sh:maxCount 1;
 	];
 .
 
@@ -221,6 +629,10 @@ shape:MultiSurface a sh:NodeShape;
 shape:Surface a sh:NodeShape;
 	sh:name "geo:Surface";
 	sh:targetClass geo:Surface
+.
+shape:Point a sh:NodeShape;
+  sh:name "geo:Point";
+  sh:targetClass geo:Point
 .
 
 # Bugje om superclass shape te tonen
