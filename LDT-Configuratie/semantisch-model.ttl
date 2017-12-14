@@ -45,3 +45,42 @@ stage:SemantischModel a elmo:Representation;
 		}
 	''';
 .
+
+stage:IMGolfSemantischModel a elmo:Representation;
+	elmo:url-pattern "/query/imgolf-semantisch-model(|.yed)$";
+	elmo:index "1";
+	elmo:contains stage:Menu;
+	elmo:fragment [
+		elmo:applies-to skos:broaderGeneric;
+		rdfs:label "";
+		yed:sourceArrow "none";
+		yed:targetArrow "white_delta";
+	];
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+		PREFIX dct: <http://purl.org/dc/terms/>
+		CONSTRUCT {
+      ?concept a skos:Concept.
+      ?concept rdfs:label ?conceptlabel.
+      ?concept rdfs:comment ?definition.
+      ?concept ?rel ?relconcept.
+		}
+		WHERE {
+      {
+        GRAPH container:imgolf {
+          ?concept a skos:Concept.
+          ?concept rdfs:label ?conceptlabel.
+          OPTIONAL {?concept skos:definition ?definition}
+        }
+      }
+      UNION
+      {
+        GRAPH container:imgolf {
+          ?concept a skos:Concept.
+          ?concept ?rel ?relconcept.
+          ?relconcept a skos:Concept.
+        }
+      }
+		}
+	''';
+.
