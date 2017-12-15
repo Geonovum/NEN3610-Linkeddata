@@ -4,6 +4,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix yed: <http://bp4mc2.org/yed#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
 
 stage:SemantischModel a elmo:Representation;
 	elmo:url-pattern "/query/semantisch-model(|.yed)$";
@@ -50,12 +51,36 @@ stage:IMGolfSemantischModel a elmo:Representation;
 	elmo:url-pattern "/query/imgolf-semantisch-model(|.yed)$";
 	elmo:index "1";
 	elmo:contains stage:Menu;
-	elmo:fragment [
-		elmo:applies-to skos:broaderGeneric;
-		rdfs:label "";
-		yed:sourceArrow "none";
-		yed:targetArrow "white_delta";
-	];
+  elmo:fragment [
+    elmo:applies-to skos:related;
+    rdfs:label "";
+    yed:sourceArrow "none";
+    yed:targetArrow "plain";
+  ];
+  elmo:fragment [
+    elmo:applies-to skosthes:broaderGeneric;
+    rdfs:label "";
+    yed:sourceArrow "none";
+    yed:targetArrow "white_delta";
+  ];
+  elmo:fragment [
+    elmo:applies-to skosthes:narrowerGeneric;
+    rdfs:label "";
+    yed:sourceArrow "none";
+    yed:targetArrow "delta";
+  ];
+  elmo:fragment [
+    elmo:applies-to skosthes:broaderPartitive;
+    rdfs:label "";
+    yed:sourceArrow "transparent_circle";
+    yed:targetArrow "plain";
+  ];
+  elmo:fragment [
+    elmo:applies-to skosthes:narrowerPartitive;
+    rdfs:label "";
+    yed:sourceArrow "white_diamond";
+    yed:targetArrow "plain";
+  ];
 	elmo:query '''
 		PREFIX container: <http://localhost:8080/nen3610/container/>
 		PREFIX dct: <http://purl.org/dc/terms/>

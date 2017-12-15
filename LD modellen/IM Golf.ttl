@@ -90,8 +90,8 @@ concept:Hole a skos:Concept;
   skos:prefLabel "Hole";
   skos:inScheme schema:IMGolf;
   skos:definition "Het parcours of het putje op de green";
-  skos:narrowerGeneric concept:Parcours;
-  skos:narrowerGeneric concept:Putje;
+  skosthes:narrowerGeneric concept:Parcours;
+  skosthes:narrowerGeneric concept:Putje;
 .
 
 concept:Parcours a skos:Concept;
@@ -100,7 +100,7 @@ concept:Parcours a skos:Concept;
   skos:altLabel "Hole";
   skos:inScheme schema:IMGolf;
   skos:definition "Eén van de speelvelden van een golfbaan.";
-  skos:broaderPartitive concept:Golfbaan;
+  skosthes:broaderPartitive concept:Golfbaan;
   skos:editorialNote "Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen.";
   skos:scopeNote "Ieder parcours bestaat in de regel uit de volgende onderdelen: Tee-box, Green, Hole, Fairway, Rough, Fringe / Apron, Hindernissen.";
   dct:source <http://nl.wikipedia.org/wiki/Hole_(golf)>;
@@ -112,7 +112,7 @@ concept:ParcoursDeel a skos:Concept;
   skos:inScheme schema:IMGolf;
   skos:definition "Deel van het terrein van de hole (parcours).";
   skos:scopeNote "Elk parcours heeft verschillende onderdelen zoals de green, de fairway, de semi-rough en de rough.";
-  skos:broaderPartitive concept:Parcours;
+  skosthes:broaderPartitive concept:Parcours;
 	skosthes:broaderGeneric nen3610concept:Terrein;
   dct:source <http://nl.wikipedia.org/wiki/Golfbaan#Onderdelen_van_een_golfbaan>
 .
@@ -123,7 +123,7 @@ concept:Tee a skos:Concept;
   skos:altLabel "Tee-box";
   skos:definition "De afslagplaats aan het begin van een hole.";
 	skos:inScheme schema:IMGolf;
-  skos:broaderGeneric concept:ParcoursDeel;
+  skosthes:broaderGeneric concept:ParcoursDeel;
   dct:source <http://nl.wikipedia.org/wiki/Tee_(golf)>
 .
 
@@ -132,7 +132,7 @@ concept:Fairway a skos:Concept;
 	skos:prefLabel "Fairway"@en;
 	skos:inScheme schema:IMGolf;
 	skos:definition "Tussen de green en de tee-box gelegen terrein waar het gras wat korter is dan in het eromheen gelegen terrein."@nl;
-  skos:broaderGeneric concept:ParcoursDeel;
+  skosthes:broaderGeneric concept:ParcoursDeel;
 	skos:related concept:Tee;
 	skos:related concept:Green;
 .
@@ -140,24 +140,24 @@ concept:Green a skos:Concept;
 	rdfs:label "Green"@en;
 	skos:prefLabel "Green"@en;
 	skos:inScheme schema:IMGolf;
-  skos:broaderGeneric concept:ParcoursDeel;
+  skosthes:broaderGeneric concept:ParcoursDeel;
   skos:definition "Het laatste deel van het parcours, waar het gras zeer kort wordt gemaaid.";
-  skos:broaderPartitive concept:Parcours
+  skosthes:broaderPartitive concept:Parcours
 .
 concept:Rough a skos:Concept;
 	rdfs:label "Rough"@en;
 	skos:prefLabel "Rough"@en;
 	skos:inScheme schema:IMGolf;
-  skos:broaderGeneric concept:ParcoursDeel;
+  skosthes:broaderGeneric concept:ParcoursDeel;
   skos:definition "Onderdeel van een Hole bestaande uit het niet speciaal geprepareerd terrein.";
-  skos:broaderPartitive concept:Parcours
+  skosthes:broaderPartitive concept:Parcours
 .
 concept:Semi-rough a skos:Concept;
 	rdfs:label "Semi-rough"@en;
 	skos:prefLabel "Semi-rough"@en;
 	skos:inScheme schema:IMGolf;
   skos:definition "Het minder kort geschoren gras naast de fairway.";
-  skos:broaderPartitive concept:Parcours
+  skosthes:broaderPartitive concept:Parcours
 .
 
 concept:Putje a skos:Concept;
@@ -189,7 +189,7 @@ concept:Hindernis a skos:Concept;
   skos:prefLabel "Hindernis"@nl;
   skos:inScheme schema:IMGolf;
   skos:definition "Een obstakel op het parcours in de vorm van een zand- of waterpartij.";
-  skos:broaderPartitive concept:Parcours;
+  skosthes:broaderPartitive concept:Parcours;
   skos:scopeNote "Om een bal uit een bunker te slaan wordt vaak een speciale club gebruik; als een bal in het water terecht komt ben je verder van huis.";
 .
 concept:Bunker a skos:Concept;
