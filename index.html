@@ -178,6 +178,82 @@
   <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
     <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
+    
+    
+    <figure>
+      <img src="media/metamodel_linkeddata.png" heigh="569">
+      <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
+    <figure>
+    
+    <p>Toelichting op metamodel NEN 3610 voor Linked Data</p>
+    
+    <p class=MsoNormal>In de Linked Data community is het gebruik om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breedt worden gebruikt door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het metamodel NEN 3610 maken we gebruiken van bestaande, wereldwijd gebruikte standaarden. Deze standaarden zijn in het beheer van de W3c, de organisatie die de internetstandaarden beheerd. Voor ons metamodel gaat het daarbij om de volgende standaarden:
+    </p>
+    <table>
+      <tbody>
+        <th>
+          <td>Prefix</td>
+          <td>Standaard</td>
+          <td>Namespace</td>
+        </th>
+        <tr>
+          <td>rdf</td>
+          <td><a href="http://www.w3.org/TR/rdf11-primer/">Resource description framework</a></td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+        </tr>
+        <tr>
+          <td>rdfs</td>
+          <td><a href="http://www.w3.org/TR/rdf-schema/">RDF schema</a></td>
+          <td>http://www.w3.org/2000/01/rdf-schema#</td>
+        </tr>
+        <tr>
+          <td>owl</td>
+          <td><a href="http://www.w3.org/TR/owl2-overview/">Web ontology language</a></td>
+          <td>http://www.w3.org/2002/07/owl#</td>
+        </tr>
+        <tr>
+          <td>sh</td>
+          <td><a href="http://www.w3.org/TR/shacl/">Shape constraint language</a></td>
+          <td>http://www.w3.org/ns/shacl#</td>
+        </tr>
+        <tr>
+          <td>skos</td>
+          <td><a href="http://www.w3.org/TR/skos-primer/">Simple knowledge organization system</a></td>
+          <td>http://www.w3.org/2004/02/skos/core#</td>
+        </tr>
+        <tr>
+          <td>prov</td>
+          <td><a href="http://www.w3.org/TR/prov-primer/">Provenance ontology</a></td>
+          <td>http://www.w3.org/ns/prov#</td>
+        </tr>
+        <tr>
+          <td>dct</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms/">Dublin core terms</a></td>
+          <td>http://purl.org/dc/terms/</td>
+        </tr>
+        <tr>
+          <td>foaf</td>
+          <td><a href="http://xmlns.com/foaf/spec/">Friend of a friend</td>
+          <td>http://xmlns.com/foaf/0.1/</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class=MsoNormal>Deze vocabulaires worden op de volgende wijze ingezet:</p>
+    <ul>
+      <li>rdf, rdfs en owl worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In UML termen worden hiermee de klassen, relaties en attributen beschrijven die geinstantieerd worden als concrete data.</li>
+      <li>shacl wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het datatype van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
+      <li>skos wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
+      <li>prov wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
+      <li>dct en foaf worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen</li>
+    </ul>
+
+
+    <p>Betekenisvol model, relatie met ISO/CD 19126</p>
+    
+    <p class=MsoNormal>Met het gebruik van skos is het in het Linked Data metamodel mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten.
+Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 19126 Feature Concepts Dictionaries</p>
+    
   </section>
 
 
