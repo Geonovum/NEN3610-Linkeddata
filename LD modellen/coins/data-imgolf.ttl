@@ -1,0 +1,26 @@
+# baseURI: http://connecteddata.nl/coins/imgolf/data/
+# imports: http://connecteddata.nl/coins/imgolf/
+
+@prefix : <http://connecteddata.nl/coins/imgolf/data/> .
+@prefix cbim-2.0: <http://www.coinsweb.nl/cbim-2.0.rdf#> .
+@prefix imgolf: <http://connecteddata.nl/coins/imgolf/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports imgolf: ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:Golfbaan_1
+  rdf:type imgolf:Golfbaan ;
+  imgolf:golfbaan_heeft_naam :Naam_1 ;
+  rdfs:label "Golfbaan_1" ;
+.
+:Naam_1
+  rdf:type imgolf:Naam ;
+  cbim-2.0:datatypeValue "The International" ;
+  rdfs:label "Golfbaan_1" ;
+.
