@@ -111,20 +111,13 @@
       </ul>
     </section>
   </section>
-  <section id='transformatie-proces'>
-  <h2>Basisprincipes: Objectoriëntatie versus linked data</h2>
-  <p> Algemeen hoofdstuk over principes van OO versus principes van linked data vanuit het perspectief van informatiemodellering<p>
-  </section>
-  
-  
-  <section id='transformatie-proces'>
-    <h2>Transformatie proces</h2>
-    <p>Beschrijving van transformatieproces NEN3610-UML -> NEN3610-LD</p>
-    <section id='principes-voor-linkbare-data'>
-      <h3>Principes voor linkbare data</h3>
+  <section id='basisprincipes'>
+    <h2>Basisprincipes: Objectoriëntatie versus linked data</h2>
+    <p>Samenvatting</p>
+    <section id='basisprincipes-linked-data'>
       <p></p>
     </section>
-    <section id='transformatie-proces-normalisatie'>
+    <section id='basisprincipes-normalisatie'>
       <h3>Normalisatie</h3>
       <p>Voordat je begint met het transformeren van een UML model is het belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het UML model  van het model. Is het een logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel?<br>
         De meeste UML modellen zijn in meer of mindere mate gedenormaliseerd, waarbij delen tot aan de tweede normaalvorm. Dit is omdat de UML modellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch objectgeoriënteerde insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
@@ -132,7 +125,7 @@
       <p>Normalisatie is dus uiterst belangrijk voor een goed linked data model. Maar, normalisatie is alleen mogelijk wanneer je de de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een UML model naar een goed linked data model.</p>
       <p>Merk op dat het wel mogelijk is om een gedenormaliseerd model over te zetten in een correct (gedenormaliseerd) linked data model. Echter, gaat dit in tegen de principes van linked open data. De gedenormaliseerde entiteitsrepresentatie is namelijk per definitie niet meer herkenbaar in de open wereld. Het is verworven tot een beschrijving van iets wat enkel waarde heeft binnen een zeer specifieke context, daarmee de herbruikbaarheid en de linkbaarheid van data verminderend.</p>
     </section>
-    <section id='transformatie-proces-setorientatie'>
+    <section id='basisprincipes-setorientatie'>
       <h3>Setoriëntatie</h3>
 
       <p>RDF is setgeoriënteerd.</p>
@@ -143,7 +136,7 @@
       <p>TODO</p>
 
     </section>
-    <section id='transformatie-proces-gegevens-over-gegevens'>
+    <section id='transformatie-proces-resource'>
       <h3>Gegevens over gegevens</h3>
 
       <p>Nauw verwant aan het vorige hoofdstuk is het gegeven dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens.</p>
@@ -164,7 +157,6 @@
 
     </section>
   </section>
-
 
   <section id='Source: Metamodel NEN3610'>
     <h2>Source: Metamodel NEN3610</h2>
@@ -198,15 +190,15 @@
   <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
     <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
-    
-    
+
+
     <figure>
       <img src="media/metamodel_linkeddata.png" heigh="569">
       <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
     <figure>
-    
+
     <p>Toelichting op metamodel NEN 3610 voor Linked Data</p>
-    
+
     <p class=MsoNormal>In de Linked Data community is het gebruik om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breedt worden gebruikt door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het metamodel NEN 3610 maken we gebruiken van bestaande, wereldwijd gebruikte standaarden. Deze standaarden zijn in het beheer van de W3c, de organisatie die de internetstandaarden beheerd. Voor ons metamodel gaat het daarbij om de volgende standaarden:
     </p>
     <table>
@@ -270,10 +262,10 @@
 
 
     <p>Betekenisvol model, relatie met ISO/CD 19126</p>
-    
+
     <p class=MsoNormal>Met het gebruik van skos is het in het Linked Data metamodel mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten.
 Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 19126 Feature Concepts Dictionaries</p>
-    
+
   </section>
 
 
