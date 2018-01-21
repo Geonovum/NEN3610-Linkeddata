@@ -122,9 +122,6 @@
       <h3>Identificatie</h3>
       <p>In linked data gebruiken we IRI's om dingen te identificeren. Maar, wat identificeert een IRI precies?</p>
       <p>Resources (Information resources vs Non-Information resources)</p>
-      <div class='practice'>
-        <p>bla</p>
-      </div>
     </section>
     <section id='basisprincipes-normalisatie'>
       <h3>Normalisatie</h3>
@@ -134,9 +131,13 @@
       <p>Een goed linked data model, aan de andere hand, is een model die een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. De normaalvorm uit de relationele theorie die hier het dichtste bijkomt is de zesde normaalvorm.</p>
       <p>Normalisatie is dus uiterst belangrijk voor een goed linked data model. Maar, normalisatie is alleen mogelijk wanneer je de de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed linked data model.</p>
       <p>Merk op dat het wel mogelijk is om een gedenormaliseerd model over te zetten in een correct (gedenormaliseerd) linked data model. Echter, gaat dit in tegen de principes van linked open data. De gedenormaliseerde entiteitsrepresentatie is namelijk per definitie niet meer herkenbaar in de open wereld. Het is verworven tot een beschrijving van iets wat enkel waarde heeft binnen een zeer specifieke context, daarmee de herbruikbaarheid en de linkbaarheid van data verminderend.</p>
-      <h4>Essentie van het ding</h4>
-      <h4>Gegevens over gegevens</h4>
-      <p>Nauw verwant is het gegeven dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens.</p>
+      <section>
+        <h4>Essentie van het ding</h4>
+      </section>
+      <section>
+        <h4>Gegevens over gegevens</h4>
+        <p>Nauw verwant is het gegeven dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens.</p>
+      </section>
     </section>
     <section id='basisprincipes-setorientatie'>
       <h3>Setoriëntatie</h3>
@@ -147,6 +148,12 @@
     <section id='basisprincipes-referentiedata'>
       <h3>Referentiedata</h3>
       <p>Referentiadata komt in informatiemodellen doorgaans voor als een enumeratie of codelijst, maar soms ook in de vorm van attributen of complexe datatypes. Referentiedata is een goede indicator van linkbare data. Want het is een manier om verschillende datasets aan elkaar te koppelen of een bepaalde categorisering aan te brengen over verschillende datasets. Ofwel, referentiedata = link naar andere data.</p>
+      <div id='principe-ref-data' class='advisement'>
+        <p><strong>P: Referentiedata zijn links naar andere datasets [TODO wording]</strong></p>
+        <p> Als referentiedata refereert naar entiteiten, modelleer dan die entiteiten. Rationale: Wanneer deze entiteiten ook als linked data beschikbaar komen, kan dat in de plaats gebruikt worden.<br>
+          Voorbeeld: gebruik blank nodes of interne URI's, UUID oid, om de data voorlopig te representeren als het externe data betreft. Als het interne data betreft, munt dan http IRI's.<br>
+          Als referentiedata refereert naar concepten, gebruik SKOS. Rationale: ? Enkel nodig voor categorisering. Thematische lijsten of zo.</p>
+      </div>
     </section>
   </section>
 
