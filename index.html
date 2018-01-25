@@ -118,6 +118,8 @@
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
     <p>Een primary key in een tabel in een relationele database identificeert een rij met data. In een triple identificeert de waarde van een subject alleen het subject zelf, en niet de triple. De primary key van een triple is de combinatie van subject, predicate en object. De triples (of beweringen) zelf hebben geen unieke sleutel[ Behalve door reificatie]. Het is dan ook belangrijk om heel secuur te zijn wat de subject van een bewering precies is.</p>
     <p>Daarbij gaat Linked data uit van een open wereld van informatie. In deze open wereld mag iedereen beweringen doen over alles [TODO REF]. Deze uitgangspunten hebben verregaande consequenties die informatiemodelleren voor linked data anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden.</p>
+	
+	<p class='issue' title='relatie met nen 3610 informatiemodel'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
     <section id='basisprincipes-identificatie'>
       <h3>Identificatie</h3>
       <p>In linked data gebruiken we IRI's om dingen te identificeren. Maar, wat identificeert een IRI precies?</p>
@@ -188,6 +190,7 @@
   </section>
   <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
+	  <p class='issue' title='informatie over drie stijlen toevoegen'>We hebben de drie stijlen COINS, ORO en LDT. Zijn dat drie metamodellen? Of informatie bovenop dit metamodel?</p>
     <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
 
 
@@ -271,8 +274,18 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
 
   <section id='Transformatie: basisregels - encoding'>
     <h2>Transformatie: basisregels - encoding</h2>
-    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p>
-  </section>
+	
+	   <section id='inleiding'>
+	<h3>Inleiding</h3> 
+    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p></section>
+		   <section id='basisregels'>
+	<h3>Basisregels voor transformatie</h3>
+	<p>algemene overwegingen, best practices, zie ook hfst 4</p></section>
+	<section id='standaardregels'>
+		<h3>Standaard transformatieregels</h3>
+	<p>transformatie regels van nen 3610 source element naar linked data target element</p>
+	  </section>
+</section>
 
 
   <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire'>
