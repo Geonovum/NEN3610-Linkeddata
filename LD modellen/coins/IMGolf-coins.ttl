@@ -1,0 +1,620 @@
+# baseURI: http://connecteddata.nl/coins/imgolf/
+# imports: http://www.buildingbits.nl/coins2/draft/OTL-NEN3610.rdf
+# imports: http://www.opengis.net/ont/geosparql#
+
+@prefix : <http://connecteddata.nl/coins/imgolf/> .
+@prefix OTL-NEN3610: <http://www.buildingbits.nl/coins2/draft/OTL-NEN3610.rdf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:
+  rdf:type owl:Ontology ;
+  owl:imports <http://www.buildingbits.nl/coins2/draft/OTL-NEN3610.rdf> ;
+  owl:imports <http://www.opengis.net/ont/geosparql#> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+:Etiquette
+  rdf:type owl:Class ;
+  rdfs:label "Etiquette" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:Gebruiksstatus
+  rdf:type owl:Class ;
+  rdfs:label "Gebruiksstatus" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:Golfbaan
+  rdf:type owl:Class ;
+  rdfs:label "Golfbaan" ;
+  rdfs:subClassOf OTL-NEN3610:FunctioneelGebied ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:oneOf (
+              :bosbaan
+              :linksbaan
+              :parkbaan
+            ) ;
+        ] ;
+      owl:onProperty :golfbaan_heeft_typegolfbaan ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:oneOf (
+              :geen
+              :hoog
+              :laag
+            ) ;
+        ] ;
+      owl:onProperty :golfbaan_heeft_natuurwaarde ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Gebruiksstatus ;
+      owl:onProperty :golfbaan_heeft_gebruiksstatus ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Naam ;
+      owl:onProperty :golfbaan_heeft_naam ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :NatuurWaarde ;
+      owl:onProperty :golfbaan_heeft_natuurwaarde ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :ToegangGolfbaan ;
+      owl:onProperty :golfbaan_heeft_toeganggolfbaan ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :TypeGolfbaan ;
+      owl:onProperty :golfbaan_heeft_typegolfbaan ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#MultiSurface> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:GolfbaanHasParcours
+  rdf:type owl:Class ;
+  rdfs:label "Golf baan has parcours" ;
+  rdfs:subClassOf :HasHole ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Golfbaan ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasAssembly> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Parcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasPart> ;
+    ] ;
+.
+:Green
+  rdf:type owl:Class ;
+  rdfs:label "Green" ;
+  rdfs:subClassOf :ParcoursDeel ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue :green ;
+      owl:onProperty :parcoursdeel_heeft_typeparcoursdeel ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :ParcoursHasHole ;
+      owl:onProperty :parcoursdeel_heeft_hole ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  owl:equivalentClass [
+      rdf:type owl:Class ;
+      owl:intersectionOf (
+          :ParcoursDeel
+          [
+            rdf:type owl:Restriction ;
+            owl:hasValue :green ;
+            owl:onProperty :parcoursdeel_heeft_typeparcoursdeel ;
+          ]
+        ) ;
+    ] ;
+.
+:HasHole
+  rdf:type owl:Class ;
+  rdfs:label "Has hole" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ContainsRelation> ;
+.
+:HeeftHindernis
+  rdf:type owl:Class ;
+  rdfs:label "Heeft hindernis" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ContainsRelation> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Hindernis ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasPart> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Parcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasAssembly> ;
+    ] ;
+.
+:HeeftParcoursDeel
+  rdf:type owl:Class ;
+  rdfs:label "Heeft parcoursDeel" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ContainsRelation> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Parcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasAssembly> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :ParcoursDeel ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasPart> ;
+    ] ;
+.
+:HeeftTee
+  rdf:type owl:Class ;
+  rdfs:label "Heeft tee" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ContainsRelation> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Parcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasAssembly> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Tee ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasPart> ;
+    ] ;
+.
+:HeeftToegang
+  rdf:type owl:Class ;
+  rdfs:label "Heeft toegang" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ComplexProperty> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :ToegangGolfbaan ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#objectValue> ;
+    ] ;
+.
+:Hindernis
+  rdf:type owl:Class ;
+  rdfs:label "Hindernis" ;
+  rdfs:subClassOf OTL-NEN3610:GeoObject ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:oneOf (
+              :bunker
+              :waterpartij
+            ) ;
+        ] ;
+      owl:onProperty :hindernis_heeft_typehindernis ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :TypeHindernis ;
+      owl:onProperty :hindernis_heeft_typehindernis ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#MultiSurface> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Hole
+  rdf:type owl:Class ;
+  rdfs:label "Hole" ;
+  rdfs:subClassOf OTL-NEN3610:GeoObject ;
+  rdfs:subClassOf OTL-NEN3610:MaterieleHistorie ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty OTL-NEN3610:beginGeldigheid ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty OTL-NEN3610:eindGeldigheid ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#Point> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Naam
+  rdf:type owl:Class ;
+  rdfs:label "Naam" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:NatuurWaarde
+  rdf:type owl:Class ;
+  rdfs:label "NatuurWaarde" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:Nummer
+  rdf:type owl:Class ;
+  rdfs:label "Nummer" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#IntegerProperty> ;
+.
+:Par
+  rdf:type owl:Class ;
+  rdfs:label "Par" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#IntegerProperty> ;
+.
+:Parcours
+  rdf:type owl:Class ;
+  rdfs:label "Parcours" ;
+  rdfs:subClassOf OTL-NEN3610:GeoObject ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#Part> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass :HeeftHindernis ;
+      owl:onProperty :parcours_heeft_hindernis ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass :HeeftParcoursDeel ;
+      owl:onProperty :parcours_heeft_parcoursdeel ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :GolfbaanHasParcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#partOf> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :HeeftTee ;
+      owl:onProperty :parcours_heeft_tee ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Nummer ;
+      owl:onProperty :parcours_heeft_nummer ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Par ;
+      owl:onProperty :parcours_heeft_par ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#MultiSurface> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:ParcoursDeel
+  rdf:type owl:Class ;
+  rdfs:label "ParcoursDeel" ;
+  rdfs:subClassOf OTL-NEN3610:GeoObject ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:oneOf (
+              :fairway
+              :green
+              :rough
+              :semi-rough
+            ) ;
+        ] ;
+      owl:onProperty :parcoursdeel_heeft_typeparcoursdeel ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :TypeParcoursDeel ;
+      owl:onProperty :parcoursdeel_heeft_typeparcoursdeel ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#MultiSurface> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:ParcoursHasHole
+  rdf:type owl:Class ;
+  rdfs:label "Parcours has hole" ;
+  rdfs:subClassOf :HasHole ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Hole ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasPart> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom :Parcours ;
+      owl:onProperty <http://www.coinsweb.nl/cbim-2.0.rdf#hasAssembly> ;
+    ] ;
+.
+:Tee
+  rdf:type owl:Class ;
+  rdfs:label "Tee" ;
+  rdfs:subClassOf OTL-NEN3610:GeoObject ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass <http://www.opengis.net/ont/sf#MultiSurface> ;
+      owl:onProperty <http://www.opengis.net/ont/geosparql#hasGeometry> ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Toegang
+  rdf:type owl:Class ;
+  rdfs:label "Toegang" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:ToegangGolfbaan
+  rdf:type owl:Class ;
+  rdfs:label "ToegangGolfbaan" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#ComplexPropertyValue> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom [
+          rdf:type owl:Class ;
+          owl:oneOf (
+              :openbaar
+              :besloten
+            ) ;
+        ] ;
+      owl:onProperty :toeganggolfbaan_heeft_toegangkelijkheid ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Etiquette ;
+      owl:onProperty :toeganggolfbaan_heeft_etiquette ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Toegangkelijkheid ;
+      owl:onProperty :toeganggolfbaan_heeft_toegangkelijkheid ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onClass :Vereisten ;
+      owl:onProperty :toeganggolfbaan_heeft_vereisten ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    ] ;
+.
+:Toegangkelijkheid
+  rdf:type owl:Class ;
+  rdfs:label "Toegangkelijkheid" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:TypeGolfbaan
+  rdf:type owl:Class ;
+  rdfs:label "TypeGolfbaan" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:TypeHindernis
+  rdf:type owl:Class ;
+  rdfs:label "TypeHindernis" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:TypeParcoursDeel
+  rdf:type owl:Class ;
+  rdfs:label "TypeParcoursDeel" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:Vereisten
+  rdf:type owl:Class ;
+  rdfs:label "Vereisten" ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#CataloguePart> ;
+  rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#StringProperty> ;
+.
+:besloten
+  rdf:type :Toegangkelijkheid ;
+  rdfs:label "besloten" ;
+.
+:bosbaan
+  rdf:type :TypeGolfbaan ;
+  rdfs:label "bosbaan" ;
+.
+:bunker
+  rdf:type :TypeHindernis ;
+  rdfs:label "bunker" ;
+.
+:fairway
+  rdf:type :TypeParcoursDeel ;
+  rdfs:label "fairway" ;
+.
+:geen
+  rdf:type :NatuurWaarde ;
+  rdfs:label "geen" ;
+.
+:golfbaan_heeft_gebruiksstatus
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_gebruiksstatus" ;
+  rdfs:range :Gebruiksstatus ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:golfbaan_heeft_hole
+  rdf:type owl:FunctionalProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_hole" ;
+  rdfs:range :GolfbaanHasParcours ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasContainsRelation> ;
+.
+:golfbaan_heeft_naam
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_naam" ;
+  rdfs:range :Naam ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:golfbaan_heeft_natuurwaarde
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_natuurwaarde" ;
+  rdfs:range :NatuurWaarde ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:golfbaan_heeft_toeganggolfbaan
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_toeganggolfbaan" ;
+  rdfs:range :HeeftToegang ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:golfbaan_heeft_typegolfbaan
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Golfbaan ;
+  rdfs:label "golfbaan_heeft_typegolfbaan" ;
+  rdfs:range :TypeGolfbaan ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:green
+  rdf:type :TypeParcoursDeel ;
+  rdfs:label "green" ;
+.
+:hindernis_heeft_typehindernis
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Hindernis ;
+  rdfs:label "hindernis_heeft_typehindernis" ;
+  rdfs:range :TypeHindernis ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:hoog
+  rdf:type :NatuurWaarde ;
+  rdfs:label "hoog" ;
+.
+:laag
+  rdf:type :NatuurWaarde ;
+  rdfs:label "laag" ;
+.
+:linksbaan
+  rdf:type :TypeGolfbaan ;
+  rdfs:label "linksbaan" ;
+.
+:openbaar
+  rdf:type :Toegangkelijkheid ;
+  rdfs:label "openbaar" ;
+.
+:parcours_heeft_hindernis
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Parcours ;
+  rdfs:label "parcours_heeft_hindernis" ;
+  rdfs:range :HeeftHindernis ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasContainsRelation> ;
+.
+:parcours_heeft_nummer
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Parcours ;
+  rdfs:label "parcours_heeft_nummer" ;
+  rdfs:range :Nummer ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:parcours_heeft_par
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Parcours ;
+  rdfs:label "parcours_heeft_par" ;
+  rdfs:range :Par ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:parcours_heeft_parcoursdeel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Parcours ;
+  rdfs:label "parcours_heeft_parcoursdeel" ;
+  rdfs:range :HeeftParcoursDeel ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasContainsRelation> ;
+.
+:parcours_heeft_tee
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Parcours ;
+  rdfs:label "parcours_heeft_tee" ;
+  rdfs:range :HeeftTee ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasContainsRelation> ;
+.
+:parcoursdeel_heeft_hole
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :Green ;
+  rdfs:label "parcoursdeel_heeft_hole" ;
+  rdfs:range :HasHole ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasContainsRelation> ;
+.
+:parcoursdeel_heeft_typeparcoursdeel
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ParcoursDeel ;
+  rdfs:label "parcoursdeel_heeft_typeparcoursdeel" ;
+  rdfs:range :TypeParcoursDeel ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:parkbaan
+  rdf:type :TypeGolfbaan ;
+  rdfs:label "parkbaan" ;
+.
+:rough
+  rdf:type :TypeParcoursDeel ;
+  rdfs:label "rough" ;
+.
+:semi-rough
+  rdf:type :TypeParcoursDeel ;
+  rdfs:label "semi-rough" ;
+.
+:toeganggolfbaan_heeft_etiquette
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ToegangGolfbaan ;
+  rdfs:label "/toeganggolfbaan_heeft_etiquette" ;
+  rdfs:range :Etiquette ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:toeganggolfbaan_heeft_toegangkelijkheid
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ToegangGolfbaan ;
+  rdfs:label "/toeganggolfbaan_heeft_toegangkelijkheid" ;
+  rdfs:range :Toegangkelijkheid ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:toeganggolfbaan_heeft_vereisten
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :ToegangGolfbaan ;
+  rdfs:label "toeganggolfbaan_heeft_vereisten" ;
+  rdfs:range :Vereisten ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
+:waterpartij
+  rdf:type :TypeHindernis ;
+  rdfs:label "waterpartij" ;
+.
