@@ -8,6 +8,8 @@
 
 @prefix golfbaan: <http://linkeddata.ordina.nl/id/golfbaan/>.
 @prefix parcours: <http://linkeddata.ordina.nl/id/parcours/>.
+@prefix tee: <http://linkeddata.ordina.nl/id/tee/>.
+@prefix hole: <http://linkeddata.ordina.nl/id/hole/>.
 @prefix parcoursdeel: <http://linkeddata.ordina.nl/id/parcoursdeel/>.
 @prefix geometrie: <http://linkeddata.ordina.nl/id/geometrie/>.
 
@@ -29,8 +31,17 @@ concept:LageNatuurwaarde a skos:Concept;
   skos:definition "Het object wordt gebruikt.";
 .
 
+#Overgenomen uit model
+imgolf:Green rdfs:subClassOf imgolf:Parcoursdeel.
+imgolf:Fairway rdfs:subClassOf imgolf:Parcoursdeel.
 
+#Overgenomen uit model: dit zou eigenlijk afgeleid moeten worden!!
+imgolf:Parkbaan rdfs:subClassOf imgolf:Golfbaan.
+imgolf:Polderbaan rdfs:subClassOf imgolf:Golfbaan.
+
+# Data
 golfbaan:Hoogland a imgolf:Golfbaan;
+  # a imgolf:Parkbaan, imgolf:Polderbaan;
   geo:hasGeometry geometrie:GolfbaanHoogland;
   imgolf:naam "Golfbaan hoogland"@nl;
   imgolf:toegang [
@@ -53,10 +64,44 @@ golfbaan:Hoogland a imgolf:Golfbaan;
 geometrie:GolfbaanHoogland a geo:Geometry;
   geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
 .
+
 parcours:HooglandHole1 a imgolf:Parcours;
   geo:hasGeometry geometrie:ParcoursHooglandHole1;
   imgolf:nummer 1;
   imgolf:par 3;
-  imgolf:parcoursDeel parcoursdeel:HooglandHole1Tee;
-  imgolf:afslagplaats parcoursdeel:HooglandHole1Tee
+  imgolf:afslagplaats tee:HooglandHole1Tee;
+  imgolf:parcoursDeel parcoursdeel:HooglandHole1Fairway;
+  imgolf:parcoursDeel parcoursdeel:HooglandHole1Green;
+.
+geometrie:ParcoursHooglandHole1 a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
+.
+
+tee:HooglandHole1Tee a imgolf:Tee;
+  geo:hasGeometry geometrie:HooglandHole1Tee;
+.
+geometrie:HooglandHole1Tee a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
+.
+
+parcoursdeel:HooglandHole1Fairway a imgolf:Fairway;
+  geo:hasGeometry geometrie:HooglandHole1Fairway;
+.
+geometrie:HooglandHole1Fairway a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
+.
+
+parcoursdeel:HooglandHole1Green a imgolf:Green;
+  geo:hasGeometry geometrie:HooglandHole1Green;
+  geo:hole hole:HooglandHole1;
+.
+geometrie:HooglandHole1Green a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
+.
+
+hole:HooglandHole1 a imgolf:Hole;
+  geo:hasGeometry geometrie:HoleHooglandHole1;
+.
+geometrie:HoleHooglandHole1 a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
 .
