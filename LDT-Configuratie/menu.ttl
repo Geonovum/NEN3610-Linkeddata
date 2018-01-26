@@ -44,6 +44,7 @@ stage:Menu a elmo:Part;
 			elmo:data [elmo:index "4"; rdfs:label "Structuur"; html:link "/nen3610/container/structuur"];
 			elmo:data [elmo:index "5"; rdfs:label "Metamodel"; html:link "/nen3610/container/metamodel"];
 			elmo:data [elmo:index "6"; rdfs:label "IM Golf"; html:link "/nen3610/container/imgolf"];
+      elmo:data [elmo:index "7"; rdfs:label "IM Golf begrippen"; html:link "/nen3610/container/excelbegrippen"]
 		];
 	];
 .

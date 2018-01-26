@@ -6,10 +6,17 @@
 @prefix containerlocal: <http://localhost:8080/nen3610/container/>.
 
 container:begrippen a elmo:Container;
-	rdfs:label "Upload begrippen";
+	rdfs:label "Upload NEN3610 begrippen";
 	elmo:contains stage:Menu;
 	elmo:replaces containerlocal:begrippen;
 	elmo:representation elmo:UploadRepresentation;
+.
+container:excelbegrippen a elmo:Container;
+  rdfs:label "Upload Excel begrippen IMGolf";
+  elmo:contains stage:Menu;
+	elmo:replaces containerlocal:imgolfbegrippen;
+  elmo:representation elmo:UploadRepresentation;
+  elmo:translator elmo:TableExcelTranslator;
 .
 container:referenties a elmo:Container;
 	rdfs:label "Upload referenties";
@@ -41,11 +48,24 @@ container:imgolf a elmo:Container;
 	elmo:replaces containerlocal:imgolf;
 	elmo:representation elmo:UploadRepresentation;
 .
+container:imgolfbegrippen a elmo:Container;
+	rdfs:label "Upload IM Golf begrippen";
+	elmo:contains stage:Menu;
+	elmo:replaces containerlocal:imgolfbegrippen;
+	elmo:representation elmo:UploadRepresentation;
+.
 
 containerlocal:begrippen a elmo:Container;
 	rdfs:label "Upload begrippen";
 	elmo:contains stage:Menu;
 	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:excelbegrippen a elmo:Container;
+  rdfs:label "Upload Excel begrippen IMGolf";
+  elmo:contains stage:Menu;
+	elmo:replaces containerlocal:imgolf;
+  elmo:representation elmo:UploadRepresentation;
+  elmo:translator elmo:TableExcelTranslator;
 .
 containerlocal:referenties a elmo:Container;
 	rdfs:label "Upload referenties";
@@ -69,6 +89,11 @@ containerlocal:metamodel a elmo:Container;
 .
 containerlocal:imgolf a elmo:Container;
 	rdfs:label "Upload IM Golf model";
+	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:imgolfbegrippen a elmo:Container;
+	rdfs:label "Upload IM Golf begrippen";
 	elmo:contains stage:Menu;
 	elmo:representation elmo:UploadRepresentation;
 .

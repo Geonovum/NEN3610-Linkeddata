@@ -100,7 +100,7 @@ stage:IMGolfSemantischModel a elmo:Representation;
       }
       UNION
       {
-        GRAPH container:imgolf {
+        GRAPH container:imgolfbegrippen {
           ?concept a skos:Concept.
           ?concept ?rel ?relconcept.
           ?relconcept a skos:Concept.

@@ -58,6 +58,7 @@ stage:IMGolf a elmo:Representation;
 				?s?p?o
 			}
 			FILTER (?g = container:imgolf
+				||	?g = container:imgolfbegrippen
 				||	?g = container:vocabulaire
 				||	?g = container:structuur
 			)

@@ -34,7 +34,7 @@ stage:Begrippen a elmo:Representation;
 				}
 			}
 			FILTER (?g = container:begrippen
-				||	?g = container:imgolf
+				||	?g = container:imgolfbegrippen
 			)
 		}
 		ORDER BY ?scheme ?begrip_label
