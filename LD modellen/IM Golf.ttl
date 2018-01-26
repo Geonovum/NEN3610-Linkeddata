@@ -171,7 +171,7 @@ concept:Putje a skos:Concept;
 
 concept:Besloten a skos:Concept;
   rdfs:label "besloten";
-  skos:prefLabel "openbaar"@nl;
+  skos:prefLabel "besloten"@nl;
   skos:inScheme schema:IMGolf;
   skos:definition "Alleen toegankelijk voor leden."@nl;
   skos:inScheme schema:IMGolf
@@ -444,7 +444,7 @@ shape:ToegangGolfbaan a sh:NodeShape;
   sh:property [
     sh:path imgolf:toegankelijkheid;
     sh:name "toegankelijkheid";
-		sh:in (concept:openbaar concept:besloten);
+		sh:in (concept:Openbaar concept:Besloten);
 		sh:node shape:ToegankelijkheidValue;
   ];
   sh:property [
@@ -455,7 +455,7 @@ shape:ToegangGolfbaan a sh:NodeShape;
   ];
   sh:property [
     sh:path imgolf:etiquette;
-    sh:name "vereisten";
+    sh:name "etiquette";
     sh:datatype xsd:string;
     sh:maxCount 1;
   ];

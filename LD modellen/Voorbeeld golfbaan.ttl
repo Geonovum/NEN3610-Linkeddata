@@ -1,0 +1,62 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
+@prefix concept: <http://linkeddata.ordina.nl/nen3610/imgolf/id/concept/>.
+
+@prefix golfbaan: <http://linkeddata.ordina.nl/id/golfbaan/>.
+@prefix parcours: <http://linkeddata.ordina.nl/id/parcours/>.
+@prefix parcoursdeel: <http://linkeddata.ordina.nl/id/parcoursdeel/>.
+@prefix geometrie: <http://linkeddata.ordina.nl/id/geometrie/>.
+
+#Overgenomen referentiegegevens
+concept:Openbaar a skos:Concept;
+  rdfs:label "openbaar";
+  skos:prefLabel "openbaar"@nl;
+  skos:inScheme schema:IMGolf;
+  skos:definition "Toegankelijk voor iedereen"@nl;
+  skos:inScheme schema:IMGolf
+.
+concept:LageNatuurwaarde a skos:Concept;
+  rdfs:label "lage natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:prefLabel "laag";
+.
+<http://brt.basisregistraties.overheid.nl/id/begrip/InGebruik> a skos:Concept;
+  rdfs:label "in gebruik";
+  skos:definition "Het object wordt gebruikt.";
+.
+
+
+golfbaan:Hoogland a imgolf:Golfbaan;
+  geo:hasGeometry geometrie:GolfbaanHoogland;
+  imgolf:naam "Golfbaan hoogland"@nl;
+  imgolf:toegang [
+    imgolf:toegankelijkheid concept:openbaar;
+    imgolf:vereisten "Lid of introduce";
+    imgolf:etiquette "Algemene etiquette";
+  ];
+  imgolf:natuurwaarde concept:LageNatuurwaarde;
+  imgolf:gebruiksstatus <http://brt.basisregistraties.overheid.nl/id/begrip/InGebruik>;
+  imgolf:hole parcours:HooglandHole1;
+  imgolf:hole parcours:HooglandHole2;
+  imgolf:hole parcours:HooglandHole3;
+  imgolf:hole parcours:HooglandHole4;
+  imgolf:hole parcours:HooglandHole5;
+  imgolf:hole parcours:HooglandHole6;
+  imgolf:hole parcours:HooglandHole7;
+  imgolf:hole parcours:HooglandHole8;
+  imgolf:hole parcours:HooglandHole9;
+.
+geometrie:GolfbaanHoogland a geo:Geometry;
+  geo:hasWKT "POINT (12 52)"^^geo:wktLiteral;
+.
+parcours:HooglandHole1 a imgolf:Parcours;
+  geo:hasGeometry geometrie:ParcoursHooglandHole1;
+  imgolf:nummer 1;
+  imgolf:par 3;
+  imgolf:parcoursDeel parcoursdeel:HooglandHole1Tee;
+  imgolf:afslagplaats parcoursdeel:HooglandHole1Tee
+.
