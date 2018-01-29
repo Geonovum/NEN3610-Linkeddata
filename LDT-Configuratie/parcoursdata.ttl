@@ -1,0 +1,52 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+stage:Parcoursdata a elmo:Representation;
+  elmo:url-pattern "/query/golfbaan/parcoursdata$";
+  elmo:contains stage:Menu;
+  elmo:fragment [
+    elmo:applies-to "data";
+    html:link "query/golfbaan/holedata.ttl";
+  ];
+  elmo:query '''
+    prefix container: <http://localhost:8080/nen3610/container/>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
+    select ?parcours ?parcours_label (?parcours as ?data)
+    where {
+      graph container:golfbaan {
+        ?parcours a imgolf:Parcours.
+        OPTIONAL {?parcours rdfs:label ?parcours_label}
+      }
+    }
+  ''';
+.
+
+stage:Holedata a elmo:Representation;
+  elmo:url-pattern "/query/golfbaan/holedata.ttl$";
+  elmo:query '''
+    prefix container: <http://localhost:8080/nen3610/container/>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
+    prefix ogc: <http://www.opengis.net/ont/geosparql#>
+    construct {
+      ?s ?p ?o.
+      ?geo ?pgeo ?ogeo
+    }
+    where {
+      graph container:golfbaan {
+        <@SUBJECT@> ?prop ?s.
+        ?s ?p ?o.
+        ?s ogc:hasGeometry ?geo.
+        ?geo ?pgeo ?ogeo
+        FILTER (?prop = imgolf:parcoursDeel
+          ||    ?prop = imgolf:hindernis
+          ||    ?prop = imgolf:afslagplaatsWit
+          ||    ?prop = imgolf:afslagplaatsGeel
+          ||    ?prop = imgolf:afslagplaatsBlauw
+          ||    ?prop = imgolf:afslagplaatsRood
+        )
+      }
+    }
+  '''
+.

@@ -54,6 +54,11 @@ container:imgolfbegrippen a elmo:Container;
 	elmo:replaces containerlocal:imgolfbegrippen;
 	elmo:representation elmo:UploadRepresentation;
 .
+container:golfbaan a elmo:Container;
+  rdfs:label "Upload voorbeeld golfbaandata";
+  elmo:replaces containerlocal:golfbaan;
+	elmo:representation elmo:UploadRepresentation;
+.
 
 containerlocal:begrippen a elmo:Container;
 	rdfs:label "Upload begrippen";
@@ -95,5 +100,9 @@ containerlocal:imgolf a elmo:Container;
 containerlocal:imgolfbegrippen a elmo:Container;
 	rdfs:label "Upload IM Golf begrippen";
 	elmo:contains stage:Menu;
+	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:golfbaan a elmo:Container;
+  rdfs:label "Upload voorbeeld golfbaandata";
 	elmo:representation elmo:UploadRepresentation;
 .

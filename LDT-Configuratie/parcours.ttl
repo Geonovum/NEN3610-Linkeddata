@@ -1,0 +1,45 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+stage:Parcours a elmo:Representation;
+  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/parcours/";
+  elmo:contains stage:Menu;
+  elmo:contains stage:Parcours_geo;
+  elmo:index "1";
+  elmo:query '''
+    prefix container: <http://localhost:8080/nen3610/container/>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
+    construct {
+      <@SUBJECT@> ?p ?o.
+      ?o rdfs:label ?olabel
+    }
+    where {
+      graph container:golfbaan {
+        <@SUBJECT@> ?p ?o
+        OPTIONAL {?o rdfs:label ?olabel}
+      }
+    }
+  ''';
+.
+stage:Parcours_geo a elmo:Part;
+  elmo:index "2";
+  elmo:appearance elmo:GeoAppearance;
+  elmo:query '''
+    prefix container: <http://localhost:8080/nen3610/container/>
+    prefix ogc: <http://www.opengis.net/ont/geosparql#>
+    construct {
+      ?feature rdfs:label ?featurelabel.
+      ?feature geo:geometry ?wkt
+    }
+    where {
+      graph container:golfbaan {
+        <@SUBJECT@> ?prop ?feature.
+        ?feature ogc:hasGeometry ?geo.
+        ?feature rdfs:label ?featurelabel.
+        ?geo ogc:asWKT ?wkt
+      }
+    }
+  ''';
+.

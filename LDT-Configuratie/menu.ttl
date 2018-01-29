@@ -35,8 +35,14 @@ stage:Menu a elmo:Part;
 			elmo:data [elmo:index "3"; rdfs:label "Structuur diagram"; html:link "query/imgolf-diagram"];
 			elmo:data [elmo:index "4"; rdfs:label "Semantisch model (download)"; html:link "query/imgolf-semantisch-model.yed"];
 		];
+    elmo:data [
+      elmo:index "5";
+      rdfs:label "Golfbaan";
+      elmo:data [elmo:index "1"; rdfs:label "Kaart"; html:link "query/golfbaan/kaart"];
+      elmo:data [elmo:index "2"; rdfs:label "Parcoursdata"; html:link "/query/golfbaan/parcoursdata"];
+    ];
 		elmo:data [
-			elmo:index "5";
+			elmo:index "6";
 			rdfs:label "Beheer";
 			elmo:data [elmo:index "1"; rdfs:label "Begrippen"; html:link "/nen3610/container/begrippen"];
 			elmo:data [elmo:index "2"; rdfs:label "Referenties"; html:link "/nen3610/container/referenties"];
