@@ -59,10 +59,60 @@ nen3610:Weg a owl:Class;
 	rdfs:subClassOf nen3610:ConcreetObject;
 	dct:subject concept:Weg;
 .
+nen3610:Terrein a owl:Class;
+	rdfs:label "Terrein"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Terrein;
+.
+nen3610:Water a owl:Class;
+	rdfs:label "Water"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Water;
+.
+nen3610:Spoorbaan a owl:Class;
+	rdfs:label "Spoorbaan"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Spoorbaan;
+.
+nen3610:Gebouw a owl:Class;
+	rdfs:label "Gebouw"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Gebouw;
+.
+nen3610:Leiding a owl:Class;
+	rdfs:label "Leiding"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Leiding;
+.
+nen3610:Kunstwerk a owl:Class;
+	rdfs:label "Kunstwerk"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Kunstwerk;
+.
+nen3610:Inrichtingselement a owl:Class;
+	rdfs:label "Inrichtingselement"@nl;
+	rdfs:subClassOf nen3610:ConcreetObject;
+	dct:subject concept:Inrichtingselement;
+.
+nen3610:RegistratiefGebied a owl:Class;
+	rdfs:label "Registratief gebied"@nl;
+	rdfs:subClassOf nen3610:GeoObject;
+	dct:subject concept:RegistratiefGebied;
+.
+nen3610:GeografischGebied a owl:Class;
+	rdfs:label "Geografisch gebied"@nl;
+	rdfs:subClassOf nen3610:GeoObject;
+	dct:subject concept:GeografischGebied;
+.
 nen3610:FunctioneelGebied a owl:Class;
 	rdfs:label "Functioneel gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
 	dct:subject concept:FunctioneelGebied
+.
+nen3610:PlanologischGebied a owl:Class;
+	rdfs:label "Planologisch gebied"@nl;
+	rdfs:subClassOf nen3610:GeoObject;
+	dct:subject concept:PlanologischGebied;
 .
 # Nog aanvullen met de ontbrekende elementen (vgl. concepten)
 

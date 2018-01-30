@@ -2,28 +2,39 @@
 @prefix elmo: <http://bp4mc2.org/elmo/def#>.
 @prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
 
-stage:Parcours a elmo:Representation;
-  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/parcours/";
+stage:Golfbaan a elmo:Representation;
+  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/golfbaan/";
   elmo:contains stage:Menu;
-  elmo:contains stage:Parcours_geo;
+  elmo:contains stage:Golfbaan_geo;
   elmo:index "1";
+  elmo:fragment [
+    elmo:applies-to owl:sameAs;
+    elmo:appearance elmo:GlobalLink
+  ];
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
     prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
     construct {
       <@SUBJECT@> ?p ?o.
-      ?o rdfs:label ?olabel
+      ?o rdfs:label ?olabel.
+      ?toegang ?toegangp ?toegango
     }
     where {
       graph container:golfbaan {
         <@SUBJECT@> ?p ?o
         OPTIONAL {?o rdfs:label ?olabel}
+        OPTIONAL {
+          <@SUBJECT@> imgolf:toegang ?toegang.
+          ?toegang ?toegangp ?toegango
+        }
       }
     }
-  ''';
+  '''
 .
-stage:Parcours_geo a elmo:Part;
+
+stage:Golfbaan_geo a elmo:Part;
   elmo:index "2";
   elmo:appearance elmo:GeoAppearance;
 	elmo:fragment [
@@ -81,19 +92,21 @@ stage:Parcours_geo a elmo:Part;
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
     prefix ogc: <http://www.opengis.net/ont/geosparql#>
+		prefix elmo: <http://bp4mc2.org/elmo/def#>
+    prefix html: <http://www.w3.org/1999/xhtml/vocab#>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
     construct {
-      ?feature rdfs:label ?featurelabel.
       ?feature geo:geometry ?wkt.
+      ?feature rdfs:label ?label.
       ?feature elmo:style ?type.
       ?type elmo:name ?name.
     }
     where {
       graph container:golfbaan {
-        <@SUBJECT@> ?prop ?feature.
-        ?feature ogc:hasGeometry ?geo.
-        ?feature rdfs:label ?featurelabel.
         ?feature rdf:type ?type.
-        ?geo ogc:asWKT ?wkt
+        ?feature rdfs:label ?label.
+        ?feature ogc:hasGeometry ?geo.
+        ?geo ogc:asWKT ?wkt.
         BIND (lcase(strafter(str(?type),'#')) as ?name)
       }
     }

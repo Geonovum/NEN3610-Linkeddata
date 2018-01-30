@@ -39,10 +39,19 @@ stage:Menu a elmo:Part;
       elmo:index "5";
       rdfs:label "Golfbaan";
       elmo:data [elmo:index "1"; rdfs:label "Kaart"; html:link "query/golfbaan/kaart"];
-      elmo:data [elmo:index "2"; rdfs:label "Parcoursdata"; html:link "/query/golfbaan/parcoursdata"];
+      elmo:data [elmo:index "2"; rdfs:label "Parcoursdata"; html:link "query/golfbaan/parcoursdata"];
+    ];
+    elmo:data [
+      elmo:index "6";
+      rdfs:label "Modelgeneratie";
+      elmo:data [elmo:index "1"; rdfs:label "Upload data"; html:link "container/upload"];
+      elmo:data [elmo:index "2"; rdfs:label "Model vanuit data"; html:link "update/container2model"];
+      elmo:data [elmo:index "3"; rdfs:label "Model vanuit golfbaandata"; html:link "update/data2model"];
+      elmo:data [elmo:index "4"; rdfs:label "Metamodel vanuit model"; html:link "update/model2metamodel"];
+      elmo:data [elmo:index "5"; rdfs:label "Modelvisualisatie"; html:link "query/modelvisualisatie"];
     ];
 		elmo:data [
-			elmo:index "6";
+			elmo:index "7";
 			rdfs:label "Beheer";
 			elmo:data [elmo:index "1"; rdfs:label "Begrippen"; html:link "/nen3610/container/begrippen"];
 			elmo:data [elmo:index "2"; rdfs:label "Referenties"; html:link "/nen3610/container/referenties"];
@@ -51,6 +60,7 @@ stage:Menu a elmo:Part;
 			elmo:data [elmo:index "5"; rdfs:label "Metamodel"; html:link "/nen3610/container/metamodel"];
 			elmo:data [elmo:index "6"; rdfs:label "IM Golf"; html:link "/nen3610/container/imgolf"];
       elmo:data [elmo:index "7"; rdfs:label "IM Golf begrippen"; html:link "/nen3610/container/excelbegrippen"]
+      elmo:data [elmo:index "8"; rdfs:label "Golfbaan"; html:link "/nen3610/container/golfbaan"]
 		];
 	];
 .

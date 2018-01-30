@@ -8,6 +8,7 @@ stage:Parcoursdata a elmo:Representation;
   elmo:contains stage:Menu;
   elmo:fragment [
     elmo:applies-to "data";
+    rdf:value "download";
     html:link "query/golfbaan/holedata.ttl";
   ];
   elmo:query '''
@@ -24,7 +25,8 @@ stage:Parcoursdata a elmo:Representation;
 .
 
 stage:Holedata a elmo:Representation;
-  elmo:url-pattern "/query/golfbaan/holedata.ttl$";
+  elmo:url-pattern "/query/golfbaan/holedata(|.ttl)$";
+  elmo:layer elmo:TopLayer;
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
     prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>

@@ -3,10 +3,11 @@
 @prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-stage:Parcours a elmo:Representation;
-  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/parcours/";
+stage:Feature a elmo:Representation;
+  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/feature/";
+  elmo:uri-pattern "^http://linkeddata.ordina.nl/nen3610/voorbeeld/id/putje/";
   elmo:contains stage:Menu;
-  elmo:contains stage:Parcours_geo;
+  elmo:contains stage:Feature_geo;
   elmo:index "1";
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
@@ -23,7 +24,7 @@ stage:Parcours a elmo:Representation;
     }
   ''';
 .
-stage:Parcours_geo a elmo:Part;
+stage:Feature_geo a elmo:Part;
   elmo:index "2";
   elmo:appearance elmo:GeoAppearance;
 	elmo:fragment [
@@ -81,20 +82,31 @@ stage:Parcours_geo a elmo:Part;
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
     prefix ogc: <http://www.opengis.net/ont/geosparql#>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
     construct {
-      ?feature rdfs:label ?featurelabel.
-      ?feature geo:geometry ?wkt.
-      ?feature elmo:style ?type.
+      <@SUBJECT@> rdfs:label ?featurelabel.
+      <@SUBJECT@> geo:geometry ?wkt.
+      <@SUBJECT@> elmo:style ?type.
       ?type elmo:name ?name.
+      ?hole rdfs:label ?holelabel.
+      ?hole geo:geometry ?holewkt.
+      ?hole elmo:style imgolf:Hole.
+      imgolf:Hole elmo:name "hole".
     }
     where {
       graph container:golfbaan {
-        <@SUBJECT@> ?prop ?feature.
-        ?feature ogc:hasGeometry ?geo.
-        ?feature rdfs:label ?featurelabel.
-        ?feature rdf:type ?type.
+        <@SUBJECT@> ogc:hasGeometry ?geo.
+        <@SUBJECT@> rdfs:label ?featurelabel.
+        <@SUBJECT@> rdf:type ?type.
         ?geo ogc:asWKT ?wkt
         BIND (lcase(strafter(str(?type),'#')) as ?name)
+        OPTIONAL {
+          <@SUBJECT@> imgolf:hole ?hole.
+          ?hole rdfs:label ?holelabel.
+          ?hole ogc:hasGeometry ?holegeo.
+          ?holegeo ogc:asWKT ?holewkt.
+          
+        }
       }
     }
   ''';

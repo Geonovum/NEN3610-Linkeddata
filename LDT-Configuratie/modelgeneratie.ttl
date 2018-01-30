@@ -1,0 +1,447 @@
+@prefix localupdatestage: <http://localhost:8080/nen3610/update/>.
+@prefix updatestage: <http://linkeddata.ordina.nl/nen3610/update/>.
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix localcontainer: <http://localhost:8080/nen3610/container/>.
+
+#Container for upload data
+localcontainer:upload a elmo:Container;
+  elmo:representation elmo:UploadRepresentation;
+  elmo:contains stage:Menu;
+  elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource>
+.
+
+#Production for local installations
+localupdatestage:container2model a elmo:Production;
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:Menu;
+	elmo:contains stage:ShapeProduction_scene1;
+#	elmo:contains stage:ShapeProduction_scene2;
+#	elmo:contains stage:ShapeProduction_scene3;
+	elmo:contains stage:ShapeProduction_scene4;
+	elmo:contains stage:ShapeProduction_scene5;
+	elmo:contains stage:ShapeProduction_scene6;
+	elmo:contains stage:ShapeProduction_scene7;
+	elmo:contains stage:ShapeProduction_scene8;
+	elmo:contains stage:ShapeProduction_scene9;
+	elmo:contains stage:ShapeProduction_scene10;
+	elmo:contains stage:ShapeProduction_scene11;
+	elmo:contains stage:ShapeProduction_scene12;
+	elmo:contains stage:ShapeProduction_scene13;
+	elmo:contains stage:ShapeProduction_scene14;
+	elmo:contains stage:ShapeProduction_scene15;
+.
+
+localupdatestage:data2model a elmo:Production;
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:Menu;
+	elmo:contains stage:ShapeProduction_scene0;
+  elmo:contains stage:ShapeProduction_copy;
+	elmo:contains stage:ShapeProduction_scene1;
+#	elmo:contains stage:ShapeProduction_scene2;
+#	elmo:contains stage:ShapeProduction_scene3;
+	elmo:contains stage:ShapeProduction_scene4;
+	elmo:contains stage:ShapeProduction_scene5;
+	elmo:contains stage:ShapeProduction_scene6;
+	elmo:contains stage:ShapeProduction_scene7;
+	elmo:contains stage:ShapeProduction_scene8;
+	elmo:contains stage:ShapeProduction_scene9;
+	elmo:contains stage:ShapeProduction_scene10;
+	elmo:contains stage:ShapeProduction_scene11;
+	elmo:contains stage:ShapeProduction_scene12;
+	elmo:contains stage:ShapeProduction_scene13;
+	elmo:contains stage:ShapeProduction_scene14;
+	elmo:contains stage:ShapeProduction_scene15;
+.
+
+localupdatestage:model2metamodel a elmo:Production;
+	elmo:contains stage:HeaderAppearance;
+	elmo:contains stage:Menu;
+	elmo:contains stage:ShapeProduction_scene0;
+  elmo:contains stage:ShapeProduction_modelcopy;
+	elmo:contains stage:ShapeProduction_scene1;
+#	elmo:contains stage:ShapeProduction_scene2;
+#	elmo:contains stage:ShapeProduction_scene3;
+	elmo:contains stage:ShapeProduction_scene4;
+	elmo:contains stage:ShapeProduction_scene5;
+	elmo:contains stage:ShapeProduction_scene6;
+	elmo:contains stage:ShapeProduction_scene7;
+	elmo:contains stage:ShapeProduction_scene8;
+	elmo:contains stage:ShapeProduction_scene9;
+	elmo:contains stage:ShapeProduction_scene10;
+	elmo:contains stage:ShapeProduction_scene11;
+	elmo:contains stage:ShapeProduction_scene12;
+	elmo:contains stage:ShapeProduction_scene13;
+	elmo:contains stage:ShapeProduction_scene14;
+	elmo:contains stage:ShapeProduction_scene15;
+.
+
+stage:ShapeProduction_scene0 a elmo:Scene;
+	elmo:index "00a";
+	rdfs:label "Clear source graph";
+	elmo:query '''
+    clear graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource>
+  '''
+.
+stage:ShapeProduction_copy a elmo:Scene;
+  elmo:index "00b";
+  rdfs:label "";
+  elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+      ?s ?p ?o
+    }
+    where {
+      graph <http://localhost:8080/nen3610/container/golfbaan> {
+        ?s ?p ?o
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_modelcopy a elmo:Scene;
+  elmo:index "00b";
+  rdfs:label "";
+  elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+      ?s ?p ?o
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        ?s ?p ?o
+      }
+    }
+  ''';
+.
+
+
+stage:ShapeProduction_scene1 a elmo:Scene;
+	elmo:index "01";
+	rdfs:label "Clear target graph";
+	elmo:query "clear graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget>";
+.
+stage:ShapeProduction_scene2 a elmo:Scene;
+	elmo:index "02";
+	rdfs:label "Copy classes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?class rdf:type owl:Class.
+      ?class rdfs:label ?classlabel.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        ?class rdf:type ?type
+        OPTIONAL {
+          ?class rdfs:label ?classlabel
+        }
+        FILTER (?type = rdfs:Class
+            ||  ?type = owl:Class
+        )
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene3 a elmo:Scene;
+	elmo:index "03";
+	rdfs:label "Copy properties";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?property rdf:type ?type.
+      ?property rdfs:label ?propertylabel
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        ?property rdf:type ?type
+        OPTIONAL {
+          ?property rdfs:label ?propertylabel
+        }
+        FILTER (?type = rdf:Property
+            ||  ?type = owl:DatatypeProperty
+            ||  ?type = owl:ObjectProperty
+        )
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene4 a elmo:Scene;
+  elmo:index "04";
+  rdfs:label "Add subclasses and infer class";
+  elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?class rdf:type owl:Class.
+      ?class rdfs:subClassOf ?superclass.
+      ?superclass rdf:type owl:Class.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        ?class rdfs:subClassOf ?superclass.
+        FILTER EXISTS {
+          ?s rdf:type ?class
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene5 a elmo:Scene;
+	elmo:index "05";
+	rdfs:label "Infer classes from data";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?class rdf:type owl:Class.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct ?class
+        where {
+          ?item rdf:type ?class
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene6 a elmo:Scene;
+	elmo:index "06";
+	rdfs:label "Infer datatype properties from data";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?property rdf:type owl:DatatypeProperty.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct ?property
+        where {
+          ?item ?property ?value.
+          FILTER (isLiteral(?value))
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene7 a elmo:Scene;
+	elmo:index "07";
+	rdfs:label "Infer object properties from data";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?property rdf:type owl:ObjectProperty.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct ?property
+        where {
+          ?item ?property ?value.
+          FILTER (isIRI(?value) || isBlank(?value))
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene8 a elmo:Scene;
+	elmo:index "08";
+	rdfs:label "Add missing labels";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?item rdfs:label ?label
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?item (replace(str(?item),"(.+)[:/#]([^:/#]+)","$2") as ?label)
+        where {
+          ?item rdf:type ?type.
+          FILTER NOT EXISTS {
+            ?item rdfs:label ?originallabel
+          }
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene9 a elmo:Scene;
+	elmo:index "09";
+	rdfs:label "Create skeleton NodeShapes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?shape rdf:type sh:NodeShape.
+      ?shape sh:targetClass ?class
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?class (IRI(concat("urn:class",md5(str(?class)))) as ?shape)
+        where {
+          ?class rdf:type owl:Class
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene10 a elmo:Scene;
+	elmo:index "10";
+	rdfs:label "Create datatype properties";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:property ?propertyshape.
+      ?propertyshape rdf:type sh:PropertyShape;
+        sh:path ?property;
+        sh:datatype ?datatype
+      .
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape) ?property (IRI(concat("urn:dtproperty:",md5(str(?property)))) as ?propertyshape) (datatype(?value) as ?datatype)
+        where {
+          ?item rdf:type ?class.
+          ?item ?property ?value.
+          FILTER (isLiteral(?value))
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene11 a elmo:Scene;
+	elmo:index "11";
+	rdfs:label "Create IRI-object properties";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:property ?propertyshape.
+      ?propertyshape rdf:type sh:PropertyShape;
+        sh:path ?property;
+        sh:class ?valueclass;
+        sh:nodeKind sh:IRI
+      .
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct
+            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape) 
+            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            ?valueclass
+        where {
+          ?item rdf:type ?class.
+          ?item ?property ?value.
+          OPTIONAL {
+            ?value rdf:type ?valueclass
+          }
+          FILTER (isIRI(?value) && !(isBlank(?value)))
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene12 a elmo:Scene;
+	elmo:index "12";
+	rdfs:label "Create Blank object properties";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:property ?propertyshape.
+      ?propertyshape rdf:type sh:PropertyShape;
+        sh:path ?property;
+        sh:class ?valueclass;
+        sh:nodeKind sh:BlankNode
+      .
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct
+            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
+            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            ?valueclass
+        where {
+          ?item rdf:type ?class.
+          ?item ?property ?value.
+          OPTIONAL {
+            ?value rdf:type ?valueclass
+          }
+          FILTER (isBlank(?value))
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene13 a elmo:Scene;
+	elmo:index "13";
+	rdfs:label "Add names to NodeShapes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:name ?name
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?nodeshape (?classlabel as ?name)
+        where {
+          ?nodeshape sh:targetClass ?class.
+          ?class rdfs:label ?classlabel
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene14 a elmo:Scene;
+	elmo:index "14";
+	rdfs:label "Add names to PropertyShapes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?propertyshape sh:name ?name
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?propertyshape (?propertylabel as ?name)
+        where {
+          ?propertyshape sh:path ?property.
+          ?property rdfs:label ?propertylabel
+        }
+      }
+    }
+  ''';
+.
+
+stage:ShapeProduction_scene15 a elmo:Scene;
+	elmo:index "15";
+	rdfs:label "Create Blank object nodes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:property ?propertyshape.
+      ?propertyshape rdf:type sh:PropertyShape;
+        sh:path ?property;
+        sh:nodeKind sh:BlankNode;
+        sh:node ?propertynode
+      .
+      ?propertynode a sh:NodeShape;
+        sh:name ?propertynodename;
+        sh:property ?propertynodeproperty
+      .
+      ?propertynodeproperty a sh:PropertyShape;
+        sh:path ?valueproperty
+      .
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct
+            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
+            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            (IRI(concat("urn:propertynode:",md5(str(?class)),md5(str(?property)))) as ?propertynode)
+            ("Shape" as ?propertynodename)
+            ?valueproperty (IRI(concat("urn:valueproperty",md5(concat(str(?class),str(?property),str(?valueproperty))))) as ?propertynodeproperty)
+        where {
+          ?item rdf:type ?class.
+          ?item ?property ?value.
+          ?value ?valueproperty ?valuepropertyvalue.
+          FILTER (isBlank(?value))
+          FILTER NOT EXISTS {
+            ?value rdf:type ?valueclass
+          }
+        }
+      }
+    }
+  ''';
+.
+
+stage:ModelVisualisatie a elmo:Representation;
+  elmo:url-pattern "/query/modelvisualisatie";
+  elmo:contains stage:Menu;
+  elmo:appearance elmo:VocabularyAppearance;
+  elmo:query '''
+    construct {?s ?p ?o}
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {?s ?p ?o}
+    }
+  ''';
+.

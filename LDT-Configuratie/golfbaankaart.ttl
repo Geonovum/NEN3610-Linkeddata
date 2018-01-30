@@ -10,15 +10,22 @@ stage:Golfbaankaart a elmo:Representation;
   elmo:query '''
     prefix container: <http://localhost:8080/nen3610/container/>
     prefix ogc: <http://www.opengis.net/ont/geosparql#>
+		prefix elmo: <http://bp4mc2.org/elmo/def#>
+    prefix html: <http://www.w3.org/1999/xhtml/vocab#>
+    prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>
     construct {
-      ?feature geo:geometry ?wkt.
-      ?feature rdfs:label ?label.
+      ?golfbaan geo:geometry ?wkt.
+      ?golfbaan rdfs:label ?label.
+      ?golfbaan elmo:style imgolf:Golfbaan.
+      imgolf:Golfbaan elmo:name "golfbaan".
     }
     where {
       graph container:golfbaan {
-        ?feature rdfs:label ?label.
-        ?feature ogc:hasGeometry ?geo.
-        ?geo ogc:asWKT ?wkt
+        ?golfbaan rdf:type ?type.
+        ?golfbaan imgolf:naam ?label.
+        ?golfbaan ogc:hasGeometry ?geo.
+        ?geo ogc:asWKT ?wkt.
+        FILTER (?type = imgolf:Linksbaan)
       }
     }
   ''';

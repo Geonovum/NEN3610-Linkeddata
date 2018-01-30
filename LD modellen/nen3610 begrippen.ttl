@@ -137,12 +137,93 @@ concept:Terrein a skos:Concept;
 	dct:source referentie:NEN3610-2011;
 	skosthes:broaderGeneric concept:ConcreetObject;
 .
+concept:Water a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Water"@nl;
+  skos:prefLabel "Water"@nl;
+  skos:definition "grondoppervlak in principe bedekt met water";
+  skos:scopeNote "Voorbeelden zijn: rivier, kanaal, beek, zee, meer, oppervlaktewater in algemene zin. Objecten die in het kader van de waterhuishouding periodiek met water zijn bedekt, vallen hier ook onder.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:Spoorbaan a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Spoorbaan"@nl;
+  skos:prefLabel "Spoorbaan"@nl;
+  skos:definition "gebaand gedeelte voor het verkeer over rails";
+  skos:scopeNote "Voorbeelden zijn: spoorbaan, metrobaan, trambaan.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:Gebouw a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Gebouw"@nl;
+  skos:prefLabel "Gebouw"@nl;
+  skos:definition "vrijstaande, overdekte en geheel of gedeeltelijk met wanden omsloten toegankelijke ruimte, die direct of indirect met de grond is verbonden";
+  skos:scopeNote "Voorbeelden zijn: huis, schuur, flatgebouw, huizenblok, fabriek.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:Leiding a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Leiding"@nl;
+  skos:prefLabel "Leiding"@nl;
+  skos:definition "buis of kabel bestemd voor de voortgeleiding van energie of materie";
+  skos:scopeNote "Voorbeelden zijn: hoogspanningsleiding, riool, waterleiding, glasvezelkabel, gasleiding.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:Kunstwerk a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Kunstwerk"@nl;
+  skos:prefLabel "Kunstwerk"@nl;
+  skos:definition "civiel-technisch werk voor de infrastructuur van wegen, water, spoorbanen, waterkeringen en/of leidingen en niet bedoeld voor permanent menselijk verblijf";
+  skos:scopeNote "Hieronder vallen overbruggingen, waterstaatkundige werken en waterkerende constructies. Overbruggingen kunnen zijn: brug, viaduct, aquaduct enz. Een voorbeeld van een waterstaatkundig werk is een sluis. Voorbeelden van waterkerende constructies zijn stuw en vaste dam.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:Inrichtingselement a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Inrichtingselement"@nl;
+  skos:prefLabel "Inrichtingselement"@nl;
+  skos:definition "ruimtelijk object al dan niet ter detaillering dan wel ter inrichting van de overige benoemde ruimtelijke objecten of een ander inrichtingselement";
+  skos:scopeNote "Inrichtingselementen vormen een diverse klasse. Het zijn objecten die niet zozeer op basis van fysiek voorkomen of hun gebruiksfunctie bij elkaar horen, maar op basis van hun eigenschap dat ze andere objecten inrichten. Het zijn objecten die hierdoor een relatief kleine geometrie hebben. Voorbeelden zijn: stadsbankje, reclamebord, verkeerslicht, verkeersheuvel, fontein, grondwaterput.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:ConcreetObject;
+.
+concept:RegistratiefGebied a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "RegistratiefGebied"@nl;
+  skos:prefLabel "RegistratiefGebied"@nl;
+  skos:definition "op basis van wet- of regelgeving afgebakend gebied dat als eenheid geldt van politiek/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering";
+  skos:scopeNote "Registratieve gebieden vormen een diverse klasse en omvatten gebieden die onder de wet- of regelgeving vallen of die voor bedrijfsvoering administratief van belang zijn. In veel gevallen zal een dergelijk gebied ook een registratieve aanduiding of registratief nummer hebben. Er is geen algemeen attribuut gedefinieerd om deze informatie uit te wisselen omdat registraties hiervoor registratie-eigen attributen hebben. Voorbeelden zijn: gemeente Delft, postcodegebied 2345, politieregio Haaglanden, veiligheidsregio Gelderland Midden, Habitatrichtlijn, Nationaal Park De Hoge Veluwe.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:GeoObject;
+.
+concept:GeografischGebied a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "GeografischGebied"@nl;
+  skos:prefLabel "GeografischGebied"@nl;
+  skos:definition "geografisch benoemd of aangeduid gebied";
+  skos:scopeNote "De grenzen zijn niet altijd exact vastgesteld. Voorbeelden zijn: Noordoostpolder, Midden-Nederland, rivierengebied, Veluwe, Zuid-Limburg, kustgebied.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:GeoObject;
+.
 concept:FunctioneelGebied a skos:Concept;
 	skos:inScheme schema:NEN3610;
 	rdfs:label "Functioneel gebied"@nl;
 	skos:prefLabel "Functioneel gebied"@nl;
 	skos:definition "Een functioneel gebied is een begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven";
 	skos:scopeNote "Voorbeelden zijn: bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark, recreatiegebied.";
+	dct:source referentie:NEN3610-2011;
+	skosthes:broaderGeneric concept:GeoObject;
+.
+concept:PlanologischGebied a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Planologisch gebied"@nl;
+	skos:prefLabel "Planologisch gebied"@nl;
+	skos:definition "niet-tastbaar begrensd gebied waaraan een bepaalde (toekomstige) bestemming, functionele en/of bestuurlijke ruimtelijke ontwikkeling is gekoppeld";
+	skos:scopeNote "Planologische gebieden vormen de geo-objecten die worden gebruikt om het beleid van de ruimtelijke ordening weer te geven. In de regel zijn het objecten die zijn gekoppeld aan beleidsinformatie die aangeeft wat waar krachtens de wet op de ruimtelijke ordening aan beleid is geformuleerd.";
 	dct:source referentie:NEN3610-2011;
 	skosthes:broaderGeneric concept:GeoObject;
 .
