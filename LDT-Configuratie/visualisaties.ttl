@@ -72,8 +72,8 @@ stage:SemantischModelDiagram	a	elmo:Representation;
 		prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 		construct {
 			<urn:image> html:img "https://github.com/Geonovum/NEN3610-Linkeddata/raw/gh-pages/LD%20modellen/visualisaties/semantisch-model.png".
-			<urn:image> html:width "698".
-			<urn:image> html:height "646".
+			<urn:image> html:width "2186".
+			<urn:image> html:height "1168".
 			<urn:image> html:top "0".
 			<urn:image> html:left "0".
 		}
