@@ -107,102 +107,101 @@ geometrie:Hole1 a geo:Geometry;
 parcours:Hole2 a imgolf:Parcours;
   rdfs:label "Hole 2";
   imgolf:nummer 2;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole3 a imgolf:Parcours;
   rdfs:label "Hole 3";
   imgolf:nummer 3;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole4 a imgolf:Parcours;
   rdfs:label "Hole 4";
   imgolf:nummer 4;
-  imgolf:par 0;
+  imgolf:par 3;
 .
 
 parcours:Hole5 a imgolf:Parcours;
   rdfs:label "Hole 5";
   imgolf:nummer 5;
-  imgolf:par 0;
+  imgolf:par 5;
 .
 
 parcours:Hole6 a imgolf:Parcours;
   rdfs:label "Hole 6";
   imgolf:nummer 6;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole7 a imgolf:Parcours;
   rdfs:label "Hole 7";
   imgolf:nummer 7;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole8 a imgolf:Parcours;
   rdfs:label "Hole 8";
   imgolf:nummer 8;
-  imgolf:par 0;
+  imgolf:par 3;
 .
 
 parcours:Hole9 a imgolf:Parcours;
   rdfs:label "Hole 9";
   imgolf:nummer 9;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole10 a imgolf:Parcours;
   rdfs:label "Hole 10";
   imgolf:nummer 10;
-  imgolf:par 0;
+  imgolf:par 5;
 .
 
 parcours:Hole11 a imgolf:Parcours;
   rdfs:label "Hole 11";
   imgolf:nummer 11;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole12 a imgolf:Parcours;
   rdfs:label "Hole 12";
   imgolf:nummer 12;
-  imgolf:par 0;
+  imgolf:par 3;
 .
 
 parcours:Hole13 a imgolf:Parcours;
   rdfs:label "Hole 13";
   imgolf:nummer 13;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole14 a imgolf:Parcours;
   rdfs:label "Hole 14";
   imgolf:nummer 14;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole15 a imgolf:Parcours;
   rdfs:label "Hole 15";
   imgolf:nummer 15;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole16 a imgolf:Parcours;
   rdfs:label "Hole 16";
   imgolf:nummer 16;
-  imgolf:par 0;
+  imgolf:par 4;
 .
 
 parcours:Hole17 a imgolf:Parcours;
   rdfs:label "Hole 17";
   imgolf:nummer 17;
-  imgolf:par 0;
+  imgolf:par 3;
 .
 
 parcours:Hole18 a imgolf:Parcours;
   rdfs:label "Hole 18";
   imgolf:nummer 18;
-  imgolf:par 0;
+  imgolf:par 5;
 .
-
