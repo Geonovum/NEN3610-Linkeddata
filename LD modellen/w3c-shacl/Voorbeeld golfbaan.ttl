@@ -5,6 +5,7 @@
 
 @prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
 @prefix concept: <http://linkeddata.ordina.nl/nen3610/imgolf/id/concept/>.
+@prefix schema: <http://definities.geostandaarden.nl/nen3610/id/conceptscheme/>.
 
 @prefix golfbaan: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/golfbaan/>.
 @prefix parcours: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/parcours/>.
