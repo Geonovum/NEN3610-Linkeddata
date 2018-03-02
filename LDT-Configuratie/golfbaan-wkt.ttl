@@ -1,0 +1,22 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
+
+stage:GolfbaanWkt a elmo:Representation;
+  elmo:url-pattern "/query/golfbaan/wkt.csv$";
+  elmo:contains stage:Menu;
+  elmo:query '''
+    prefix container: <http://localhost:8080/nen3610/container/>
+    prefix ogc: <http://www.opengis.net/ont/geosparql#>
+    select ?feature ?wkt
+    where {
+      graph container:golfbaan {
+        ?ftr rdfs:label ?feature.
+        ?ftr ogc:hasGeometry ?geo.
+        ?geo ogc:asWKT ?wkt.
+      }
+    }
+  '''
+.

@@ -45,6 +45,7 @@ stage:Metamodel a elmo:Representation;
 
 stage:IMGolf a elmo:Representation;
 	elmo:url-pattern "/query/imgolf$";
+  elmo:url-pattern "^http://linkeddata.ordina.nl/nen3610/def/imgolf";
 	elmo:index "1";
 	elmo:contains stage:Menu;
 	elmo:appearance elmo:VocabularyAppearance;
