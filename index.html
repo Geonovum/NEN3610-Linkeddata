@@ -119,7 +119,7 @@
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
     <p>Een primary key in een tabel in een relationele database identificeert een rij met data. In een triple identificeert de waarde van een subject alleen het subject zelf, en niet de triple. De primary key van een triple is de combinatie van subject, predicate en object. De triples (of beweringen) zelf hebben geen unieke sleutel[ Behalve door reificatie]. Het is dan ook belangrijk om heel secuur te zijn wat de subject van een bewering precies is.</p>
     <p>Daarbij gaat Linked data uit van een open wereld van informatie. In deze open wereld mag iedereen beweringen doen over alles [TODO REF]. Deze uitgangspunten hebben verregaande consequenties die informatiemodelleren voor linked data anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden.</p>
-	
+
 	<p class='issue' title='relatie met nen 3610 informatiemodel'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
     <section id='basisprincipes-identificatie'>
       <h3>Identificatie</h3>
@@ -273,19 +273,103 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
 
 
 
-  <section id='Transformatie: basisregels - encoding'>
-    <h2>Transformatie: basisregels - encoding</h2>
-	
-	   <section id='inleiding'>
-	<h3>Inleiding</h3> 
-    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p></section>
-		   <section id='basisregels'>
-	<h3>Basisregels voor transformatie</h3>
-	<p>algemene overwegingen, best practices, zie ook hfst 4</p></section>
-	<section id='standaardregels'>
-		<h3>Standaard transformatieregels</h3>
-	<p>transformatie regels van nen 3610 source element naar linked data target element</p>
-	  </section>
+<section id='Transformatie: basisregels - encoding'>
+  <h2>Transformatie: basisregels - encoding</h2>
+
+  <section id='inleiding'>
+    <h3>Inleiding</h3>
+    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p>
+  </section>
+  <section id='basisregels'>
+    <h3>Basisregels voor transformatie</h3>
+    <p>algemene overwegingen, best practices, zie ook hfst 4</p>
+  </section>
+  <section id='standaardregels'>
+    <h3>Standaard transformatieregels</h3>
+    <p>transformatie regels van nen 3610 source element naar linked data target element</p>
+    <section id='regels-klassen'>
+      <h4>Klassen</h4>
+      <section id='regels-klassen-featureType'>
+        <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
+          Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
+        </p>
+        <pre class='ex-turtle'>
+ex:Golfbaan a owl:Class ;
+  rdfs:subClassOf nen3610:FunctioneelGebied ;
+.
+
+nen3610:FunctioneelGebied rdfs:subClassOf nen3610:GeoObject .
+nen3610:GeoObject rdfs:subClassOf ogc:Feature .
+        </pre>
+        <p><b>vergelijking met andere best practices</b><br>
+          TODO
+        </p>
+      </section>
+      <section id='regels-klassen-dataType'>
+        <h5>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</h5>
+        <p>
+          Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
+        </p>
+        <p>
+          Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
+          Een voorbeeld van een datatype is het NEN3610ID datatype.
+          <figure>
+            <img src="media/nen3610-dataType.png" height="130">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+          Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
+        </p>
+        <pre class='ex-turtle'>
+nen3610:Identificatie a owl:Class;
+.
+nen3610:namespace a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+nen3610:lokaalID a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+nen3610:versie a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+        </pre>
+        <p>
+        </p>
+        <p>
+          Neem bijvoorbeeld dit datatype uit IMRO2012.
+          <figure>
+            <img src="media/imro-dataType.png" height="130">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+          Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes van linked data (TODO link naar principe) is dat we dingen specifiek modelleren, zodat anderen er gebruik van kunnen maken.
+          In dit geval is sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
+        </p>
+        <pre class='ex-turtle'>
+ex:specifiekeRol a owl:ObjectProperty ;
+  rdfs:subPropertyOf ex:planrelatie ; # Optioneel
+  rdfs:range ex:Plan ;
+.
+
+ex:Plan a owl:Class .
+        </pre>
+        <p>
+          Hiermee hebben we het model opener en linkbaarder gemaakt. Stel dat er ergens meer informatie bestaat over het plan met die identiteit, dan kan er met dit model nu een link gelegd worden naar de instantie van dat plan.
+        </p>
+        <p>
+          TODO: datatype klasse bevat attribuut die metadata op de relatie uitdrukt
+          <figure>
+            <img src="media/imro-dataType2.png" height="230">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+        </p>
+      </section>
+    </section>
+    <section id='regels-attributen'>
+      <h4>Attributen</h4>
+    </section>
+  </section>
 </section>
 
 
