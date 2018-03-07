@@ -258,14 +258,52 @@
   </section>
   <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
-	  <p class='issue' title='informatie over drie stijlen toevoegen'>We hebben de drie stijlen COINS, ORO en LDT. Zijn dat drie metamodellen? Of informatie bovenop dit metamodel?</p>
-    <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
 
-
-    <figure>
-      <img src="media/metamodel_linkeddata.png" heigh="569">
-      <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
-    <figure>
+    <section id="drie target stijlen">
+      <h3>Drie target stijlen</h3>
+      <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
+      <ul>
+        <li><a href="http://apps.gwsw.nl/doc/GWSW.orox%20Beschrijving.pdf">GWSW.orox</a>: uitwisselingsprotocol voor het Gegevenswoordenboek Stedelijk Water</li>
+        <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
+        <li><a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a>: beschrijving op basis van de algemene W3c specificaties</li>
+      </ul>
+      <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (RDF bestanden) voor 1 source (een XML/GML bestand conform NEN3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie linked data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+    </section>
+    <section id="Meta-Object-Facility">
+      <h3>Meta-Object-Facility</h3>
+        <p class='issue' title='todo'>Dit stukje is nog te technisch en moeilijk te doorgronden</p>
+      <p>De OMG heeft een vier-lagen architectuur voorgesteld om verschillende modellen met elkaar te vergelijken. Wij zullen dit ook gebruiken om de verschillende source en target modellen met elkaar te vergelijken</p>
+      <p>Voor de vergelijking maken we gebruik van een voorbeeld: de concrete informatie met betrekking tot de golfbaan van de Koninklijke Haagse Golf &amp; Countryclub.</p>
+      <p>Van deze informatie hebben we vier verschijningsvormen:</p>
+      <ul>
+        <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de GML representatie conform NEN3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i></li>
+        <li><i>Voorbeeld golfbaan.ttl</i> betreft een algemene W3c representatie conform SHACL/OWL/RDFS zoals gemodelleerd in <i>IM Golf.ttl</i></li>
+        <li><i>data-imgolf.ttl</i> betreft een COINS uitwisselingsbestand zoals gemodelleerd in <i>IMGolf-coins.ttl</i></li>
+        <li><i>IMGolf_Voorbeeld_Golfbaan.ttl</i> betreft een GWSW uitwisselingsbestand zoals gemodelleerd in <i>IMGolf.orox.ttl</i></li>
+       </ul>
+       <img src="media/mof.png"/>
+       <p>In bovenstaand figuur zijn de vier lagen van MOF duidelijk zichtbaar:</p>
+       <ul>
+        <li>M0 betreft de laag met concrete data: dus in ons voorbeeld data over de Koninklijke Haagse Golf &amp; Countryclub</li>
+        <li>M1 betreft de laag met het model van de data. In ons voorbeeld zijn dit de vier gebruikte modellen</li>
+        <li>M2 betreft de laag met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
+        <li>M3 betreft de laag met het metametamodel. Het is verstandig om hiervoor slechts 1 te hanteren, zodat het makkelijker wordt om de metamodellen met elkaar te vergelijken</li>
+       </ul>
+       <p>Het bijzonder van Linked Data is het feit dat zowel op elke laag in de architectuur (M0, M1, M2 en M3) steeds weer sprake is van een Linked Data model. Het is hierdoor mogelijk om vanuit een laag, het model te genereren voor de laag daarboven, dus:</p>
+       <ul>
+        <li>Vanuit M0 het model te genereren dat een correcte beschrijving geeft van de structuur van de data</li>
+        <li>Vanuit M1 het metamodel te genereren dat een correcte beschrijving geeft van de structuur van het model</li>
+        <li>Vanuit M2 het metametamodel te genereren dat een correcte beschrijving geeft van de structuur van het metamodel</li>
+       <ul>
+       <p>We hebben daarbij gekozen om een generator te realiseren die een model maakt op basis van SHACL/OWL/RDFS, dwz: ook van de COINS en GWSW data kunnen we een SHACL/OWL/RDFS model maken.</p>
+     </section>
+      <section>
+        <h3>Metamodel SHACL/OWL/RDFS</h3>
+       
+      <figure>
+        <img src="media/metamodel_linkeddata.png" heigh="569">
+        <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
+      <figure>
 
     <p>Toelichting op metamodel NEN 3610 voor Linked Data</p>
 
@@ -338,7 +376,7 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
 
   </section>
 
-
+</section>
 
 <section id='Transformatie: basisregels - encoding'>
   <h2>Transformatie: basisregels - encoding</h2>
