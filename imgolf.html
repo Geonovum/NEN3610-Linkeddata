@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel='shortcut icon' type='image/x-icon' href='https://tools.geostandaarden.nl/respec/media/logos/Geonovum.ico' />
+  <link rel="stylesheet" type="text/css" href="localstyle.css" />
+  <title>IMGolf voorbeeld</title>
+  <script class="remove" src="config.js"></script>
+  <script class='remove' src='https://tools.geostandaarden.nl/respec/builds/respec-geonovum.js'></script>
+</head>
+
+<body>
+  <section id='abstract'>
+    <h2>Samenvatting</h2>
+    <p>Samenvatting van het document.</p>
+  </section>
+  <section id='sotd'>
+    <p>Status van dit document.</p>
+  </section>
+  <section id='inleiding'>
+    <h2>Inleiding</h2>
+    <p>Het IMGolf model betreft een voorbeeldmodel waarmee uitgelegd wordt hoe NEN3610 in elkaar zit. Het oorspronkelijke voorbeeld model was een UML model. Voor de Linked Data toets is dit voorbeeld uitgewerkt in drie stijlen:
+    <ul>
+      <li>COINS: Een IMGolf model conform de COINS uitwisselingsstandaard. Hierbij is de NEN3610 Object-Type-Library (OTL) van COINS gebruikt.</li>
+      <li>GWSW-OROX: Een IMGolf model conform de GWSW-OROX uitwisselingsstandaard (in RDF/OWL conform de Gellish werkwijze)</li>
+      <li>W3c RDF/OWL/SHACL: Een Linked Data voorbeeldbestand conform de W3c RDF, OWL en SHACL vocabulaires, zonder aanvullende afspraken</li>
+    </ul>
+    <p>De Koninklijkse Haagse Country &amp; Golfclub golfbaan is vervolgens als voorbeeld data opgepakt. Deze voorbeeld data is in vier formaten beschikbaar:</p>
+    <ul>
+      <li>GML, Een XML voorbeeldbestand conform het XSD dat hoort bij het UML IMGolf informatiemodel</li>
+      <li>COINS: Een Linked Data voorbeeldbestand conform de COINS uitwisselingsstandaard</li>
+      <li>GWSW-OROX: Een Linked Data voorbeeldbestand conform de GWSW-OROX uitwisselingsstandaard</li>
+      <li>W3c RDF/OWL: Een Linked Data voorbeeldbestand conform de W3c RDF en OWL vocabulaires, zonder aanvullende afspraken</li>
+    </ul>
+    <p>Door deze opzet, kunnen we een goed beeld krijgen wat de verschillen op data-niveau zijn als je deze verschillende stijlen toepast.</p>
+    <p>Het vergelijken van deze stijlen is pas goed mogelijk als je de verschillende modellen van de data naast elkaar kunt houden. Dat is lastig, omdat deze vanzelfsprekend van elkaar verschillen: ze kennen een eigen metamodel (respectievelijk dat van UML, COINS, GWSW-OROX en W3c)</p>
+    <p>Wel is het mogelijk vanuit de data, in het geval van de Linked Data situatie, voor elk van de stijlen een model te genereren. Hierdoor zijn de verschillen goed zichtbaar</p>
+    <p>Ook geldt dat de drie metamodellen van COINS, GWSW en OROX gegenereerd kunnen worden uit de drie IMGolf modellen. Zo kunnen we ook op metaniveau een vergelijking doen.</p>
+    <p>Deze aanpak is hieronder uitgewerkt</p>
+  </section>
+  <section id="imgolf-modellen">
+    <h2>De IMGolf modellen</h2>
+    <p>Deze sectie beschrijft de vier IMGolf modellen</p>
+    <section id="imgolf-uml">
+      <h3>IMGolf UML</h3>
+      <p>Hieronder is het originele UML IMGolf model afgebeeld</p>
+      <img src="UML modellen/IMGolf.png"/>
+    </section>
+    <section id="imgolf-w3c">
+      <h3>IMGolf W3c</h3>
+      <p>Hieronder is het IMGolf model afgebeeld conform W3c RDF/OWL/SHACL</p>
+      <img src="LD modellen/visualisaties/imgolf.png"/>
+    </section>
+    <section id="imgolf-coins">
+      <h3>IMGolf COINS</h3>
+      <p>Hieronder is het IMGolf model afgebeeld conform W3c COINS</p>
+      <p class='issue' title='Modelweergave nog niet beschikbaar'/>
+    </section>
+    <section id="imgolf-gwsw">
+      <h3>IMGolf GWSW-OROX</h3>
+      <p>Hieronder is het IMGolf model afgebeeld conform W3c GWSW-OROX</p>
+      <p class='issue' title='Modelweergave nog niet beschikbaar'/>
+    </section>
+  </section>
+  <section id="imgolf-generatie">
+    <h2>IMGolf gegenereerd</h2>
+    <p>Op basis van de concrete data van 1 golfbaan kan een model gegenereerd worden, zodat het makkelijker wordt om de verschillende stijlen met elkaar te vergelijken</p>
+    <section id="generatie-opzet">
+      <h3>Generatie opzet</h3>
+      <p>Bij de generatie wordt het originele databestand opgepakt, en vervolgens wordt een model gegenereerd door de volgende stappen uit te voeren:</p>
+      <ol>
+        <li>Indien de data een subclassificatie bevat, dan wordt deze overgenomen in het model en wordt de superklasse ook in het model gezet.</li>
+        <li>Klassen (<code>owl:Class</code>) worden aangemaakt voor elk unieke object op de positie <code>?subject rdf:type ?object</code></li>
+        <li>Eigenschappen worden aangemaakt voor elk unieke predicate op de positie <code>?subject ?predicate ?object</code></li>
+          <ul>
+            <li>Een eigenschap <code>owl:ObjectProperty</code> wordt aangemaakt indien het ?object een resource is (IRI en/of Blank node)</li>
+            <li>Een eigenschap <code>owl:DatatypeProperty</code> wordt aangemaakt indien het ?object een literal is</li>
+          </ul>
+        <li>Een <code>rdfs:label</code> element wordt toegevoegd indien deze nog niet aanwezig was (afgeleid uit de URI van een klasse of eigenschap: het deel na de '#' of na de laatste '/')</li>
+        <li>Een nodeshape (<code>sh:NodeShape</code>) wordt aangemaakt voor elke gevonden klasse</li>
+        <li>Een datatype propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden datatype-eigenschap <i>per klasse</i>
+          <ul>
+            <li>Het datatype wordt afgeleid uit het datatype van het ?object. Dit kunnen (dus) meerdere datatypes zijn</li>
+          </ul>
+        </li>
+        <li>Een class propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse</i>
+          <ul>
+            <li>Dit geldt alleen indien het ?object een IRI is (dus geen blank node)</li>
+            <li>De class wordt afgeleid uit het type van het ?object (dwz: de triple ?object rdf:type ?type). Dit kunnen (dus) meerdere classes zijn, en het is ook mogelijk dat er geen class is</li>
+            <li>Een class propertyshape kun je zien als een relatie tussen twee klassen</li>
+          </ul>
+        </li>
+        <li>Een blank node propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse</i>
+          <ul>
+            <li>Dit geldt alleen indien het ?object een Blank node is</li>
+            <li>De class wordt afgeleid uit het type van het ?object (dwz: de triple ?object rdf:type ?type). Dit kunnen (dus) meerdere classes zijn, en het is ook mogelijk dat er geen class is</li>
+            <li>Een blank node propertyshape kun je zien als een complexe eigenschap bij een klasse</li>
+          </ul>
+        </li>
+      </ol>
+      <p>Bovenstaande zou nog verder uitgebreid kunnen worden. Te denken valt bijvoorbeeld aan:</p>
+      <ul>
+        <li>Achterhalen van minimale cardinaliteit (bv: "1" indien in de data een eigenschap ALTIJD voorkomt)</li>
+        <li>Achterhalen van maximale cardinaliteit (bv: "1" indien in de data een eigenschap NOOIT MEER DAN 1x voorkomt, of "2 indien in de data een eigenschap ALTIJD 2 KEER voorkomt)</li>
+        <li>Specialisaties achterhalen (bv: indien bepaalde eigenschappen in meerdere klassen voorkomen, dan kun je een superklasse veronderstellen met de gedeelde eigenschappen)</li>
+      </ul>
+      <p>Vanzelfsprekend kan alleen maar die dingen gegenereerd worden die ook in de brondata zitten. Uitleg of afwijkende namen zijn niet mogelijk, en ook kunnen cardinaliteiten of subklassificaties niet met zekerheid worden afgeleid.</p>
+      <p>Hoewel we voor de generatie uitgaan van het W3c RDF/OWL/SHACL metamodel, zul je zien dat het gegenereerde IMGolf model toch zal afwijken van het met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
+      <p>Ook is het niet mogelijk om deze aanpak te gebruiken voor de UML/GML data, aangezien dit geen Linked Data is en dus niet generiek in te lezen is (hier zou dus eerst een basale vertaling van GML naar Linked Data gemaakt moeten worden.</p>
+      <p class='issue' title='XSL maken voor GML omzetting naar Linked Data'>Een dergelijke omzetting zou een mooi beginpunt kunnen zijn van een generieke aanpak</p>
+    </section>
+    <section id="gen-coins">
+      <h3>Gegenereerd COINS model</h3>
+      <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het COINS voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
+      <img src="LD modellen/visualisaties/golfbaan-coins-model.png"/>
+    </section>
+    <section id="gen-coins">
+      <h3>Gegenereerd GWSW-OROX model</h3>
+      <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het GWSW-OROX voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
+      <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png"/>
+    </section>
+    <section id="gen-coins">
+      <h3>Gegenereerd W3c model</h3>
+      <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het W3c RDF/OWL voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
+      <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png"/>
+    </section>
+  </section>
+
+</body>
+
+</html>
