@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- comment: Paul J: created with shapechangeBRT  -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:imgolf="http://www.geonovum.nl/imgolf" targetNamespace="http://www.geonovum.nl/imgolf" elementFormDefault="qualified">
+	<annotation>
+		<documentation>Dit mini informatiemodel beschrijft hoe een golfbaan gemodelleerd kan worden.</documentation>
+	</annotation>
+	<!-- <import namespace="FIXME"/> -->
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<element name="FeatureCollectionIMGolf" type="imgolf:FeatureCollectionIMGolfType" substitutionGroup="gml:AbstractFeature"/>
+	<complexType name="FeatureCollectionIMGolfType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence minOccurs="0" maxOccurs="unbounded">
+					<element name="featureMember">
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<sequence>
+										<element ref="gml:AbstractFeature"/>
+									</sequence>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- =========================================================== -->
+	<!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+	<element name="NEN3610ID" type="imgolf:NEN3610IDType" substitutionGroup="gml:AbstractObject"/>
+	<!-- met de hand er bij gezet. Waarom niet automatisch uit XSD generatie? -->
+	<complexType name="NEN3610IDType">
+		<sequence>
+			<element name="namespace" type="string"/>
+			<element name="lokaalID" type="string"/>
+			<element name="versie" type="string" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<complexType name="NEN3610IDPropertyType">
+		<sequence>
+			<element ref="imgolf:NEN3610ID"/>
+		</sequence>
+	</complexType>
+	<simpleType name="GebruiksstatusValueType">
+		<annotation>
+			<documentation>Status van het gebruik van het object.
+NOTE Externe waardelijst te vinden op url bij source.
+-- Source --
+https://brt.basisregistraties.overheid.nl/top10nl/doc/collectie/Status</documentation>
+		</annotation>
+		<union memberTypes="imgolf:GebruiksstatusValueEnumerationType imgolf:GebruiksstatusValueOtherType"/>
+	</simpleType>
+	<simpleType name="GebruiksstatusValueEnumerationType">
+		<annotation>
+			<documentation>Status van het gebruik van het object.
+NOTE Externe waardelijst te vinden op url bij source.
+-- Source --
+https://brt.basisregistraties.overheid.nl/top10nl/doc/collectie/Status</documentation>
+		</annotation>
+		<restriction base="string"/>
+	</simpleType>
+	<simpleType name="GebruiksstatusValueOtherType">
+		<restriction base="string">
+			<pattern value="other: \w{2,}"/>
+		</restriction>
+	</simpleType>
+	<element name="Golfbaan" type="imgolf:GolfbaanType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>Een golfbaan is een perceel waarop de sport golf wordt gespeeld.
+NOTE De baan bestaat uit een reeks holes.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan</documentation>
+		</annotation>
+	</element>
+	<!-- <element name="Goflbaan" type="imgolf:GolfbaanType" substitutionGroup="gml:AbstractFeature"/> -->
+	<complexType name="GolfbaanType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="geometry" type="gml:MultiSurfacePropertyType">
+						<annotation>
+							<documentation>Vlakgeometrie van het totale golfterrein.
+NOTE Omvat alle parcoursen (holes) op de golfbaan maar ook de kantine, het parkeerterrein, de oefengreen en de drivingrange. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="naam" type="string">
+						<annotation>
+							<documentation>De benaming van de golfbaan.
+NOTE De naam wordt weergegeven in de lijst van alle golfbanen van nederland. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="typeGolfbaan" type="imgolf:TypeGolfbaanValueType">
+						<annotation>
+							<documentation>Het soort golfbaan, ingedeeld naar het type terrein waar zij zich bevindt.
+NOTE De indeling is in de loop der tijd ontstaan doordat een golfbaan anders speelt, afhankelijk van de locatie. Een linksbaan bijvoorbeeld bevindt zich vlakbij de kust waardoor de wind een grotere factor is. 
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan</documentation>
+						</annotation>
+					</element>
+					<element name="toegang" type="imgolf:ToegangGolfbaanPropertyType">
+						<annotation>
+							<documentation>Informatie over de toegang tot de golfbaan.
+NOTE De informatie bestaat uit meerdere onderdelen. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="natuurwaarde" type="imgolf:NatuurwaardeValueType">
+						<annotation>
+							<documentation>De natuurwaarde van een gebied is de waarde die aan een bepaald gebied wordt toegekend, gezien vanuit het perspectief van natuurbescherming.
+-- Source --
+https://nl.wikipedia.org/wiki/Natuurwaarde</documentation>
+						</annotation>
+					</element>
+					<element name="gebruiksstatus" type="imgolf:GebruiksstatusValueType">
+						<annotation>
+							<documentation>Status van exploitatie van de golfbaan.
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="hole" type="imgolf:ParcoursPropertyType" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Een van de parcoursen op het golfterrein.
+NOTE Een parcours, meestal Hole genoemd, is een terrein met verschillende onderdelen zoals het afslagpunt, de fairway, de green en de hole. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+		<!--	<element name="GeoObject" type="imwe:GeoObjectType" abstract="true" substitutionGroup="gml:AbstractFeature"/> -->
+	</complexType>
+	<complexType name="GolfbaanPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:Golfbaan"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Hindernis" type="imgolf:HindernisType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>Een obstakel op het parcours in de vorm van een zand- of waterpartij.
+NOTE Om een bal uit een bunker te slaan wordt vaak een speciale club gebruik; als een bal in het water terecht komt ben je verder van huis. 
+-- Source --
+IMGolf.</documentation>
+		</annotation>
+	</element>
+	<complexType name="HindernisType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+												<element name="naam" type="string" minOccurs="0">
+				</element>
+					<element name="geometrie" type="gml:SurfacePropertyType">
+						<annotation>
+							<documentation>Vlakgeometrie
+NOTE De coordinaten van het vlak waar het obstakel zich bevindt.
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="typeHindernis" type="imgolf:TypeHindernisValueType">
+						<annotation>
+							<documentation>Het soort hindernis.
+NOTE Dit is altijd een zandbunker of een waterpartij. Ook bomen en incidentele waterplassen kunnen een hindernis zijn, maar deze zijn niet gemodelleerd. Bomen worden wellicht in de 2.0 versie opgenomen.
+-- Source --
+IMGolf.</documentation>
+						</annotation>
+					</element>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="HindernisPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:Hindernis"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Hole" type="imgolf:HoleType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>Met een vlag gemarkeerd punt waarin de bal geslagen moet worden.
+NOTE De hole wordt regelmatig van plek veranderd, omdat de green dan niet onregelmatig slijt. 
+-- Source --
+IMGolf.</documentation>
+		</annotation>
+	</element>
+	<complexType name="HoleType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="geometrie" type="gml:PointPropertyType">
+						<annotation>
+							<documentation>Puntgeometrie
+NOTE Wijzigt regelmatig. De nieuwe Hole lokaties worden verspreid onder de leden en deelnemers aan wedstrijden.
+-- Source --</documentation>
+						</annotation>
+					</element>
+					<element name="beginGeldigheid" type="dateTime">
+						<annotation>
+							<documentation>Start van het tijdstip waarop de hole op deze locatie ligt
+NOTE Dit attribuut implementeert materiele historie volgens NEN3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="eindGeldigheid" type="dateTime" minOccurs="0">
+						<annotation>
+							<documentation>Eind van het tijdstip waarop de hole op deze locatie ligt. Wanneer dit de huidige locatie is heeft dit attribuut geen waarde
+NOTE Dit attribuut implementeert materiele historie volgens NEN3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="HolePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:Hole"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<simpleType name="NatuurwaardeValueType">
+		<annotation>
+			<documentation>Classificatie van het natuurlijk karakter van de golfbaan.
+-- Source --
+IMGolf</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="hoog"/>
+			<enumeration value="laag"/>
+			<enumeration value="geen"/>
+		</restriction>
+	</simpleType>
+	<element name="Parcours" type="imgolf:ParcoursType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>Een van de speelvelden van een golfbaan.
+NOTE Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen.
+Ieder parcours bestaat in de regel uit de volgende onderdelen: Tee-box, Green, Hole, Fairway, Rough, Fringe / Apron, Hindernissen.
+-- Source --
+http://nl.wikipedia.org/wiki/Hole_%28golf%29</documentation>
+		</annotation>
+	</element>
+	<complexType name="ParcoursType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="geometry" type="gml:MultiSurfacePropertyType">
+						<annotation>
+							<documentation>Multi-vlak geometrie
+NOTE Coordinaten van het vlak van het parcours. Het kan een multivlak zijn. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="par" type="integer">
+						<annotation>
+							<documentation>het aantal slagen waarin een gemiddelde professionele golfer een hole zou moeten kunnen spelen.
+NOTE Par staat voor Professional Average Result.
+-- Source --
+http://nl.wikipedia.org/wiki/Par_(golf)</documentation>
+						</annotation>
+					</element>
+					<element name="nummer" type="integer">
+						<annotation>
+							<documentation>De getalaanduiding voor het parcours.
+NOTE Meestal heeft een golfbaan 18 'holes' of parcoursen. De eerste heeft als waarde van dit attribuut 1, de laatste 18. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="afslagBeginners" type="imgolf:TeePropertyType">
+						<annotation>
+							<documentation>De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</documentation>
+						</annotation>
+					</element>
+					<element name="parcoursDeel" type="imgolf:ParcoursDeelPropertyType" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Een deelterrein van het parcours.</documentation>
+						</annotation>
+					</element>
+					<element name="hindernis" type="imgolf:HindernisPropertyType" minOccurs="0">
+						<annotation>
+							<documentation>Een obstakel tussen de tee en de hole in een parcours.</documentation>
+						</annotation>
+					</element>
+					<element name="afslagGevorderden" type="imgolf:TeePropertyType">
+						<annotation>
+							<documentation>De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ParcoursPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:Parcours"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="ParcoursDeel" type="imgolf:ParcoursDeelType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>Deel van het terrein van de hole (parcours).
+NOTE Elk parcours heeft verschillende onderdelen zoals de green, de fairway, de semi-rough en de rough.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan#Onderdelen_van_een_golfbaan</documentation>
+		</annotation>
+	</element>
+	<complexType name="ParcoursDeelType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+				<element name="naam" type="string" minOccurs="0">
+				</element>
+					<element name="geometry" type="gml:SurfacePropertyType">
+						<annotation>
+							<documentation>Vlakgeometrie.
+NOTE Voor elk onderdeel van een parcours worden hier de coordinaten van het vlak opgenomen. Als bijvoorbeeld de fairway in twee stukken wordt verdeeld door een waterpartij, worden dit twee aparte parcoursdelen met ieder een vlak. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="TypeParcoursDeel" type="imgolf:TypeParcoursDeelValueType">
+						<annotation>
+							<documentation>Het soort parcoursdeel.
+NOTE Een parcours kan worden verdeeld in een aantal onderdelen, zoals fairway of green. 
+-- Source --
+IMGolf</documentation>
+						</annotation>
+					</element>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+					<element name="hole" type="imgolf:HolePropertyType">
+						<annotation>
+							<documentation>Het punt (gat), gemarkeerd door een vlag, waar de bal in geslagen moet worden.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="ParcoursDeelPropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:ParcoursDeel"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="Tee" type="imgolf:TeeType" substitutionGroup="gml:AbstractFeature">
+		<annotation>
+			<documentation>De afslagplaats aan het begin van een hole.
+NOTE Ook wel tee-box genoemd.
+-- Source --
+http://nl.wikipedia.org/wiki/Tee_(golf)</documentation>
+		</annotation>
+	</element>
+	<complexType name="TeeType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence>
+								<element name="naam" type="string" minOccurs="0">
+				</element>
+					<element name="geometry" type="gml:SurfacePropertyType">
+						<annotation>
+							<documentation>Vlakgeometrie
+NOTE De exacte plaats op de tee waar men moet beginnen wordt aangegeven door een tee-marker, waarvan er meerdere kunnen zijn. Meestal zijn er aparte tee-markers voor dames en heren om te compenseren voor het verschil in kracht. In dit model wordt alleen het vlak opgenomen, waarbinnen alle tee-markers zich bevinden.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan</documentation>
+						</annotation>
+					</element>
+					<element name="identificatie" type="imgolf:NEN3610IDPropertyType">
+						<annotation>
+							<documentation>identificatie: Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<complexType name="TeePropertyType">
+		<sequence minOccurs="0">
+			<element ref="imgolf:Tee"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</complexType>
+	<element name="ToegangGolfbaan" type="imgolf:ToegangGolfbaanType" substitutionGroup="gml:AbstractObject">
+		<annotation>
+			<documentation>Informatie over de toegang tot de golfbaan.
+NOTE Bestaat uit verschillende onderdelen. Later worden misschien nog de openingstijden toegevoegd.
+-- Source --
+IMGolf</documentation>
+		</annotation>
+	</element>
+	<complexType name="ToegangGolfbaanType">
+		<sequence>
+			<element name="toegang" type="imgolf:ToegankelijkheidValueType">
+				<annotation>
+					<documentation>Geeft aan of de golfbaan of de golfbaan openbaar of alleen voor leden is.
+NOTE Als de golfbaan niet alleen voor leden is, is ze dus openbaar en mag iedere golfer er komen spelen.
+-- Source --
+IMGolf</documentation>
+				</annotation>
+			</element>
+			<element name="vereisten" type="string" minOccurs="0">
+				<annotation>
+					<documentation>Harde vereisten voor toegang tot de golfbaan.
+NOTE Hier kan bijvoorbeeld worden opgenomen dat er toegangsvereisten zijn zoals het hebben van een baanpermissie of GVB.
+-- Source --
+IMGolf</documentation>
+				</annotation>
+			</element>
+			<element name="etiquette" type="string" minOccurs="0">
+				<annotation>
+					<documentation>Beschrijving van de niet-harde regels op de golfbaan.
+NOTE Dit zijn de regels waaraan men zich formeel niet hoeft te houden, maar er wordt wel zeer de prijs op gesteld als je het doet. Hier kan bijvoorbeeld de kledingetiquette worden beschreven. 
+-- Source --
+IMGolf</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+	<complexType name="ToegangGolfbaanPropertyType">
+		<sequence>
+			<element ref="imgolf:ToegangGolfbaan"/>
+		</sequence>
+	</complexType>
+	<simpleType name="ToegankelijkheidValueType">
+		<annotation>
+			<documentation>De toegankelijkheid van een locatie of evenement heeft betrekking op het er mogen en kunnen zijn.
+-- Source --
+https://nl.wikipedia.org/wiki/Toegankelijkheid</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="openbaar">
+				<annotation>
+					<documentation>Toegankelijk voor iedereen.
+-- Source --
+IMGolf</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="besloten">
+				<annotation>
+					<documentation>Alleen toegankelijk voor leden.
+-- Source --
+IMGolf</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeGolfbaanValueType">
+		<annotation>
+			<documentation>Het soort golfbaan.
+NOTE Indeling naar terreintype.
+-- Source --
+IMGolf</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="linksbaan">
+				<annotation>
+					<documentation>Bevindt zich in het gebied vlak langs de kustlijn en kenmerkt zich door het feit dat ze open is (weinig bomen) en relatief hoge rough heeft. Ook zijn de greens en fairways doorgaans vrij hard.
+-- Source --
+Wikipedia</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bosbaan">
+				<annotation>
+					<documentation>Bevindt zich doorgaans in bosrijke gebieden.
+-- Source --
+Wikipedia</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="parkbaan">
+				<annotation>
+					<documentation>Bevindt zich niet in een bosrijk gebied of aan de kust.</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeHindernisValueType">
+		<annotation>
+			<documentation>Het soort obstakel.
+NOTE Een waterpartij of zandbunker.
+-- Source --
+IMGolf</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="waterpartij">
+				<annotation>
+					<documentation>Een met water gevulde hindernis op een golfbaan.</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bunker">
+				<annotation>
+					<documentation>Een met zand gevulde hindernis op een golfbaan.</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="TypeParcoursDeelValueType">
+		<annotation>
+			<documentation>Het soort parcoursdeel.
+NOTE Een fairway, green, rough, of semi-rough.
+-- Source --
+IMGolf</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="fairway">
+				<annotation>
+					<documentation>Tussen de green en de tee-box gelegen terrein waar het gras wat korter is dan in het eromheen gelegen terrein.</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="green">
+				<annotation>
+					<documentation>Het laatste deel van het parcours, waar het gras zeer kort wordt gemaaid.</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="rough">
+				<annotation>
+					<documentation>Onderdeel van een Hole bestaande uit het niet speciaal geprepareerd terrein.</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="semi-rough">
+				<annotation>
+					<documentation>Het minder kort geschoren gras naast de fairway.
+-- Source --
+Wikipedia</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+</schema>

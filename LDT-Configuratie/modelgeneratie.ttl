@@ -30,8 +30,8 @@ localupdatestage:container2model a elmo:Production;
 	elmo:contains stage:ShapeProduction_scene11;
 	elmo:contains stage:ShapeProduction_scene12;
 	elmo:contains stage:ShapeProduction_scene13;
-	elmo:contains stage:ShapeProduction_scene14;
-	elmo:contains stage:ShapeProduction_scene15;
+	elmo:contains stage:ShapeProduction_scene98;
+	elmo:contains stage:ShapeProduction_scene99;
 .
 
 localupdatestage:data2model a elmo:Production;
@@ -52,8 +52,8 @@ localupdatestage:data2model a elmo:Production;
 	elmo:contains stage:ShapeProduction_scene11;
 	elmo:contains stage:ShapeProduction_scene12;
 	elmo:contains stage:ShapeProduction_scene13;
-	elmo:contains stage:ShapeProduction_scene14;
-	elmo:contains stage:ShapeProduction_scene15;
+	elmo:contains stage:ShapeProduction_scene98;
+	elmo:contains stage:ShapeProduction_scene99;
 .
 
 localupdatestage:model2metamodel a elmo:Production;
@@ -74,8 +74,8 @@ localupdatestage:model2metamodel a elmo:Production;
 	elmo:contains stage:ShapeProduction_scene11;
 	elmo:contains stage:ShapeProduction_scene12;
 	elmo:contains stage:ShapeProduction_scene13;
-	elmo:contains stage:ShapeProduction_scene14;
-	elmo:contains stage:ShapeProduction_scene15;
+	elmo:contains stage:ShapeProduction_scene98;
+	elmo:contains stage:ShapeProduction_scene99;
 .
 
 stage:ShapeProduction_scene0 a elmo:Scene;
@@ -286,7 +286,10 @@ stage:ShapeProduction_scene10 a elmo:Scene;
     }
     where {
       graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
-        select distinct ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape) ?property (IRI(concat("urn:dtproperty:",md5(str(?property)))) as ?propertyshape) (datatype(?value) as ?datatype)
+        select distinct
+            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
+            ?property (IRI(concat("urn:dtproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
+            (datatype(?value) as ?datatype)
         where {
           ?item rdf:type ?class.
           ?item ?property ?value.
@@ -312,7 +315,7 @@ stage:ShapeProduction_scene11 a elmo:Scene;
       graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
         select distinct
             ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape) 
-            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            ?property (IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
             ?valueclass
         where {
           ?item rdf:type ?class.
@@ -342,7 +345,7 @@ stage:ShapeProduction_scene12 a elmo:Scene;
       graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
         select distinct
             ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
-            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            ?property (IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
             ?valueclass
         where {
           ?item rdf:type ?class.
@@ -358,47 +361,9 @@ stage:ShapeProduction_scene12 a elmo:Scene;
 .
 stage:ShapeProduction_scene13 a elmo:Scene;
 	elmo:index "13";
-	rdfs:label "Add names to NodeShapes";
-	elmo:query '''
-    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
-      ?nodeshape sh:name ?name
-    }
-    where {
-      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
-        select ?nodeshape (?classlabel as ?name)
-        where {
-          ?nodeshape sh:targetClass ?class.
-          ?class rdfs:label ?classlabel
-        }
-      }
-    }
-  ''';
-.
-stage:ShapeProduction_scene14 a elmo:Scene;
-	elmo:index "14";
-	rdfs:label "Add names to PropertyShapes";
-	elmo:query '''
-    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
-      ?propertyshape sh:name ?name
-    }
-    where {
-      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
-        select ?propertyshape (?propertylabel as ?name)
-        where {
-          ?propertyshape sh:path ?property.
-          ?property rdfs:label ?propertylabel
-        }
-      }
-    }
-  ''';
-.
-
-stage:ShapeProduction_scene15 a elmo:Scene;
-	elmo:index "15";
 	rdfs:label "Create Blank object nodes";
 	elmo:query '''
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
-      ?nodeshape sh:property ?propertyshape.
       ?propertyshape rdf:type sh:PropertyShape;
         sh:path ?property;
         sh:nodeKind sh:BlankNode;
@@ -415,8 +380,7 @@ stage:ShapeProduction_scene15 a elmo:Scene;
     where {
       graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
         select distinct
-            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
-            ?property (IRI(concat("urn:objproperty:",md5(str(?property)))) as ?propertyshape)
+            ?property (IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
             (IRI(concat("urn:propertynode:",md5(str(?class)),md5(str(?property)))) as ?propertynode)
             ("Shape" as ?propertynodename)
             ?valueproperty (IRI(concat("urn:valueproperty",md5(concat(str(?class),str(?property),str(?valueproperty))))) as ?propertynodeproperty)
@@ -428,6 +392,43 @@ stage:ShapeProduction_scene15 a elmo:Scene;
           FILTER NOT EXISTS {
             ?value rdf:type ?valueclass
           }
+        }
+      }
+    }
+  ''';
+.
+
+stage:ShapeProduction_scene98 a elmo:Scene;
+	elmo:index "98";
+	rdfs:label "Add names to NodeShapes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?nodeshape sh:name ?name
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?nodeshape (?classlabel as ?name)
+        where {
+          ?nodeshape sh:targetClass ?class.
+          ?class rdfs:label ?classlabel
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene99 a elmo:Scene;
+	elmo:index "99";
+	rdfs:label "Add names to PropertyShapes";
+	elmo:query '''
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?propertyshape sh:name ?name
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+        select ?propertyshape (?propertylabel as ?name)
+        where {
+          ?propertyshape sh:path ?property.
+          ?property rdfs:label ?propertylabel
         }
       }
     }

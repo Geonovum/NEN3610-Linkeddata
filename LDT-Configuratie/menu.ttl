@@ -40,6 +40,7 @@ stage:Menu a elmo:Part;
       rdfs:label "Golfbaan";
       elmo:data [elmo:index "1"; rdfs:label "Kaart"; html:link "query/golfbaan/kaart"];
       elmo:data [elmo:index "2"; rdfs:label "Parcoursdata"; html:link "query/golfbaan/parcoursdata"];
+      elmo:data [elmo:index "3"; rdfs:label "WKT data als CSV"; html:link "query/golfbaan/wkt.csv"];
     ];
     elmo:data [
       elmo:index "6";

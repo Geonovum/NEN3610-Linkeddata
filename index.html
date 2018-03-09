@@ -50,6 +50,73 @@
     <p>- ontologie (link naar of gegevens over de ontologie):</p>
     <p>- methode (hoe is de dataset tot standgekomen, afgeleid uit UML, specifieke opmerkingen):</p>
 
+    <p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>naam</b></td>
+            <td>Basisregistraties Adressen en Gebouwen</td>
+          </tr>
+          <tr>
+            <td><b>url</b></td>
+            <td><a href="https://bag.basisregistraties.overheid.nl">https://bag.basisregistraties.overheid.nl</a></td>
+          </tr>
+          <tr>
+            <td><b>ontologie</b></td>
+            <td><a href="http://bag.basisregistraties.overheid.nl/def/bag#">http://bag.basisregistraties.overheid.nl/def/bag#</a></td>
+          </tr>
+          <tr>
+            <td><b>methode</b></td>
+            <td>Afgeleid uit UML</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>naam</b></td>
+            <td>Basisregistratie topografie (TOP10NL)</td>
+          </tr>
+          <tr>
+            <td><b>url</b></td>
+            <td><a href="https://brt.basisregistraties.overheid.nl">https://brt.basisregistraties.overheid.nl</a></td>
+          </tr>
+          <tr>
+            <td><b>ontologie</b></td>
+            <td><a href="http://brt.basisregistraties.overheid.nl/def/top10nl#">http://brt.basisregistraties.overheid.nl/def/top10nl#</a></td>
+          </tr>
+          <tr>
+            <td><b>methode</b></td>
+            <td>Afgeleid uit UML</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>naam</b></td>
+            <td>Basisregistratie Kadaster (Digitale kadastrale kaart)</td>
+          </tr>
+          <tr>
+            <td><b>url</b></td>
+            <td><a href="https://brk.basisregistraties.overheid.nl">https://brk.basisregistraties.overheid.nl</a></td>
+          </tr>
+          <tr>
+            <td><b>ontologie</b></td>
+            <td><a href="http://brk.basisregistraties.overheid.nl/def/brk#">http://brk.basisregistraties.overheid.nl/def/brk#</a></td>
+          </tr>
+          <tr>
+            <td><b>methode</b></td>
+            <td>Afgeleid uit UML</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+
   </section>
   <section id='inventarisatie'>
     <h2>review beschikbare standaarden, handleidingen</h2>
@@ -119,7 +186,7 @@
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
     <p>Een primary key in een tabel in een relationele database identificeert een rij met data. In een triple identificeert de waarde van een subject alleen het subject zelf, en niet de triple. De primary key van een triple is de combinatie van subject, predicate en object. De triples (of beweringen) zelf hebben geen unieke sleutel[ Behalve door reificatie]. Het is dan ook belangrijk om heel secuur te zijn wat de subject van een bewering precies is.</p>
     <p>Daarbij gaat Linked data uit van een open wereld van informatie. In deze open wereld mag iedereen beweringen doen over alles [TODO REF]. Deze uitgangspunten hebben verregaande consequenties die informatiemodelleren voor linked data anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden.</p>
-	
+
 	<p class='issue' title='relatie met nen 3610 informatiemodel'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
     <section id='basisprincipes-identificatie'>
       <h3>Identificatie</h3>
@@ -191,14 +258,53 @@
   </section>
   <section id='Target: Metamodel Linked Data'>
     <h2>Target: Metamodel Linked Data</h2>
-	  <p class='issue' title='informatie over drie stijlen toevoegen'>We hebben de drie stijlen COINS, ORO en LDT. Zijn dat drie metamodellen? Of informatie bovenop dit metamodel?</p>
-    <p>Beschrijving van het metamodel achter linked data. Het target model in de transformatie.</p>
 
-
-    <figure>
-      <img src="media/metamodel_linkeddata.png" heigh="569">
-      <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
-    <figure>
+    <section id="drie target stijlen">
+      <h3>Drie target stijlen</h3>
+      <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
+      <ul>
+        <li><a href="http://apps.gwsw.nl/doc/GWSW.orox%20Beschrijving.pdf">GWSW.orox</a>: uitwisselingsprotocol voor het Gegevenswoordenboek Stedelijk Water</li>
+        <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
+        <li><a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a>: beschrijving op basis van de algemene W3c specificaties</li>
+      </ul>
+      <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (RDF bestanden) voor 1 source (een XML/GML bestand conform NEN3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie linked data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+    </section>
+    <section id="Meta-Object-Facility">
+      <h3>Meta-Object-Facility</h3>
+        <p class='issue' title='todo'>Dit stukje is nog te technisch en moeilijk te doorgronden</p>
+      <p>De OMG heeft een vier-lagen architectuur voorgesteld om verschillende modellen met elkaar te vergelijken. Wij zullen dit ook gebruiken om de verschillende source en target modellen met elkaar te vergelijken</p>
+      <p>Voor de vergelijking maken we gebruik van een voorbeeld: de concrete informatie met betrekking tot de golfbaan van de Koninklijke Haagse Golf &amp; Countryclub.</p>
+      <p>Van deze informatie hebben we vier verschijningsvormen:</p>
+      <ul>
+        <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de GML representatie conform NEN3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i></li>
+        <li><i>Voorbeeld golfbaan.ttl</i> betreft een algemene W3c representatie conform SHACL/OWL/RDFS zoals gemodelleerd in <i>IM Golf.ttl</i></li>
+        <li><i>data-imgolf.ttl</i> betreft een COINS uitwisselingsbestand zoals gemodelleerd in <i>IMGolf-coins.ttl</i></li>
+        <li><i>IMGolf_Voorbeeld_Golfbaan.ttl</i> betreft een GWSW uitwisselingsbestand zoals gemodelleerd in <i>IMGolf.orox.ttl</i></li>
+       </ul>
+       <img src="media/mof.png"/>
+       <p>In bovenstaand figuur zijn de vier lagen van MOF duidelijk zichtbaar:</p>
+       <ul>
+        <li>M0 betreft de laag met concrete data: dus in ons voorbeeld data over de Koninklijke Haagse Golf &amp; Countryclub</li>
+        <li>M1 betreft de laag met het model van de data. In ons voorbeeld zijn dit de vier gebruikte modellen</li>
+        <li>M2 betreft de laag met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
+        <li>M3 betreft de laag met het metametamodel. Het is verstandig om hiervoor slechts 1 te hanteren, zodat het makkelijker wordt om de metamodellen met elkaar te vergelijken</li>
+       </ul>
+       <p>Het bijzonder van Linked Data is het feit dat zowel op elke laag in de architectuur (M0, M1, M2 en M3) steeds weer sprake is van een Linked Data model. Het is hierdoor mogelijk om vanuit een laag, het model te genereren voor de laag daarboven, dus:</p>
+       <ul>
+        <li>Vanuit M0 het model te genereren dat een correcte beschrijving geeft van de structuur van de data</li>
+        <li>Vanuit M1 het metamodel te genereren dat een correcte beschrijving geeft van de structuur van het model</li>
+        <li>Vanuit M2 het metametamodel te genereren dat een correcte beschrijving geeft van de structuur van het metamodel</li>
+       <ul>
+       <p>We hebben daarbij gekozen om een generator te realiseren die een model maakt op basis van SHACL/OWL/RDFS, dwz: ook van de COINS en GWSW data kunnen we een SHACL/OWL/RDFS model maken.</p>
+       <p>De detailuitwerking hiervan is te vinden in <a href="imgolf.html">bijlage 1</a> bij deze handreiking</p>
+     </section>
+      <section>
+        <h3>Metamodel SHACL/OWL/RDFS</h3>
+       
+      <figure>
+        <img src="media/metamodel_linkeddata.png" heigh="569">
+        <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
+      <figure>
 
     <p>Toelichting op metamodel NEN 3610 voor Linked Data</p>
 
@@ -271,21 +377,105 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
 
   </section>
 
+</section>
 
+<section id='Transformatie: basisregels - encoding'>
+  <h2>Transformatie: basisregels - encoding</h2>
 
-  <section id='Transformatie: basisregels - encoding'>
-    <h2>Transformatie: basisregels - encoding</h2>
-	
-	   <section id='inleiding'>
-	<h3>Inleiding</h3> 
-    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p></section>
-		   <section id='basisregels'>
-	<h3>Basisregels voor transformatie</h3>
-	<p>algemene overwegingen, best practices, zie ook hfst 4</p></section>
-	<section id='standaardregels'>
-		<h3>Standaard transformatieregels</h3>
-	<p>transformatie regels van nen 3610 source element naar linked data target element</p>
-	  </section>
+  <section id='inleiding'>
+    <h3>Inleiding</h3>
+    <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p>
+  </section>
+  <section id='basisregels'>
+    <h3>Basisregels voor transformatie</h3>
+    <p>algemene overwegingen, best practices, zie ook hfst 4</p>
+  </section>
+  <section id='standaardregels'>
+    <h3>Standaard transformatieregels</h3>
+    <p>transformatie regels van nen 3610 source element naar linked data target element</p>
+    <section id='regels-klassen'>
+      <h4>Klassen</h4>
+      <section id='regels-klassen-featureType'>
+        <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
+          Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
+        </p>
+        <pre class='ex-turtle'>
+ex:Golfbaan a owl:Class ;
+  rdfs:subClassOf nen3610:FunctioneelGebied ;
+.
+
+nen3610:FunctioneelGebied rdfs:subClassOf nen3610:GeoObject .
+nen3610:GeoObject rdfs:subClassOf ogc:Feature .
+        </pre>
+        <p><b>vergelijking met andere best practices</b><br>
+          TODO
+        </p>
+      </section>
+      <section id='regels-klassen-dataType'>
+        <h5>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</h5>
+        <p>
+          Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
+        </p>
+        <p>
+          Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
+          Een voorbeeld van een datatype is het NEN3610ID datatype.
+          <figure>
+            <img src="media/nen3610-dataType.png" height="130">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+          Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
+        </p>
+        <pre class='ex-turtle'>
+nen3610:Identificatie a owl:Class;
+.
+nen3610:namespace a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+nen3610:lokaalID a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+nen3610:versie a owl:DatatypeProperty;
+  rdfs:domain nen3610:Identificatie ;
+  rdfs:range xsd:string ;
+.
+        </pre>
+        <p>
+        </p>
+        <p>
+          Neem bijvoorbeeld dit datatype uit IMRO2012.
+          <figure>
+            <img src="media/imro-dataType.png" height="130">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+          Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes van linked data (TODO link naar principe) is dat we dingen specifiek modelleren, zodat anderen er gebruik van kunnen maken.
+          In dit geval is sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
+        </p>
+        <pre class='ex-turtle'>
+ex:specifiekeRol a owl:ObjectProperty ;
+  rdfs:subPropertyOf ex:planrelatie ; # Optioneel
+  rdfs:range ex:Plan ;
+.
+
+ex:Plan a owl:Class .
+        </pre>
+        <p>
+          Hiermee hebben we het model opener en linkbaarder gemaakt. Stel dat er ergens meer informatie bestaat over het plan met die identiteit, dan kan er met dit model nu een link gelegd worden naar de instantie van dat plan.
+        </p>
+        <p>
+          TODO: datatype klasse bevat attribuut die metadata op de relatie uitdrukt
+          <figure>
+            <img src="media/imro-dataType2.png" height="230">
+            <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+          </figure>
+        </p>
+      </section>
+    </section>
+    <section id='regels-attributen'>
+      <h4>Attributen</h4>
+    </section>
+  </section>
 </section>
 
 
