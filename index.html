@@ -180,7 +180,8 @@
     </section>
   </section>
   <section id='basisprincipes'>
-    <h2>Basisprincipes: Linked data versus andere data</h2>
+    <h2>Basisbeginselen van Linked data</h2>
+    <p>TODO: introductie. Wat bespreken we hier.</p>
     <p class='issue' title='niet blij met hoofdstuknaam'>Was Linked data versus Objectoriëntatie, maar dit is misschien te beperkt. Andere data is misschien te vaag.</p>
     <p>Het gedachtegoed van linked data verschilt fundamenteel van het gedachtegoed van de administratieve systemen die we kennen. In linked data doen we beweringen over specifieke dingen. Hoe er in linked data gerefereerd wordt aan dingen is belangrijk. In administratieve systemen slaan we gegevens op in bestanden, records, tabellen, etc. Referenties naar dingen zijn hier impliciet: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.</p>
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
@@ -470,6 +471,48 @@ ex:Plan a owl:Class .
             <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
           </figure>
         </p>
+        <pre class='ex-turtle'>
+ex:Label a owl:Class .
+
+ex:tekst a owl:ObjectProperty ;
+  rdfs:domain ex:Label ;
+.
+
+ex:LabelPositie a owl:Class, sh:NodeShape ;
+  rfds:subClassOf rdf:Statement .
+  sh:property
+    [
+      sh:path rdf:subject ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class ex:Label ;
+    ] ,
+    [
+      sh:path rdf:predicate ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:hasValue ex:tekst ;
+    ] ,
+    [
+      sh:path rdf:object ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ;
+.
+
+ex:plaatstingsPunt a owl:ObjectProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+
+ex:aanpijlingsPunt a owl:ObjectProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+
+ex:hoek a owl:DataTypeProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+        </pre>
       </section>
     </section>
     <section id='regels-attributen'>
