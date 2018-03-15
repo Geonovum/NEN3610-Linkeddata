@@ -180,7 +180,8 @@
     </section>
   </section>
   <section id='basisprincipes'>
-    <h2>Basisprincipes: Linked data versus andere data</h2>
+    <h2>Basisbeginselen van Linked data</h2>
+    <p>TODO: introductie. Wat bespreken we hier.</p>
     <p class='issue' title='niet blij met hoofdstuknaam'>Was Linked data versus Objectoriëntatie, maar dit is misschien te beperkt. Andere data is misschien te vaag.</p>
     <p>Het gedachtegoed van linked data verschilt fundamenteel van het gedachtegoed van de administratieve systemen die we kennen. In linked data doen we beweringen over specifieke dingen. Hoe er in linked data gerefereerd wordt aan dingen is belangrijk. In administratieve systemen slaan we gegevens op in bestanden, records, tabellen, etc. Referenties naar dingen zijn hier impliciet: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.</p>
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
@@ -385,6 +386,25 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
   <section id='inleiding'>
     <h3>Inleiding</h3>
     <p>Beschrijving van basisregels en uitwerking van details voor transformatie van UML constructen naar LD encoding</p>
+    <p>Voor de transformatie van een UML model naar Linked Data maken we gebruik van de volgende vocabulaires:</p>
+    <ul>
+      <li>RDF</li>
+      <li>RDFS</li>
+      <li>OWL</li>
+      <li>SHACL</li>
+    </ul>
+    <p>De reden om te kiezen voor deze vocabulaires is:</p>
+    <p class='issue' title='definitieve keuze'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor RDF en OWL ligt voor de hand, maar de keuze van SHACL verdient wat meer aandacht.</p>
+    <ul>
+      <li>Internationale standaarden. Deze standaarden zijn op wereldwijde schaal vastgesteld en in gebruik. Het zijn standaarden die door de W3c zijn vastgesteld, en daarmee door de organisatie die het beheer voert over de Linked Data standaarden.</li>
+      <li>We gebruiken SHACL en bijvoorbeeld niet owl restrictions omdat:</li>
+        <ul>
+          <li>Qua beoogde betekenis ligt SHACL dichter bij UML dan OWL. In zowel SHACL als UML druk je een datamodel uit met gegevensregels. Een OWL model betreft een ontologisch model, waarbij een owl restriction een net iets andere betekenis heeft dan een UML klassedefinitie of SHACL shape</li>
+          <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie  bijvoorbeeld de [SHACL playground validator](http://shacl.org/playground)</li>
+          <li>Het gebruik van SHACL biedt meer vrijheid voor hergebruik van de OWL ontologie waarbij de betekenis wel gelijk blijft, maar het implementatiemodel mogelijk net iets anders is opgezet</li>
+        </ul>
+      </li>
+    </ul>
   </section>
   <section id='basisregels'>
     <h3>Basisregels voor transformatie</h3>
@@ -470,6 +490,48 @@ ex:Plan a owl:Class .
             <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
           </figure>
         </p>
+        <pre class='ex-turtle'>
+ex:Label a owl:Class .
+
+ex:tekst a owl:ObjectProperty ;
+  rdfs:domain ex:Label ;
+.
+
+ex:LabelPositie a owl:Class, sh:NodeShape ;
+  rfds:subClassOf rdf:Statement .
+  sh:property
+    [
+      sh:path rdf:subject ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class ex:Label ;
+    ] ,
+    [
+      sh:path rdf:predicate ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:hasValue ex:tekst ;
+    ] ,
+    [
+      sh:path rdf:object ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ;
+.
+
+ex:plaatstingsPunt a owl:ObjectProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+
+ex:aanpijlingsPunt a owl:ObjectProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+
+ex:hoek a owl:DataTypeProperty ;
+  rdfs:domain ex:LabelPositie ;
+.
+        </pre>
       </section>
     </section>
     <section id='regels-attributen'>
