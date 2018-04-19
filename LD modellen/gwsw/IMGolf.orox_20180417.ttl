@@ -1,0 +1,1134 @@
+@prefix rdf:       <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:      <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:       <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:      <http://www.w3.org/2004/02/skos/core#> .
+@prefix geo:       <http://www.opengis.net/ont/geosparql#> .
+@prefix gwsw:      <http://data.gwsw.nl/1.4/imgolf/> .
+
+# Zoek "#Opm: " voor opmerkingen tijdens omzetting
+
+<file:///D:/documenten/MiscApps/Graph-data/GWSW.ttl>
+	rdf:type                      owl:Ontology ;
+	owl:versionInfo               "GWSW Converted from Gellish by RIONED (20180419)" .
+gwsw:hasAspect
+	rdfs:label                    "has as aspect"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:isAspectOf
+	rdfs:label                    "has as aspect (inverse)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	owl:inverseOf                 gwsw:hasAspect .
+gwsw:hasPart
+	rdfs:label                    "has as part"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:isPartOf
+	rdfs:label                    "has as part (inverse)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	owl:inverseOf                 gwsw:hasPart .
+gwsw:hasConnection
+	rdfs:label                    "is connected to"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	rdf:type                      owl:SymmetricProperty .
+gwsw:hasOutput
+	rdfs:label                    "has as output"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:isOutputOf
+	rdfs:label                    "has as output (inverse)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	owl:inverseOf                 gwsw:hasOutput .
+gwsw:hasInput
+	rdfs:label                    "has as input"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:isInputOf
+	rdfs:label                    "has as input (inverse)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	owl:inverseOf                 gwsw:hasInput .
+gwsw:hasRepresentation
+	rdfs:label                    "is represented by"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	rdf:type                      owl:FunctionalProperty .
+gwsw:hasValue
+	rdfs:label                    "has as value"@en ;
+	rdf:type                      owl:DatatypeProperty ;
+	rdf:type                      owl:FunctionalProperty .
+gwsw:hasReference
+	rdfs:label                    "has as reference (qualification)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	rdf:type                      owl:FunctionalProperty .
+gwsw:hasUnit
+	rdfs:label                    "units of measurements"@en ;
+	rdf:type                      owl:AnnotationProperty .
+gwsw:hasDateStart
+	rdfs:label                    "date of start life"@en ;
+	rdf:type                      owl:AnnotationProperty .
+gwsw:hasDateChange
+	rdfs:label                    "date of latest change"@en ;
+	rdf:type                      owl:AnnotationProperty .
+geo:gmlLiteral
+	rdf:type                      rdfs:Datatype .
+gwsw:Collectie_GLF_v14
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Collectie_GLF_v14"@nl ;
+	skos:definition               "GWSW versie 1.4 (1 januari 2018), laatst gewijzigd dd 19-4-2018: filter GLF"@nl ;
+	rdfs:comment                  "[_Bijlage RIONED logo.jpg] [Bijlage Golfbaan.jpg]" ;
+	gwsw:hasDateStart             "2011-11-11"^^xsd:date ;
+	gwsw:hasDateChange            "2018-04-19"^^xsd:date ;
+	skos:hiddenLabel              100000004 .
+gwsw:VerzamelingSoorten
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Verzameling soorten"@nl ;
+	rdfs:comment                  "collection of qualitative aspects is specialisatie van collection of classes" ;
+	gwsw:hasDateStart             "2014-07-11"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111001922 .
+gwsw:Kenmerk
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Kenmerk"@nl ;
+	owl:disjointWith              gwsw:Ruimte ;
+	rdfs:isDefinedBy              "[Gellish] Is an individual object that is a phenomenon that is possessed by a totality and cannot exist without the existence of its possessor. It is an intrinsic, non-separable facet of its possessor"@nl ;
+	gwsw:hasDateStart             "2013-09-03"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              110001122 .
+gwsw:Ruimte
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Ruimte"@nl ;
+	owl:disjointWith              gwsw:Kenmerk ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allPart_" ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:allValuesFrom             
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_" ;
+	owl:unionOf                   (gwsw:Ruimte ) ;
+	]
+	] ;
+	rdfs:isDefinedBy              "[Gellish] Is an inanimate physical object (a physical object that is not capable of life) that is volumetric and is enclosed by physical or imaginary boundaries and exists in time. This is distinguished from a volumetric spatial aspect and from a volume as a property."@nl ;
+	rdfs:comment                  "2 of meer" ;
+	gwsw:hasDateStart             "2013-09-03"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111001919 .
+gwsw:TopologischElement
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Topologisch element"@nl ;
+	rdfs:isDefinedBy              "[Gellish] Is a configuration that indicates how items are connected or positioned relative to each other. The topology in terms of connections usually doesn't change when the positions of the items change."@nl ;
+	gwsw:hasDateStart             "2013-10-04"^^xsd:date ;
+	gwsw:hasDateChange            "2016-11-09"^^xsd:date ;
+	skos:hiddenLabel              111001935 .
+gwsw:Geometrie
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Geometrie"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	rdfs:isDefinedBy              "[Gellish] Is a scale that is a measurement of spatial aspects. (This may otherwise be called geometry)"@nl ;
+	gwsw:hasUnit                  "gml" ;
+	gwsw:hasDateStart             "2016-10-14"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006847 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Kenmerk" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             geo:gmlLiteral
+	] .
+gwsw:Punt
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Punt"@nl ;
+	rdfs:subClassOf               gwsw:Geometrie ;
+	skos:definition               "Nuldimensionaal element van geografische informatie. Conform coördinatenstelsel EPSG:7415 (x/y conform EPSG:28992, optioneel z conform EPSG:5709)."@nl ;
+	gwsw:hasUnit                  "gml" ;
+	gwsw:hasDateStart             "2016-11-09"^^xsd:date ;
+	skos:hiddenLabel              111006849 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Geometrie" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             geo:gmlLiteral
+	] .
+gwsw:Lijn
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Lijn"@nl ;
+	rdfs:subClassOf               gwsw:Geometrie ;
+	skos:definition               "Eéndimensionaal element van geografische informatie. Conform coördinatenstelsel EPSG:7415 (x/y conform EPSG:28992, optioneel z conform EPSG:5709)."@nl ;
+	gwsw:hasUnit                  "gml" ;
+	gwsw:hasDateStart             "2016-11-09"^^xsd:date ;
+	skos:hiddenLabel              111006854 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Geometrie" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             geo:gmlLiteral
+	] .
+gwsw:Vlak
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Vlak"@nl ;
+	rdfs:subClassOf               gwsw:Geometrie ;
+	skos:definition               "Tweedimensionaal element van geografische informatie. Conform coördinatenstelsel EPSG:7415 (x/y conform EPSG:28992, optioneel z conform EPSG:5709)."@nl ;
+	gwsw:hasUnit                  "gml" ;
+	gwsw:hasDateStart             "2016-11-09"^^xsd:date ;
+	skos:hiddenLabel              111006318 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Geometrie" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             geo:gmlLiteral
+	] .
+gwsw:Structuur
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Structuur"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	skos:definition               "Onderscheidende beschrijving van topologie, afmetingen, opbouw (delen)"@nl ;
+	gwsw:hasDateStart             "2013-09-29"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	rdfs:comment                  "Onderscheidend kenmerk" ;
+	skos:hiddenLabel              111001974 .
+gwsw:Functie
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Functie"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	skos:definition               "Wat doet het"@nl ;
+	gwsw:hasDateStart             "2013-09-03"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	rdfs:comment                  "Onderscheidend kenmerk" ;
+	skos:hiddenLabel              111001918 .
+gwsw:Gebied
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Gebied"@nl ;
+	rdfs:subClassOf               gwsw:Ruimte ;
+	rdfs:isDefinedBy              "[IRIS-RIOKEN:2012] Het geheel van virtuele en fysieke (aanwijsbare) opdelingen en indelingen van het aardoppervlak."@nl ;
+	gwsw:hasDateStart             "2014-11-29"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111003781 .
+gwsw:Datum
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Datum"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasUnit                  "yyyymmdd" ;
+	gwsw:hasDateStart             "2015-02-28"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111001933 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Kenmerk" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             xsd:date
+	] .
+gwsw:Geo_object
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Geo-object"@nl ;
+	rdfs:subClassOf               gwsw:TopologischElement ;
+	rdfs:isDefinedBy              "[NEN 3610:2010] abstractie van een fenomeen in de werkelijkheid dat direct of indirect geassocieerd is met een locatie relatief ten opzichte van de aarde (bijvoorbeeld ten opzichte van het aardoppervlak) OPMERKING 1 Indien met een geo-object een gebied wordt bedoeld, kan dit in twee of drie dimensies zijn begrensd. OPMERKING 2 Of een fenomeen een geo-object is of niet hangt af van de context waarin het object is geplaatst. Is er een associatie met een geo-gerefereerde locatie dan is het een geo-object. Is de associatie er niet dan is het fenomeen geen geo-object. Zo is bijvoorbeeld het fenomeen huis weergegeven op een landkaart een geo-object. Is het weergegeven op een foto dan is het geen geo-object. Met andere woorden koppeling van geo-informatie maakt van een object een geo-object"@nl ;
+	rdfs:isDefinedBy              "[IMKL:1.1/2008] abstractie van een fenomeen in de werkelijkheid dat direct of indirect geassocieerd is met een locatie relatief ten opzichte van het aardoppervlak"@nl ;
+	rdfs:isDefinedBy              "[IMGeo:1.0/2007] abstractie van een fenomeen in de werkelijkheid dat direct of indirect geassocieerd is met een locatie relatief ten opzichte van het aardoppervlak"@nl ;
+	rdfs:comment                  "[Link http://definities.geostandaarden.nl/concepten/imgeo/doc/begrip/Geo-object]" ;
+	gwsw:hasDateStart             "2013-10-01"^^xsd:date ;
+	gwsw:hasDateChange            "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111005553 .
+gwsw:Golfbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Golfbaan"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "Een perceel waarop de sport golf wordt gespeeld"@nl ;
+	rdfs:comment                  "De baan bestaat uit een reeks holes [Link http://nl.wikipedia.org/wiki/Golfbaan] [Bijlage *.jpg]" ;
+	gwsw:hasDateStart             "2018-02-21"^^xsd:date ;
+	skos:hiddenLabel              111006959 .
+gwsw:Golfbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Golfbaan"@nl ;
+	rdfs:subClassOf               gwsw:FunctioneelGebied ;
+	skos:definition               "Een perceel waarop de sport golf wordt gespeeld"@nl ;
+	rdfs:comment                  "De baan bestaat uit een reeks holes [Link http://nl.wikipedia.org/wiki/Golfbaan] [Bijlage *.jpg]" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006959 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:RuimteBiedenVoorGolfsport ] ) ]
+]	rdfs:subClassOf               gwsw:Golfbaan .
+gwsw:RuimteBiedenVoorGolfsport
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007001 ;
+	rdfs:label                    "Ruimte bieden voor golfsport"@nl .
+gwsw:FunctioneelGebied
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Functioneel gebied"@nl ;
+	rdfs:subClassOf               gwsw:Gebied ;
+	skos:definition               "Begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven"@nl ;
+	rdfs:comment                  "Voorbeelden zijn: bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark, recreatiegebied" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006960 .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Gebruiksstatus" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Gebruiksstatus
+	] .
+gwsw:Gebruiksstatus
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Gebruiksstatus" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Gebruiksstatus
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Gebruiksstatus"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006961 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allColl_Gebruiksstatus" ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:allValuesFrom             gwsw:GebruiksstatusColl ;
+	] .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Vlak
+	] .
+gwsw:Vlak
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Naam" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Naam
+	] .
+gwsw:Naam
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Naam" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Naam
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Naam"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111007013 .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Natuurwaarde" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Natuurwaarde
+	] .
+gwsw:Natuurwaarde
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Natuurwaarde" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Natuurwaarde
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Natuurwaarde"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006962 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allColl_Natuurwaarde" ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:allValuesFrom             gwsw:NatuurwaardeColl ;
+	] .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Toegang golfbaan" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:ToegangGolfbaan
+	] .
+gwsw:ToegangGolfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Toegang golfbaan" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:ToegangGolfbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Toegang golfbaan"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006996 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allColl_Toegang golfbaan" ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:allValuesFrom             gwsw:ToegangGolfbaanColl ;
+	] .
+gwsw:Golfbaan
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Parcours" ;
+	owl:minQualifiedCardinality   "0"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isPartOf_Parcours" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isPartOf ;
+	owl:onClass                   gwsw:Golfbaan
+	] .
+gwsw:Hindernis
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Hindernis"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "Een obstakel op het parcours in de vorm van een zand- of waterpartij"@nl ;
+	rdfs:comment                  "Om een bal uit een bunker te slaan wordt vaak een speciale club gebruik; als een bal in het water terecht komt ben je verder van huis" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006965 .
+gwsw:Hindernis
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Vlak
+	] .
+gwsw:Vlak
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hindernis
+	] .
+gwsw:Hindernis
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hindernis
+	] .
+gwsw:Hole
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Hole"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "Met een vlag gemarkeerd punt waarin de bal geslagen moet worden"@nl ;
+	rdfs:comment                  "De hole wordt regelmatig van plek veranderd, omdat de green dan niet onregelmatig slijt" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006967 .
+gwsw:Hole
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Begingeldigheid" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Begingeldigheid
+	] .
+gwsw:Begingeldigheid
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Begingeldigheid" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hole
+	] .
+gwsw:Begingeldigheid
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Begingeldigheid"@nl ;
+	rdfs:subClassOf               gwsw:Datum ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006997 .
+gwsw:Hole
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Eindgeldigheid" ;
+	owl:maxQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Eindgeldigheid
+	] .
+gwsw:Eindgeldigheid
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Eindgeldigheid" ;
+	owl:maxQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hole
+	] .
+gwsw:Eindgeldigheid
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Eindgeldigheid"@nl ;
+	rdfs:subClassOf               gwsw:Datum ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006998 .
+gwsw:Hole
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Punt" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Punt
+	] .
+gwsw:Punt
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Punt" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hole
+	] .
+gwsw:Hole
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Hole
+	] .
+gwsw:Identificatie
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Identificatie"@nl ;
+	rdfs:subClassOf               gwsw:NEN3610ID ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006968 .
+gwsw:NEN3610ID
+	rdf:type                      owl:Class ;
+	rdfs:label                    "NEN3610ID"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	skos:definition               "Identificatiegegevens voor de universeel unieke identificatie van een object"@nl ;
+	rdfs:comment                  "De combinatie van &lsquo;namespace&rsquo; van een registratie, lokale identificatie en versie informatie maken een object uniek identificeer" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006969 .
+gwsw:Parcours
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Parcours"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "Een van de speelvelden van een golfbaan"@nl ;
+	rdfs:comment                  "Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006970 .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Vlak
+	] .
+gwsw:Vlak
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Nummer" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Nummer
+	] .
+gwsw:Nummer
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Nummer" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Nummer
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Nummer"@nl ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasUnit                  "number" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006999 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Kenmerk" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             xsd:integer
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Par" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Par
+	] .
+gwsw:Par
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Par" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Par
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Par"@en ;
+	rdfs:subClassOf               gwsw:Kenmerk ;
+	gwsw:hasUnit                  "number" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111007000 ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "allDatatype_Kenmerk" ;
+	owl:onProperty                gwsw:hasValue ;
+	owl:allValuesFrom             gwsw:Dt_wsw:Par
+	] .
+gwsw:Dt_wsw:Par
+	rdfs:label                    "Par (datatype)"@en ;
+	rdf:type                      rdfs:Datatype ;
+	owl:equivalentClass           
+	[
+	owl:onDatatype                xsd:integer ;
+	rdfs:label                    "minMaxValue_Kenmerk" ;
+	owl:withRestrictions          ([xsd:minInclusive "1"^^xsd:integer][xsd:maxInclusive "6"^^xsd:integer])
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Tee" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   gwsw:Tee
+	] .
+gwsw:Tee
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isPartOf_Tee" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isPartOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Parcoursdeel" ;
+	owl:minQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   gwsw:Parcoursdeel
+	] .
+gwsw:Parcoursdeel
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isPartOf_Parcoursdeel" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isPartOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Hindernis" ;
+	owl:minQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   gwsw:Hindernis
+	] .
+gwsw:Hindernis
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isPartOf_Hindernis" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isPartOf ;
+	owl:onClass                   gwsw:Parcours
+	] .
+gwsw:Parcoursdeel
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Parcoursdeel"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "Deel van het terrein van de hole (parcours)"@nl ;
+	rdfs:comment                  "Elk parcours heeft verschillende onderdelen zoals de green, de fairway, de semi-rough en de rough [Link http://nl.wikipedia.org/wiki/Golfbaan#Onderdel]" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006971 .
+gwsw:Parcoursdeel
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Vlak
+	] .
+gwsw:Vlak
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcoursdeel
+	] .
+gwsw:Parcoursdeel
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Parcoursdeel
+	] .
+gwsw:Parcoursdeel
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Hole" ;
+	owl:maxQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   gwsw:Hole
+	] .
+gwsw:Hole
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isPartOf_Hole" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isPartOf ;
+	owl:onClass                   gwsw:Parcoursdeel
+	] .
+gwsw:Tee
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Tee"@nl ;
+	rdfs:subClassOf               gwsw:Geo_object ;
+	skos:definition               "De afslagplaats aan het begin van een hole"@nl ;
+	rdfs:comment                  "Ook wel tee-box genoemd" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006973 .
+gwsw:Tee
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Vlak
+	] .
+gwsw:Vlak
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Vlak" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Tee
+	] .
+gwsw:Tee
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasAspect_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:onClass                   gwsw:Identificatie
+	] .
+gwsw:Identificatie
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:isAspectOf_Identificatie" ;
+	owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:isAspectOf ;
+	owl:onClass                   gwsw:Tee
+	] .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:Afslagplaats ] ) ]
+]	rdfs:subClassOf               gwsw:Tee .
+gwsw:Afslagplaats
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007340 ;
+	rdfs:label                    "Afslagplaats"@nl .
+gwsw:AfslagplaatsWit
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Afslagplaats wit"@nl ;
+	rdfs:subClassOf               gwsw:Tee ;
+	gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+	skos:hiddenLabel              111007332 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:VoorBeginners ] ) ]
+]	rdfs:subClassOf               gwsw:AfslagplaatsWit .
+gwsw:VoorBeginners
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007336 ;
+	rdfs:label                    "Voor beginners"@nl .
+gwsw:AfslagplaatsGeel
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Afslagplaats geel"@nl ;
+	rdfs:subClassOf               gwsw:Tee ;
+	gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+	skos:hiddenLabel              111007333 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:VoorDummies ] ) ]
+]	rdfs:subClassOf               gwsw:AfslagplaatsGeel .
+gwsw:VoorDummies
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007337 ;
+	rdfs:label                    "Voor dummies"@nl .
+gwsw:AfslagplaatsBlauw
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Afslagplaats blauw"@nl ;
+	rdfs:subClassOf               gwsw:Tee ;
+	gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+	skos:hiddenLabel              111007334 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:VoorGevorderden ] ) ]
+]	rdfs:subClassOf               gwsw:AfslagplaatsBlauw .
+gwsw:VoorGevorderden
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007338 ;
+	rdfs:label                    "Voor gevorderden"@nl .
+gwsw:AfslagplaatsRood
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Afslagplaats rood"@nl ;
+	rdfs:subClassOf               gwsw:Tee ;
+	gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+	skos:hiddenLabel              111007335 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:VoorExperts ] ) ]
+]	rdfs:subClassOf               gwsw:AfslagplaatsRood .
+gwsw:VoorExperts
+	rdf:type                      gwsw:Functie ;
+	skos:hiddenLabel              111007339 ;
+	rdfs:label                    "Voor experts"@nl .
+gwsw:ToegangGolfbaanColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Toegang golfbaan (coll)"@nl ;
+	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     (gwsw:Etiquette gwsw:Toegang gwsw:Vereisten )
+	] .
+gwsw:Etiquette
+	rdf:type                      gwsw:ToegangGolfbaanColl ;
+	skos:hiddenLabel              111006975 ;
+	rdfs:label                    "Etiquette"@nl .
+gwsw:Toegang
+	rdf:type                      gwsw:ToegangGolfbaanColl ;
+	skos:hiddenLabel              111006963 ;
+	rdfs:label                    "Toegang"@nl .
+gwsw:Vereisten
+	rdf:type                      gwsw:ToegangGolfbaanColl ;
+	skos:hiddenLabel              111006976 ;
+	rdfs:label                    "Vereisten"@nl .
+gwsw:GebruiksstatusColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Gebruiksstatus (coll)"@nl ;
+	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     ()
+	] .
+gwsw:NatuurwaardeColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Natuurwaarde (coll)"@nl ;
+	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     (gwsw:Hoog gwsw:Laag gwsw:Geen )
+	] .
+gwsw:Hoog
+	rdf:type                      gwsw:NatuurwaardeColl ;
+	skos:hiddenLabel              111006979 ;
+	rdfs:label                    "Hoog"@nl .
+gwsw:Laag
+	rdf:type                      gwsw:NatuurwaardeColl ;
+	skos:hiddenLabel              111006980 ;
+	rdfs:label                    "Laag"@nl .
+gwsw:Geen
+	rdf:type                      gwsw:NatuurwaardeColl ;
+	skos:hiddenLabel              111006367 ;
+	rdfs:label                    "Geen"@nl .
+gwsw:ToegankelijkheidColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Toegankelijkheid (coll)"@nl ;
+	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     (gwsw:Openbaar gwsw:Besloten )
+	] .
+gwsw:Openbaar
+	rdf:type                      gwsw:ToegankelijkheidColl ;
+	skos:hiddenLabel              111006982 ;
+	rdfs:label                    "Openbaar"@nl .
+gwsw:Besloten
+	rdf:type                      gwsw:ToegankelijkheidColl ;
+	skos:hiddenLabel              111006983 ;
+	rdfs:label                    "Besloten"@nl .
+gwsw:Linksbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Linksbaan"@nl ;
+	rdfs:subClassOf               gwsw:Golfbaan ;
+	rdfs:comment                  "[Bijlage Golfbaan.jpg]" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006985 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Structuur
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:Kust ] ) ]
+]	rdfs:subClassOf               gwsw:Linksbaan .
+gwsw:Kust
+	rdf:type                      gwsw:Structuur ;
+	skos:hiddenLabel              111007002 ;
+	rdfs:label                    "Kust"@nl .
+gwsw:Bosbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Bosbaan"@nl ;
+	rdfs:subClassOf               gwsw:Golfbaan ;
+	rdfs:comment                  "[Bijlage Golfbaan.jpg]" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006986 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Structuur
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:Bos ] ) ]
+]	rdfs:subClassOf               gwsw:Bosbaan .
+gwsw:Bos
+	rdf:type                      gwsw:Structuur ;
+	skos:hiddenLabel              111007004 ;
+	rdfs:label                    "Bos"@nl .
+gwsw:Parkbaan
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Parkbaan"@nl ;
+	rdfs:subClassOf               gwsw:Golfbaan ;
+	rdfs:comment                  "[Bijlage Golfbaan.jpg]" ;
+	gwsw:hasDateStart             "2017-11-16"^^xsd:date ;
+	skos:hiddenLabel              111006987 .
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Structuur
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  gwsw:Park ] ) ]
+]	rdfs:subClassOf               gwsw:Parkbaan .
+gwsw:Park
+	rdf:type                      gwsw:Structuur ;
+	skos:hiddenLabel              111007003 ;
+	rdfs:label                    "Park"@nl .
+gwsw:Waterpartij
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Waterpartij"@nl ;
+	rdfs:subClassOf               gwsw:Hindernis ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006989 .
+gwsw:Bunker
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Bunker"@nl ;
+	rdfs:subClassOf               gwsw:Hindernis ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006990 .
+gwsw:Fairway
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Fairway"@en ;
+	rdfs:subClassOf               gwsw:Parcoursdeel ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006992 .
+gwsw:Green
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Green"@en ;
+	rdfs:subClassOf               gwsw:Parcoursdeel ;
+	rdfs:comment                  "[Bijlage Golfbaan.jpg]" ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006993 .
+gwsw:Rough
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Rough"@en ;
+	rdfs:subClassOf               gwsw:Parcoursdeel ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006994 .
+gwsw:Semi_Rough
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Semi-Rough"@en ;
+	rdfs:subClassOf               gwsw:Parcoursdeel ;
+	gwsw:hasDateStart             "2018-02-20"^^xsd:date ;
+	skos:hiddenLabel              111006995 .
