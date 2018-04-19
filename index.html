@@ -427,19 +427,30 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
       <li>RDF</li>
       <li>RDFS</li>
       <li>OWL</li>
+      <li>SKOS</li>
       <li>SHACL</li>
     </ul>
     <p>De reden om te kiezen voor deze vocabulaires is:</p>
     <p class='issue' title='definitieve keuze'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor RDF en OWL ligt voor de hand, maar de keuze van SHACL verdient wat meer aandacht.</p>
     <ul>
       <li>Internationale standaarden. Deze standaarden zijn op wereldwijde schaal vastgesteld en in gebruik. Het zijn standaarden die door de W3c zijn vastgesteld, en daarmee door de organisatie die het beheer voert over de Linked Data standaarden.</li>
-      <li>We gebruiken SHACL en bijvoorbeeld niet owl restrictions omdat:</li>
+      <li>We gebruiken standaarden die specifiek zijn ontworpen voor het doel waar wij ze voor willen inzetten:
         <ul>
-          <li>Qua beoogde betekenis ligt SHACL dichter bij UML dan OWL. In zowel SHACL als UML druk je een datamodel uit met gegevensregels. Een OWL model betreft een ontologisch model, waarbij een owl restriction een net iets andere betekenis heeft dan een UML klassedefinitie of SHACL shape</li>
-          <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie  bijvoorbeeld de [SHACL playground validator](http://shacl.org/playground)</li>
-          <li>Het gebruik van SHACL biedt meer vrijheid voor hergebruik van de OWL ontologie waarbij de betekenis wel gelijk blijft, maar het implementatiemodel mogelijk net iets anders is opgezet</li>
+          <li>RDF/RDFS/OWL voor het benoemen en typeren van de termen voor klassen (owl:Class), attributen (owl:DatatypeProperty) en relaties (owl:ObjectProperty).</li>
+          <li>SKOS voor het opnemen van definities en aanvullende beschrijvingen voor de gebruikte termen</li>
+          <li>SHACL voor het specificeren van de gegevensstructuren en gegevensregels zoals aanwezig in het UML model</li>
         </ul>
       </li>
+      <li>De standaarden sluiten goed aan bij de denkwijze binnen UML, waardoor een vergelijking tussen UML en het Linked Data "relatief" eenvoudig is</li>
+    </ul>
+    <p>Met name de keuze voor SHACL verdient een nadere toelichting. Een alternatief zou wellicht een breder gebruik kunnen zijn van OWL, zoals owl:restrictions. We hebben voor SHACL gekozen om de volgende redenen:</p>
+    <ul>
+      <li>Zowel UML als SHACL gaan uit van een closed-world assumption, waarbij het model <i>beperkt</i> wat mogelijk is. Dit in tegenstelling tot OWL dat uitgaat van een open-world assumption, waarbij het model <i>afleid</i> wat mogelijk is.</li>
+      <li>Het gebruik van owl:maxCardinality 1 komt niet overeen met de beoogde x..1 cardinaliteit in UML, maar stelt juist dat als de eigenschap twee waarden hebben, dat deze twee waarden als gelijk worden gezien (owl:sameAs). Dit in tegenstelling tot UML en SHACL, waar een sh:maxCount 1 daadwerkelijk betekent dat er maar 1 waarde <i>mag</i> zijn (en er dus 1 verwijderd moet worden om tot een valide dataset te komen)</li>
+      <li>Hetzelfde speelt rondom het gebruik van rdfs:range en rdfs:domain. Indien bijvoorbeeld een property ex:naam wordt geintroduceerd met rdfs:range ex:Persoon, dan betekent dit dat ALS een subject een ex:naam heeft, het DUS een persoon is (zelfs als een dergelijke naam is gegeven aan iets dat eigenlijk een schip is). Met SHACL zou een PropertyShape gespecifieerd kunnen worden die juist het beoogde effect heeft, namelijk: dat de eigenschap ex:naam alleen maar gebruikt <i>mag</i> worden bij de klasse Persoon</li>
+      <li>OWL is ontworpen voor classificatie-doeleinden (afleidingen), terwijl SHACL ontworpen is voor data-validatie, vergelijkbaar met andere traditionele schema-modellen, zoals UML. Zie <a href="http://spinrdf.org/shacl-and-owl.html">shacl and owl</a> voor een uitgebreide vergelijking</li>
+      <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie  bijvoorbeeld de <a href="http://shacl.org/playground">SHACL playground validator</a></li>
+      <li>Het gebruik van SHACL biedt meer vrijheid voor het inzetten van OWL voor het originele beoogde doel van OWL. Zie <a href="https://www.cs.vu.nl/~guus/public/owl-restrictions/">owl restrictions</a> voor een goede introductie.</li>
     </ul>
   </section>
   <section id='basisregels'>
