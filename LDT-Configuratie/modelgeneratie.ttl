@@ -6,13 +6,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix localcontainer: <http://localhost:8080/nen3610/container/>.
 
-#Container for upload data
-localcontainer:upload a elmo:Container;
-  elmo:representation elmo:UploadRepresentation;
-  elmo:contains stage:Menu;
-  elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource>
-.
-
 #Production for local installations
 localupdatestage:container2model a elmo:Production;
 	elmo:contains stage:HeaderAppearance;

@@ -5,6 +5,14 @@
 @prefix container: <http://linkeddata.ordina.nl/nen3610/container/>.
 @prefix containerlocal: <http://localhost:8080/nen3610/container/>.
 
+#Container for upload data
+containerlocal:upload a elmo:Container;
+#  elmo:representation elmo:UploadRepresentation;
+  elmo:contains stage:Menu;
+  elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource>;
+  rdfs:label "Upload data";
+.
+
 container:begrippen a elmo:Container;
 	rdfs:label "Upload NEN3610 begrippen";
 	elmo:contains stage:Menu;
@@ -107,4 +115,9 @@ containerlocal:golfbaan a elmo:Container;
   rdfs:label "Upload voorbeeld golfbaandata";
 	elmo:contains stage:Menu;
 	elmo:representation elmo:UploadRepresentation;
+.
+containerlocal:model a elmo:Container;
+  rdfs:label "Upload model";
+  elmo:contains stage:Menu;
+  elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget>
 .
