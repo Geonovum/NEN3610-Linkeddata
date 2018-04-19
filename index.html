@@ -316,7 +316,7 @@
      </section>
       <section>
         <h3>Metamodel SHACL/OWL/RDFS</h3>
-       
+
       <figure>
         <img src="media/metamodel_linkeddata.png" heigh="569">
         <figcaption>Figuur X: Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
@@ -464,7 +464,7 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
       <h4>Klassen</h4>
       <section id='regels-klassen-featureType'>
         <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
-          Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
+          Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de NEN3610 klassen.
         </p>
         <pre class='ex-turtle'>
 ex:Golfbaan a owl:Class ;
@@ -484,13 +484,13 @@ nen3610:GeoObject rdfs:subClassOf ogc:Feature .
           Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
         </p>
         <p>
-          Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
+          Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat de combinatie van attributen uitdrukt.<br>
           Een voorbeeld van een datatype is het NEN3610ID datatype.
           <figure>
             <img src="media/nen3610-dataType.png" height="130">
             <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
           </figure>
-          Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
+          Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
         </p>
         <pre class='ex-turtle'>
 nen3610:Identificatie a owl:Class;
@@ -511,7 +511,7 @@ nen3610:versie a owl:DatatypeProperty;
         <p>
         </p>
         <p>
-          Neem bijvoorbeeld dit datatype uit IMRO2012.
+          Neem bijvoorbeeld het ExternPlanReferentie_BP datatype uit IMRO2012.
           <figure>
             <img src="media/imro-dataType.png" height="130">
             <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
@@ -557,7 +557,6 @@ ex:LabelPositie a owl:Class, sh:NodeShape ;
       sh:path rdf:predicate ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
-      sh:nodeKind sh:IRI ;
       sh:hasValue ex:tekst ;
     ] ,
     [
@@ -580,9 +579,230 @@ ex:hoek a owl:DataTypeProperty ;
 .
         </pre>
       </section>
+      <section id='regels-klassen-union'>
+        <h5>Klasse met stereotype &lt;&lt;union&gt;&gt;</h5>
+        <p>
+          Een &lt;&lt;union&gt;&gt; is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
+          <figure>
+            <img src="media/regels-klassen-union-1.png" height="130">
+            <figcaption>Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van objecten</figcaption>
+          </figure>
+          In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
+        </p>
+        <pre class='ex-turtle'>
+ex:Perceel a owl:Class .
+
+ex:NatuurlijkPersoon a owl:Class .
+
+ex:NietNatuurlijkPersoon a owl:Class .
+
+ex:eigenaar a owl:ObjectProperty ;
+  rdfs:domain ex:Perceel ;
+  rdfs:range ex:Persoon ;
+.
+
+ex:Persoon
+  owl:unionOf (
+    ex:NatuurlijkPersoon 
+    ex:NietNatuurlijkPersoon 
+  ) ;
+.
+        </pre>
+        <p>
+          gegeven
+        </p>
+        <pre class='ex-turtle'>
+data:Dommel a ex:Hond .
+
+data:2342453 a ex:Perceel ;
+  ex:eigenaar data:Dommel ;
+.
+        </pre>
+        <p>
+          zal worden afgeleid
+        </p>
+        <pre class='ex-turtle'>
+data:Dommel a ex:Persoon .
+
+ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
+
+ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
+        </pre>
+        <p>
+          Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
+        </p>
+        <p>
+          Een tweede voorbeeld van een union is de union van literal waardes.
+          <figure>
+            <img src="media/regels-klassen-union-2.jpg" height="350">
+            <figcaption>
+              Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van literal waardes<br>
+              bron: [[INSPIRERDF]]
+            </figcaption>
+          </figure>
+          
+        </p>
+        <p>
+          In feite drukt de union een restrictie op het bereik van de eigenaar-eigenschap van Perceel uit. Restricties kunnen we uitdrukken met behulp van SHACL.
+        </p>
+        <pre class='ex-turtle'>
+ex:Perceel a owl:Class .
+
+ex:NatuurlijkPersoon a owl:Class ;
+
+ex:NietNatuurlijkPersoon a owl:Class ;
+
+ex:eigenaar a owl:ObjectProperty ;
+  rdfs:domain ex:Perceel ;
+.
+
+ex:PerceelShape a sh:NodeShape ;
+  sh:targetClass ex:Perceel ;
+  sh:property [
+    sh:path ex:eigenaar ;
+    sh:or (
+      [
+        sh:class ex:NatuurlijkPersoon ;
+      ]
+      [
+        sh:class ex:NietNatuurlijkPersoon ;
+      ] ;
+    ) ;
+  ] ;
+.
+        </pre>
+        <p><b>vergelijking met andere best practices</b><br>
+        <p>
+          In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot he creeren van instanties die de union uitdrukken. 
+        </p>
+        <pre class='ex-turtle'>
+ex:Perceel a owl:Class ;
+  rdfs:subClassOf [
+    owl:UnionOf (
+      ex:PerceelMetNatuurlijkPersoonEigenaar
+      ex:PerceelMetNietNatuurlijkPersoonEigenaar
+    ) ;
+  ] ;
+.
+
+# de set van dingen die 0 niet-natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer natuurlijk-persoon-eigenaren
+ex:PerceelMetNatuurlijkPersoonEigenaar a owl:Class ;
+  owl:intersectionOf (
+    [
+      a owl:Restriction ;
+      owl:onProperty ex:natuurlijkPersoonEigenaar ;
+      owl:minCardinality 0 ;
+    ]
+    [
+      a owl:Restriction ;
+      owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
+      owl:cardinality 0 ;
+    ]
+  )
+.
+
+# de set van dingen die 0 natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer niet-natuurlijk-persoon-eigenaren
+ex:PerceelMetNietNatuurlijkPersoonEigenaar a owl:Class ;
+  owl:intersectionOf (
+    [
+      a owl:Restriction ;
+      owl:onProperty ex:natuurlijkPersoonEigenaar ;
+      owl:cardinality 0 ;
+    ]
+    [
+      a owl:Restriction ;
+      owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
+      owl:minCardinality 0 ;
+    ]
+  )
+.
+
+ex:NatuurlijkPersoon a owl:Class .
+
+ex:NietNatuurlijkPersoon a owl:Class .
+
+ex:natuurlijkPersoonEigenaar a owl:ObjectProperty ;
+  rdfs:domain ex:Perceel ;
+.
+
+ex:nietNatuurlijkPersoonEigenaar a owl:ObjectProperty ;
+  rdfs:domain ex:Perceel ;
+.
+        </pre>
+      </section>
+      <section id='regels-klassen-external'>
+        <h5>Klasse met stereotype &lt;&lt;external&gt;&gt;</h5>
+        <p>
+          ...
+        </p>
+        <pre class='ex-turtle'>
+ex:pand a owl:ObjectProperty ;
+  rdfs:domain ex:Gebouw ;
+  rdfs:range bag:Pand ; 
+.
+
+# voorbeelddata:
+data:gebouw-123 a ex:Gebouw ;
+  ex:pand bag-pand:0003100000117485 ;
+.
+        </pre>
+        <p>
+          Het is in dit geval wel noodzakelijk dat. In dit specifieke geval is het aannemelijk dat met het gebouw, daadwerkelijk dezelfde entiteit geïdentificeerd wordt als de entiteit die de gekoppelde instantie van bag:Pand ook identificeert. In dit geval is het ook mogelijk om deze twee instanties aan elkaar gelijk te stellen. Hier is zorgvuldigheid bij geboden [TODO ref owl:sameAs en ref contextualised semantics].
+        </p>
+        <pre class='ex-turtle'>
+data:gebouw-123 owl:sameAs bag-pand:0003100000117485 .
+        </pre>
+        <p>
+          Het is in linked data niet alleen mogelijk om objecten aan elkaar gelijk te stellen, maar het is daarnaast ook mogelijk om nieuwe eigenschappen van objecten te definiëren. In de filosofie van linked data betekent dat zoveel als nieuwe uitdrukkingen kunnen doen over een extern onderwerp (subject) in je eigen vocabulaire.
+          Stel dat we over het gebouw ook uitdrukkingen wensen te doen over de inhoud in m³. We hebben al besloten dat ons gebouw hetzelfde is als het externe BAG-pand en verwachten geen instanties van gebouwen die niet als pand in de BAG bestaan. Dan is het mogelijk om een eigenschap ex:inhoud te definieren die op instanties van panden uit de BAG gebruikt kan worden.
+        </p>
+        <pre class='ex-turtle'>
+ex:inhoud a owl:DatatypeProperty ;
+  rdfs:domain bag:Pand ;
+  rdfs:range xsd:decimal ;
+.
+
+# voorbeelddata:
+bag-pand:0003100000117485 
+  ex:inhoud 804.6 ;
+.
+        </pre>
+      </section>
+      <section id='regels-klassen-enumeration'>
+        <h5>Klasse met stereotype &lt;&lt;enumeration&gt;&gt;</h5>
+      </section>
+      <section id='regels-klassen-codelist'>
+        <h5>Klasse met stereotype &lt;&lt;CodeList&gt;&gt;</h5>
+      </section>
     </section>
     <section id='regels-attributen'>
       <h4>Attributen</h4>
+      <section id='regels-attributen-identificatie'>
+        <h5>Attribuut met stereotype &lt;&lt;identificatie&gt;&gt;</h5>
+        <p class='issue' title='modellering NEN3610 id'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
+      </section>
+      <section id='regels-attributen-voidable'>
+        <h5>Attribuut met stereotype &lt;&lt;voidable&gt;&gt;</h5>
+        <p>
+          In [[NEN3610]] wordt het gebruik van het stereotype &lt;&lt;voidable&gt;&gt; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
+          In linked data heeft het niet opnemen van de triple die de waarde uitdrukt exact dezelfde betekenis als &lt;&lt;voidable&gt;&gt;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de open-wereld-aanname. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
+        </p>
+        <p><b>vergelijking met andere best practices</b><br>
+          In [[INSPIRERDF]] worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data.
+        </p>
+      </section>
+      <section id='regels-attributen-materieleHistorie'>
+        <h5>Attribuut met stereotype &lt;&lt;materieleHistorie&gt;&gt;</h5>
+      </section>
+      <section id='regels-attributen-formeleHistorie'>
+        <h5>Attribuut met stereotype &lt;&lt;formeleHistorie&gt;&gt;</h5>
+      </section>
+      <section id='regels-attributen-materieleLevensduur'>
+        <h5>Attribuut met stereotype &lt;&lt;materieleLevensduur&gt;&gt;</h5>
+      </section>
+      <section id='regels-attributen-formeleLevensduur'>
+        <h5>Attribuut met stereotype &lt;&lt;formeleLevensduur&gt;&gt;</h5>
+      </section>
     </section>
   </section>
 </section>
