@@ -39,7 +39,7 @@
   </section>
   <section id='Nederlandse LOD Cloud voor geodata-sets'>
     <h2>Nederlandse LOD Cloud voor geodata-sets</h2>
-		  <p class='issue' title='todo'>TODO: snel een paar PDOK datasets opnemen</p>
+		  <p class='issue' data-number='17'></p>
     <p>In dit hoofdstuk wordt een overzicht gegeven van de huidige LD geo-datasets in Nederland. De opsomming is niet volledig maar geeft een beeld van het huidige niveau van LD implementatie voor geo-datasets.<br>
       De intentie is om een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.
     </p>
@@ -197,13 +197,13 @@
   <section id='basisprincipes'>
     <h2>Basisbeginselen van Linked data</h2>
     <p>TODO: introductie. Wat bespreken we hier.</p>
-    <p class='issue' title='niet blij met hoofdstuknaam'>Was Linked data versus Objectoriëntatie, maar dit is misschien te beperkt. Andere data is misschien te vaag.</p>
+    <p class='issue' data-number='18'>Was Linked data versus Objectoriëntatie, maar dit is misschien te beperkt. Andere data is misschien te vaag.</p>
     <p>Het gedachtegoed van linked data verschilt fundamenteel van het gedachtegoed van de administratieve systemen die we kennen. In linked data doen we beweringen over specifieke dingen. Hoe er in linked data gerefereerd wordt aan dingen is belangrijk. In administratieve systemen slaan we gegevens op in bestanden, records, tabellen, etc. Referenties naar dingen zijn hier impliciet: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.</p>
     <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat in linked data geen betekenis ontleent uit van de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
     <p>Een primary key in een tabel in een relationele database identificeert een rij met data. In een triple identificeert de waarde van een subject alleen het subject zelf, en niet de triple. De primary key van een triple is de combinatie van subject, predicate en object. De triples (of beweringen) zelf hebben geen unieke sleutel[ Behalve door reificatie]. Het is dan ook belangrijk om heel secuur te zijn wat de subject van een bewering precies is.</p>
     <p>Daarbij gaat Linked data uit van een open wereld van informatie. In deze open wereld mag iedereen beweringen doen over alles [TODO REF]. Deze uitgangspunten hebben verregaande consequenties die informatiemodelleren voor linked data anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden.</p>
 
-	<p class='issue' title='relatie met nen 3610 informatiemodel'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
+	<p class='issue' data-number='19'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
     <section id='basisprincipes-identificatie'>
       <h3>Identificatie</h3>
       <p>In linked data gebruiken we IRI's om dingen te identificeren. Maar, wat identificeert een IRI precies?</p>
@@ -287,7 +287,7 @@
     </section>
     <section id="Meta-Object-Facility">
       <h3>Meta-Object-Facility</h3>
-        <p class='issue' title='todo'>Dit stukje is nog te technisch en moeilijk te doorgronden</p>
+        <p class='issue' data-number='20'></p>
       <p>De OMG heeft een vier-lagen architectuur voorgesteld om verschillende modellen met elkaar te vergelijken. Wij zullen dit ook gebruiken om de verschillende source en target modellen met elkaar te vergelijken</p>
       <p>Voor de vergelijking maken we gebruik van een voorbeeld: de concrete informatie met betrekking tot de golfbaan van de Koninklijke Haagse Golf &amp; Countryclub.</p>
       <p>Van deze informatie hebben we vier verschijningsvormen:</p>
@@ -457,7 +457,7 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
           <li>SHACL</li>
         </ul>
         <p>De reden om te kiezen voor deze vocabulaires is:</p>
-        <p class='issue' title='definitieve keuze'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor RDF en OWL ligt voor de hand, maar de keuze van SHACL verdient wat meer aandacht.</p>
+        <p class='issue' data-number='21'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor RDF en OWL ligt voor de hand, maar de keuze van SHACL verdient wat meer aandacht.</p>
         <ul>
           <li>Internationale standaarden. Deze standaarden zijn op wereldwijde schaal vastgesteld en in gebruik. Het zijn standaarden die door de W3c zijn vastgesteld, en daarmee door de organisatie die het beheer voert over de Linked Data standaarden.</li>
           <li>We gebruiken standaarden die specifiek zijn ontworpen voor het doel waar wij ze voor willen inzetten:
@@ -806,7 +806,7 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
           <h4>Attributen</h4>
           <section id='regels-attributen-identificatie'>
             <h5>Attribuut met stereotype &lt;&lt;identificatie&gt;&gt;</h5>
-            <p class='issue' title='modellering NEN3610 id'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
+            <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
           </section>
           <section id='regels-attributen-voidable'>
             <h5>Attribuut met stereotype &lt;&lt;voidable&gt;&gt;</h5>
