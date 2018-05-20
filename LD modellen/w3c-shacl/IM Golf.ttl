@@ -684,7 +684,7 @@ shape:Parcours a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:MultiSurface;
+		sh:class gml:MultiSurface;
     sh:minCount 1;
     sh:maxCount 1;
 	];
@@ -729,7 +729,7 @@ shape:ParcoursDeel a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -765,7 +765,7 @@ shape:Tee a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -777,7 +777,7 @@ shape:Hindernis a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -798,7 +798,7 @@ shape:Hole a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Point;
+		sh:class gml:Point;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -806,16 +806,16 @@ shape:Hole a sh:NodeShape;
 
 # Shapes voor visualisatie
 shape:MultiSurface a sh:NodeShape;
-	sh:name "geo:MultiSurface";
-	sh:targetClass geo:MultiSurface
+	sh:name "gml:MultiSurface";
+	sh:targetClass gml:MultiSurface
 .
 shape:Surface a sh:NodeShape;
-	sh:name "geo:Surface";
-	sh:targetClass geo:Surface
+	sh:name "gml:Surface";
+	sh:targetClass gml:Surface
 .
 shape:Point a sh:NodeShape;
-  sh:name "geo:Point";
-  sh:targetClass geo:Point
+  sh:name "gml:Point";
+  sh:targetClass gml:Point
 .
 
 # Bugje om superclass shape te tonen
