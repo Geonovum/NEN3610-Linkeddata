@@ -365,6 +365,15 @@ imgolf:hole a owl:ObjectProperty;
   dct:subject concept:Hole;
 	rdfs:label "hole";
 .
+imgolf:hole_Parcours a owl:ObjectProperty;
+  rdfs:subPropertyOf imgolf:hole;
+  rdfs:label "hole (Parcours)" ;
+.
+imgolf:hole_Putje a owl:ObjectProperty;
+  rdfs:subPropertyOf imgolf:hole;
+  rdfs:label "hole (Putje)" ;
+.
+
 imgolf:parcoursDeel a owl:ObjectProperty;
   dct:subject concept:ParcoursDeel;
 	rdfs:label "parcoursDeel";
@@ -393,51 +402,51 @@ imgolf:gebruiksstatus a owl:ObjectProperty;
   dct:subject concept:Gebruiksstatus;
   rdfs:label "gebruiksstatus"
 .
-
-# OWL property Restrictions
-imgolf:hole_Parcours a owl:ObjectProperty ; #Was eerst imgolf:hole, maar we moeten specifieker zijn.
-  rdfs:label "hole (Parcours)" ;
-  rdfs:domain imgolf:Golfbaan ;
-  rdfs:range imgolf:Parcours ;
-.
-
 imgolf:vereisten a owl:DatatypeProperty ;
   rdfs:label "vereisten" ;
   rdfs:range xsd:string ;
 .
-
 imgolf:etiquette a owl:DatatypeProperty ;
   rdfs:label "etiquette" ;
-  rdfs:range xsd:string ;
+.
+imgolf:afslagplaats a owl:ObjectProperty ;
+  rdfs:label "afslagplaats" ;
+.
+imgolf:hindernis a owl:ObjectProperty ;
+  rdfs:label "hindernis" ;
 .
 
+# OWL property Restrictions
+imgolf:hole_Parcours
+  rdfs:domain imgolf:Golfbaan ;
+  rdfs:range imgolf:Parcours ;
+.
+imgolf:vereisten
+  rdfs:range xsd:string ;
+.
+imgolf:etiquette
+  rdfs:range xsd:string ;
+.
 imgolf:nummer
   rdfs:range xsd:integer ;
 .
-
 imgolf:par
   rdfs:domain imgolf:Parcours ;
   rdfs:range xsd:integer ;
 .
-
 imgolf:parcoursDeel
   rdfs:domain imgolf:Parcours ;
   rdfs:range imgolf:ParcoursDeel ;
 .
-
-imgolf:afslagplaats a owl:ObjectProperty ;
-  rdfs:label "afslagplaats" ;
+imgolf:afslagplaats
   rdfs:domain imgolf:Parcours ;
   rdfs:range imgolf:Tee ;
 .
-
-imgolf:hindernis a owl:ObjectProperty ;
-  rdfs:label "hindernis" ;
+imgolf:hindernis
   rdfs:domain imgolf:Parcours ;
   rdfs:range imgolf:Hindernis ;
 .
-
-imgolf:hole
+imgolf:hole_Putje
   rdfs:domain imgolf:Green ;
   rdfs:range imgolf:Hole ;
 .
@@ -546,7 +555,7 @@ imgolf:Green
   ] ;
   rdfs:subClassOf [
     a owl:Restriction ;
-    owl:onProperty imgolf:hole ;
+    owl:onProperty imgolf:hole_Putje ;
     owl:qualifiedCardinality 1 ;
     owl:onClass imgolf:Hole ;
   ] ;

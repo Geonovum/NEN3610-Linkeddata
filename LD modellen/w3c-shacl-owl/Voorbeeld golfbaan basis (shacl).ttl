@@ -1,0 +1,207 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix imgolf: <http://linkeddata.ordina.nl/nen3610/def/imgolf#>.
+@prefix concept: <http://linkeddata.ordina.nl/nen3610/imgolf/id/concept/>.
+
+@prefix golfbaan: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/golfbaan/>.
+@prefix parcours: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/parcours/>.
+@prefix geometrie: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/geometrie/>.
+@prefix feature: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/feature/>.
+@prefix putje: <http://linkeddata.ordina.nl/nen3610/voorbeeld/id/putje/>.
+
+#Overgenomen referentiegegevens
+concept:Openbaar a skos:Concept;
+  rdfs:label "openbaar";
+  skos:prefLabel "openbaar"@nl;
+  skos:inScheme schema:IMGolf;
+  skos:definition "Toegankelijk voor iedereen"@nl;
+  skos:inScheme schema:IMGolf
+.
+concept:LageNatuurwaarde a skos:Concept;
+  rdfs:label "lage natuurwaarde";
+  skos:inScheme schema:IMGolf;
+  skos:prefLabel "laag";
+.
+<http://brt.basisregistraties.overheid.nl/id/begrip/InGebruik> a skos:Concept;
+  rdfs:label "in gebruik";
+  skos:definition "Het object wordt gebruikt.";
+.
+
+#Overgenomen uit model
+imgolf:Green rdfs:subClassOf imgolf:Parcoursdeel.
+imgolf:Fairway rdfs:subClassOf imgolf:Parcoursdeel.
+imgolf:Semirough rdfs:subClassOf imgolf:Parcoursdeel.
+imgolf:Voorgreen rdfs:subClassOf imgolf:Parcoursdeel.
+
+#Overgenomen uit model: dit zou eigenlijk afgeleid moeten worden!!
+imgolf:Linksbaan rdfs:subClassOf imgolf:Golfbaan.
+
+# Data
+golfbaan:KoninklijkeHaagseGenCC a imgolf:Linksbaan;
+  owl:sameAs <http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
+  geo:hasGeometry geometrie:KoninklijkeHaagseGenCC;
+  imgolf:naam "Koninklijke Haagse Golf en Country Club"@nl;
+  imgolf:toegang [
+    imgolf:toegankelijkheid concept:openbaar;
+    imgolf:vereisten "Lid of introduce";
+    imgolf:etiquette "Algemene etiquette";
+  ];
+  imgolf:natuurwaarde concept:LageNatuurwaarde;
+  imgolf:gebruiksstatus <http://brt.basisregistraties.overheid.nl/id/begrip/InGebruik>;
+  imgolf:hole parcours:DrivingRange;
+  imgolf:hole parcours:Hole1;
+  imgolf:hole parcours:Hole2;
+  imgolf:hole parcours:Hole3;
+  imgolf:hole parcours:Hole4;
+  imgolf:hole parcours:Hole5;
+  imgolf:hole parcours:Hole6;
+  imgolf:hole parcours:Hole7;
+  imgolf:hole parcours:Hole8;
+  imgolf:hole parcours:Hole9;
+  imgolf:hole parcours:Hole10;
+  imgolf:hole parcours:Hole11;
+  imgolf:hole parcours:Hole12;
+  imgolf:hole parcours:Hole13;
+  imgolf:hole parcours:Hole14;
+  imgolf:hole parcours:Hole15;
+  imgolf:hole parcours:Hole16;
+  imgolf:hole parcours:Hole17;
+  imgolf:hole parcours:Hole18;
+.
+geometrie:KoninklijkeHaagseGenCC a geo:Geometry;
+  geo:asWKT "POLYGON ((4.369778237293477 52.13279782694748, 4.370070010142192 52.13295245772623, 4.370257753205193 52.132900810513576, 4.370434112743603 52.132850655834666, 4.370632924671954 52.132775993807066, 4.3706856443243804 52.132807827409316, 4.370745178800834 52.13284379155639, 4.371520701491477 52.13338568080179, 4.3714024742961 52.133437146827895, 4.37153891385145 52.133547578235984, 4.371700505011676 52.13366578546583, 4.371865069381149 52.133813221971145, 4.371928816565732 52.13389912638198, 4.371989948733168 52.13394009229745, 4.372061712985177 52.13399462358727, 4.372161765912295 52.13408983795199, 4.372283200185632 52.13420768971781, 4.372397296467815 52.134327734341696, 4.37249125951962 52.134368973510384, 4.372903133796306 52.134718469188996, 4.372425524213219 52.135013131793265, 4.371992560136424 52.13526998433574, 4.372953936498679 52.136017324276885, 4.373168900647411 52.136196643290965, 4.373146549359355 52.13621666641193, 4.37339934422848 52.13641547391814, 4.374140046996176 52.13699797068161, 4.3737003462859745 52.13723006196788, 4.373606922619942 52.137164109880835, 4.372982520043468 52.13749121112977, 4.37276951629419 52.13760466658743, 4.372139947895192 52.137939979462224, 4.371493258068598 52.13828261104176, 4.370883583136058 52.138603086641254, 4.370151694167379 52.138998881137816, 4.369649383937646 52.13877215296732, 4.368800218517343 52.13838742893752, 4.368619607534701 52.138302751805575, 4.368438894694893 52.138222567800405, 4.368323429828429 52.138163162541865, 4.368233048338542 52.13812418920459, 4.368128728190579 52.138055900453374, 4.367959740292394 52.13794211883505, 4.367765143103564 52.137830362744594, 4.367581310001668 52.13772768796741, 4.367354022064086 52.137608907109154, 4.367087099534731 52.1374673205124, 4.366866552049855 52.137373306604864, 4.366573523586147 52.13725621155225, 4.36633821927535 52.13716881036477, 4.365812823338385 52.136995779215944, 4.364320092568141 52.13649986689647, 4.3638126961945725 52.13633820958025, 4.3637802623802 52.13631995993708, 4.363457834119539 52.136211581485945, 4.3619650528554486 52.13572013282809, 4.361468538560653 52.13556305419831, 4.361251302073694 52.13548478845901, 4.360631822504541 52.13527721716663, 4.359979696025459 52.13506037860521, 4.359207978482717 52.134806548574524, 4.358758865915145 52.13465212772388, 4.358410477454442 52.134404230615736, 4.3575163507677965 52.1337606904337, 4.356805364823914 52.13324903336015, 4.356894096815151 52.13320038932724, 4.3570972053378325 52.13309883077757, 4.357371115144751 52.13293498799147, 4.358372915299624 52.1330246028246, 4.35869474677741 52.13299820623196, 4.359257993059535 52.13295145090125, 4.359978838161019 52.13287686185193, 4.361343661802323 52.13273599048631, 4.361962254349379 52.13266274690984, 4.362163853858323 52.13262630690421, 4.362336481685151 52.13258063516449, 4.362639818889262 52.13240580021622, 4.36265302937112 52.1325786577998, 4.362831015738369 52.132663555267825, 4.363093788301769 52.132665837579616, 4.363334361577819 52.132681400466694, 4.363588807540975 52.132569049757755, 4.363572730653917 52.13247455694044, 4.363552576358632 52.13239800591206, 4.363553142731462 52.132373301184174, 4.363202124571675 52.13208046135566, 4.362721994397623 52.13168766921749, 4.36249204178615 52.13152841574931, 4.362020128486074 52.131254746019174, 4.360816527395616 52.13052638368168, 4.360969273836841 52.13035663305212, 4.3619274867422195 52.12938190291379, 4.363777228712693 52.12988742744409, 4.364424371259894 52.13003561029608, 4.364936568830744 52.13030287824206, 4.365448721137179 52.130572390669144, 4.3655620166274005 52.130566639817694, 4.365811821660313 52.13065640662495, 4.366287285493916 52.13093458614523, 4.367047431504587 52.13137472040146, 4.367404274799697 52.131573245842134, 4.367797716936243 52.13176759226557, 4.368475526574456 52.132137370687296, 4.36913978306135 52.13246209416399, 4.369778237293477 52.13279782694748))"^^geo:wktLiteral;
+.
+
+parcours:DrivingRange a imgolf:Parcours;
+  rdfs:label "Driving range";
+.
+
+parcours:Hole1 a imgolf:Parcours;
+  rdfs:label "Hole 1";
+  imgolf:nummer 1;
+  imgolf:par 5;
+  imgolf:afslagplaatsWit feature:6071ab5a-f27c-4929-b745-58d9089fa85c;
+  imgolf:afslagplaatsGeel feature:23d3dfeb-81f2-4ca8-88f6-ae1ee5a61ec5;
+  imgolf:afslagplaatsBlauw feature:0d78243f-11a9-4b5c-930b-a7d7861abc56;
+  imgolf:afslagplaatsRood feature:44b84ea2-992b-461b-a097-9f861882f74a;
+  imgolf:parcoursDeel feature:9cc7b8c8-cfa1-4c6d-990c-246a09e891dd;
+  imgolf:parcoursDeel feature:8a713a03-a7e0-4d34-8cbc-ee7ca0bde972;
+  imgolf:parcoursDeel feature:01f579cf-5dda-471e-9684-9b7785a2e0ae;
+  imgolf:parcoursDeel feature:bc1b267c-6bb1-4fef-9920-44211a07675c;
+  imgolf:parcoursDeel feature:1a09ce89-7e49-4c07-9a9f-f72cf5ce6678;
+  imgolf:hindernis feature:7e033ecc-f72a-4d10-aba9-278273335a90;
+  imgolf:hindernis feature:ad77c106-ff6d-4bdd-bf7f-4dd94e1095b1
+.
+feature:8a713a03-a7e0-4d34-8cbc-ee7ca0bde972 imgolf:hole putje:Hole1.
+putje:Hole1 a imgolf:Hole;
+  rdfs:label "Hole 1";
+  geo:hasGeometry geometrie:Hole1
+.
+geometrie:Hole1 a geo:Geometry;
+  geo:asWKT "POINT (4.37 52.1378)"
+.
+
+parcours:Hole2 a imgolf:Parcours;
+  rdfs:label "Hole 2";
+  imgolf:nummer 2;
+  imgolf:par 4;
+.
+
+parcours:Hole3 a imgolf:Parcours;
+  rdfs:label "Hole 3";
+  imgolf:nummer 3;
+  imgolf:par 4;
+.
+
+parcours:Hole4 a imgolf:Parcours;
+  rdfs:label "Hole 4";
+  imgolf:nummer 4;
+  imgolf:par 3;
+.
+
+parcours:Hole5 a imgolf:Parcours;
+  rdfs:label "Hole 5";
+  imgolf:nummer 5;
+  imgolf:par 5;
+.
+
+parcours:Hole6 a imgolf:Parcours;
+  rdfs:label "Hole 6";
+  imgolf:nummer 6;
+  imgolf:par 4;
+.
+
+parcours:Hole7 a imgolf:Parcours;
+  rdfs:label "Hole 7";
+  imgolf:nummer 7;
+  imgolf:par 4;
+.
+
+parcours:Hole8 a imgolf:Parcours;
+  rdfs:label "Hole 8";
+  imgolf:nummer 8;
+  imgolf:par 3;
+.
+
+parcours:Hole9 a imgolf:Parcours;
+  rdfs:label "Hole 9";
+  imgolf:nummer 9;
+  imgolf:par 4;
+.
+
+parcours:Hole10 a imgolf:Parcours;
+  rdfs:label "Hole 10";
+  imgolf:nummer 10;
+  imgolf:par 5;
+.
+
+parcours:Hole11 a imgolf:Parcours;
+  rdfs:label "Hole 11";
+  imgolf:nummer 11;
+  imgolf:par 4;
+.
+
+parcours:Hole12 a imgolf:Parcours;
+  rdfs:label "Hole 12";
+  imgolf:nummer 12;
+  imgolf:par 3;
+.
+
+parcours:Hole13 a imgolf:Parcours;
+  rdfs:label "Hole 13";
+  imgolf:nummer 13;
+  imgolf:par 4;
+.
+
+parcours:Hole14 a imgolf:Parcours;
+  rdfs:label "Hole 14";
+  imgolf:nummer 14;
+  imgolf:par 4;
+.
+
+parcours:Hole15 a imgolf:Parcours;
+  rdfs:label "Hole 15";
+  imgolf:nummer 15;
+  imgolf:par 4;
+.
+
+parcours:Hole16 a imgolf:Parcours;
+  rdfs:label "Hole 16";
+  imgolf:nummer 16;
+  imgolf:par 4;
+.
+
+parcours:Hole17 a imgolf:Parcours;
+  rdfs:label "Hole 17";
+  imgolf:nummer 17;
+  imgolf:par 3;
+.
+
+parcours:Hole18 a imgolf:Parcours;
+  rdfs:label "Hole 18";
+  imgolf:nummer 18;
+  imgolf:par 5;
+.
