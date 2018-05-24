@@ -21,6 +21,7 @@
 @prefix wdrs: <http://www.w3.org/2007/05/powder-s#>.
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix gml: <http://www.opengis.net/ont/gml#> .
 
 @prefix concept: <http://linkeddata.ordina.nl/nen3610/imgolf/id/concept/>.
 @prefix schema: <http://linkeddata.ordina.nl/nen3610/imgolf/id/conceptscheme/>.
@@ -376,7 +377,7 @@ imgolf:par a owl:DatatypeProperty;
   dct:subject concept:Par;
 	rdfs:label "par";
 .
-imgolf:naam a owl:DatatypeProperty;
+imgolf:naam a owl:AnnotationProperty ;#owl:DatatypeProperty;
   dct:subject concept:Golfbaannaam;
   rdfs:label "naam";
 .
@@ -393,6 +394,188 @@ imgolf:gebruiksstatus a owl:ObjectProperty;
   rdfs:label "gebruiksstatus"
 .
 
+# OWL property Restrictions
+imgolf:hole_Parcours a owl:ObjectProperty ; #Was eerst imgolf:hole, maar we moeten specifieker zijn.
+  rdfs:label "hole (Parcours)" ;
+  rdfs:domain imgolf:Golfbaan ;
+  rdfs:range imgolf:Parcours ;
+.
+
+imgolf:vereisten a owl:DatatypeProperty ;
+  rdfs:label "vereisten" ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:etiquette a owl:DatatypeProperty ;
+  rdfs:label "etiquette" ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:nummer
+  rdfs:range xsd:integer ;
+.
+
+imgolf:par
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:integer ;
+.
+
+imgolf:parcoursDeel
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range imgolf:ParcoursDeel ;
+.
+
+imgolf:afslagplaats a owl:ObjectProperty ;
+  rdfs:label "afslagplaats" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range imgolf:Tee ;
+.
+
+imgolf:hindernis a owl:ObjectProperty ;
+  rdfs:label "hindernis" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range imgolf:Hindernis ;
+.
+
+imgolf:hole
+  rdfs:domain imgolf:Green ;
+  rdfs:range imgolf:Hole ;
+.
+
+imgolf:Golfbaan
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class, owl:Restriction ;
+    owl:onProperty imgolf:toegang ;
+    owl:qualifiedCardinality 1 ;
+    owl:onClass [
+      rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty imgolf:toegankelijkheid ;
+        owl:qualifiedCardinality 1 ;
+        owl:onClass [
+          owl:oneOf (
+            concept:Openbaar
+            concept:Besloten
+          ) ;
+        ] ;
+      ] ;
+      rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty imgolf:vereisten ;
+      ] ;
+      rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty imgolf:etiquette ;
+      ] ;
+    ] ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class, owl:Restriction ;
+    owl:onProperty imgolf:natuurwaarde ;
+    owl:qualifiedCardinality 1 ;
+    owl:onClass [
+      owl:oneOf (
+        concept:HogeNatuurwaarde
+        concept:LageNatuurwaarde
+        concept:GeenNatuurwaarde
+      ) ;
+    ] ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class , owl:Restriction ;
+    owl:onProperty imgolf:gebruiksstatus ;
+    owl:qualifiedCardinality 1 ;
+    owl:onClass [
+      owl:oneOf (
+        <http://brt.basisregistraties.overheid.nl/id/begrip/InUitvoering>
+        <http://brt.basisregistraties.overheid.nl/id/begrip/InGebruik>
+        <http://brt.basisregistraties.overheid.nl/id/begrip/BuitenGebruik>
+      ) ;
+    ] ;
+  ] ;
+.
+
+imgolf:Parcours
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:nummer ;
+    owl:cardinality 1 ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:par ;
+    owl:minCardinality 1 ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:parcoursDeel ;
+    owl:qualifiedMinCardinality 1 ;
+    owl:onClass imgolf:ParcoursDeel ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:afslagplaats ;
+    owl:qualifiedMinCardinality 1 ;
+    owl:onClass imgolf:Tee ;
+  ] ;
+.
+
+imgolf:ParcoursDeel
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+.
+
+imgolf:Green
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:hole ;
+    owl:qualifiedCardinality 1 ;
+    owl:onClass imgolf:Hole ;
+  ] ;
+.
+
+imgolf:Tee
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+.
+
+imgolf:Hindernis
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+.
+
+imgolf:Hole
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty geo:hasGeometry ;
+    owl:minCardinality 1 ;
+  ] ;
+.
+
 # Shapes
 shape:Golfbaan a sh:NodeShape;
 	sh:name "Golfbaan";
@@ -400,7 +583,7 @@ shape:Golfbaan a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:MultiSurface;
+		sh:class gml:MultiSurface;
     sh:minCount 1;
     sh:maxCount 1;
 	];
@@ -501,7 +684,7 @@ shape:Parcours a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:MultiSurface;
+		sh:class gml:MultiSurface;
     sh:minCount 1;
     sh:maxCount 1;
 	];
@@ -546,7 +729,7 @@ shape:ParcoursDeel a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -582,7 +765,7 @@ shape:Tee a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -594,7 +777,7 @@ shape:Hindernis a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Surface;
+		sh:class gml:Surface;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -615,7 +798,7 @@ shape:Hole a sh:NodeShape;
 	sh:property [
 		sh:name "geo:hasGeometry";
 		sh:path geo:hasGeometry;
-		sh:class geo:Point;
+		sh:class gml:Point;
 		sh:minCount 1;
 		sh:maxCount 1;
 	];
@@ -623,16 +806,16 @@ shape:Hole a sh:NodeShape;
 
 # Shapes voor visualisatie
 shape:MultiSurface a sh:NodeShape;
-	sh:name "geo:MultiSurface";
-	sh:targetClass geo:MultiSurface
+	sh:name "gml:MultiSurface";
+	sh:targetClass gml:MultiSurface
 .
 shape:Surface a sh:NodeShape;
-	sh:name "geo:Surface";
-	sh:targetClass geo:Surface
+	sh:name "gml:Surface";
+	sh:targetClass gml:Surface
 .
 shape:Point a sh:NodeShape;
-  sh:name "geo:Point";
-  sh:targetClass geo:Point
+  sh:name "gml:Point";
+  sh:targetClass gml:Point
 .
 
 # Bugje om superclass shape te tonen
