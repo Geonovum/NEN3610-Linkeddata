@@ -1,0 +1,26 @@
+@prefix stage: <http://localhost:8080/nen3610/stage#>.
+@prefix elmo: <http://bp4mc2.org/elmo/def#>.
+@prefix html: <http://www.w3.org/1999/xhtml/vocab#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
+
+stage:Datasets a elmo:Representation;
+	elmo:url-pattern "/query/datasets$";
+	elmo:contains stage:Menu;
+	elmo:query '''
+		PREFIX container: <http://localhost:8080/nen3610/container/>
+    PREFIX dcat: <http://www.w3.org/ns/dcat#>
+    PREFIX dct: <http://purl.org/dc/terms/>
+		SELECT (iri(concat("http://linkeddata.ordina.nl/nen3610/id/dataset/",?identifier)) as ?dataset)
+           ?dataset_label
+		WHERE {
+			GRAPH container:datasets {
+				?ds rdf:type dcat:Dataset.
+        ?ds dct:identifier ?identifier.
+        ?ds dct:title ?dataset_label
+      }
+		}
+    ORDER BY ?dataset_label
+	''';
+.

@@ -1,0 +1,15 @@
+@prefix dataset: <http://linkeddata.ordina.nl/nen3610/id/dataset/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+dataset:06b6c650-cdb1-11dd-ad8b-0800200c9a77 a dcat:Dataset;
+    dct:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/MONTHLY>;
+    dct:description "INSPIRE Adressen themalaag, gevuld met relevante objecten uit de Basisregistratie Adressen en Gebouwen (BAG), beheerd door het Kadaster.";
+    dct:identifier "06b6c650-cdb1-11dd-ad8b-0800200c9a77";
+    dct:subject <http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/transportation>;
+    dcat:theme [
+        rdfs:label "Adressen"
+    ]
+.

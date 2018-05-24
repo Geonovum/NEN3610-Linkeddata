@@ -68,7 +68,12 @@ container:golfbaan a elmo:Container;
   elmo:replaces containerlocal:golfbaan;
 	elmo:representation elmo:UploadRepresentation;
 .
-
+container:datasets a elmo:Container;
+  rdfs:label "Upload datasets (RDF)";
+  elmo:contains stage:Menu;
+  elmo:replaces containerlocal:datasets;
+  elmo:representation elmo:UploadRepresentation;
+.
 containerlocal:begrippen a elmo:Container;
 	rdfs:label "Upload begrippen";
 	elmo:contains stage:Menu;
@@ -120,4 +125,9 @@ containerlocal:model a elmo:Container;
   rdfs:label "Upload model";
   elmo:contains stage:Menu;
   elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget>
+.
+containerlocal:datasets a elmo:Container;
+  rdfs:label "Upload datasets (RDF)";
+  elmo:contains stage:Menu;
+  elmo:representation elmo:UploadRepresentation;
 .

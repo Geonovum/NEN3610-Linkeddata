@@ -10,25 +10,21 @@ stage:Menu a elmo:Part;
 		rdfs:label "NEN3610"@nl;
 		elmo:data [
 			elmo:index "1";
-			rdfs:label "Begrippen";
-			html:link "query/begrippen";
+			rdfs:label "NEN3610";
+      elmo:data [elmo:index "1"; rdfs:label "Begrippen"; html:link "query/begrippen"];
+			elmo:data [elmo:index "2"; rdfs:label "Documentatie"; html:link "query/model"];
+			elmo:data [elmo:index "3"; rdfs:label "Diagram"; html:link "query/model-diagram"];
+			elmo:data [elmo:index "4"; rdfs:label "Diagram Semantisch model"; html:link "query/semantisch-model-diagram"];
+			elmo:data [elmo:index "5"; rdfs:label "Semantisch model (download)"; html:link "query/semantisch-model.yed"];
 		];
 		elmo:data [
 			elmo:index "2";
-			rdfs:label "Model";
-			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/model"];
-			elmo:data [elmo:index "2"; rdfs:label "Diagram"; html:link "query/model-diagram"];
-			elmo:data [elmo:index "3"; rdfs:label "Diagram Semantisch model"; html:link "query/semantisch-model-diagram"];
-			elmo:data [elmo:index "4"; rdfs:label "Semantisch model (download)"; html:link "query/semantisch-model.yed"];
-		];
-		elmo:data [
-			elmo:index "3";
 			rdfs:label "Metamodel";
 			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/metamodel"];
 			elmo:data [elmo:index "2"; rdfs:label "Diagram"; html:link "query/metamodel-diagram"];
 		];
 		elmo:data [
-			elmo:index "4";
+			elmo:index "3";
 			rdfs:label "IM Golf";
 			elmo:data [elmo:index "1"; rdfs:label "Documentatie"; html:link "query/imgolf"];
 			elmo:data [elmo:index "2"; rdfs:label "Classificatie diagram"; html:link "query/imgolf-classificatie"];
@@ -36,11 +32,16 @@ stage:Menu a elmo:Part;
 			elmo:data [elmo:index "4"; rdfs:label "Semantisch model (download)"; html:link "query/imgolf-semantisch-model.yed"];
 		];
     elmo:data [
-      elmo:index "5";
+      elmo:index "4";
       rdfs:label "Golfbaan";
       elmo:data [elmo:index "1"; rdfs:label "Kaart"; html:link "query/golfbaan/kaart"];
       elmo:data [elmo:index "2"; rdfs:label "Parcoursdata"; html:link "query/golfbaan/parcoursdata"];
       elmo:data [elmo:index "3"; rdfs:label "WKT data als CSV"; html:link "query/golfbaan/wkt.csv"];
+    ];
+    elmo:data [
+      elmo:index "5";
+      rdfs:label "Datasets";
+      html:link "query/datasets"
     ];
     elmo:data [
       elmo:index "6";
@@ -62,7 +63,8 @@ stage:Menu a elmo:Part;
 			elmo:data [elmo:index "5"; rdfs:label "Metamodel"; html:link "/nen3610/container/metamodel"];
 			elmo:data [elmo:index "6"; rdfs:label "IM Golf"; html:link "/nen3610/container/imgolf"];
       elmo:data [elmo:index "7"; rdfs:label "IM Golf begrippen"; html:link "/nen3610/container/excelbegrippen"];
-      elmo:data [elmo:index "8"; rdfs:label "Golfbaan"; html:link "/nen3610/container/golfbaan"]
+      elmo:data [elmo:index "8"; rdfs:label "Golfbaan"; html:link "/nen3610/container/golfbaan"];
+      elmo:data [elmo:index "9"; rdfs:label "Datasets"; html:link "/nen3610/container/datasets"];
 		];
 	];
 .
