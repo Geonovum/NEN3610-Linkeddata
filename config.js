@@ -3,13 +3,9 @@ var respecConfig = {
   specType: "ST",
   //publishDate: "2017-08-25",
   editors: [{
-    name: "First Lastname",
-    company: "Company",
-    companyURL: "CompanyURL",
-  },{
-    name: "Second Lastname",
-    company: "Company",
-    companyURL: "CompanyURL",
+    name: "Paul Janssen",
+    company: "Geonovum",
+    companyURL: "https://www.geonovum.nl",
   }],
   shortName: "nldp",
   pubDomain: "nen3610",
