@@ -1,7 +1,7 @@
 var respecConfig = {
   specStatus: "GN-WV",
   specType: "ST",
-  publishDate: "2017-08-25",
+  //publishDate: "2017-08-25",
   editors: [{
     name: "First Lastname",
     company: "Company",
