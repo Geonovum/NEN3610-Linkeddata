@@ -1,31 +1,19 @@
 # NEN3610 in Linked Data
 #
-# Basis uitgangspunten:
-# - Beschrijvingen als skos:Concepts
-# - Mogelijk maken dat er concrete implementaties worden gemaakt (obv owl:Classes)
-# - In de praktijk vermoedelijk op basis van specialisaties (rdfs:subClassOf)
-# - Niet alleen de concrete klassen opnemen, maar ook properties, stereotypen en terminologie
+# Onderdeel vocabulaire (klassen en eigenschappen)
 #
 # Uitgangsdocumentatie is NEN3610-2011
 #
-@prefix dctypes: <http://purl.org/dc/dcmitype/>.
-@prefix dct: <http://purl.org/dc/terms/>.
-@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
-@prefix sh: <http://www.w3.org/ns/shacl#>.
-@prefix dc: <http://purl.org/dc/elements/1.1>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
-@prefix wdrs: <http://www.w3.org/2007/05/powder-s#>.
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
-@prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
-@prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
 
 # Ontology
 <http://definities.geostandaarden.nl/def/nen3610> a owl:Ontology;
@@ -33,7 +21,7 @@
 .
 
 # Imported
-geo:Feature a owl:Class;
+geosparql:Feature a owl:Class;
 	rdfs:label "Feature"@en;
 	rdfs:comment "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types."@en;
 .
@@ -44,82 +32,76 @@ geo:Feature a owl:Class;
 
 # Klasse-model
 nen3610:GeoObject a owl:Class;
-	rdfs:label "Geo-object" ;
-	dct:subject concept:GeoObject;
-	rdfs:subClassOf geo:Feature ;
+	rdfs:label "Geo-object"@nl ;
+	dcterms:subject concept:GeoObject;
+	rdfs:subClassOf geosparql:Feature ;
 	rdfs:seeAlso <http://schema.org/Place> # possibly rdfs:subClassOf?? would be interesting
-.
-nen3610:ConcreetObject a owl:Class ;
-	rdfs:label "Concreet object"@nl ;
-	rdfs:subClassOf nen3610:GeoObject ;
-	# met subclasses weg, kuntstwerk etc.
 .
 nen3610:Weg a owl:Class;
 	rdfs:label "Weg"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Weg;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Weg;
 .
 nen3610:Terrein a owl:Class;
 	rdfs:label "Terrein"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Terrein;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Terrein;
 .
 nen3610:Water a owl:Class;
 	rdfs:label "Water"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Water;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Water;
 .
 nen3610:Spoorbaan a owl:Class;
 	rdfs:label "Spoorbaan"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Spoorbaan;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Spoorbaan;
 .
 nen3610:Gebouw a owl:Class;
 	rdfs:label "Gebouw"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Gebouw;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Gebouw;
 .
 nen3610:Leiding a owl:Class;
 	rdfs:label "Leiding"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Leiding;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Leiding;
 .
 nen3610:Kunstwerk a owl:Class;
 	rdfs:label "Kunstwerk"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Kunstwerk;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Kunstwerk;
 .
 nen3610:Inrichtingselement a owl:Class;
 	rdfs:label "Inrichtingselement"@nl;
-	rdfs:subClassOf nen3610:ConcreetObject;
-	dct:subject concept:Inrichtingselement;
+	rdfs:subClassOf nen3610:GeoObject;
+	dcterms:subject concept:Inrichtingselement;
 .
 nen3610:RegistratiefGebied a owl:Class;
 	rdfs:label "Registratief gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
-	dct:subject concept:RegistratiefGebied;
+	dcterms:subject concept:RegistratiefGebied;
 .
 nen3610:GeografischGebied a owl:Class;
 	rdfs:label "Geografisch gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
-	dct:subject concept:GeografischGebied;
+	dcterms:subject concept:GeografischGebied;
 .
 nen3610:FunctioneelGebied a owl:Class;
 	rdfs:label "Functioneel gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
-	dct:subject concept:FunctioneelGebied
+	dcterms:subject concept:FunctioneelGebied
 .
 nen3610:PlanologischGebied a owl:Class;
 	rdfs:label "Planologisch gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
-	dct:subject concept:PlanologischGebied;
+	dcterms:subject concept:PlanologischGebied;
 .
-# Nog aanvullen met de ontbrekende elementen (vgl. concepten)
 
 # Attributen
 nen3610:identificatie a owl:ObjectProperty;
 	rdfs:label "identificatie"@nl;
-	dct:subject concept:Identificatie;
+	dcterms:subject concept:Identificatie;
 .
 # Attributen namespace, lokaalID en versie kennen geen concept, dit lijken meer administratieve gegevens
 nen3610:namespace a owl:DatatypeProperty;
@@ -139,9 +121,9 @@ nen3610:versie a owl:DatatypeProperty;
 .
 nen3610:beginGeldigheid a owl:DatatypeProperty;
 	rdfs:label "beginGeldigheid";
-	dct:subject concept:BeginGeldigheid;
+	dcterms:subject concept:BeginGeldigheid;
 .
 nen3610:eindGeldigheid a owl:DatatypeProperty;
 	rdfs:label "eindGeldigheid";
-	dct:subject concept:EindGeldigheid;
+	dcterms:subject concept:EindGeldigheid;
 .

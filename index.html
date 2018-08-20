@@ -44,7 +44,7 @@
 <!-- Hoofdstuk 2 -->
 <section id='geolodcloudnl' class="informative">
   <h1>Nederlandse LOD Cloud voor geodata-sets</h1>
-	  <p class='issue' data-number='17'></p>
+  <p class='issue' data-number='17'></p>
   <p>In dit hoofdstuk wordt een overzicht gegeven van de huidige LD geo-datasets in Nederland. De opsomming betreft de situatie bij publicatie van deze standaard. De schrijvers hebben getracht om zo volledig mogelijk te zijn om een goed beeld te geven van de huidige status quo.</p>
   <p>De intentie is om -als spin-off van de ontwikkeling van deze standaard- een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.</p>
 
@@ -303,7 +303,7 @@
         <tr>
           <th>Prefix</th>
           <th>Namespace</th>
-          <th>Documentatie</th>
+          <th>Vocabulaire</th>
         </tr>
         <tr>
           <td>rdf</td>
@@ -377,7 +377,7 @@
         <tr>
           <th>Prefix</th>
           <th>Namespace</th>
-          <th>Documentatie</th>
+          <th>Vocabulaire</th>
         </tr>
         <tr>
           <td>rdf</td>
@@ -475,7 +475,7 @@
         <tr>
           <th>Prefix</th>
           <th>Namespace</th>
-          <th>Documentatie</th>
+          <th>Vocabulaire</th>
         </tr>
         <tr>
           <td>rdf</td>
@@ -501,6 +501,11 @@
           <td>owl</td>
           <td>http://www.w3.org/2002/07/owl#</td>
           <td><a href="https://www.w3.org/TR/owl-primer">Web Ontology Language</a></td>
+        </tr>
+        <tr>
+          <td>geosparql</td>
+          <td>http://www.opengis.net/ont/geosparql#</td>
+          <td><a href="http://www.opengeospatial.org/standards/geosparql">Geographic Query Language for RDF Data</a></td>
         </tr>
       </tbody>
     </table>
@@ -553,6 +558,16 @@
         </tr>
       </tbody>
     </table>
+    <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de OGC GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse. Voor de aansluiting met search engines, is ook een eerste aanzet gemaakt om te verbinden met schema.org</p>
+    <p class='issue'>Uitgezocht moet worden of we een geo-object ook een subklasse kunnen maken van schema.org/Place, of dat we niet verder komen dan seeAlso.</p>
+<code>
+nen3610:GeoObject a owl:Class;
+	rdfs:label "Geo-object"@nl ;
+	dcterms:subject concept:GeoObject;
+	rdfs:subClassOf geosparql:Feature ;
+	rdfs:seeAlso <http://schema.org/Place>
+.
+</code>
   </section>
 
   <!-- Sectie 6.4 -->
