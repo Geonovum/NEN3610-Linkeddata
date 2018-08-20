@@ -566,8 +566,9 @@
       <p>Indien een eigen begrippenkader wordt gehanteerd, MOET daarbij verwezen worden naar de NEN3610 begrippen waar dit van toepassing is. Daarbij MOET gebruik worden gemaakt van de juiste eigenschappen uit de SKOS vocabulaire.</p>
       <p>Onderstaand voorbeeld geeft aan hoe een begrip uit IM-Golf op de juiste wijze verwijst naar een NEN3610 begrip</p>
 <pre class='ex-turtle'>
-@prefix nen3610-begrip: <http://definities.geostandaarden.nl/nen3610/id/concept/>
-@prefix imgolf-begrip: <http://definities.geostandaarden.nl/imgolf/id/concept/>
+@prefix nen3610-begrip: &lt;http://definities.geostandaarden.nl/nen3610/id/concept/>.
+@prefix imgolf-begrip: &lt;http://definities.geostandaarden.nl/imgolf/id/concept/>.
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#>.
 
 imgolf-begrip:Golfbaan a skos:Concept;
   skos:broadMatch nen3610-begrip:FunctioneelGebied;
@@ -584,7 +585,11 @@ imgolf-begrip:Golfbaan a skos:Concept;
       <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
 <pre class='ex-turtle'>
 @prefix nen3610: &lt;http://definities.geostandaarden.nl/def/nen3610#>.
-@prefix imgolf: &lt;http://definities.geostandaarden.nl/def/imgolf#>
+@prefix imgolf: &lt;http://definities.geostandaarden.nl/def/imgolf#>.
+@prefix golfbaan: &lt;http://definities.geostandaarden.nl/nen3610/imgolf/voorbeeld/>.
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#>.
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>.
+@prefix geosparql: &lt;http://www.opengis.net/ont/geosparql#>.
 
 imgolf:Golfbaan a owl:Class;
   rdfs:label "Golfbaan"@nl;
@@ -592,7 +597,7 @@ imgolf:Golfbaan a owl:Class;
 .
 golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
   owl:sameAs &lt;http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
-  geo:hasGeometry geometrie:KoninklijkeHaagseGenCC;
+  geosparql:hasGeometry geometrie:KoninklijkeHaagseGenCC;
   imgolf:naam "Koninklijke Haagse Golf en Country Club"@nl;
   nen3610:beginGeldigheid "1938"^^xsd:Date
 .
