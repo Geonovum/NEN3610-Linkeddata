@@ -287,7 +287,7 @@
   <ul>
     <li><i>Verwijzingen</i>: metadata van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
     <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name SKOS gebruikt.</li>
-    <li><i>...</i>: ...</li>
+    <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name RDFS en OWL gebruikt.</li>
   </ul>
 
   <!-- Sectie 6.1 -->
@@ -363,107 +363,244 @@
     </table>
   </section>
 
-    <!-- Sectie 6.2 -->
-    <section id='nen3610ld-begrippen'>
-      <h2>Begrippen</h2>
-      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen definities die gelden voor toepassen van deze standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
-      <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
-      <p>De URI voor begripkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
-      <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
-      <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl</a></p>
-      <p>De volgende vocabulaires zijn gebruikt:</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Prefix</th>
-            <th>Namespace</th>
-            <th>Documentatie</th>
-          </tr>
-          <tr>
-            <td>rdf</td>
-            <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
-            <td><a href="https://www.w3.org/TR/rdf11-primer">Resource Description Framework 1.1</a></td>
-          </tr>
-          <tr>
-            <td>rdfs</td>
-            <td>http://www.w3.org/2000/01/rdf-schema#</td>
-            <td><a href="https://www.w3.org/TR/rdf-schema">RDF Schema 1.1</a></td>
-          </tr>
-          <tr>
-            <td>dc</td>
-            <td>http://purl.org/dc/elements/1.1/</td>
-            <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (elements)</a></td>
-          </tr>
-          <tr>
-            <td>dcterms</td>
-            <td>http://purl.org/dc/terms/</td>
-            <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
-          </tr>
-          <tr>
-            <td>skos</td>
-            <td>http://purl.org/dc/dcmitype/</td>
-            <td><a href="http://www.w3.org/2004/02/skos/core#">Simple Knowledge Organization System</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
-      <table>
-        <tbody>
-          <tr>
-            <th>Term</th>
-            <th>Gebruik</th>
-          </tr>
-          <tr>
-            <td>skos:ConceptScheme</td>
-            <td>Elke begrip is onderdeel van het NEN3610 begrippenkader. Dit begrippenkader is van het type skos:ConceptScheme.</td>
-          </tr>
-          <tr>
-            <td>skos:Concept</td>
-            <td>Elke begrip is van het type skos:Concept. Een begrip bestaat uit een term en zijn definitie.</td>
-          </tr>
-          <tr>
-            <td>rdf:type</td>
-            <td>Geeft het type aan van het begrip (skos:Concept) of begrippenkader (skos:ConceptScheme).</td>
-          </tr>
-          <tr>
-            <td>rdfs:label</td>
-            <td>Elke Linked Data resource heeft een voor mensen leesbaar label. Dit is de term waarmee naar het begrip wordt verwezen, of de naam van het begrippenkader</td>
-          </tr>
-          <tr>
-            <td>skos:prefLabel</td>
-            <td>De voorkeursterm om naar het begrip te verwijzen. Meestal is zowel een term in het Nederlands als in het Engels opgegeven.</td>
-          </tr>
-          <tr>
-            <td>skos:altLabel</td>
-            <td>Een alternatieve term, synoniem voor het begrip.</td>
-          </tr>
-          <tr>
-            <td>skos:inScheme</td>
-            <td>Geeft aan tot welk begrippenkader het begrip behoort. In ons geval altijd het NEN3610 begrippenkader.</td>
-          </tr>
-          <tr>
-            <td>skos:definition</td>
-            <td>De definitie van het begrip, zoals beschreven in de standaard.</td>
-          </tr>
-          <tr>
-            <td>skos:scopeNote</td>
-            <td>Een toelichting, voor zover aanwezig in de standaard.</td>
-          </tr>
-          <tr>
-            <td>dcterms:source</td>
-            <td>De verwijzing naar een brondocument waaruit de definitie is gehaald. In ieder geval wordt altijd een verwijzing opgegeven naar de sectie in de originele standaard. In enkele gevallen wordt in de standaard zelf ook nog verwezen naar een andere bron. In dit geval is deze verwijzing ook opgenomen.</td>
-          </tr>
-          <tr>
-            <td>skos:broader</td>
-            <td>Een bovenliggend, algemener begrip. Met behulp van deze eigenschap wordt de hierarchie in het semantisch model uitgewerkt (zo is een Geo-object een breder, algemener begrip dan een Gebouw)</td>
-          </tr>
-          <tr>
-            <td>skos:related</td>
-            <td>Een expliciete verwijzing naar een ander begrip, voor zover dit uit de definitie blijkt</td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- Sectie 6.2 -->
+  <section id='nen3610ld-begrippen'>
+    <h2>Begrippen</h2>
+    <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen definities die gelden voor toepassen van deze standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+    <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+    <p>De URI voor het begrippenkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
+    <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
+    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl</a></p>
+    <p>De volgende vocabulaires zijn gebruikt:</p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Prefix</th>
+          <th>Namespace</th>
+          <th>Documentatie</th>
+        </tr>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+          <td><a href="https://www.w3.org/TR/rdf11-primer">Resource Description Framework 1.1</a></td>
+        </tr>
+        <tr>
+          <td>rdfs</td>
+          <td>http://www.w3.org/2000/01/rdf-schema#</td>
+          <td><a href="https://www.w3.org/TR/rdf-schema">RDF Schema 1.1</a></td>
+        </tr>
+        <tr>
+          <td>dcterms</td>
+          <td>http://purl.org/dc/terms/</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
+        </tr>
+        <tr>
+          <td>skos</td>
+          <td>http://www.w3.org/2004/02/skos/core#</td>
+          <td><a href="https://www.w3.org/TR/skos-primer">Simple Knowledge Organization System</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Term</th>
+          <th>Gebruik</th>
+        </tr>
+        <tr>
+          <td>skos:ConceptScheme</td>
+          <td>Elke begrip is onderdeel van het NEN3610 begrippenkader. Dit begrippenkader is van het type skos:ConceptScheme.</td>
+        </tr>
+        <tr>
+          <td>skos:Concept</td>
+          <td>Elke begrip is van het type skos:Concept. Een begrip bestaat uit een term en zijn definitie.</td>
+        </tr>
+        <tr>
+          <td>rdf:type</td>
+          <td>Geeft het type aan van het begrip (skos:Concept) of begrippenkader (skos:ConceptScheme).</td>
+        </tr>
+        <tr>
+          <td>rdfs:label</td>
+          <td>Elke Linked Data resource heeft een voor mensen leesbaar label. Dit is de term waarmee naar het begrip wordt verwezen, of de naam van het begrippenkader</td>
+        </tr>
+        <tr>
+          <td>skos:prefLabel</td>
+          <td>De voorkeursterm om naar het begrip te verwijzen. Meestal is zowel een term in het Nederlands als in het Engels opgegeven.</td>
+        </tr>
+        <tr>
+          <td>skos:altLabel</td>
+          <td>Een alternatieve term, synoniem voor het begrip.</td>
+        </tr>
+        <tr>
+          <td>skos:inScheme</td>
+          <td>Geeft aan tot welk begrippenkader het begrip behoort. In ons geval altijd het NEN3610 begrippenkader.</td>
+        </tr>
+        <tr>
+          <td>skos:definition</td>
+          <td>De definitie van het begrip, zoals beschreven in de standaard.</td>
+        </tr>
+        <tr>
+          <td>skos:scopeNote</td>
+          <td>Een toelichting, voor zover aanwezig in de standaard.</td>
+        </tr>
+        <tr>
+          <td>dcterms:source</td>
+          <td>De verwijzing naar een brondocument waaruit de definitie is gehaald. In ieder geval wordt altijd een verwijzing opgegeven naar de sectie in de originele standaard. In enkele gevallen wordt in de standaard zelf ook nog verwezen naar een andere bron. In dit geval is deze verwijzing ook opgenomen.</td>
+        </tr>
+        <tr>
+          <td>skos:broader</td>
+          <td>Een bovenliggend, algemener begrip. Met behulp van deze eigenschap wordt de hierarchie in het semantisch model uitgewerkt (zo is een Geo-object een breder, algemener begrip dan een Gebouw)</td>
+        </tr>
+        <tr>
+          <td>skos:related</td>
+          <td>Een expliciete verwijzing naar een ander begrip, voor zover dit uit de definitie blijkt</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Sectie 6.3 -->
+  <section id='nen3610ld-vocabulaire'>
+    <h2>Klassen en eigenschappen</h2>
+    <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen. Het geeft de klassen en eigenschappen die gebruikt kunnen worden in informatiemodellen die gebaseerd zijn op de NEN3610 standaard.</p>
+    <p>Voor het realiseren van Linked Data modellen die op de NEN3610 standaard zijn gebaseerd, is dit het meest belangrijke onderdeel. Voor Linked Data geldt dat zoveel mogelijk gebruik wordt gemaakt van algemeen gebruikte vocabulaires. Met dit onderdeel van het NEN3610 Linked Data model, wordt een dergelijke vocabulaire gepubliceerd.</p>
+    <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze vocabulaire.</p>
+    <p>De URI voor zowel klassen als eigenschappen begint met <code>http://definities.geostandaarden.nl/def/nen3610#</code>.</p>
+    <p>Daarbij geldt dat de verwijzing naar een klasse altijd begint met een hoofdletter (UpperCamelCase) en de verwijzing naar een eigenschap altijd begint met een kleine letter (LowerCamelCase)</p>
+    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire.ttl</a></p>
+    <p>De volgende vocabulaires zijn gebruikt:</p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Prefix</th>
+          <th>Namespace</th>
+          <th>Documentatie</th>
+        </tr>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+          <td><a href="https://www.w3.org/TR/rdf11-primer">Resource Description Framework 1.1</a></td>
+        </tr>
+        <tr>
+          <td>rdfs</td>
+          <td>http://www.w3.org/2000/01/rdf-schema#</td>
+          <td><a href="https://www.w3.org/TR/rdf-schema">RDF Schema 1.1</a></td>
+        </tr>
+        <tr>
+          <td>dcterms</td>
+          <td>http://purl.org/dc/terms/</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
+        </tr>
+        <tr>
+          <td>skos</td>
+          <td>http://www.w3.org/2004/02/skos/core#</td>
+          <td><a href="https://www.w3.org/TR/skos-primer">Simple Knowledge Organization System</a></td>
+        </tr>
+        <tr>
+          <td>owl</td>
+          <td>http://www.w3.org/2002/07/owl#</td>
+          <td><a href="https://www.w3.org/TR/owl-primer">Web Ontology Language</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
+    <table>
+      <tbody>
+        <tr>
+          <th>Term</th>
+          <th>Gebruik</th>
+        </tr>
+        <tr>
+          <td>owl:Ontology</td>
+          <td>Alle klassen en eigenschappen zijn onderdeel van een ontologie, in ons geval de NEN3610 Vocabulaire</td>
+        </tr>
+        <tr>
+          <td>owl:Class</td>
+          <td>Alle klassen uit de NEN3610 standaard zijn getypeerd als owl:Class</td>
+        </tr>
+        <tr>
+          <td>owl:DatatypeProperty</td>
+          <td>Alle attribuut-eigenschappen uit de NEN3610 standaard zijn getypeerd als owl:DatatypeProperty</td>
+        </tr>
+        <tr>
+          <td>owl:ObjectProperty</td>
+          <td>Alle associatie-eigenschappen (associaties tussen twee klassen) uit de NEN3610 standaard zijn getypeerd als owl:ObjectProperty</td>
+        </tr>
+        <tr>
+          <td>rdf:type</td>
+          <td>Geeft het type aan van de vocabulaire (owl:Ontology), klasse (owl:Class) of eigenschap (owl:DatatypeProperty of owl:ObjectProperty)</td>
+        </tr>
+        <tr>
+          <td>rdfs:label</td>
+          <td>Elke Linked Data resource heeft een voor mensen leesbaar label. Dit is de term waarmee naar de vocabulaire, klasse of eigenschap wordt verwezen in het model.</td>
+        </tr>
+        <tr>
+          <td>rdfs:subClassOf</td>
+          <td>Geeft aan dat een klasse een subklasse is van een andere klasse. Dit wordt met name voor het semantisch model toegepast. Zo is een Gebouw een subklasse van een Geo-object</td>
+        </tr>
+        <tr>
+          <td>dcterms:subject</td>
+          <td>Geeft de relatie tussen een klasse uit het basismodel, en een begrip uit het NEN3610 begrippenkader. Zo wordt de definitie van een klasse opgenomen bij het begrip, en volstaat daarmee een verwijzing naar het begrip voor de definitie van de klasse</td>
+        </tr>
+        <tr>
+          <td>skos:definition</td>
+          <td>Voor eigenschappen waarvoor geen overeenkomstig begrip is gedefinieerd, wordt hiermee de definitie van de eigenschap beschreven</td>
+        </tr>
+        <tr>
+          <td>skos:scopeNote</td>
+          <td>Voor eigenschappen waarvoor geen overeenkomstig begrip is gedefinieerd, kan hiermee een toelichting op de definitie van de eigenschap worden beschreven</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Sectie 6.4 -->
+  <section id="nen3610-ld-gebruik">
+    <h2>Gebruik van het NEN3610 Linked Data model</h2>
+    <p>Partijen die Linked Data datasets publiceren die gebaseerd zijn op de NEN3610 standaard MOETEN daarbij de volgende regels in acht nemen:</p>
+
+    <!-- Sectie 6.4.1 -->
+    <section id="nen3610-ld-gebruik-begrippen">
+      <h3>Maak gebruik van de NEN3610 begrippen</h3>
+      <p>Indien een eigen begrippenkader wordt gehanteerd, MOET daarbij verwezen worden naar de NEN3610 begrippen waar dit van toepassing is. Daarbij MOET gebruik worden gemaakt van de juiste eigenschappen uit de SKOS vocabulaire.</p>
+      <p>Onderstaand voorbeeld geeft aan hoe een begrip uit IM-Golf op de juiste wijze verwijst naar een NEN3610 begrip</p>
+<pre class='ex-turtle'>
+@prefix nen3610-begrip: <http://definities.geostandaarden.nl/nen3610/id/concept/>
+@prefix imgolf-begrip: <http://definities.geostandaarden.nl/imgolf/id/concept/>
+
+imgolf-begrip:Golfbaan a skos:Concept;
+  skos:broadMatch nen3610-begrip:FunctioneelGebied;
+  skos:definition "Een golfbaan is een functioneel gebied waar de sport golf wordt gespeeld."@nl;
+.
+</pre>
     </section>
+
+    <!-- Sectie 6.4.2 -->
+    <section id="nen3610-ld-gebruik-vocabulaire">
+      <h3>Maak gebruik van de NEN3610 vocabulaire</h3>
+      <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
+      <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen</p>
+      <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
+<pre class='ex-turtle'>
+@prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
+@prefix imgolf: <http://definities.geostandaarden.nl/def/imgolf#>
+
+imgolf:Golfbaan a owl:Class;
+  rdfs:label "Golfbaan"@nl;
+  rdfs:subClassOf nen3610:FunctioneelGebied;
+.
+golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
+  owl:sameAs <http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
+  geo:hasGeometry geometrie:KoninklijkeHaagseGenCC;
+  imgolf:naam "Koninklijke Haagse Golf en Country Club"@nl;
+  nen3610:beginGeldigheid "1938"^^xsd:Date
+.
+</pre>
+    </section>
+
+  </section>
+
 </section>
 
 <!-- Hoofdstuk 7 -->
