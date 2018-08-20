@@ -296,14 +296,15 @@
     <p>Hoofdstuk twee van de NEN3610 standaard geeft de normatieve verwijzingen naar andere standaarden. Daarnaast kent de standaard nog bibliografische verwijzingen en verwijzen we vanuit het Linked Data model terug naar de NEN3610 standaard zelf.</p>
     <p>Elk van deze verwijzingen zijn opgenomen in het NEN3610 Linked Data model. Bij het terugverwijzen naar de standaard, verwijzen we precies naar de sectie in de standaard. Alleen die onderdelen die we ook daadwerkelijk gebruiken als bron zijn opgenomen.</p>
     <p>Alle URI's voor verwijzingen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/document/</code></p>
-    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl</a></p>
+    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/referenties.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/referenties.ttl</a></p>
     <p>De volgende vocabulaires zijn gebruikt:</p>
     <table>
       <tbody>
-        <th>
-          <td>Prefix</td>
-          <td>Namespace</td>
-          <td>Documentatie</td>
+        <tr>
+          <th>Prefix</th>
+          <th>Namespace</th>
+          <th>Documentatie</th>
+        </tr>
         <tr>
           <td>rdf</td>
           <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
@@ -329,20 +330,15 @@
           <td>http://purl.org/dc/dcmitype/</td>
           <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (types)</a></td>
         </tr>
-        <tr>
-          <td>skos</td>
-          <td>http://purl.org/dc/dcmitype/</td>
-          <td><a href="http://www.w3.org/2004/02/skos/core#">Simple Knowledge Organization System</a></td>
-        </tr>
       </tbody>
     </table>
     <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
     <table>
       <tbody>
-        <th>
-          <td>Term</td>
-          <td>Gebruik</td>
-        </th>
+        <tr>
+          <th>Term</th>
+          <th>Gebruik</th>
+        </tr>
         <tr>
           <td>dctypes:Text</td>
           <td>Elke verwijzing is een voorkomen van de klasse dctypes:Text, een voornamelijk tekstueel document.</td>
@@ -370,6 +366,83 @@
     <!-- Sectie 6.2 -->
     <section id='nen3610ld-begrippen'>
       <h2>Begrippen</h2>
+      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen definities die gelden voor toepassen van deze standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>De URI voor begripkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
+      <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
+      <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl</a></p>
+      <p>De volgende vocabulaires zijn gebruikt:</p>
+      <table>
+        <tbody>
+          <tr>
+            <th>Prefix</th>
+            <th>Namespace</th>
+            <th>Documentatie</th>
+          </tr>
+          <tr>
+            <td>rdf</td>
+            <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+            <td><a href="https://www.w3.org/TR/rdf11-primer">Resource Description Framework 1.1</a></td>
+          </tr>
+          <tr>
+            <td>rdfs</td>
+            <td>http://www.w3.org/2000/01/rdf-schema#</td>
+            <td><a href="https://www.w3.org/TR/rdf-schema">RDF Schema 1.1</a></td>
+          </tr>
+          <tr>
+            <td>dc</td>
+            <td>http://purl.org/dc/elements/1.1/</td>
+            <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (elements)</a></td>
+          </tr>
+          <tr>
+            <td>dcterms</td>
+            <td>http://purl.org/dc/terms/</td>
+            <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
+          </tr>
+          <tr>
+            <td>skos</td>
+            <td>http://purl.org/dc/dcmitype/</td>
+            <td><a href="http://www.w3.org/2004/02/skos/core#">Simple Knowledge Organization System</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
+      <table>
+        <tbody>
+          <tr>
+            <th>Term</th>
+            <th>Gebruik</th>
+          </tr>
+          <tr>
+            <td>skos:ConceptScheme</td>
+            <td>Elke begrip is onderdeel van het NEN3610 begrippenkader. Dit begrippenkader is van het type skos:ConceptScheme.</td>
+          </tr>
+          <tr>
+            <td>skos:Concept</td>
+            <td>Elke begrip is van het type skos:Concept. Een begrip bestaat uit een term en zijn definitie.</td>
+          </tr>
+          <tr>
+            <td>rdf:type</td>
+            <td>Geeft het type aan van het begrip (skos:Concept) of begrippenkader (skos:ConceptScheme).</td>
+          </tr>
+          <tr>
+            <td>rdfs:label</td>
+            <td>Elke Linked Data resource heeft een voor mensen leesbaar label. Dit is de term waarmee naar het begrip wordt verwezen, of de naam van het begrippenkader</td>
+          </tr>
+          <tr>
+            <td>skos:prefLabel</td>
+            <td>De voorkeursterm om naar het begrip te verwijzen. Meestal is zowel een term in het Nederlands als in het Engels opgegeven.</td>
+          </tr>
+          <tr>
+            <td>skos:altLabel</td>
+            <td>Een alternatieve term, synoniem voor het begrip.</td>
+          </tr>
+          <tr>
+            <td>skos:inScheme</td>
+            <td>Geeft aan tot welk begrippenkader het begrip behoort. In ons geval altijd het NEN3610 begrippenkader.</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 </section>
 
