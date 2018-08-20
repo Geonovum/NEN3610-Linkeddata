@@ -282,9 +282,95 @@
 <!-- Hoofdstuk 6 -->
 <section id='nen3610ld'>
   <h1>Het NEN3610 Linked Data profiel</h1>
-  <p>NEN 3610 beschrijft algemene regels voor het opstellen van een UML informatiemodel, standaard modelleerconstructies en een semantisch model.<br>
-    In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in RDF.
-  </p>
+  <p>NEN 3610 beschrijft algemene regels voor het opstellen van een UML informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in RDF.</p>
+  <p>Het NEN3610 Linked Data profiel bestaat uit de volgende onderdelen:</p>
+  <ul>
+    <li><i>Verwijzingen</i>: metadata van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
+    <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name SKOS gebruikt.</li>
+    <li><i>...</i>: ...</li>
+  </ul>
+
+  <!-- Sectie 6.1 -->
+  <section id='nen3610ld-verwijzingen'>
+    <h2>Verwijzingen</h2>
+    <p>Hoofdstuk twee van de NEN3610 standaard geeft de normatieve verwijzingen naar andere standaarden. Daarnaast kent de standaard nog bibliografische verwijzingen en verwijzen we vanuit het Linked Data model terug naar de NEN3610 standaard zelf.</p>
+    <p>Elk van deze verwijzingen zijn opgenomen in het NEN3610 Linked Data model. Bij het terugverwijzen naar de standaard, verwijzen we precies naar de sectie in de standaard. Alleen die onderdelen die we ook daadwerkelijk gebruiken als bron zijn opgenomen.</p>
+    <p>Alle URI's voor verwijzingen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/document/</code></p>
+    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl</a></p>
+    <p>De volgende vocabulaires zijn gebruikt:</p>
+    <table>
+      <tbody>
+        <th>
+          <td>Prefix</td>
+          <td>Namespace</td>
+          <td>Documentatie</td>
+        <tr>
+          <td>rdf</td>
+          <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+          <td><a href="https://www.w3.org/TR/rdf11-primer">Resource Description Framework 1.1</a></td>
+        </tr>
+        <tr>
+          <td>rdfs</td>
+          <td>http://www.w3.org/2000/01/rdf-schema#</td>
+          <td><a href="https://www.w3.org/TR/rdf-schema">RDF Schema 1.1</a></td>
+        </tr>
+        <tr>
+          <td>dc</td>
+          <td>http://purl.org/dc/elements/1.1/</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (elements)</a></td>
+        </tr>
+        <tr>
+          <td>dcterms</td>
+          <td>http://purl.org/dc/terms/</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
+        </tr>
+        <tr>
+          <td>dctypes</td>
+          <td>http://purl.org/dc/dcmitype/</td>
+          <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (types)</a></td>
+        </tr>
+        <tr>
+          <td>skos</td>
+          <td>http://purl.org/dc/dcmitype/</td>
+          <td><a href="http://www.w3.org/2004/02/skos/core#">Simple Knowledge Organization System</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
+    <table>
+      <tbody>
+        <th>
+          <td>Term</td>
+          <td>Gebruik</td>
+        </th>
+        <tr>
+          <td>dctypes:Text</td>
+          <td>Elke verwijzing is een voorkomen van de klasse dctypes:Text, een voornamelijk tekstueel document.</td>
+        </tr>
+        <tr>
+          <td>rdf:type</td>
+          <td>Geeft het type aan van de verwijzing, in ons geval altijd dctypes:Text</td>
+        </tr>
+        <tr>
+          <td>rdfs:label</td>
+          <td>Elke Linked Data resource heeft een voor mensen leesbaar label. Dit is de naam van de verwijzing zelf, zoals gebruikt in de standaard</td>
+        </tr>
+        <tr>
+          <td>dc:title</td>
+          <td>De titel van de verwijzing, de volledig uitgeschreven titel van de verwijzing zoals opgenomen in de standaard</td>
+        </tr>
+        <tr>
+          <td>dcterms:isPartOf</td>
+          <td>Voor verwijzingen naar secties, nemen we ook een relatie op tussen de sectie en zijn bovenliggende sectie (zo is sectie 7.1 onderdeel van hoofdstuk 7, en hoofdstuk 7 weer onderdeel van de standaard NEN3610:2011 als geheel)</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+    <!-- Sectie 6.2 -->
+    <section id='nen3610ld-begrippen'>
+      <h2>Begrippen</h2>
+    </section>
 </section>
 
 <!-- Hoofdstuk 7 -->

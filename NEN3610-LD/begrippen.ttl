@@ -1,0 +1,413 @@
+# NEN3610 in Linked Data (onderdeel begrippen)
+#
+# Basis uitgangspunten:
+# - Beschrijvingen als skos:Concepts
+# - Mogelijk maken dat er concrete implementaties worden gemaakt (obv owl:Classes)
+# - In de praktijk vermoedelijk op basis van specialisaties (rdfs:subClassOf)
+# - Niet alleen de concrete klassen opnemen, maar ook properties, stereotypen en terminologie
+#
+# Uitgangsdocumentatie is NEN3610-2011
+#
+@prefix dctypes: <http://purl.org/dc/dcmitype/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix dc: <http://purl.org/dc/elements/1.1>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix wdrs: <http://www.w3.org/2007/05/powder-s#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
+@prefix schema: <http://definities.geostandaarden.nl/nen3610/id/conceptscheme/>.
+@prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
+@prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
+@prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
+
+# Begrippenkader
+schema:NEN3610 a skos:ConceptScheme;
+	rdfs:label "NEN3610 begrippenkader";
+.
+
+# Termen en definities (sectie 3 NEN3610-2011)
+concept:Applicatieschema a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Applicatieschema"@nl;
+	rdfs:label "Application schema"@en;
+	skos:prefLabel "Applicatieschema"@nl;
+	skos:definition "Informatiemodel dat gegevens beschrijft die worden gebruikt door een of meer applicaties"@nl;
+	skos:scopeNote "Dit Basismodel geo-informatie is met UML beschreven in een applicatieschema"@nl;
+	dct:source referentie:NEN-3610-2011-3.1;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+concept:Attribuut a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Attribuut"@nl;
+	rdfs:label "Feature attribute"@en;
+	skos:definition "Kenmerk van een geo-object"@nl;
+	skos:related concept:GeoObject;
+	dct:source referentie:NEN-3610-2011-3.2;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+concept:Attribuutwaarde a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Attribuutwaarde"@nl;
+	rdfs:label "Value"@en;
+	skos:definition "Waarde die een attribuut aanneemt"@nl;
+	skos:related concept:Attribuut;
+	dct:source referentie:NEN-3610-2011-3.3;
+.
+concept:Coordinaat a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Coördinaat"@nl;
+	rdfs:label "Coordinate"@en;
+	skos:definition "Getal in een sequentie van n getallen om de positie van een punt in een n-dimensionale ruimte te bepalen"@nl;
+	dct:source referentie:NEN-3610-2011-3.4;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+concept:Coordinaatreferentiesysteem a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Coördinaatreferentiesysteem"@nl;
+	rdfs:label "Coordinate reference system"@en;
+	skos:definition "Coördinaatsysteem dat aan een object is gerelateerd door een datum."@nl;
+	skos:broader concept:Coordinaatsysteem;
+	skos:related concept:Datum;
+	dct:source referentie:NEN-3610-2011-3.5;
+	dct:source referentie:NEN-EN-ISO19111-2007;
+.
+concept:Coordinaatsysteem a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Coördinaatsysteem"@nl;
+	rdfs:label "Coordinate system"@en;
+	skos:definition "Set van wiskundige regels voor het toekennen van coördinaten aan punten"@nl;
+	dct:source referentie:NEN-3610-2011-3.6;
+	dct:source referentie:NEN-EN-ISO19111-2007;
+.
+concept:Datum a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Datum"@nl;
+	rdfs:label "Datum"@en;
+	skos:definition "parameter of set van parameters voor het definiëren van het nulpunt, de schaal en de oriëntatie van een coördinaatsysteem"@nl;
+	skos:related concept:Coordinaatsysteem;
+	dct:source referentie:NEN-3610-2011-3.7;
+	dct:source referentie:NEN-EN-ISO19111-2007;
+.
+concept:GeografischeIdentificatie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Geografische identificatie"@nl;
+	rdfs:label "Geographic identifier"@en;
+	skos:definition "Ruimtelijke referentie door een label of code waarmee een locatie wordt geïdentificeerd"@nl;
+	skos:scopeNote "'Nederland' is een voorbeeld voor een identificatie van een land. '6711 AD' is een voorbeeld van een postcode."@nl;
+	dct:source referentie:NEN-3610-2011-3.8;
+	dct:source referentie:NEN-EN-ISO19112-2005;
+.
+concept:GeoInformatie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Geo-informatie"@nl;
+	rdfs:label "Geo-information"@en;
+	skos:altLabel "Geografische informatie"@nl;
+	skos:altLabel "Geographic Information G.I."@en;
+	skos:definition "informatie met een directe of indirecte referentie naar een plaats ten opzichte van de aarde (bijvoorbeeld ten opzichte van het aardoppervlak)"@nl;
+	skos:scopeNote "Geo-informatie is synoniem voor geografische informatie.";
+	dct:source referentie:NEN-3610-2011-3.9;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+concept:GeoObject a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Geo-object"@nl;
+	rdfs:label "Geographic feature"@en;
+	skos:prefLabel "Geo-object"@nl;
+	skos:definition "Een geo-object is een abstractie van een fenomeen in de werkelijkheid dat direct of indirect is geassocieerd met een locatie relatief ten opzichte van de aarde (bijvoorbeeld ten opzichte van het aardoppervlak)"@nl;
+	skos:scopeNote "Indien met een geo-object een gebied wordt bedoeld, kan dit in twee of drie dimensies zijn begrensd."@nl;
+	skos:scopeNote "Of een fenomeen een geo-object is of niet hangt af van de context waarin het object is geplaatst. Is er een associatie met een geo-gerefereerde locatie dan is het een geo-object. Is de associatie er niet dan is het fenomeen geen geo-object. Zo is bijvoorbeeld het fenomeen huis weergegeven op een landkaart een geo-object. Is het weergegeven op een foto dan is het geen geo-object. Met andere woorden: koppeling van geo-informatie maakt van een object een geo-object."@nl;
+	dct:source referentie:NEN-EN-ISO19125-2-2006;
+	dct:source referentie:NEN3610-2011-3.10;
+.
+concept:Georeferentie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Georeferentie"@nl;
+	rdfs:label "Georeference"@en;
+	skos:definition "locatie van een ruimtelijk object vastgelegd in een ruimtelijk referentiesysteem"@nl;
+	dct:source referentie:NEN3610-2011-3.11;
+.
+concept:Informatiemodel a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Informatiemodel"@nl;
+	rdfs:label "Conceptual model"@en;
+	skos:altLabel "Conceptual schema"@en;
+	skos:definition "Formele definitie van objecten, attributen, relaties en regels in een bepaald domein"@nl;
+	dct:source referentie:NEN3610-2011-3.12;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+concept:Interoperabiliteit a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Interoperabiliteit"@nl;
+	rdfs:label "Interoperability"@en;
+	skos:definition "mogelijkheid van verschillende autonome, heterogene eenheden, systemen of partijen om met elkaar te communiceren en interacteren"@nl;
+	dct:source referentie:NEN3610-2011-3.13;
+.
+concept:Metadata a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Metadata"@nl;
+	rdfs:label "Metadata"@en;
+	skos:definition "gegevens over gegevens"@nl;
+	skos:scopeNote '''In de Richtlijn Metagegevens Overheidsinformatie wordt metadata omschreven als: "Gegevens over informatieobjecten. Zij maken het mogelijk informatieobjecten te vinden, uit te wisselen en te beheren.""'''@nl;
+	dct:source referentie:NEN3610-2011-3.14;
+	dct:source referentie:NEN-EN-ISO19115-2005;
+.
+concept:Model a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Model"@nl;
+	rdfs:label "Model"@en;
+	skos:definition "Abstractie van enige aspecten van de werkelijkheid"@nl;
+	dct:source referentie:NEN3610-2011-3.15;
+	dct:source referentie:NEN-EN-ISO19109-2006;
+.
+concept:Presentatie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Presentatie"@nl;
+	rdfs:label "Portrayal"@en;
+	skos:definition "Presentatie van informatie aan mensen"@nl;
+	skos:scopeNote "Presentatie van informatie door visualisatie, hoorbaar maken, tastbaar maken (tactiel) of combinaties hiervan."@nl;
+	dct:source referentie:NEN3610-2011-3.16;
+	dct:source referentie:NEN-EN-ISO19117-2006;
+.
+concept:Registratie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Registratie"@nl;
+	skos:definition "Op nationaal niveau geïdentificeerde en erkende gegevensverzameling"@nl;
+	skos:scopeNote "Een basisregistratie is een registratie."@nl;
+	dct:source referentie:NEN3610-2011-3.17;
+.
+concept:Registratiehouder a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Registratiehouder"@nl;
+	skos:definition "Organisatie die unieke objectidentificaties toekent voor objecten in een registratie"@nl;
+	dct:source referentie:NEN3610-2011-3.18;
+.
+concept:Representatie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Representatie"@nl;
+	rdfs:label "Representation"@en;
+	skos:definition "Inhoudelijk vastleggen van de werkelijkheid"@nl;
+	skos:scopeNote "Het informatiemodel is een representatie van de werkelijkheid."@nl;
+	dct:source referentie:NEN3610-2011-3.19;
+.
+concept:RuimtelijkReferentiesysteem a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Ruimtelijk referentiesysteem"@nl;
+	rdfs:label "Spatial reference system"@en;
+	skos:definition "Model (systeem) voor identificatie van een positie (locatie) in de werkelijkheid"@nl;
+	skos:scopeNote "Identificatie van een positie kan door coördinaten (directe locatie) en door geografische identificatoren (indirecte locatie)."@nl;
+	dct:source referentie:NEN3610-2011-3.20;
+	dct:source referentie:NEN-EN-ISO19112-2005;
+.
+concept:Sector a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Sector"@nl;
+	rdfs:label "Domain"@en;
+	skos:definition "kennisgebied of activiteit gekarakteriseerd door een verzameling van begrippen"@nl;
+	dct:source referentie:NEN3610-2011-3.21;
+.
+concept:Symbool a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Symbool"@nl;
+	rdfs:label "Symbol"@en;
+	skos:definition "Presentatieprimitieve van grafische, audio of tactiele aard of een combinatie hiervan"@nl;
+	dct:source referentie:NEN3610-2011-3.22;
+.
+concept:Void a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Void"@nl;
+	rdfs:label "Void"@en;
+	skos:definition "Object, of kenmerk van een object, dat syntactisch of semantisch is vereist, maar dat in de gegeven instantie geen informatie bevat"@nl;
+	dct:source referentie:NEN3610-2011-3.23;
+	dct:source referentie:NEN-ISO-IEC11404-2008;
+.
+concept:Werkelijkheid a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Werkelijkheid"@nl;
+	rdfs:label "Universe of discourse"@en;
+	skos:altLabel "Beschouwingsgebied"@nl;
+	skos:definition "Beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat"@nl;
+	dct:source referentie:NEN3610-2011-3.24;
+	dct:source referentie:NEN-EN-ISO19101-2005;
+.
+
+# Identificatie (sectie 7.2.3 NEN3610-2011)
+concept:Identificatie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Identificatie"@nl;
+	skos:prefLabel "Identificatie"@nl;
+	skos:definition "Een identificatie is een unieke identificatie van het object binnen het domein van NEN 3610."@nl;
+	dct:source referentie:NEN3610-2011-7.2.3;
+.
+
+# Temporele kenmerken en versies (sectie 7.2.5 NEN3610-2011)
+concept:MaterieleHistorie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Materiële historie"@nl;
+	skos:prefLabel "Materiële historie"@nl;
+	skos:definition "Materiële historie beschrijft veranderingen van eigenschappen van een object in de werkelijkheid."@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.1;
+.
+concept:BeginGeldigheid a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Begin geldigheid"@nl;
+	skos:prefLabel "Begin geldigheid"@nl;
+	skos:definition "Start van de periode waarop deze instantie van het object geldig is in de werkelijkheid"@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.1;
+	skos:related concept:Werkelijkheid;
+	skos:related concept:GeoObject;
+	# Uitzoekpuntje: wat wordt er bedoeld met "deze instantie van het object"? Dat lijkt toch weer op de registratie te duiden. En daarmee zou de eigenschap niet bij het object horen, maar bij de objectregistratie
+.
+concept:EindGeldigheid a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Eind geldigheid"@nl;
+	skos:prefLabel "Eind geldigheid"@nl;
+	skos:definition "Eind van de periode waarop deze instantie van het object geldig is in de werkelijkheid."@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.1;
+	skos:related concept:Werkelijkheid;
+	skos:related concept:GeoObject;
+.
+concept:FormeleHistorie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Formele historie"@nl;
+	skos:prefLabel "Formele historie"@nl;
+	skos:definition "Formele historie beschrijft veranderingen van eigenschappen van een object."@nl;
+	skos:scopeNote "Dit houdt in dat tijdstippen van aanpassing van attributen of attribuutwaarden in een registratie of database worden vastgelegd."@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.2;
+.
+concept:TijdstipRegistratie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Tijdstip registratie"@nl;
+	skos:definition "Tijdstip waarop deze instantie van het object is opgenomen in de registratie"@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.2;
+.
+concept:EindRegistratie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Eind registratie"@nl;
+	skos:definition "Eind van de periode dat deze instantie van het object geldig is in de registratie. Wanneer deze waarde niet is ingevuld is de instantie nog geldig"@nl;
+	dct:source referentie:NEN3610-2011-7.2.5.2;
+.
+
+# Semantisch model (sectie 7.3 NEN3610-2011)
+concept:ConcreetObject a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Concreet object"@nl;
+	skos:prefLabel "Concreet object"@nl;
+	skos:definition "Geo-objecten die fysiek (tastbaar, zichtbaar) begrensd in de werkelijkheid aanwezig zijn"@nl;
+	dct:source referentie:NEN3610-2011-7.3.1;
+	skos:broader concept:GeoObject;
+.
+concept:Weg a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Weg"@nl;
+	skos:prefLabel "Weg"@nl;
+	skos:definition "Gebaand gedeelte voor het wegverkeer en vliegverkeer te land"@nl;
+	skos:scopeNote "Onder de klasse Weg vallen ook start- en landingsbanen voor vliegverkeer."@nl;
+	dct:source referentie:NEN3610-2011-7.3.2;
+	skos:broader concept:ConcreetObject;
+.
+concept:Terrein a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Terrein"@nl;
+	skos:prefLabel "Terrein"@nl;
+	skos:definition "Door een fysiek voorkomen gekarakteriseerd zichtbaar begrensd stuk grond"@nl;
+	skos:scopeNote "Terrein wordt gebruikt om een zichtbaar (tastbaar) begrensd stuk grond aan te geven waarvoor een bepaald fysiek voorkomen typerend is. Voorbeelden zijn: bos, landschap, bebouwing, landbouwgebied. Belangrijk is dat het stuk grond een zichtbare grens heeft met aangrenzende geo-objecten."@nl;
+	dct:source referentie:NEN3610-2011-7.3.3;
+	skos:broader concept:ConcreetObject;
+.
+concept:Water a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Water"@nl;
+  skos:prefLabel "Water"@nl;
+  skos:definition "Grondoppervlak in principe bedekt met water";
+  skos:scopeNote "Voorbeelden zijn: rivier, kanaal, beek, zee, meer, oppervlaktewater in algemene zin. Objecten die in het kader van de waterhuishouding periodiek met water zijn bedekt, vallen hier ook onder.";
+	dct:source referentie:NEN3610-2011-7.3.4;
+	skos:broader concept:ConcreetObject;
+.
+concept:Spoorbaan a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Spoorbaan"@nl;
+  skos:prefLabel "Spoorbaan"@nl;
+  skos:definition "Gebaand gedeelte voor het verkeer over rails"@nl;
+  skos:scopeNote "Voorbeelden zijn: spoorbaan, metrobaan, trambaan."@nl;
+	dct:source referentie:NEN3610-2011-7.3.5;
+	skos:broader concept:ConcreetObject;
+.
+concept:Gebouw a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Gebouw"@nl;
+  skos:prefLabel "Gebouw"@nl;
+  skos:definition "Vrijstaande, overdekte en geheel of gedeeltelijk met wanden omsloten toegankelijke ruimte, die direct of indirect met de grond is verbonden"@nl;
+  skos:scopeNote "Voorbeelden zijn: huis, schuur, flatgebouw, huizenblok, fabriek."@nl;
+	dct:source referentie:NEN3610-2011-7.3.6;
+	skos:broader concept:ConcreetObject;
+.
+concept:Leiding a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Leiding"@nl;
+  skos:prefLabel "Leiding"@nl;
+  skos:definition "Buis of kabel bestemd voor de voortgeleiding van energie of materie"@nl;
+  skos:scopeNote "Voorbeelden zijn: hoogspanningsleiding, riool, waterleiding, glasvezelkabel, gasleiding."@nl;
+	dct:source referentie:NEN3610-2011-7.3.7;
+	skos:broader concept:ConcreetObject;
+.
+concept:Kunstwerk a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Kunstwerk"@nl;
+  skos:prefLabel "Kunstwerk"@nl;
+  skos:definition "civiel-technisch werk voor de infrastructuur van wegen, water, spoorbanen, waterkeringen en/of leidingen en niet bedoeld voor permanent menselijk verblijf"@nl;
+  skos:scopeNote "Hieronder vallen overbruggingen, waterstaatkundige werken en waterkerende constructies. Overbruggingen kunnen zijn: brug, viaduct, aquaduct enz. Een voorbeeld van een waterstaatkundig werk is een sluis. Voorbeelden van waterkerende constructies zijn stuw en vaste dam."@nl;
+	dct:source referentie:NEN3610-2011-7.3.8;
+	skos:broader concept:ConcreetObject;
+.
+concept:Inrichtingselement a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Inrichtingselement"@nl;
+  skos:prefLabel "Inrichtingselement"@nl;
+  skos:definition "ruimtelijk object al dan niet ter detaillering dan wel ter inrichting van de overige benoemde ruimtelijke objecten of een ander inrichtingselement"@nl;
+  skos:scopeNote "Inrichtingselementen vormen een diverse klasse. Het zijn objecten die niet zozeer op basis van fysiek voorkomen of hun gebruiksfunctie bij elkaar horen, maar op basis van hun eigenschap dat ze andere objecten inrichten. Het zijn objecten die hierdoor een relatief kleine geometrie hebben. Voorbeelden zijn: stadsbankje, reclamebord, verkeerslicht, verkeersheuvel, fontein, grondwaterput."@nl;
+	dct:source referentie:NEN3610-2011-7.3.9;
+	skos:broader concept:ConcreetObject;
+.
+concept:RegistratiefGebied a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Registratief gebied"@nl;
+  skos:prefLabel "Registratief gebied"@nl;
+  skos:definition "Op basis van wet- of regelgeving afgebakend gebied dat als eenheid geldt van politiek/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering"@nl;
+  skos:scopeNote "Registratieve gebieden vormen een diverse klasse en omvatten gebieden die onder de wet- of regelgeving vallen of die voor bedrijfsvoering administratief van belang zijn. In veel gevallen zal een dergelijk gebied ook een registratieve aanduiding of registratief nummer hebben. Er is geen algemeen attribuut gedefinieerd om deze informatie uit te wisselen omdat registraties hiervoor registratie-eigen attributen hebben. Voorbeelden zijn: gemeente Delft, postcodegebied 2345, politieregio Haaglanden, veiligheidsregio Gelderland Midden, Habitatrichtlijn, Nationaal Park De Hoge Veluwe."@nl;
+	dct:source referentie:NEN3610-2011-7.3.10;
+	skos:broader concept:GeoObject;
+.
+concept:GeografischGebied a skos:Concept;
+  skos:inScheme schema:NEN3610;
+  rdfs:label "Geografisch gebied"@nl;
+  skos:prefLabel "Geografisch gebied"@nl;
+  skos:definition "Geografisch benoemd of aangeduid gebied"@nl;
+  skos:scopeNote "De grenzen zijn niet altijd exact vastgesteld. Voorbeelden zijn: Noordoostpolder, Midden-Nederland, rivierengebied, Veluwe, Zuid-Limburg, kustgebied."@nl;
+	dct:source referentie:NEN3610-2011-7.3.11;
+	skos:broader concept:GeoObject;
+.
+concept:FunctioneelGebied a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Functioneel gebied"@nl;
+	skos:prefLabel "Functioneel gebied"@nl;
+	skos:definition "Begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven"@nl;
+	skos:scopeNote "Voorbeelden zijn: bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark, recreatiegebied."@nl;
+	dct:source referentie:NEN3610-2011-7.3.12;
+	skos:broader concept:GeoObject;
+.
+concept:PlanologischGebied a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Planologisch gebied"@nl;
+	skos:prefLabel "Planologisch gebied"@nl;
+	skos:definition "Niet-tastbaar begrensd gebied waaraan een bepaalde (toekomstige) bestemming, functionele en/of bestuurlijke ruimtelijke ontwikkeling is gekoppeld"@nl;
+	skos:scopeNote "Planologische gebieden vormen de geo-objecten die worden gebruikt om het beleid van de ruimtelijke ordening weer te geven. In de regel zijn het objecten die zijn gekoppeld aan beleidsinformatie die aangeeft wat waar krachtens de wet op de ruimtelijke ordening aan beleid is geformuleerd."@nl;
+	dct:source referentie:NEN3610-2011-7.3.13;
+	skos:broader concept:GeoObject;
+.
