@@ -468,7 +468,7 @@
     <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze vocabulaire.</p>
     <p>De URI voor zowel klassen als eigenschappen begint met <code>http://definities.geostandaarden.nl/def/nen3610#</code>.</p>
     <p>Daarbij geldt dat de verwijzing naar een klasse altijd begint met een hoofdletter (UpperCamelCase) en de verwijzing naar een eigenschap altijd begint met een kleine letter (LowerCamelCase)</p>
-    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire.ttl</a></p>
+    <p>Een volledige turtle download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire.ttl</a></p>
     <p>De volgende vocabulaires zijn gebruikt:</p>
     <table>
       <tbody>
@@ -582,7 +582,7 @@ imgolf-begrip:Golfbaan a skos:Concept;
       <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
       <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen</p>
       <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
-<pre class='ex-turtle'>
+<pre class='ex-turtle'><![CDATA[
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
 @prefix imgolf: <http://definities.geostandaarden.nl/def/imgolf#>
 
@@ -596,6 +596,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
   imgolf:naam "Koninklijke Haagse Golf en Country Club"@nl;
   nen3610:beginGeldigheid "1938"^^xsd:Date
 .
+]]>
 </pre>
     </section>
 
