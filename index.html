@@ -582,21 +582,20 @@ imgolf-begrip:Golfbaan a skos:Concept;
       <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
       <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen</p>
       <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
-<pre class='ex-turtle'><![CDATA[
-@prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
-@prefix imgolf: <http://definities.geostandaarden.nl/def/imgolf#>
+<pre class='ex-turtle'>
+@prefix nen3610: &lt;http://definities.geostandaarden.nl/def/nen3610#>.
+@prefix imgolf: &lt;http://definities.geostandaarden.nl/def/imgolf#>
 
 imgolf:Golfbaan a owl:Class;
   rdfs:label "Golfbaan"@nl;
   rdfs:subClassOf nen3610:FunctioneelGebied;
 .
 golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
-  owl:sameAs <http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
+  owl:sameAs &lt;http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
   geo:hasGeometry geometrie:KoninklijkeHaagseGenCC;
   imgolf:naam "Koninklijke Haagse Golf en Country Club"@nl;
   nen3610:beginGeldigheid "1938"^^xsd:Date
 .
-]]>
 </pre>
     </section>
 
