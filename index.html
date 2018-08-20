@@ -560,12 +560,12 @@
     </table>
     <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de OGC GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse. Voor de aansluiting met search engines, is ook een eerste aanzet gemaakt om te verbinden met schema.org</p>
     <p class='issue'>Uitgezocht moet worden of we een geo-object ook een subklasse kunnen maken van schema.org/Place, of dat we niet verder komen dan seeAlso.</p>
-<pre>
+<pre class="turtle">
 nen3610:GeoObject a owl:Class;
-	rdfs:label "Geo-object"@nl ;
-	dcterms:subject concept:GeoObject;
-	rdfs:subClassOf geosparql:Feature ;
-	rdfs:seeAlso &gt;http://schema.org/Place>
+  rdfs:label "Geo-object"@nl ;
+  dcterms:subject concept:GeoObject;
+  rdfs:subClassOf geosparql:Feature ;
+  rdfs:seeAlso &lt;http://schema.org/Place>
 .
 </pre>
   </section>
