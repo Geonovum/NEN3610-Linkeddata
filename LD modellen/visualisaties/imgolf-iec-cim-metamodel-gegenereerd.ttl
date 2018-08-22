@@ -1,0 +1,222 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+rdf:first a owl:ObjectProperty;
+    rdfs:label "first"
+.
+rdf:rest a owl:ObjectProperty;
+    rdfs:label "rest"
+.
+rdf:type a owl:ObjectProperty;
+    rdfs:label "type"
+.
+rdfs:comment a owl:DatatypeProperty;
+    rdfs:label "comment"
+.
+rdfs:domain a owl:ObjectProperty;
+    rdfs:label "domain"
+.
+rdfs:label a owl:DatatypeProperty;
+    rdfs:label "label"
+.
+rdfs:range a owl:ObjectProperty;
+    rdfs:label "range"
+.
+rdfs:subClassOf a owl:ObjectProperty;
+    rdfs:label "subClassOf"
+.
+owl:Class a owl:Class;
+    rdfs:label "Class"
+.
+owl:DatatypeProperty a owl:Class;
+    rdfs:label "DatatypeProperty"
+.
+owl:ObjectProperty a owl:Class;
+    rdfs:label "ObjectProperty"
+.
+owl:Ontology a owl:Class;
+    rdfs:label "Ontology"
+.
+owl:Restriction a owl:Class;
+    rdfs:label "Restriction"
+.
+owl:equivalentClass a owl:ObjectProperty;
+    rdfs:label "equivalentClass"
+.
+owl:maxQualifiedCardinality a owl:DatatypeProperty;
+    rdfs:label "maxQualifiedCardinality"
+.
+owl:onClass a owl:ObjectProperty;
+    rdfs:label "onClass"
+.
+owl:onDataRange a owl:ObjectProperty;
+    rdfs:label "onDataRange"
+.
+owl:onProperty a owl:ObjectProperty;
+    rdfs:label "onProperty"
+.
+owl:oneOf a owl:ObjectProperty;
+    rdfs:label "oneOf"
+.
+owl:qualifiedCardinality a owl:DatatypeProperty;
+    rdfs:label "qualifiedCardinality"
+.
+<urn:class472ee8b9e92f00863f1b11929967a7fa> a sh:NodeShape;
+    sh:name "owl:ObjectProperty";
+    sh:property <urn:dtproperty:472ee8b9e92f00863f1b11929967a7fa.dacf627f3d9075d7c805ce9d42521333>;
+    sh:property <urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.578d0880addccde5fe011e3f37571bd7>;
+    sh:property <urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.c74e2b735dd8dc85ad0ee3510c33925f>;
+    sh:property <urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.d89567f0e7181990b5b1eed210bde428>;
+    sh:targetClass owl:ObjectProperty
+.
+<urn:class6be100d081a438502013ba4e5fef3db7> a sh:NodeShape;
+    sh:name "owl:Class";
+    sh:property <urn:dtproperty:6be100d081a438502013ba4e5fef3db7.4f75ce12336ab89a4edebd807cd62265>;
+    sh:property <urn:objproperty:6be100d081a438502013ba4e5fef3db7.b6c99360a2925e4b23fcfce8a7a9758f>;
+    sh:property <urn:objproperty:6be100d081a438502013ba4e5fef3db7.bbfcc21aa73d2fe4d87de50a32c9eb86>;
+    sh:property <urn:objproperty:6be100d081a438502013ba4e5fef3db7.c74e2b735dd8dc85ad0ee3510c33925f>;
+    sh:property <urn:objproperty:6be100d081a438502013ba4e5fef3db7.c8424c214a58219d68ee6f998dffd301>;
+    sh:targetClass owl:Class
+.
+<urn:class89df24df35df8882616112ab6a78df83> a sh:NodeShape;
+    sh:name "owl:Ontology";
+    sh:property <urn:objproperty:89df24df35df8882616112ab6a78df83.c74e2b735dd8dc85ad0ee3510c33925f>;
+    sh:targetClass owl:Ontology
+.
+<urn:class9e6d9eddc19d6811c0a885c828aceb63> a sh:NodeShape;
+    sh:name "owl:DatatypeProperty";
+    sh:property <urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.578d0880addccde5fe011e3f37571bd7>;
+    sh:property <urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.c74e2b735dd8dc85ad0ee3510c33925f>;
+    sh:property <urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.d89567f0e7181990b5b1eed210bde428>;
+    sh:targetClass owl:DatatypeProperty
+.
+<urn:class9ed2fb7d3b7985c23e788a879a4db9d7> a sh:NodeShape;
+    sh:name "owl:Restriction";
+    sh:property <urn:dtproperty:9ed2fb7d3b7985c23e788a879a4db9d7.0b7059f53aabebd1e787f42c0ee6e653>;
+    sh:property <urn:dtproperty:9ed2fb7d3b7985c23e788a879a4db9d7.1c05cf51c532963b00a3991c230d50ba>;
+    sh:property <urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.07fd2e024e94ea9be842e65c1ee71124>;
+    sh:property <urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.26363953b14ef4fbc64ba60ef0dd305c>;
+    sh:property <urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.76e48e8832b7148b0eabf4e7bf720c13>;
+    sh:property <urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.c74e2b735dd8dc85ad0ee3510c33925f>;
+    sh:targetClass owl:Restriction
+.
+<urn:dtproperty:472ee8b9e92f00863f1b11929967a7fa.dacf627f3d9075d7c805ce9d42521333> a sh:PropertyShape;
+    sh:datatype xsd:string;
+    sh:name "rdfs:comment";
+    sh:path rdfs:comment
+.
+<urn:dtproperty:6be100d081a438502013ba4e5fef3db7.4f75ce12336ab89a4edebd807cd62265> a sh:PropertyShape;
+    sh:name "rdfs:label";
+    sh:path rdfs:label
+.
+<urn:dtproperty:9ed2fb7d3b7985c23e788a879a4db9d7.0b7059f53aabebd1e787f42c0ee6e653> a sh:PropertyShape;
+    sh:datatype xsd:nonNegativeInteger;
+    sh:name "owl:qualifiedCardinality";
+    sh:path owl:qualifiedCardinality
+.
+<urn:dtproperty:9ed2fb7d3b7985c23e788a879a4db9d7.1c05cf51c532963b00a3991c230d50ba> a sh:PropertyShape;
+    sh:datatype xsd:nonNegativeInteger;
+    sh:name "owl:maxQualifiedCardinality";
+    sh:path owl:maxQualifiedCardinality
+.
+<urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.578d0880addccde5fe011e3f37571bd7> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:name "rdfs:range";
+    sh:nodeKind sh:IRI;
+    sh:path rdfs:range
+.
+<urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.c74e2b735dd8dc85ad0ee3510c33925f> a sh:PropertyShape;
+    sh:name "rdf:type";
+    sh:nodeKind sh:IRI;
+    sh:path rdf:type
+.
+<urn:objproperty:472ee8b9e92f00863f1b11929967a7fa.d89567f0e7181990b5b1eed210bde428> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:name "rdfs:domain";
+    sh:nodeKind sh:IRI;
+    sh:path rdfs:domain
+.
+<urn:objproperty:6be100d081a438502013ba4e5fef3db7.b6c99360a2925e4b23fcfce8a7a9758f> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:class owl:Restriction;
+    sh:name "rdfs:subClassOf";
+    sh:nodeKind sh:BlankNode;
+    sh:nodeKind sh:IRI;
+    sh:path rdfs:subClassOf
+.
+<urn:objproperty:6be100d081a438502013ba4e5fef3db7.bbfcc21aa73d2fe4d87de50a32c9eb86> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:name "owl:equivalentClass";
+    sh:nodeKind sh:BlankNode;
+    sh:path owl:equivalentClass
+.
+<urn:objproperty:6be100d081a438502013ba4e5fef3db7.c74e2b735dd8dc85ad0ee3510c33925f> a sh:PropertyShape;
+    sh:name "rdf:type";
+    sh:nodeKind sh:IRI;
+    sh:path rdf:type
+.
+<urn:objproperty:6be100d081a438502013ba4e5fef3db7.c8424c214a58219d68ee6f998dffd301> a sh:PropertyShape;
+    sh:name "owl:oneOf";
+    sh:node <urn:propertynode:6be100d081a438502013ba4e5fef3db7c8424c214a58219d68ee6f998dffd301>;
+    sh:nodeKind sh:BlankNode;
+    sh:path owl:oneOf
+.
+<urn:objproperty:89df24df35df8882616112ab6a78df83.c74e2b735dd8dc85ad0ee3510c33925f> a sh:PropertyShape;
+    sh:name "rdf:type";
+    sh:nodeKind sh:IRI;
+    sh:path rdf:type
+.
+<urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.578d0880addccde5fe011e3f37571bd7> a sh:PropertyShape;
+    sh:name "rdfs:range";
+    sh:nodeKind sh:IRI;
+    sh:path rdfs:range
+.
+<urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.c74e2b735dd8dc85ad0ee3510c33925f> a sh:PropertyShape;
+    sh:name "rdf:type";
+    sh:nodeKind sh:IRI;
+    sh:path rdf:type
+.
+<urn:objproperty:9e6d9eddc19d6811c0a885c828aceb63.d89567f0e7181990b5b1eed210bde428> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:name "rdfs:domain";
+    sh:nodeKind sh:IRI;
+    sh:path rdfs:domain
+.
+<urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.07fd2e024e94ea9be842e65c1ee71124> a sh:PropertyShape;
+    sh:class owl:DatatypeProperty;
+    sh:class owl:ObjectProperty;
+    sh:name "owl:onProperty";
+    sh:nodeKind sh:IRI;
+    sh:path owl:onProperty
+.
+<urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.26363953b14ef4fbc64ba60ef0dd305c> a sh:PropertyShape;
+    sh:class owl:Class;
+    sh:name "owl:onClass";
+    sh:nodeKind sh:IRI;
+    sh:path owl:onClass
+.
+<urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.76e48e8832b7148b0eabf4e7bf720c13> a sh:PropertyShape;
+    sh:name "owl:onDataRange";
+    sh:nodeKind sh:IRI;
+    sh:path owl:onDataRange
+.
+<urn:objproperty:9ed2fb7d3b7985c23e788a879a4db9d7.c74e2b735dd8dc85ad0ee3510c33925f> a sh:PropertyShape;
+    sh:name "rdf:type";
+    sh:nodeKind sh:IRI;
+    sh:path rdf:type
+.
+<urn:propertynode:6be100d081a438502013ba4e5fef3db7c8424c214a58219d68ee6f998dffd301> a sh:NodeShape;
+    sh:name "List";
+    sh:property <urn:valueproperty2229512c1b2f8f6f497c00b7a88f77f7>;
+    sh:property <urn:valuepropertyf5677a5f533ed4895c713c9ef3163192>
+.
+<urn:valueproperty2229512c1b2f8f6f497c00b7a88f77f7> a sh:PropertyShape;
+    sh:name "rdf:first";
+    sh:path rdf:first
+.
+<urn:valuepropertyf5677a5f533ed4895c713c9ef3163192> a sh:PropertyShape;
+    sh:name "rdf:rest";
+    sh:path rdf:rest
+.

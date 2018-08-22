@@ -1,0 +1,1676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML"
+         xmlns:RDF="http://EAODM/schemas/RDF/_2ARAEDQtEeixati4ZThEuA/8"
+         xmlns:OWL="http://EAODM/schemas/OWL/_2AXGsDQtEeixati4ZThEuA/8"
+         xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://EAODM/schemas/RDF/_2ARAEDQtEeixati4ZThEuA/8 /EA-ODM-PROFILE/EA-ODM.profile.uml#_2ARnIDQtEeixati4ZThEuA http://EAODM/schemas/OWL/_2AXGsDQtEeixati4ZThEuA/8 /EA-ODM-PROFILE/EA-ODM.profile.uml#_2AY74DQtEeixati4ZThEuA">
+   <uml:Model xmi:type="uml:Model" name="EA_Model">
+      <packagedElement xmi:type="uml:Package"
+                       xmi:id="EAPK_25951D50_2752_4e17_8C7A_FEF70F88F783"
+                       name="geostandaarden">
+         <packagedElement xmi:type="uml:Package"
+                          xmi:id="EAPK_A2949663_66E1_440a_B3DE_90584F0A9284"
+                          name="IMGolf">
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_C9521693_68C8_4acf_9A91_0B7610A41EE2"
+                             name="GebruiksstatusValue">
+               <ownedComment xmi:id="EAID_Ccomment_68C8_4acf_9A91_0B7610A41EE2"
+                             annotatedElement="EAID_C9521693_68C8_4acf_9A91_0B7610A41EE2">
+                  <body>-- Definition --
+Status van het gebruik van het object.
+-- Description --
+Externe waardelijst te vinden op url bij source.
+-- Source --
+https://brt.basisregistraties.overheid.nl/top10nl/doc/collectie/Status</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_A43D82A5_B3B0_449d_8DA6_5309A1719C31"
+                             name="Golfbaan">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_EAE19213_5127_4332_8C8E_4243057B59F1"
+                               name="geometry">
+                  <type xmi:idref="EAID_28E881FF_2361_44aa_8FF9_08604E438AFE"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000001_5127_4332_8C8E_4243057B59F1"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000002_5127_4332_8C8E_4243057B59F1"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ecomment_5127_4332_8C8E_4243057B59F1"
+                                annotatedElement="EAID_EAE19213_5127_4332_8C8E_4243057B59F1">
+                     <body>-- Name --
+-- Definition --
+Vlakgeometrie van het totale golfterrein.
+-- Description --
+Omvat alle parcoursen (holes) op de golfbaan maar ook de kantine, het parkeerterrein, de oefengreen en de drivingrange. 
+-- Source --
+IMGolf</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_FA977627_D455_422a_BCAC_6BB82197C147"
+                               name="naam">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000003_D455_422a_BCAC_6BB82197C147"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000004_D455_422a_BCAC_6BB82197C147"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Fcomment_D455_422a_BCAC_6BB82197C147"
+                                annotatedElement="EAID_FA977627_D455_422a_BCAC_6BB82197C147">
+                     <body>-- Name --
+-- Definition --
+De benaming van de golfbaan.
+-- Description --
+De naam wordt weergegeven in de lijst van alle golfbanen van nederland. 
+-- Source --
+IMGolf</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_4B6754A2_1F3E_4b85_BB47_4D878E1C4076"
+                               name="typeGolfbaan">
+                  <type xmi:idref="EAID_A16B5D83_EAAD_4194_A356_B00CA07763A6"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000005_1F3E_4b85_BB47_4D878E1C4076"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000006_1F3E_4b85_BB47_4D878E1C4076"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_4comment_1F3E_4b85_BB47_4D878E1C4076"
+                                annotatedElement="EAID_4B6754A2_1F3E_4b85_BB47_4D878E1C4076">
+                     <body>-- Definition --
+Het soort golfbaan, ingedeeld naar het type terrein waar zij zich bevindt.
+-- Description --
+De indeling is in de loop der tijd ontstaan doordat een golfbaan anders speelt, afhankelijk van de locatie. Een linksbaan bijvoorbeeld bevindt zich vlakbij de kust waardoor de wind een grotere factor is. 
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_8A62C85A_5D12_4fe9_8594_79B16FD4192D"
+                               name="toegang">
+                  <type xmi:idref="EAID_42BDD9B2_1615_483e_A8B8_1BB9A823A732"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000007_5D12_4fe9_8594_79B16FD4192D"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000008_5D12_4fe9_8594_79B16FD4192D"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_5D12_4fe9_8594_79B16FD4192D"
+                                annotatedElement="EAID_8A62C85A_5D12_4fe9_8594_79B16FD4192D">
+                     <body>-- Definition --
+Informatie over de toegang tot de golfbaan.
+-- Description --
+De informatie bestaat uit meerdere onderdelen. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_E6D1BEE1_B206_4210_B59A_0DA2ADD256AA"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000009_B206_4210_B59A_0DA2ADD256AA"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000010_B206_4210_B59A_0DA2ADD256AA"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ecomment_B206_4210_B59A_0DA2ADD256AA"
+                                annotatedElement="EAID_E6D1BEE1_B206_4210_B59A_0DA2ADD256AA">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_5EE929B7_B1FD_4455_BBEE_AB721132B02F"
+                               name="natuurwaarde">
+                  <type xmi:idref="EAID_04A2A3AF_D8CE_43b1_95A9_32E3BC37BA3A"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000011_B1FD_4455_BBEE_AB721132B02F"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000012_B1FD_4455_BBEE_AB721132B02F"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_5comment_B1FD_4455_BBEE_AB721132B02F"
+                                annotatedElement="EAID_5EE929B7_B1FD_4455_BBEE_AB721132B02F">
+                     <body>-- Definition --
+De natuurwaarde van een gebied is de waarde die aan een bepaald gebied wordt toegekend, gezien vanuit het perspectief van natuurbescherming.
+-- Source --
+https://nl.wikipedia.org/wiki/Natuurwaarde</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_E6ABA8EE_8C7F_4032_813F_417EE7120327"
+                               name="gebruiksstatus">
+                  <type xmi:idref="EAID_C9521693_68C8_4acf_9A91_0B7610A41EE2"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000013_8C7F_4032_813F_417EE7120327"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000014_8C7F_4032_813F_417EE7120327"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ecomment_8C7F_4032_813F_417EE7120327"
+                                annotatedElement="EAID_E6ABA8EE_8C7F_4032_813F_417EE7120327">
+                     <body>-- Definition --
+Status van exploitatie van de golfbaan.
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_dstD0CE91_861B_4b77_8627_06FAD1B0C7FF"
+                               name="hole"
+                               association="EAID_33D0CE91_861B_4b77_8627_06FAD1B0C7FF">
+                  <type xmi:idref="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000015__861B_4b77_8627_06FAD1B0C7FF"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000016__861B_4b77_8627_06FAD1B0C7FF"
+                              value="-1"/>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_A202B556_C0BF_4d0d_A9AE_3DBDE0490378"
+                               general="EAID_7E5A680D_D31E_49c4_BD5A_C87B0E160E67"/>
+               <ownedComment xmi:id="EAID_Acomment_B3B0_449d_8DA6_5309A1719C31"
+                             annotatedElement="EAID_A43D82A5_B3B0_449d_8DA6_5309A1719C31">
+                  <body>-- Name --
+-- Definition --
+Een golfbaan is een perceel waarop de sport golf wordt gespeeld. 
+-- Description --
+De baan bestaat uit een reeks holes.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_33D0CE91_861B_4b77_8627_06FAD1B0C7FF">
+               <memberEnd xmi:idref="EAID_dstD0CE91_861B_4b77_8627_06FAD1B0C7FF"/>
+               <memberEnd xmi:idref="EAID_srcD0CE91_861B_4b77_8627_06FAD1B0C7FF"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_srcD0CE91_861B_4b77_8627_06FAD1B0C7FF"
+                         association="EAID_33D0CE91_861B_4b77_8627_06FAD1B0C7FF">
+                  <type xmi:idref="EAID_A43D82A5_B3B0_449d_8DA6_5309A1719C31"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000045__861B_4b77_8627_06FAD1B0C7FF"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000046__861B_4b77_8627_06FAD1B0C7FF"
+                              value="1"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_3comment_861B_4b77_8627_06FAD1B0C7FF"
+                             annotatedElement="EAID_33D0CE91_861B_4b77_8627_06FAD1B0C7FF">
+                  <body>-- Definition --
+Een van de parcoursen op het golfterrein.
+-- Description --
+Een parcours, meestal Hole genoemd, is een terrein met verschillende onderdelen zoals het afslagpunt, de fairway, de green en de hole. 
+-- Source --
+IMGolf</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_B3E1F9A6_3E34_4335_B057_E287B0834EE0"
+                             name="Hindernis">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_10A7B1E8_FF7D_4512_BD30_CA0E47BE1707"
+                               name="geometrie">
+                  <type xmi:idref="EAID_CCDDE1A3_5915_41e8_986C_F9F9271380A7"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000017_FF7D_4512_BD30_CA0E47BE1707"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000018_FF7D_4512_BD30_CA0E47BE1707"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_1comment_FF7D_4512_BD30_CA0E47BE1707"
+                                annotatedElement="EAID_10A7B1E8_FF7D_4512_BD30_CA0E47BE1707">
+                     <body>-- Definition --
+Vlakgeometrie
+-- Description --
+De coordinaten van het vlak waar het obstakel zich bevindt.
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_86C1E0FA_230C_44dc_AA30_EBA9ED95F34C"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000019_230C_44dc_AA30_EBA9ED95F34C"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000020_230C_44dc_AA30_EBA9ED95F34C"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_230C_44dc_AA30_EBA9ED95F34C"
+                                annotatedElement="EAID_86C1E0FA_230C_44dc_AA30_EBA9ED95F34C">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_4FD40A70_2C67_4ce7_A870_9C18C320D8FC"
+                               name="typeHindernis">
+                  <type xmi:idref="EAID_18E60578_602B_4e49_8CA6_223C3FCF6631"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000021_2C67_4ce7_A870_9C18C320D8FC"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000022_2C67_4ce7_A870_9C18C320D8FC"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_4comment_2C67_4ce7_A870_9C18C320D8FC"
+                                annotatedElement="EAID_4FD40A70_2C67_4ce7_A870_9C18C320D8FC">
+                     <body>-- Definition --
+Het soort hindernis.
+-- Description --
+Dit is altijd een zandbunker of een waterpartij. Ook bomen en incidentele waterplassen kunnen een hindernis zijn, maar deze zijn niet gemodelleerd. Bomen worden wellicht in de 2.0 versie opgenomen.
+-- Source --
+IMGolf.
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_A978763E_42F5_4a32_950E_9C6C157A4C9E"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Bcomment_3E34_4335_B057_E287B0834EE0"
+                             annotatedElement="EAID_B3E1F9A6_3E34_4335_B057_E287B0834EE0">
+                  <body>-- Name --
+-- Definition --
+Een obstakel op het parcours in de vorm van een zand- of waterpartij.
+-- Description --
+Om een bal uit een bunker te slaan wordt vaak een speciale club gebruik; als een bal in het water terecht komt ben je verder van huis. 
+-- Source --
+IMGolf.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_8B7EF5FC_5228_4c0e_9380_41C684309C15">
+               <memberEnd xmi:idref="EAID_dst7EF5FC_5228_4c0e_9380_41C684309C15"/>
+               <memberEnd xmi:idref="EAID_src7EF5FC_5228_4c0e_9380_41C684309C15"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_src7EF5FC_5228_4c0e_9380_41C684309C15"
+                         association="EAID_8B7EF5FC_5228_4c0e_9380_41C684309C15">
+                  <type xmi:idref="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_8comment_5228_4c0e_9380_41C684309C15"
+                             annotatedElement="EAID_8B7EF5FC_5228_4c0e_9380_41C684309C15">
+                  <body>-- Definition --
+Een obstakel tussen de tee en de hole in een parcours.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_EEA09760_5294_4398_836C_95EA02692F5C"
+                             name="Hole">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_A7FFB13A_B57A_48e1_9EFA_7D17F7F3A7D8"
+                               name="geometrie">
+                  <type xmi:idref="EAID_CA9CCE00_9C40_4b96_952F_7E7F8C0086F3"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000023_B57A_48e1_9EFA_7D17F7F3A7D8"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000024_B57A_48e1_9EFA_7D17F7F3A7D8"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Acomment_B57A_48e1_9EFA_7D17F7F3A7D8"
+                                annotatedElement="EAID_A7FFB13A_B57A_48e1_9EFA_7D17F7F3A7D8">
+                     <body>-- Definition --
+Puntgeometrie
+-- Description --
+Wijzigt regelmatig. De nieuwe Hole lokaties worden verspreid onder de leden en deelnemers aan wedstrijden.
+-- Source --
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_A06D0819_A3D9_4574_938A_6CEC0AC22BCC"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000025_A3D9_4574_938A_6CEC0AC22BCC"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000026_A3D9_4574_938A_6CEC0AC22BCC"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Acomment_A3D9_4574_938A_6CEC0AC22BCC"
+                                annotatedElement="EAID_A06D0819_A3D9_4574_938A_6CEC0AC22BCC">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_EE9178EA_0000_4a58_8F1A_C45397F3B571"
+                               name="beginGeldigheid">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000027_0000_4a58_8F1A_C45397F3B571"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000028_0000_4a58_8F1A_C45397F3B571"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ecomment_0000_4a58_8F1A_C45397F3B571"
+                                annotatedElement="EAID_EE9178EA_0000_4a58_8F1A_C45397F3B571">
+                     <body>-- Definition --
+Start van het tijdstip waarop de hole op deze locatie ligt
+-- Description --
+Dit attribuut implementeert materiele historie volgens NEN3610:2011</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_D620D642_F60F_4e6c_B8F2_D98094120519"
+                               name="eindGeldigheid">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000029_F60F_4e6c_B8F2_D98094120519"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000030_F60F_4e6c_B8F2_D98094120519"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Dcomment_F60F_4e6c_B8F2_D98094120519"
+                                annotatedElement="EAID_D620D642_F60F_4e6c_B8F2_D98094120519">
+                     <body>-- Definition --
+Eind van het tijdstip waarop de hole op deze locatie ligt. Wanneer dit de huidige locatie is heeft dit attribuut geen waarde
+-- Description --
+Dit attribuut implementeert materiele historie volgens NEN3610:2011</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_96ABFC41_1986_4646_9DF4_116481ABEA8F"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Ecomment_5294_4398_836C_95EA02692F5C"
+                             annotatedElement="EAID_EEA09760_5294_4398_836C_95EA02692F5C">
+                  <body>-- Name --
+-- Definition --
+Met een vlag gemarkeerd punt waarin de bal geslagen moet worden.
+-- Description --
+De hole wordt regelmatig van plek veranderd, omdat de green dan niet onregelmatig slijt. 
+-- Source --
+IMGolf.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_93CF48D4_B42A_4cf4_9B9D_337FC41A75CF">
+               <memberEnd xmi:idref="EAID_dstCF48D4_B42A_4cf4_9B9D_337FC41A75CF"/>
+               <memberEnd xmi:idref="EAID_srcCF48D4_B42A_4cf4_9B9D_337FC41A75CF"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_srcCF48D4_B42A_4cf4_9B9D_337FC41A75CF"
+                         association="EAID_93CF48D4_B42A_4cf4_9B9D_337FC41A75CF">
+                  <type xmi:idref="EAID_D126219C_0012_45d8_80FB_D521E25484E0"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_9comment_B42A_4cf4_9B9D_337FC41A75CF"
+                             annotatedElement="EAID_93CF48D4_B42A_4cf4_9B9D_337FC41A75CF">
+                  <body>-- Definition --
+Het punt (gat), gemarkeerd door een vlag, waar de bal in geslagen moet worden.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="EAID_04A2A3AF_D8CE_43b1_95A9_32E3BC37BA3A"
+                             name="NatuurwaardeValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_40C96A49_A86B_4c17_9A3F_21AD949F9992"
+                             name="hoog"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_EDA86EF6_DF85_4153_B80B_84F126A8F3B9"
+                             name="laag"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_39E4C15A_4324_4436_A6A1_9943507D6D0B"
+                             name="geen"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"
+                             name="Parcours">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_D8BF0F13_0D08_4acf_8AD3_48DAFCBB459F"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000031_0D08_4acf_8AD3_48DAFCBB459F"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000032_0D08_4acf_8AD3_48DAFCBB459F"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Dcomment_0D08_4acf_8AD3_48DAFCBB459F"
+                                annotatedElement="EAID_D8BF0F13_0D08_4acf_8AD3_48DAFCBB459F">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_3C4D1AEA_9840_405e_9D51_66FF780498CC"
+                               name="nummer">
+                  <type xmi:idref="EAID_6117ACBD_3892_4c5a_8241_2570BD334665"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000033_9840_405e_9D51_66FF780498CC"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000034_9840_405e_9D51_66FF780498CC"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_3comment_9840_405e_9D51_66FF780498CC"
+                                annotatedElement="EAID_3C4D1AEA_9840_405e_9D51_66FF780498CC">
+                     <body>-- Definition --
+De getalaanduiding voor het parcours. 
+-- Description --
+Meestal heeft een golfbaan 18 'holes' of parcoursen. De eerste heeft als waarde van dit attribuut 1, de laatste 18. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_7F257123_2727_4835_ACD7_EC4322771AE2"
+                               name="geometry">
+                  <type xmi:idref="EAID_28E881FF_2361_44aa_8FF9_08604E438AFE"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000035_2727_4835_ACD7_EC4322771AE2"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000036_2727_4835_ACD7_EC4322771AE2"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_7comment_2727_4835_ACD7_EC4322771AE2"
+                                annotatedElement="EAID_7F257123_2727_4835_ACD7_EC4322771AE2">
+                     <body>-- Definition --
+Multi-vlak geometrie
+-- Description --
+Coordinaten van het vlak van het parcours. Het kan een multivlak zijn. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_AC38FF34_A49A_469a_895A_1FFA69418A08"
+                               name="par">
+                  <type xmi:idref="EAID_6117ACBD_3892_4c5a_8241_2570BD334665"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000037_A49A_469a_895A_1FFA69418A08"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000038_A49A_469a_895A_1FFA69418A08"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Acomment_A49A_469a_895A_1FFA69418A08"
+                                annotatedElement="EAID_AC38FF34_A49A_469a_895A_1FFA69418A08">
+                     <body>-- Definition --
+het aantal slagen waarin een gemiddelde professionele golfer een hole zou moeten kunnen spelen. 
+-- Description --
+Par staat voor Professional Average Result.
+-- Source --
+http://nl.wikipedia.org/wiki/Par_(golf)
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_0DF3F36B_89C5_40e3_946C_F6B56A651C6B"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_dst9D1615_0A6A_4a19_BB56_3CF0D897F006"
+                               name="afslagGevorderden"
+                               association="EAID_5C9D1615_0A6A_4a19_BB56_3CF0D897F006">
+                  <type xmi:idref="EAID_DCE74647_AA82_4f56_9BBD_A2C1CDEDC341"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000039__0A6A_4a19_BB56_3CF0D897F006"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000040__0A6A_4a19_BB56_3CF0D897F006"
+                              value="1"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_dst7EF5FC_5228_4c0e_9380_41C684309C15"
+                               name="hindernis"
+                               association="EAID_8B7EF5FC_5228_4c0e_9380_41C684309C15">
+                  <type xmi:idref="EAID_B3E1F9A6_3E34_4335_B057_E287B0834EE0"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000041__5228_4c0e_9380_41C684309C15"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000042__5228_4c0e_9380_41C684309C15"
+                              value="1"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_dst4B2E66_AE4A_4d6b_9FC4_75512D4C20BB"
+                               name="afslagBeginners"
+                               association="EAID_BC4B2E66_AE4A_4d6b_9FC4_75512D4C20BB">
+                  <type xmi:idref="EAID_DCE74647_AA82_4f56_9BBD_A2C1CDEDC341"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000043__AE4A_4d6b_9FC4_75512D4C20BB"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000044__AE4A_4d6b_9FC4_75512D4C20BB"
+                              value="1"/>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_srcDC31B0_C0B5_4d6a_9EAD_CDE35161B57D"
+                               name="parcoursDeel"
+                               association="EAID_9ADC31B0_C0B5_4d6a_9EAD_CDE35161B57D">
+                  <type xmi:idref="EAID_D126219C_0012_45d8_80FB_D521E25484E0"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000047__C0B5_4d6a_9EAD_CDE35161B57D"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000048__C0B5_4d6a_9EAD_CDE35161B57D"
+                              value="-1"/>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_6comment_DBA6_4b91_A04A_30797C2A590F"
+                             annotatedElement="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F">
+                  <body>-- Name --
+-- Definition --
+Een van de speelvelden van een golfbaan. 
+-- Description --
+Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen.
+Ieder parcours bestaat in de regel uit de volgende onderdelen: Tee-box, Green, Hole, Fairway, Rough, Fringe / Apron, Hindernissen.
+-- Source --
+http://nl.wikipedia.org/wiki/Hole_%28golf%29</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_5C9D1615_0A6A_4a19_BB56_3CF0D897F006">
+               <memberEnd xmi:idref="EAID_dst9D1615_0A6A_4a19_BB56_3CF0D897F006"/>
+               <memberEnd xmi:idref="EAID_src9D1615_0A6A_4a19_BB56_3CF0D897F006"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_src9D1615_0A6A_4a19_BB56_3CF0D897F006"
+                         association="EAID_5C9D1615_0A6A_4a19_BB56_3CF0D897F006">
+                  <type xmi:idref="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_5comment_0A6A_4a19_BB56_3CF0D897F006"
+                             annotatedElement="EAID_5C9D1615_0A6A_4a19_BB56_3CF0D897F006">
+                  <body>-- Definition --
+De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_BC4B2E66_AE4A_4d6b_9FC4_75512D4C20BB">
+               <memberEnd xmi:idref="EAID_dst4B2E66_AE4A_4d6b_9FC4_75512D4C20BB"/>
+               <memberEnd xmi:idref="EAID_src4B2E66_AE4A_4d6b_9FC4_75512D4C20BB"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_src4B2E66_AE4A_4d6b_9FC4_75512D4C20BB"
+                         association="EAID_BC4B2E66_AE4A_4d6b_9FC4_75512D4C20BB">
+                  <type xmi:idref="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_Bcomment_AE4A_4d6b_9FC4_75512D4C20BB"
+                             annotatedElement="EAID_BC4B2E66_AE4A_4d6b_9FC4_75512D4C20BB">
+                  <body>-- Definition --
+De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Association"
+                             xmi:id="EAID_9ADC31B0_C0B5_4d6a_9EAD_CDE35161B57D">
+               <memberEnd xmi:idref="EAID_dstDC31B0_C0B5_4d6a_9EAD_CDE35161B57D"/>
+               <memberEnd xmi:idref="EAID_srcDC31B0_C0B5_4d6a_9EAD_CDE35161B57D"/>
+               <ownedEnd xmi:type="uml:Property"
+                         xmi:id="EAID_dstDC31B0_C0B5_4d6a_9EAD_CDE35161B57D"
+                         association="EAID_9ADC31B0_C0B5_4d6a_9EAD_CDE35161B57D">
+                  <type xmi:idref="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+               </ownedEnd>
+               <ownedComment xmi:id="EAID_9comment_C0B5_4d6a_9EAD_CDE35161B57D"
+                             annotatedElement="EAID_9ADC31B0_C0B5_4d6a_9EAD_CDE35161B57D">
+                  <body>-- Definition --
+Een deelterrein van het parcours.</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_D126219C_0012_45d8_80FB_D521E25484E0"
+                             name="ParcoursDeel">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_806D6D04_A822_4e7a_884E_6A692FD918F2"
+                               name="geometry">
+                  <type xmi:idref="EAID_CCDDE1A3_5915_41e8_986C_F9F9271380A7"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000049_A822_4e7a_884E_6A692FD918F2"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000050_A822_4e7a_884E_6A692FD918F2"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_A822_4e7a_884E_6A692FD918F2"
+                                annotatedElement="EAID_806D6D04_A822_4e7a_884E_6A692FD918F2">
+                     <body>-- Definition --
+Vlakgeometrie.
+-- Description --
+Voor elk onderdeel van een parcours worden hier de coordinaten van het vlak opgenomen. Als bijvoorbeeld de fairway in twee stukken wordt verdeeld door een waterpartij, worden dit twee aparte parcoursdelen met ieder een vlak. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_9A37FBE1_D35B_4786_9A10_90B17E5E17BD"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000051_D35B_4786_9A10_90B17E5E17BD"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000052_D35B_4786_9A10_90B17E5E17BD"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_9comment_D35B_4786_9A10_90B17E5E17BD"
+                                annotatedElement="EAID_9A37FBE1_D35B_4786_9A10_90B17E5E17BD">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_C6191152_3B4E_413b_B9B1_C72A2B81A8B3"
+                               name="TypeParcoursDeel">
+                  <type xmi:idref="EAID_71A59579_305C_40cc_8664_54B155A411BD"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000053_3B4E_413b_B9B1_C72A2B81A8B3"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000054_3B4E_413b_B9B1_C72A2B81A8B3"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ccomment_3B4E_413b_B9B1_C72A2B81A8B3"
+                                annotatedElement="EAID_C6191152_3B4E_413b_B9B1_C72A2B81A8B3">
+                     <body>-- Definition --
+Het soort parcoursdeel.
+-- Description --
+Een parcours kan worden verdeeld in een aantal onderdelen, zoals fairway of green. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_dstCF48D4_B42A_4cf4_9B9D_337FC41A75CF"
+                               name="hole"
+                               association="EAID_93CF48D4_B42A_4cf4_9B9D_337FC41A75CF">
+                  <type xmi:idref="EAID_EEA09760_5294_4398_836C_95EA02692F5C"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000055__B42A_4cf4_9B9D_337FC41A75CF"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000056__B42A_4cf4_9B9D_337FC41A75CF"
+                              value="1"/>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_ABF2BAA2_440A_420d_8D5B_1DFF5FCD1769"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Dcomment_0012_45d8_80FB_D521E25484E0"
+                             annotatedElement="EAID_D126219C_0012_45d8_80FB_D521E25484E0">
+                  <body>-- Name --
+-- Definition --
+Deel van het terrein van de hole (parcours).
+-- Description --
+Elk parcours heeft verschillende onderdelen zoals de green, de fairway, de semi-rough en de rough.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan#Onderdelen_van_een_golfbaan</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_DCE74647_AA82_4f56_9BBD_A2C1CDEDC341"
+                             name="Tee">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_97431795_3255_489e_AC39_EBA8C3D25231"
+                               name="geometry">
+                  <type xmi:idref="EAID_CCDDE1A3_5915_41e8_986C_F9F9271380A7"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000057_3255_489e_AC39_EBA8C3D25231"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000058_3255_489e_AC39_EBA8C3D25231"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_9comment_3255_489e_AC39_EBA8C3D25231"
+                                annotatedElement="EAID_97431795_3255_489e_AC39_EBA8C3D25231">
+                     <body>-- Definition --
+Vlakgeometrie
+-- Description --
+De exacte plaats op de tee waar men moet beginnen wordt aangegeven door een tee-marker, waarvan er meerdere kunnen zijn. Meestal zijn er aparte tee-markers voor dames en heren om te compenseren voor het verschil in kracht. In dit model wordt alleen het vlak opgenomen, waarbinnen alle tee-markers zich bevinden.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_BADC76E1_EB2D_46f1_9F1C_5F3FD9A50145"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000059_EB2D_46f1_9F1C_5F3FD9A50145"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000060_EB2D_46f1_9F1C_5F3FD9A50145"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Bcomment_EB2D_46f1_9F1C_5F3FD9A50145"
+                                annotatedElement="EAID_BADC76E1_EB2D_46f1_9F1C_5F3FD9A50145">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_FDAB0E61_94C7_47ae_A61C_BAA23562FDA6"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Dcomment_AA82_4f56_9BBD_A2C1CDEDC341"
+                             annotatedElement="EAID_DCE74647_AA82_4f56_9BBD_A2C1CDEDC341">
+                  <body>-- Name --
+-- Definition --
+De afslagplaats aan het begin van een hole.
+-- Description --
+Ook wel tee-box genoemd.
+-- Source --
+http://nl.wikipedia.org/wiki/Tee_(golf)</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_42BDD9B2_1615_483e_A8B8_1BB9A823A732"
+                             name="ToegangGolfbaan">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_D398A163_4455_41fb_9149_F0B4E75DF716"
+                               name="toegang">
+                  <type xmi:idref="EAID_45C1479C_9302_4a9d_B210_EDC2AC164585"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000061_4455_41fb_9149_F0B4E75DF716"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000062_4455_41fb_9149_F0B4E75DF716"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Dcomment_4455_41fb_9149_F0B4E75DF716"
+                                annotatedElement="EAID_D398A163_4455_41fb_9149_F0B4E75DF716">
+                     <body>-- Definition --
+Geeft aan of de golfbaan of de golfbaan openbaar of alleen voor leden is.
+-- Description --
+Als de golfbaan niet alleen voor leden is, is ze dus openbaar en mag iedere golfer er komen spelen.
+-- Source --
+IMGolf</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_629865B1_402F_43cf_91BC_843BBF3B2699"
+                               name="vereisten">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000063_402F_43cf_91BC_843BBF3B2699"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000064_402F_43cf_91BC_843BBF3B2699"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_6comment_402F_43cf_91BC_843BBF3B2699"
+                                annotatedElement="EAID_629865B1_402F_43cf_91BC_843BBF3B2699">
+                     <body>-- Definition -- 
+Harde vereisten voor toegang tot de golfbaan.
+-- Description --
+Hier kan bijvoorbeeld worden opgenomen dat er toegangsvereisten zijn zoals het hebben van een baanpermissie of GVB.
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_FFDF545C_EDED_4ab3_8B12_1411C62E6019"
+                               name="etiquette">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000065_EDED_4ab3_8B12_1411C62E6019"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000066_EDED_4ab3_8B12_1411C62E6019"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Fcomment_EDED_4ab3_8B12_1411C62E6019"
+                                annotatedElement="EAID_FFDF545C_EDED_4ab3_8B12_1411C62E6019">
+                     <body>-- Definition --
+Beschrijving van de niet-harde regels op de golfbaan.
+-- Description --
+Dit zijn de regels waaraan men zich formeel niet hoeft te houden, maar er wordt wel zeer de prijs op gesteld als je het doet. Hier kan bijvoorbeeld de kledingetiquette worden beschreven. 
+-- Source --
+IMGolf
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_4comment_1615_483e_A8B8_1BB9A823A732"
+                             annotatedElement="EAID_42BDD9B2_1615_483e_A8B8_1BB9A823A732">
+                  <body>-- Name --
+-- Definition --
+Informatie over de toegang tot de golfbaan.
+-- Description --
+Bestaat uit verschillende onderdelen. Later worden misschien nog de openingstijden toegevoegd.
+-- Source --
+IMGolf</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="EAID_45C1479C_9302_4a9d_B210_EDC2AC164585"
+                             name="ToegankelijkheidValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_FC01B44D_A4B5_45df_8B80_A7072950FF92"
+                             name="openbaar"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_92BDC22C_0630_4fbf_8557_5C91E9F6EEE6"
+                             name="besloten"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="EAID_A16B5D83_EAAD_4194_A356_B00CA07763A6"
+                             name="TypeGolfbaanValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_48C4DEE9_CDC2_424d_9F39_4F0035FB41C4"
+                             name="linksbaan"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_E1FC4DF0_51FF_47d7_B83F_97AA88482FAB"
+                             name="bosbaan"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_D924D577_860A_4e04_B801_CADA7B9ACCF8"
+                             name="parkbaan"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="EAID_18E60578_602B_4e49_8CA6_223C3FCF6631"
+                             name="TypeHindernisValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_CE19F627_55D5_40ee_8970_B44AC0264C03"
+                             name="waterpartij"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_784DC87E_0EE6_4c86_963E_97F91177175B"
+                             name="bunker"/>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Enumeration"
+                             xmi:id="EAID_71A59579_305C_40cc_8664_54B155A411BD"
+                             name="TypeParcoursDeelValue">
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_86B6F17E_5CC8_4ef9_89C0_D34745A71D58"
+                             name="fairway"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_C0E1DE08_012B_4478_A497_C2E87BB8F3B4"
+                             name="green"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_F5DD012F_FC7D_49c1_8F7E_EC24CA38C1F1"
+                             name="rough"/>
+               <ownedLiteral xmi:type="uml:EnumerationLiteral"
+                             xmi:id="EAID_0BDC5099_875E_4415_A542_A9FADCB3C87C"
+                             name="semi-rough"/>
+            </packagedElement>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package"
+                          xmi:id="EAPK_9CD46176_4979_43e3_80CB_2B345022A9D3"
+                          name="ISO19107_profiel">
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_092DD341_201A_4124_9B5E_AEEBB6D60A42"
+                             name="Binary"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_6D9078A3_14CB_4b1f_85A5_15207CBBBDDA"
+                             name="Boolean"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"
+                             name="CharacterString"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_326BCEE7_4BD2_46bb_BAFB_347B1076AE1D"
+                             name="Date"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"
+                             name="DateTime"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_0FC9EEF9_8A1B_4045_A82E_E8AB4FF75990"
+                             name="GM_Curve"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_507F9B4B_F77E_48f2_848E_2EB7220A99C6"
+                             name="GM_Geometry"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_B491881D_7EA8_4d92_A6EA_EB7D7A4C967D"
+                             name="GM_LineString"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_9EA5855C_069D_41d1_9BCD_DD4D0DEE6FEA"
+                             name="GM_MultiCurve"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_BDA6BCF0_0256_4f79_BE96_0BCA4A74B93D"
+                             name="GM_MultiGeometry"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_8ED4CD75_2D73_4506_97BE_8A69A58F2937"
+                             name="GM_MultiPoint"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_28E881FF_2361_44aa_8FF9_08604E438AFE"
+                             name="GM_MultiSurface"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_CA9CCE00_9C40_4b96_952F_7E7F8C0086F3"
+                             name="GM_Point"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_23F9390B_9A60_4941_A62C_85718E23E5B4"
+                             name="GM_Polygon"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_CCDDE1A3_5915_41e8_986C_F9F9271380A7"
+                             name="GM_Surface"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_6117ACBD_3892_4c5a_8241_2570BD334665"
+                             name="Integer"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_3B9D4E02_F33A_4d58_8D2D_B9773B7BBF48"
+                             name="Measure"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_F8D66774_69DA_4eee_92BD_31EECCB65BF3"
+                             name="Real"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_185D811A_D963_4f2f_A29B_233BB6926585"
+                             name="Time"/>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_61600E07_65A2_459f_8ED8_1EABEB08A3BF"
+                             name="URI"/>
+         </packagedElement>
+         <packagedElement xmi:type="uml:Package"
+                          xmi:id="EAPK_972ED548_ADE8_4306_AEFE_E3D342459A2D"
+                          name="nen3610">
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_3875333F_BB7F_4294_B348_1EE8DFF10714"
+                             name="DummyIdentificeerbaarObject"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_A6FAB6DF_8687_456b_B4D4_92E2DA456703"
+                               name="identificatie">
+                  <type xmi:idref="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000067_8687_456b_B4D4_92E2DA456703"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000068_8687_456b_B4D4_92E2DA456703"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Acomment_8687_456b_B4D4_92E2DA456703"
+                                annotatedElement="EAID_A6FAB6DF_8687_456b_B4D4_92E2DA456703">
+                     <body>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_3comment_BB7F_4294_B348_1EE8DFF10714"
+                             annotatedElement="EAID_3875333F_BB7F_4294_B348_1EE8DFF10714">
+                  <body>-- Definition --
+Klasse opgenomen om attributen uit te kopiëren.
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_9F6A39B2_29AD_4a33_8E74_BD86CB6EA6CB"
+                             name="DummyMaterieleHistorie"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_8C8D7081_EB1A_4d53_8F27_60985E9BB1CA"
+                               name="beginGeldigheid">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000069_EB1A_4d53_8F27_60985E9BB1CA"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000070_EB1A_4d53_8F27_60985E9BB1CA"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_EB1A_4d53_8F27_60985E9BB1CA"
+                                annotatedElement="EAID_8C8D7081_EB1A_4d53_8F27_60985E9BB1CA">
+                     <body>-- Definition --
+start van de periode waarop deze instantie van het object geldig is in de werkelijkheid.
+-- Description --
+Er zijn verschillende datatypes voor de represenstatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011 en StUF 03.01
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_1F66350E_E99B_4fe9_9D26_0E21D66DDBFA"
+                               name="eindGeldigheid">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000071_E99B_4fe9_9D26_0E21D66DDBFA"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000072_E99B_4fe9_9D26_0E21D66DDBFA"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_1comment_E99B_4fe9_9D26_0E21D66DDBFA"
+                                annotatedElement="EAID_1F66350E_E99B_4fe9_9D26_0E21D66DDBFA">
+                     <body>-- Definition --
+eind van de periode waarop deze instantie van het object geldig is in de werkelijkheid. Wanneer deze waarde niet is ingevuld is de instantie nog geldig
+-- Description --
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011 en StUF 03.01
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_9comment_29AD_4a33_8E74_BD86CB6EA6CB"
+                             annotatedElement="EAID_9F6A39B2_29AD_4a33_8E74_BD86CB6EA6CB">
+                  <body>-- Definition --
+Klasse opgenomen om attributen uit te kopiëren.
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_C24917DB_32E8_4f6e_AA57_BBEE4D2D6C22"
+                             name="DummyFormeleHistorie"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_1AD3242C_D55A_4374_BF7D_AFD09BA3C676"
+                               name="tijdstipRegistratie">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000073_D55A_4374_BF7D_AFD09BA3C676"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000074_D55A_4374_BF7D_AFD09BA3C676"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_1comment_D55A_4374_BF7D_AFD09BA3C676"
+                                annotatedElement="EAID_1AD3242C_D55A_4374_BF7D_AFD09BA3C676">
+                     <body>-- Definition --
+tijdstip waarop deze instantie van het object is opgenomen in de registratie
+-- Description --
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime. Voor formele historie zal DateTime in vrijwel alle gevallen de beste keuze zijn.
+-- Source --
+NEN 3610:2011 en StUF 03.01
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_4618308B_FDB5_4efb_B0F6_290315EE02A9"
+                               name="eindRegistratie">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000075_FDB5_4efb_B0F6_290315EE02A9"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000076_FDB5_4efb_B0F6_290315EE02A9"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_4comment_FDB5_4efb_B0F6_290315EE02A9"
+                                annotatedElement="EAID_4618308B_FDB5_4efb_B0F6_290315EE02A9">
+                     <body>-- Definition --
+eind van de periode waarop deze instantie van het object geldig is in de registratie. Wanneer deze waarde niet is ingevuld is de instantie nog geldig
+-- Description --
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o,a, gekozen worden uit types TM_Instant, Date of DateTime. Voor formele historie zal DateTime in vrijwel alle gevallen de beste keuze zijn.
+-- Source --
+NEN 3610:2011 and StUF 03.01
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_Ccomment_32E8_4f6e_AA57_BBEE4D2D6C22"
+                             annotatedElement="EAID_C24917DB_32E8_4f6e_AA57_BBEE4D2D6C22">
+                  <body>-- Definition --
+Klasse opgenomen om attributen uit te kopiëren.
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_A734CEEA_B2B0_44a4_ADE3_AB0CAAEF36FB"
+                             name="DummyFormeleLevensduur"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_6A3563D6_A991_412d_9583_763764CD9B8E"
+                               name="objectBeginTijd">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000077_A991_412d_9583_763764CD9B8E"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000078_A991_412d_9583_763764CD9B8E"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_6comment_A991_412d_9583_763764CD9B8E"
+                                annotatedElement="EAID_6A3563D6_A991_412d_9583_763764CD9B8E">
+                     <body>-- Definition --
+tijdstip waarop het object in de registratie is ontstaan
+-- Description --
+Dit tijdstip moet altijd gelijk zijn aan het tijdstipregistratie van het eerste voorkomen van het object.
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_26B898CC_E061_43f5_85D4_10EA6394A085"
+                               name="objectEindTijd">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000079_E061_43f5_85D4_10EA6394A085"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000080_E061_43f5_85D4_10EA6394A085"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_2comment_E061_43f5_85D4_10EA6394A085"
+                                annotatedElement="EAID_26B898CC_E061_43f5_85D4_10EA6394A085">
+                     <body>-- Definition --
+tijdstip waarop het object in de registratie niet meer geldig is
+-- Description --
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_Acomment_B2B0_44a4_ADE3_AB0CAAEF36FB"
+                             annotatedElement="EAID_A734CEEA_B2B0_44a4_ADE3_AB0CAAEF36FB">
+                  <body>-- Definition --
+Klasse opgenomen om attributen uit te kopiëren.
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_7B870C2A_BFA2_48fe_84AE_01082E8CCBD4"
+                             name="DummyMaterieleLevensduur"
+                             isAbstract="true">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_766ABA4A_6281_4bfa_854A_CBB9C9AFFFBA"
+                               name="beginTijd">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000081_6281_4bfa_854A_CBB9C9AFFFBA"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000082_6281_4bfa_854A_CBB9C9AFFFBA"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_7comment_6281_4bfa_854A_CBB9C9AFFFBA"
+                                annotatedElement="EAID_766ABA4A_6281_4bfa_854A_CBB9C9AFFFBA">
+                     <body>-- Definition --
+tijdstip waarop het object in de werkelijkheid is ontstaan
+-- Source --
+NEN 3611:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_807A6FD8_017D_4c01_81AE_BA474A83AC12"
+                               name="eindTijd">
+                  <type xmi:idref="EAID_4CB6BBE5_EFAF_4680_8E2F_C4DD1ADE6428"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000083_017D_4c01_81AE_BA474A83AC12"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000084_017D_4c01_81AE_BA474A83AC12"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_017D_4c01_81AE_BA474A83AC12"
+                                annotatedElement="EAID_807A6FD8_017D_4c01_81AE_BA474A83AC12">
+                     <body>-- Definition --
+tijdstip waarop het object in de werkelijk niet meer geldig is
+-- Source --
+NEN 3610:2011
+
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_7comment_BFA2_48fe_84AE_01082E8CCBD4"
+                             annotatedElement="EAID_7B870C2A_BFA2_48fe_84AE_01082E8CCBD4">
+                  <body>-- Definition --
+Klasse opgenomen om attributen uit te kopiëren.
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70"
+                             name="NEN3610ID">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_6D9F90AB_2BD8_4354_A2EA_4097EF68E107"
+                               name="namespace">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000085_2BD8_4354_A2EA_4097EF68E107"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000086_2BD8_4354_A2EA_4097EF68E107"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_6comment_2BD8_4354_A2EA_4097EF68E107"
+                                annotatedElement="EAID_6D9F90AB_2BD8_4354_A2EA_4097EF68E107">
+                     <body>-- Definition --
+unieke verwijzing naar een registratie van objecten
+-- Description --
+Het attribuut &amp;lsquo;namespace&amp;rsquo; is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met &amp;lsquo;NL.&amp;rsquo; beginnen.
+De volgende karakters mogen in een namespace aanduiding voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;, &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;,    &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;, &amp;ldquo;_&amp;rdquo;,    &amp;ldquo;- &amp;ldquo;,    &amp;ldquo;,&amp;rdquo;,    &amp;rdquo;.&amp;rdquo;}
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_890DC697_28E9_480f_9D8E_27608460067A"
+                               name="lokaalID">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000087_28E9_480f_9D8E_27608460067A"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000088_28E9_480f_9D8E_27608460067A"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_8comment_28E9_480f_9D8E_27608460067A"
+                                annotatedElement="EAID_890DC697_28E9_480f_9D8E_27608460067A">
+                     <body>-- Definition --
+unieke identificatiecode binnen een registratie
+-- Description --
+&amp;lsquo;LokaalId&amp;rsquo; is de identificatiecode die een object heeft binnen een (lokale) registratie.
+De volgende karakters mogen in een lokaalID voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;,   &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;, &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;,    &amp;ldquo;_&amp;rdquo;,    &amp;ldquo;-&amp;ldquo;, &amp;ldquo;,&amp;rdquo;,    &amp;rdquo;.&amp;rdquo;}.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_73E923E3_C70D_40fa_B2FE_2F5404CAFCFC"
+                               name="versie">
+                  <type xmi:idref="EAID_2C3F1533_2281_4567_9990_01DCEE6661C8"/>
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000089_C70D_40fa_B2FE_2F5404CAFCFC"
+                              value="0"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000090_C70D_40fa_B2FE_2F5404CAFCFC"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_7comment_C70D_40fa_B2FE_2F5404CAFCFC"
+                                annotatedElement="EAID_73E923E3_C70D_40fa_B2FE_2F5404CAFCFC">
+                     <body>-- Definition --
+versie-aanduiding van een object
+-- Description --
+Het attribuut &amp;lsquo;versie&amp;rsquo; maakt geen deel uit van de identificatie van het object maar kan worden gebruikt om verschillende versies van hetzelfde object te identificeren.
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_3comment_9EBD_49bc_881B_BE7AC17CAD70"
+                             annotatedElement="EAID_36248641_9EBD_49bc_881B_BE7AC17CAD70">
+                  <body>-- Definition --
+identificatiegegevens voor de universeel unieke identificatie van een object
+-- Description --
+De combinatie van &amp;lsquo;namespace&amp;rsquo; van een registratie, lokale identificatie en versie informatie maken een object uniek identificeerbaar. Met de informatie van deze klasse kan daardoor met zekerheid worden verwezen naar het geïdentificeerde object.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_A0833E9A_1A33_45f1_B9BD_A6C1854DDCCC"
+                             name="VoidReasonValue">
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_1E7FC969_FAA5_41c6_83A6_E203542ABAF7"
+                               name="geenWaarde">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000091_FAA5_41c6_83A6_E203542ABAF7"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000092_FAA5_41c6_83A6_E203542ABAF7"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_1comment_FAA5_41c6_83A6_E203542ABAF7"
+                                annotatedElement="EAID_1E7FC969_FAA5_41c6_83A6_E203542ABAF7">
+                     <body>-- Definition --
+element heeft in werkelijkheid geen waarde
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_E9E578E0_4F9A_4bff_9293_BF867BCB02DB"
+                               name="nietOndersteund">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000093_4F9A_4bff_9293_BF867BCB02DB"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000094_4F9A_4bff_9293_BF867BCB02DB"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ecomment_4F9A_4bff_9293_BF867BCB02DB"
+                                annotatedElement="EAID_E9E578E0_4F9A_4bff_9293_BF867BCB02DB">
+                     <body>-- Definitie --
+zender houdt in zijn registratie geen waarde voor dit attribuut bij. Geldt voor alle objecten van dit objecttype
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_C9B503D5_1EF2_4713_B664_5E26CAA9A4CB"
+                               name="waardeOnbekend">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000095_1EF2_4713_B664_5E26CAA9A4CB"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000096_1EF2_4713_B664_5E26CAA9A4CB"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Ccomment_1EF2_4713_B664_5E26CAA9A4CB"
+                                annotatedElement="EAID_C9B503D5_1EF2_4713_B664_5E26CAA9A4CB">
+                     <body>-- Definition --
+element is verplicht maar de waarde is bij de zender niet bekend
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_A563CC59_9F18_45e9_B789_698471B09B35"
+                               name="vastgesteldOnbekend">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000097_9F18_45e9_B789_698471B09B35"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000098_9F18_45e9_B789_698471B09B35"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_Acomment_9F18_45e9_B789_698471B09B35"
+                                annotatedElement="EAID_A563CC59_9F18_45e9_B789_698471B09B35">
+                     <body>-- Definition --
+er is vastgesteld dat de waarde van het attribuut onbekend is en hoogst waarschijnlijk niet meer kan worden achterhaald (bijvoorbeeld omdat het brondocument onleesbaar is of het object niet meer bestaat in de werkelijkheid)
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedAttribute xmi:type="uml:Property"
+                               xmi:id="EAID_9660F661_6578_4792_8A40_9DD0E3278907"
+                               name="nietGeautoriseerd">
+                  <lowerValue xmi:type="uml:LiteralInteger"
+                              xmi:id="EAID_LI000099_6578_4792_8A40_9DD0E3278907"
+                              value="1"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural"
+                              xmi:id="EAID_LI000100_6578_4792_8A40_9DD0E3278907"
+                              value="1"/>
+                  <ownedComment xmi:id="EAID_9comment_6578_4792_8A40_9DD0E3278907"
+                                annotatedElement="EAID_9660F661_6578_4792_8A40_9DD0E3278907">
+                     <body>-- Definition --
+deze zender vindt dat de ontvanger niet geautoriseerd is om de waarde te kennen
+-- Source --
+NEN 3610:2011
+</body>
+                  </ownedComment>
+               </ownedAttribute>
+               <ownedComment xmi:id="EAID_Acomment_1A33_45f1_B9BD_A6C1854DDCCC"
+                             annotatedElement="EAID_A0833E9A_1A33_45f1_B9BD_A6C1854DDCCC">
+                  <body>-- Definition --
+reden waarom een &amp;rsquo;void-waarde&amp;rsquo; is ingevuld
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"
+                             name="GeoObject"
+                             isAbstract="true">
+               <ownedComment xmi:id="EAID_8comment_E76F_4690_89FA_7BAD05CC29EF"
+                             annotatedElement="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF">
+                  <body>-- Definition --
+abstractie van een fenomeen in de werkelijkheid, dat direct of indirect is geassocieerd met een locatie relatief ten opzichte van de aarde
+-- Description --
+Van deze klasse worden geen instanties gemaakt. Indien een object een geo-object is, is het altijd een instantie van een subklasse van GeoObject.
+Alle subklassen van GeoObject hebben conform NEN-EN-ISO 19109:2005 het stereotype «featureType».
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_7E5A680D_D31E_49c4_BD5A_C87B0E160E67"
+                             name="FunctioneelGebied"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_D346598A_B03F_47ef_A015_F480348B9279"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_7comment_D31E_49c4_BD5A_C87B0E160E67"
+                             annotatedElement="EAID_7E5A680D_D31E_49c4_BD5A_C87B0E160E67">
+                  <body>-- Definition --
+begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven
+-- Description --
+Voorbeelden zijn: bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark, recreatiegebied.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_0D4D2B08_BA3D_46b1_9DFE_4F802B437655"
+                             name="Gebouw"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_EDFCDA18_FE1E_4f4a_9FAA_AA1D0EC7112F"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_0comment_BA3D_46b1_9DFE_4F802B437655"
+                             annotatedElement="EAID_0D4D2B08_BA3D_46b1_9DFE_4F802B437655">
+                  <body>-- Definition --
+vrijstaande, overdekte en geheel of gedeeltelijke met wanden omsloten toegankelijke ruimte, die direct of indirect met de grond is verbonden.
+-- Description --
+Voorbeelden zijn: huis, schuur, flatgebouw, huizenblok, fabriek.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_807F1BF4_5937_4238_AB94_993931E5F960"
+                             name="GeografischGebied"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_2B6E603F_AE6D_47f8_A845_56737FC963B5"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_8comment_5937_4238_AB94_993931E5F960"
+                             annotatedElement="EAID_807F1BF4_5937_4238_AB94_993931E5F960">
+                  <body>-- Definition --
+geografisch benoemd of aangeduid gebied
+-- Description --
+De grenzen zijn niet altijd exact vastgesteld. Voorbeelden zijn: Noordoostpolder, Midden-Nederland, rivierengebied, Veluwe, Zuid-Limburg, kustgebied.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_9886AF53_2AD3_41e9_A92C_BFC11ACCF8EB"
+                             name="Inrichtingselement"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_6CBCE1C9_75AD_4b43_B7C4_865A80D8D33B"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_9comment_2AD3_41e9_A92C_BFC11ACCF8EB"
+                             annotatedElement="EAID_9886AF53_2AD3_41e9_A92C_BFC11ACCF8EB">
+                  <body>-- Definition --
+ruimtelijk object al dan niet ter detaillering dan wel ter inrichting van de overige benoemde ruimtelijke objecten of een ander inrichtingselement
+-- Description --
+Inrichtingselementen vormen een diverse klasse. Het zijn objecten die niet zozeer op basis van fysiek voorkomen of hun gebruiksfunctie bij elkaar horen, maar op basis van hun eigenschap dat ze andere objecten inrichten. Het zijn objecten die hierdoor een relatief kleine geometrie hebben. Voorbeelden zijn: stadsbankje, reclamebord, verkeerslicht, verkeersheuvel, fontein, grondwaterput.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_5C4BD7CF_6995_442e_ADFA_51B90C9711BE"
+                             name="Kunstwerk"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_CB590073_5A86_4126_9E25_998C15EF2C69"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_5comment_6995_442e_ADFA_51B90C9711BE"
+                             annotatedElement="EAID_5C4BD7CF_6995_442e_ADFA_51B90C9711BE">
+                  <body>-- Definition --
+civiel-technisch werk voor de infrastructuur van wegen, water, spoorbanen, waterkeringen en/of leidingen en niet bedoeld voor permanent menselijk verblijf
+-- Description --
+Hieronder vallen overbruggingen, waterstaatkundige werken en waterkerende constructies. Overbruggingen kunnen zijn: brug, viaduct, aquaduct enz. Een voorbeeld van een waterstaatkundig werk is een sluis. Voorbeelden van waterkerende constructies zijn stuw en vaste dam.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_B732AF9D_1C11_4643_ABC2_4C62DC7788E3"
+                             name="Leiding"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_D58A7562_D293_4220_AFCF_7BA693E8B97D"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Bcomment_1C11_4643_ABC2_4C62DC7788E3"
+                             annotatedElement="EAID_B732AF9D_1C11_4643_ABC2_4C62DC7788E3">
+                  <body>-- Definition --
+buis of kabel bestemd voor de voortgeleiding van energie of materie
+-- Description --
+Hoogspanningsleiding, riool, waterleiding, glasvezelkabel, gasleiding.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_BF50EBD1_200F_41a3_B366_CFDA4FDAC3A9"
+                             name="PlanologischGebied"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_6EE60761_8397_4795_839E_48F0E7ADBB94"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Bcomment_200F_41a3_B366_CFDA4FDAC3A9"
+                             annotatedElement="EAID_BF50EBD1_200F_41a3_B366_CFDA4FDAC3A9">
+                  <body>-- Definition --
+niet-tastbaar begrensd gebied waaraan een bepaalde (toekomstige) bestemming, functionele en/of bestuurlijke ruimtelijke ontwikkeling is gekoppeld
+-- Description --
+Planologische gebieden vormen de geo-objecten die worden gebruikt om het beleid van de ruimtelijke ordening weer te geven. In de regel zijn het objecten die zijn gekoppeld aan beleidsinformatie die aangeeft wat waar krachtens de wet op de ruimtelijke ordening aan beleid is geformuleerd.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_BB278B4C_34EE_47c8_A43A_EFEDEC5BAA9A"
+                             name="RegistratiefGebied"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_5BFEF76D_F96D_4d4a_9021_5AC97F79D5EA"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Bcomment_34EE_47c8_A43A_EFEDEC5BAA9A"
+                             annotatedElement="EAID_BB278B4C_34EE_47c8_A43A_EFEDEC5BAA9A">
+                  <body>-- Definition --
+op basis van wet- of regelgeving afgebakend gebied dat als eenheid geldt van politiek/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering
+-- Description --
+Registratieve gebieden vormen een diverse klasse en omvatten gebieden die onder de wet- of regelgeving vallen of die voor bedrijfsvoering administratief van belang zijn. In veel gevallen zal een dergelijk gebied ook een registratieve aanduiding of registratief nummer hebben. Er is geen algemeen attribuut gedefinieerd om deze informatie uit te wisselen omdat registraties hiervoor registratie-eigen attributen hebben. Voorbeelden zijn: gemeente Delft, postcodegebied 2345, politieregio Haaglanden, veiligheidsregio Gelderland Midden, Habitatrichtlijn, Nationaal Park De Hoge Veluwe.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_FCC588FA_DB97_46dc_BEAA_5B415B08528A"
+                             name="Spoorbaan"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_BAF014CE_BA5F_491b_9395_F1A5532518DB"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_Fcomment_DB97_46dc_BEAA_5B415B08528A"
+                             annotatedElement="EAID_FCC588FA_DB97_46dc_BEAA_5B415B08528A">
+                  <body>-- Definition --
+gebaand gedeelte voor het verkeer over rails
+-- Description --
+Voorbeelden zijn: spoorbaan, metrobaan, trambaan.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_3ACD7306_5922_4553_BE49_31583828C019"
+                             name="Terrein"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_607DB742_6A0A_4273_A4E8_C62BF5DA3130"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_3comment_5922_4553_BE49_31583828C019"
+                             annotatedElement="EAID_3ACD7306_5922_4553_BE49_31583828C019">
+                  <body>-- Definition --
+door een fysiek voorkomen gekarakteriseerd zichtbaar begrensd stuk grond
+-- Description --
+Terrein wordt gebruikt om een zichtbaar (tastbaar) begrensd stuk grond aan te geven waarvoor een bepaald fysiek voorkomen typerend is. Voorbeelden zijn: bos, landschap, bebouwing, landbouwgebied. Belangrijk is dat het stuk grond een zichtbare grens heeft met aangrenzende geo-objecten.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_32C84DEF_2E62_42e4_ABE0_B95382C6E607"
+                             name="Water"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_1499233A_36BC_495d_B4C5_A8379437153F"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_3comment_2E62_42e4_ABE0_B95382C6E607"
+                             annotatedElement="EAID_32C84DEF_2E62_42e4_ABE0_B95382C6E607">
+                  <body>-- Definition --
+grondoppervlak in principe bedekt met water
+-- Description --
+Voorbeelden zijn: rivier, kanaal, beek, zee, meer, oppervlaktewater in algemene zin. Objecten die in het kader van de waterhuishouding periodiek met water zijn bedekt, vallen hier ook onder.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class"
+                             xmi:id="EAID_8CF8CF84_0D54_4f88_B532_461E58236772"
+                             name="Weg"
+                             isAbstract="true">
+               <generalization xmi:type="uml:Generalization"
+                               xmi:id="EAID_57EF8600_E005_4cdf_9C12_75E19D269F34"
+                               general="EAID_8E84C022_E76F_4690_89FA_7BAD05CC29EF"/>
+               <ownedComment xmi:id="EAID_8comment_0D54_4f88_B532_461E58236772"
+                             annotatedElement="EAID_8CF8CF84_0D54_4f88_B532_461E58236772">
+                  <body>-- Definition --
+gebaand gedeelte voor het wegverkeer en vliegverkeer te land
+-- Description --
+Onder de klasse Weg vallen ook start- en landingsbanen voor vliegverkeer.
+-- Source --
+NEN 3610:2011
+</body>
+               </ownedComment>
+            </packagedElement>
+         </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package"
+                       name="PackageForMyPrimitives"
+                       xmi:idref="GUIDForPackageForMyPrimitiveString">
+         <packagedElement xmi:type="uml:Class"
+                          name="DummyPrimitive"
+                          xmi:id="GUIDForMyDummyPrimitive"/>
+         <packagedElement xmi:type="uml:Class"
+                          name="String"
+                          xmi:id="GUIDForMyPrimitiveString"/>
+      </packagedElement>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="GUIDForEclipseEAODMProfile">
+         <appliedProfile xmi:type="uml:Profile"
+                         href="/EA-ODM-PROFILE/EA-ODM.profile.uml#_-jYAkCIZEeivx4LJk1hKFA"/>
+      </profileApplication>
+      <profileApplication xmi:type="uml:ProfileApplication" xmi:id="GUIDForEclipseEAODMRDFrofile">
+         <appliedProfile xmi:type="uml:Profile"
+                         href="/EA-ODM-PROFILE/EA-ODM.profile.uml#_8gTUwC5-EeixF6G7JvyeCA"/>
+      </profileApplication>
+      <profileApplication xmi:type="uml:ProfileApplication"
+                          xmi:id="GUIDForEclipseEAODMOWLProfile">
+         <appliedProfile xmi:type="uml:Profile"
+                         href="/EA-ODM-PROFILE/EA-ODM.profile.uml#__0el0C5_EeixF6G7JvyeCA"/>
+      </profileApplication>
+   </uml:Model>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_A43D82A5_B3B0_449d_8DA6_5309A1719C31"/>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_B3E1F9A6_3E34_4335_B057_E287B0834EE0"/>
+   <NEN3610:identificatie xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                          base_Property="EAID_86C1E0FA_230C_44dc_AA30_EBA9ED95F34C"/>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_EEA09760_5294_4398_836C_95EA02692F5C"/>
+   <NEN3610:identificatie xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                          base_Property="EAID_A06D0819_A3D9_4574_938A_6CEC0AC22BCC"/>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_63F459F5_DBA6_4b91_A04A_30797C2A590F"/>
+   <NEN3610:identificatie xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                          base_Property="EAID_D8BF0F13_0D08_4acf_8AD3_48DAFCBB459F"/>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_D126219C_0012_45d8_80FB_D521E25484E0"/>
+   <NEN3610:identificatie xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                          base_Property="EAID_9A37FBE1_D35B_4786_9A10_90B17E5E17BD"/>
+   <NEN3610:featureType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                        base_Class="EAID_DCE74647_AA82_4f56_9BBD_A2C1CDEDC341"/>
+   <NEN3610:identificatie xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                          base_Property="EAID_BADC76E1_EB2D_46f1_9F1C_5F3FD9A50145"/>
+   <NEN3610:dataType xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                     base_Class="EAID_42BDD9B2_1615_483e_A8B8_1BB9A823A732"/>
+   <NEN3610:applicationSchema xmlns:NEN3610="http://www.sparxsystems.com/profiles/NEN3610/1.0"
+                              base_Package="EAPK_4091EBBE_3FF0_4044_9363_473F03A365CF"
+                              xsdName="FIXME"
+                              xsdEncodingRule="notEncoded"
+                              xsdDocument="FIXME"
+                              targetNamespace="FIXME"/>
+</xmi:XMI>

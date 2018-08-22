@@ -252,6 +252,7 @@ stage:ShapeProduction_scene9 a elmo:Scene;
 	elmo:index "09";
 	rdfs:label "Create skeleton NodeShapes";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?shape rdf:type sh:NodeShape.
       ?shape sh:targetClass ?class
@@ -270,6 +271,7 @@ stage:ShapeProduction_scene10 a elmo:Scene;
 	elmo:index "10";
 	rdfs:label "Create datatype properties";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?nodeshape sh:property ?propertyshape.
       ?propertyshape rdf:type sh:PropertyShape;
@@ -296,6 +298,7 @@ stage:ShapeProduction_scene11 a elmo:Scene;
 	elmo:index "11";
 	rdfs:label "Create IRI-object properties";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?nodeshape sh:property ?propertyshape.
       ?propertyshape rdf:type sh:PropertyShape;
@@ -307,7 +310,7 @@ stage:ShapeProduction_scene11 a elmo:Scene;
     where {
       graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
         select distinct
-            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape) 
+            ?class (IRI(concat("urn:class",md5(str(?class)))) as ?nodeshape)
             ?property (IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
             ?valueclass
         where {
@@ -326,6 +329,7 @@ stage:ShapeProduction_scene12 a elmo:Scene;
 	elmo:index "12";
 	rdfs:label "Create Blank object properties";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?nodeshape sh:property ?propertyshape.
       ?propertyshape rdf:type sh:PropertyShape;
@@ -356,6 +360,7 @@ stage:ShapeProduction_scene13 a elmo:Scene;
 	elmo:index "13";
 	rdfs:label "Create Blank object nodes";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?propertyshape rdf:type sh:PropertyShape;
         sh:path ?property;
@@ -395,6 +400,7 @@ stage:ShapeProduction_scene98 a elmo:Scene;
 	elmo:index "98";
 	rdfs:label "Add names to NodeShapes";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?nodeshape sh:name ?name
     }
@@ -413,6 +419,7 @@ stage:ShapeProduction_scene99 a elmo:Scene;
 	elmo:index "99";
 	rdfs:label "Add names to PropertyShapes";
 	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
     insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
       ?propertyshape sh:name ?name
     }

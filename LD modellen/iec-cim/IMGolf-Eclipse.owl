@@ -1,0 +1,794 @@
+<?xml version = '1.0' encoding = 'ISO-8859-1' ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns="http://IEC/TC57/2017/EA_Model#">
+  <owl:Ontology rdf:about="http://IEC/TC57/2017/EA_Model#"/>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.geometry">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiSurface"/>
+    <rdfs:comment>-- Name --
+-- Definition --
+Vlakgeometrie van het totale golfterrein.
+-- Description --
+Omvat alle parcoursen (holes) op de golfbaan maar ook de kantine, het parkeerterrein, de oefengreen en de drivingrange.
+-- Source --
+IMGolf</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.typeGolfbaan">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#TypeGolfbaanValue"/>
+    <rdfs:comment>-- Definition --
+Het soort golfbaan, ingedeeld naar het type terrein waar zij zich bevindt.
+-- Description --
+De indeling is in de loop der tijd ontstaan doordat een golfbaan anders speelt, afhankelijk van de locatie. Een linksbaan bijvoorbeeld bevindt zich vlakbij de kust waardoor de wind een grotere factor is. 
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.toegang">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan"/>
+    <rdfs:comment>-- Definition --
+Informatie over de toegang tot de golfbaan.
+-- Description --
+De informatie bestaat uit meerdere onderdelen.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.natuurwaarde">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#NatuurwaardeValue"/>
+    <rdfs:comment>-- Definition --
+De natuurwaarde van een gebied is de waarde die aan een bepaald gebied wordt toegekend, gezien vanuit het perspectief van natuurbescherming.
+-- Source --
+https://nl.wikipedia.org/wiki/Natuurwaarde</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.gebruiksstatus">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.GebruiksstatusValue"/>
+    <rdfs:comment>-- Definition --
+Status van exploitatie van de golfbaan.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hindernis.geometrie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hindernis"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+    <rdfs:comment>-- Definition --
+Vlakgeometrie
+-- Description --
+De coordinaten van het vlak waar het obstakel zich bevindt.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hindernis.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hindernis"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hindernis.typeHindernis">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hindernis"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#TypeHindernisValue"/>
+    <rdfs:comment>-- Definition --
+Het soort hindernis.
+-- Description --
+Dit is altijd een zandbunker of een waterpartij. Ook bomen en incidentele waterplassen kunnen een hindernis zijn, maar deze zijn niet gemodelleerd. Bomen worden wellicht in de 2.0 versie opgenomen.
+-- Source --
+IMGolf.
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hole.geometrie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hole"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Point"/>
+    <rdfs:comment>-- Definition --
+Puntgeometrie
+-- Description --
+Wijzigt regelmatig. De nieuwe Hole lokaties worden verspreid onder de leden en deelnemers aan wedstrijden.
+-- Source --
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hole.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hole"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Parcours.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Parcours.geometry">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiSurface"/>
+    <rdfs:comment>-- Definition --
+Multi-vlak geometrie
+-- Description --
+Coordinaten van het vlak van het parcours. Het kan een multivlak zijn.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#ParcoursDeel.geometry">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+    <rdfs:comment>-- Definition --
+Vlakgeometrie.
+-- Description --
+Voor elk onderdeel van een parcours worden hier de coordinaten van het vlak opgenomen. Als bijvoorbeeld de fairway in twee stukken wordt verdeeld door een waterpartij, worden dit twee aparte parcoursdelen met ieder een vlak.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#ParcoursDeel.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#ParcoursDeel.TypeParcoursDeel">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#TypeParcoursDeelValue"/>
+    <rdfs:comment>-- Definition --
+Het soort parcoursdeel.
+-- Description --
+Een parcours kan worden verdeeld in een aantal onderdelen, zoals fairway of green.
+-- Source --
+IMGolf
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Tee.geometry">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Tee"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+    <rdfs:comment>-- Definition --
+Vlakgeometrie
+-- Description --
+De exacte plaats op de tee waar men moet beginnen wordt aangegeven door een tee-marker, waarvan er meerdere kunnen zijn. Meestal zijn er aparte tee-markers voor dames en heren om te compenseren voor het verschil in kracht. In dit model wordt alleen het vlak opgenomen, waarbinnen alle tee-markers zich bevinden.
+-- Source --
+http://nl.wikipedia.org/wiki/Golfbaan
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#Tee.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Tee"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.toegang">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#ToegankelijkheidValue"/>
+    <rdfs:comment>-- Definition --
+Geeft aan of de golfbaan of de golfbaan openbaar of alleen voor leden is.
+-- Description --
+Als de golfbaan niet alleen voor leden is, is ze dus openbaar en mag iedere golfer er komen spelen.
+-- Source --
+IMGolf</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyIdentificeerbaarObject.identificatie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyIdentificeerbaarObject"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:comment>-- Definition --
+Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011
+</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Parcours_Golfbaan">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:comment>-- Definition --
+Een van de parcoursen op het golfterrein.
+-- Description --
+Een parcours, meestal Hole genoemd, is een terrein met verschillende onderdelen zoals het afslagpunt, de fairway, de green en de hole.
+-- Source --
+IMGolf</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Hindernis_Parcours">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hindernis"/>
+    <rdfs:comment>-- Definition --
+Een obstakel tussen de tee en de hole in een parcours.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Hole_ParcoursDeel">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hole"/>
+    <rdfs:comment>-- Definition --
+Het punt (gat), gemarkeerd door een vlag, waar de bal in geslagen moet worden.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Tee_Parcours">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Tee"/>
+    <rdfs:comment>-- Definition --
+De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Tee_Parcours">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Tee"/>
+    <rdfs:comment>-- Definition --
+De plaats voor beginners van waaraf de eerste slag geslagen wordt op een bepaalde hole.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://IEC/TC57/2017/EA_Model#A_Parcours_ParcoursDeel">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel"/>
+    <rdfs:range rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:comment>-- Definition --
+Een deelterrein van het parcours.</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#Golfbaan.naam">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hole.beginGeldigheid">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hole"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#Hole.eindGeldigheid">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Hole"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#Parcours.nummer">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#Parcours.par">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.vereisten">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.etiquette">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyMaterieleHistorie.beginGeldigheid">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleHistorie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyMaterieleHistorie.eindGeldigheid">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleHistorie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyFormeleHistorie.tijdstipRegistratie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleHistorie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyFormeleHistorie.eindRegistratie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleHistorie"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyFormeleLevensduur.objectBeginTijd">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleLevensduur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyFormeleLevensduur.objectEindTijd">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleLevensduur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyMaterieleLevensduur.beginTijd">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleLevensduur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#DummyMaterieleLevensduur.eindTijd">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleLevensduur"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#NEN3610ID.namespace">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#NEN3610ID.lokaalID">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://IEC/TC57/2017/EA_Model#NEN3610ID.versie">
+    <rdfs:domain rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.GebruiksstatusValue">
+    <rdfs:label xml:lang="en">GebruiksstatusValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.Golfbaan">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.FunctioneelGebied"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiSurface"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.typeGolfbaan"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#TypeGolfbaanValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.toegang"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.natuurwaarde"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#NatuurwaardeValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.gebruiksstatus"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#IMGolf.GebruiksstatusValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Golfbaan.naam"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Golfbaan</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.Hindernis">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hindernis.geometrie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hindernis.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hindernis.typeHindernis"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#TypeHindernisValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Hindernis</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.Hole">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hole.geometrie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Point"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hole.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hole.beginGeldigheid"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Hole.eindGeldigheid"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Hole</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.Parcours">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Parcours.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Parcours.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiSurface"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Parcours.nummer"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Parcours.par"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Parcours</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.ParcoursDeel">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ParcoursDeel.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ParcoursDeel.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ParcoursDeel.TypeParcoursDeel"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#TypeParcoursDeelValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">ParcoursDeel</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.Tee">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Tee.geometry"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#Tee.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Tee</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#IMGolf.ToegangGolfbaan">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.toegang"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#ToegankelijkheidValue"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.vereisten"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#ToegangGolfbaan.etiquette"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">ToegangGolfbaan</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.Binary">
+    <rdfs:label xml:lang="en">Binary</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Curve">
+    <rdfs:label xml:lang="en">GM_Curve</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Geometry">
+    <rdfs:label xml:lang="en">GM_Geometry</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_LineString">
+    <rdfs:label xml:lang="en">GM_LineString</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiCurve">
+    <rdfs:label xml:lang="en">GM_MultiCurve</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiGeometry">
+    <rdfs:label xml:lang="en">GM_MultiGeometry</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiPoint">
+    <rdfs:label xml:lang="en">GM_MultiPoint</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_MultiSurface">
+    <rdfs:label xml:lang="en">GM_MultiSurface</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Point">
+    <rdfs:label xml:lang="en">GM_Point</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Polygon">
+    <rdfs:label xml:lang="en">GM_Polygon</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.GM_Surface">
+    <rdfs:label xml:lang="en">GM_Surface</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.Measure">
+    <rdfs:label xml:lang="en">Measure</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.Real">
+    <rdfs:label xml:lang="en">Real</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ISO19107_profiel.Time">
+    <rdfs:label xml:lang="en">Time</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.DummyIdentificeerbaarObject">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyIdentificeerbaarObject.identificatie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">DummyIdentificeerbaarObject</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleHistorie">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyMaterieleHistorie.beginGeldigheid"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyMaterieleHistorie.eindGeldigheid"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">DummyMaterieleHistorie</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleHistorie">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyFormeleHistorie.tijdstipRegistratie"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyFormeleHistorie.eindRegistratie"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">DummyFormeleHistorie</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.DummyFormeleLevensduur">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyFormeleLevensduur.objectBeginTijd"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyFormeleLevensduur.objectEindTijd"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">DummyFormeleLevensduur</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.DummyMaterieleLevensduur">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyMaterieleLevensduur.beginTijd"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#DummyMaterieleLevensduur.eindTijd"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">DummyMaterieleLevensduur</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.NEN3610ID">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#NEN3610ID.namespace"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#NEN3610ID.lokaalID"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://IEC/TC57/2017/EA_Model#NEN3610ID.versie"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">NEN3610ID</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject">
+    <rdfs:label xml:lang="en">GeoObject</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.FunctioneelGebied">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">FunctioneelGebied</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Gebouw">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Gebouw</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.GeografischGebied">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">GeografischGebied</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Inrichtingselement">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Inrichtingselement</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Kunstwerk">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Kunstwerk</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Leiding">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Leiding</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.PlanologischGebied">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">PlanologischGebied</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.RegistratiefGebied">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">RegistratiefGebied</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Spoorbaan">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Spoorbaan</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Terrein">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Terrein</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Water">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Water</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#nen3610.Weg">
+    <rdfs:subClassOf rdf:resource="http://IEC/TC57/2017/EA_Model#nen3610.GeoObject"/>
+    <rdfs:label xml:lang="en">Weg</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#VoidReasonValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#geenWaarde"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#nietOndersteund"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#waardeOnbekend"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#vastgesteldOnbekend"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#nietGeautoriseerd"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">VoidReasonValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#NatuurwaardeValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#hoog"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#laag"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#geen"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">NatuurwaardeValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#ToegankelijkheidValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#openbaar"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#besloten"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">ToegankelijkheidValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#TypeGolfbaanValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#linksbaan"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#bosbaan"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#parkbaan"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">TypeGolfbaanValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#TypeHindernisValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#waterpartij"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#bunker"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">TypeHindernisValue</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://IEC/TC57/2017/EA_Model#TypeParcoursDeelValue">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#fairway"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#green"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#rough"/>
+          <rdf:Description rdf:about="http://IEC/TC57/2017/EA_Model#semi-rough"/>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">TypeParcoursDeelValue</rdfs:label>
+  </owl:Class>
+</rdf:RDF>
