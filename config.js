@@ -5,8 +5,35 @@ var respecConfig = {
   editors: [{
     name: "Paul Janssen",
     company: "Geonovum",
-    companyURL: "https://www.geonovum.nl",
+    companyURL: "https://www.geonovum.nl"
   }],
+  authors: [
+  {
+    name: "Linda van den Brink",
+    company: "Geonovum",
+    companyURL: "https://www.geonovum.nl"
+  }, 
+  {
+    name: "Marco Brattinga",
+    company: "Ordina",
+    companyURL: "https://www.ordina.nl/"
+  },
+  {
+    naam: "Marinus Vonhof",
+    company: "Sweco",
+    companyURL: "http://www.sweco.nl"
+  },
+  {
+    naam: "Niels Hoffmann",
+    company: "Provincie Noord-Holland",
+    companyURL: "https://www.noord-holland.nl"
+  },
+  {
+    name: "Pano Maria",
+    company: "Skemu",
+    companyURL: "http://skemu.com"
+  }
+],
   shortName: "nldp",
   pubDomain: "nen3610",
   github: "https://github.com/Geonovum/NEN3610-Linkeddata",
