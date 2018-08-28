@@ -19,12 +19,12 @@ var respecConfig = {
     companyURL: "https://www.ordina.nl/"
   },
   {
-    naam: "Marinus Vonhof",
+    name: "Marinus Vonhof",
     company: "Sweco",
     companyURL: "http://www.sweco.nl"
   },
   {
-    naam: "Niels Hoffmann",
+    name: "Niels Hoffmann",
     company: "Provincie Noord-Holland",
     companyURL: "https://www.noord-holland.nl"
   },
