@@ -37,6 +37,7 @@ var respecConfig = {
   shortName: "nldp",
   pubDomain: "nen3610",
   github: "https://github.com/Geonovum/NEN3610-Linkeddata",
+  issueBase: "https://github.com/Geonovum/NEN3610-Linkeddata/issues",
   //previousPublishDate: "2017-01-01",
   //previousStatus: "GN-CV",
   //localBiblio: {
