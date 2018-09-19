@@ -146,7 +146,7 @@ Meer praktisch geformuleerd is dit te realiseren door:
 <p>2) een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.<p>
 
 <P><b>Achtergrond:</b></p>
-<p>Tot nu toe worden veel informatie standaarden in UML uitgedrukt. Het Object Oriëntatie paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de werkelijkheid. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moeten worden gekoppeld. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.<p>
+<p>Tot nu toe worden veel informatie standaarden in UML uitgedrukt. Het Object Oriëntatie paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de <a>werkelijkheid</a>. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moeten worden gekoppeld. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.<p>
 
 <p>Met (onder andere) deze uitdaging in gedachten, heeft het W3C (het World Wide Web Consortium) een aantal `recommendations’ (standaarden) opgesteld omtrent Linked Data. Deze standaarden specificeren methoden om de aannames rond data definities meer expliciet te maken en daardoor op een machine leesbare manier meer betekenis aan de data te geven, specifiek met het oog op integratie van data uit verschillende bronnen. De implementatie context is daarbij het WEB. Hier is dus een beweging van applicatie gericht naar WEB ondersteund.<p>
 
@@ -248,68 +248,92 @@ Meer praktisch geformuleerd is dit te realiseren door:
 <!-- Hoofdstuk 5 -->
 <section id='basisprincipes' class="informative">
   <h1>Basisbeginselen van Linked data</h1>
-  <p>TODO: introductie. Wat bespreken we hier.</p>
-
-  <p class='issue' data-number='26'>UNA adoptie door UML maar niet automatisch door OWL. Wat betekent dat?</p>
-  <p class='issue' data-number='18'>Was Linked data versus Objectoriëntatie, maar dit is misschien te beperkt. Andere data is misschien te vaag.</p>
-
-  <p>Het gedachtegoed van linked data verschilt fundamenteel van het gedachtegoed van de administratieve systemen die we kennen. In linked data doen we beweringen over specifieke dingen. Hoe er in linked data gerefereerd wordt aan dingen is belangrijk. In administratieve systemen slaan we gegevens op in bestanden, records, tabellen, etc. Referenties naar dingen zijn hier impliciet: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.</p>
-  <p>Je zou kunnen beargumenteren dat je met linked data ook informatie opslaat in een tabel met drie kolommen: subject, predicate, object, en dit is inderdaad waar. Het verschil is dat linked data geen betekenis ontleent uit de manier waarop informatie is opgeslagen of wordt geserialiseerd in een bericht (behalve dat de drie kolommen beweringen bevatten in de vorm van triples).</p>
-  <p>Een primary key in een tabel in een relationele database identificeert een rij met data. In een triple identificeert de waarde van een subject alleen het subject zelf, en niet de triple. De primary key van een triple is de combinatie van subject, predicate en object. De triples (of beweringen) zelf hebben geen unieke sleutel[ Behalve door reificatie]. Het is dan ook belangrijk om heel secuur te zijn wat de subject van een bewering precies is.</p>
-  <p>Daarbij gaat Linked data uit van een open wereld van informatie. In deze open wereld mag iedereen beweringen doen over alles [TODO REF]. Deze uitgangspunten hebben verregaande consequenties die informatiemodelleren voor linked data anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden.</p>
-
-  <p class='issue' data-number='19'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
-
+  <section id="intro">
+    <h2>Introductie</h2>
+    <p class='issue' data-number='26'>UNA adoptie door UML maar niet automatisch door OWL. Wat betekent dat?</p>
+    <p class='issue' data-number='18'>Na het herschrijven van hfd 5 nog een keer de titel overwegen. Deze titel, "Basisbeginselen van Linked Data", dekt misschien niet helemaal de lading omdat we het ook hebben over de verschillen met OO/relationeel.</p>
+    <p>We veronderstellen enige kennis van wat linked data nu eigenlijk is en wat we bijvoorbeeld bedoelen met de term 'triples'. Als eerste introductie van linked data zijn dit goede bronnen: </p>
+    <ul>
+      <li><a href="https://www.noraonline.nl/wiki/Linked_Data">Heel beknopt op Nora Online</a></li>
+      <li><a href="https://youtu.be/4x_xzT5eF5Q">Uitleg in video</a> (Door Manu Sporny, Engels)</li>
+      <li><a href="http://www.pilod.nl/wiki/Boek/Verhelst">Uitleg om te lezen</a> (Door Lieke Verhelst, Nederlands)</li>
+    </ul>
+    <p>Voor het begrijpen van de rest van dit document is het belangrijk om te weten dat het gedachtegoed van linked data fundamenteel verschilt van het gedachtegoed van de administratieve systemen die we kennen zoals in relationele databases en object-orientatie. In linked data doen we beweringen over specifieke dingen uit de werkelijkheid of, om precies te zijn, uit het <a>beschouwingsgebied</a> ofwel 'universe of discourse'. De dingen waar we beweringen over doen hebben een identificerende URI (meer hierover in <a href="#basisprincipes-identificatie"></a>). Elke 'triple' is een bewering die invulling geeft aan één specifieke eigenschap van een onderwerp. </p>
+    <p>Naast een subject bestaat elke bewering of triple uit een eigenschap en een waarde. De waarde kan ook weer een onderwerp op zich zijn met een eigen unieke sleutel en eigenschappen. Het bijzondere van linked data is dat dat andere onderwerp heel ergens anders opgeslagen kan zijn: het hoeft niet in dezelfde database te zitten. Dit betekent ook dat iedereen beweringen kan doen over elkaars onderwerpen: <a href="https://www.w3.org/TR/rdf-concepts/#section-anyone">Anyone can say anything about anything (AAA)</a>. Hieruit volgt weer dat je niet 'alles' kunt weten</a>  over een onderwerp (er kunnen immers beweringen bestaan die je niet gevonden hebt): dit heet het <a href="http://wiki.opensemanticframework.org/index.php/Overview_of_the_Open_World_Assumption">open wereld principe</a>. </p>
+    <p>Data modelleren in OWL lijkt op het eerste gezicht best veel op UML. Je hebt klassen, eigenschappen, en relaties. Er is echter een fundamenteel verschil.Met OWL beschrijf je de regels van hoe de wereld in elkaar zit en ga je vervolgens met die regels data achteraf classificeren. Je bent dus eigenlijk geen data aan het modelleren, maar kennis aan het beschrijven die kan worden toegepast op data. In de object-georienteerde / relationele wereld kan data niet bestaan zonder expliciet een instantie te zijn van een klasse en is je data van te voren gecategoriseerd. Als je in een UML model bijvoorbeeld de klasse fiets modelleert met als een ding met precies twee wielen, heeft dit als resultaat dat een instantie van een fiets met één of drie wielen wordt afgekeurd: deze voldoet niet aan de definitie van fiets. Over andere objecten met wielen zegt dit niets, tenzij het UML model daar ook klassen voor definieert. In linked data zou het resultaat echter zijn dat elk ding dat twee wielen heeft, behoort tot de klasse fiets. Dus ook een motorfiets, een step, of een tweewielige kruiwagen. Een ding met één of drie wielen is geen 'incorrecte instantie' maar blijkbaar een ding dat tot een andere, onbekende klasse behoort.</p>
+    <p>Een informatiemodel in de linked data wereld kan bestaan uit verschillende onderdelen:</p>
+    <ul>
+      <li>Een model van <em>begrippen</em>, dat beschrijft welke concepten er in het domein dat je wilt modelleren een rol spelen, en wat ze betekenen. Dit kun je uitdrukken met SKOS [[skos-primer]].</li>
+      <li>Een set <em>regels</em>, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Een set regels vormt een 'ontologie', een kennismodel van de [een specifiek kennisdomein in de] werkelijkheid. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data. Een ontologie kun je uitdrukken met RDFS [[rdf-schema]] en OWL [[owl2-primer]].</li>
+      <li>Een specificatie van de <em>structuur</em> die de gegevens in een linked dataset hebben, bijvoorbeeld eigenschappen die altijd aanwezig zijn, datatypen, enzovoort. Dit kun je uitdrukken met SHACL [[shacl]].</li>
+    </ul>
+    <p>De hierboven beschreven uitgangspunten van linked data hebben verregaande consequenties die informatiemodelleren voor linked data fundamenteel anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden. </p>
+    <p class='issue' data-number='19'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
+  </section>
+  <!--De tekst hieronder moet kunnen leunen op de Linked Data 101 uitleg. -->
   <!-- Sectie 5.1 -->
   <section id='basisprincipes-identificatie'>
     <h2>Identificatie</h2>
-    <p>In linked data gebruiken we IRI's om dingen te identificeren. Maar, wat identificeert een IRI precies?</p>
-    <p>Resources (Information resources vs Non-Information resources)</p>
+    <p>In linked data gebruiken we IRI's om dingen te identificeren. IRIs zijn een goed mechanisme om wereldwijd unieke sleutels aan subjecten toe te kennen en maken het mogelijk om links te leggen. Het is belangrijk om goed na te denken over de opbouw van IRIs als je deze aan je data gaat toekennen. Ze moeten in ieder geval uniek en persistent zijn; bovendien is het gewenst dat ze <em>dereferenceable</em> zijn, zodat je op het desbetreffende web adres bruikbare informatie over het ding kunt vinden. Meer lezen hierover kun je in onderstaande bronnen: </p>
+    <ul>
+      <li><a href="https://www.geonovum.nl/uploads/documents/D1-2013-09-19_Towards_a_NL_URI_Strategy.pdf">URI strategie NL</a>(Nederlands)</li>
+      <li><a href="https://www.w3.org/TR/sdw-bp/#bp-identifiers">Best practices over Spatial Data Identifiers</a> (Engels)</li>
+      <li><a href="https://www.w3.org/TR/ld-bp/#HTTP-URIS">Good URIs for Linked Data</a> (Engels)</li>
+      <li><a href="https://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a> (Engels)></li>
+    </ul>
+    <aside class="note">Een IRI is gewoon een URI, maar beter internationaal bruikbaar omdat je in een IRI ook tekens uit niet-latijns schrift kan gebruiken.</aside>
+    <p>Het is daarnaast ook belangrijk om precies te zijn over het subject dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een linked data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in linked data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een triple, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in linked data onderscheid gemaakt tussen 'Information resources' en 'Non-Information resources'. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiele historie, zou je dit in linked data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
   </section>
 
   <!-- Sectie 5.2 -->
   <section id='basisprincipes-normalisatie'>
     <h2>Normalisatie</h2>
-    <p>Omdat de identiteit van een subject in linked data heel specifiek is moeten we in onze modellering van de klassen waartoe deze subjects kunnen behoren evenzo specifiek zijn.<br>
-      Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel?<br>
-      De meeste informatiemodellen zijn in meer of mindere mate gedenormaliseerd, waarbij delen tot aan de tweede normaalvorm. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch objectgeoriënteerde insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
-    <p>Een goed linked data model, aan de andere kant, is een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. De normaalvorm uit de relationele theorie die hier het dichtste bijkomt is de zesde normaalvorm.</p>
-    <p>Normalisatie is dus uiterst belangrijk voor een goed linked data model. Maar, normalisatie is alleen mogelijk wanneer je de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed linked data model.</p>
-    <p>Merk op dat het wel mogelijk is om een gedenormaliseerd model over te zetten in een correct (gedenormaliseerd) linked data model. Echter, gaat dit in tegen de principes van linked open data. De gedenormaliseerde entiteitsrepresentatie is namelijk per definitie niet meer herkenbaar in de open wereld. Het is verworden tot een beschrijving van iets wat enkel waarde heeft binnen een zeer specifieke context, daarmee de herbruikbaarheid en de linkbaarheid van data verminderend.</p>
-
-    <!-- Sectie 5.2.1 -->
-    <section>
-      <h3>Essentie van het ding</h3>
-    </section>
-
-    <!-- Sectie 5.2.2 -->
-    <section>
-      <h3>Gegevens over gegevens</h3>
-      <p>Nauw verwant is het gegeven dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens.</p>
-    </section>
+    <!-- Eerste zinsdeel "omdat ... specifiek is" moet duidelijker. Ik denk dat daar een belangrijk punt zit maar het is nog niet helder. Als we dit echt goed willen uitleggen moeten we om te beginnen beter uitleggen wat een subject is. https://www.w3.org/TR/rdf11-concepts/#data-model gebruiken (plaatje) en zeggen: de kern van linked data is de datastructuur in de vorm van triples. Elke triple bestaat uit een subject, predicaat en object. [korte uitleg van deze 3]. Hier kun je dan ook uitleg over de identiteit van het subject zetten. Idealiter vinden we een andere tekst die dit uitlegt.     -->
+    <p>Omdat de identiteit van een subject in linked data heel specifiek is moeten we in onze modellering van de klassen waartoe deze subjects kunnen behoren evenzo specifiek zijn.
+      <!-- even uitleggen wat normalisatie hier betekent. Hoe 'normaler', hoe dichter bij de werkelijkheid. Hoe 'denormaler', hoe dichter bij de uiteindelijke implementatievorm. Een plaatje zou hierbij handig zijn. Idealiter vinden we een andere tekst die dit uitlegt.-->
+      Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate gedenormaliseerd, waarbij delen tot aan de tweede normaalvorm. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch objectgeoriënteerde insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
+    <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. De normaalvorm uit de relationele theorie die hier het dichtste bijkomt is de zesde normaalvorm.</p>
+    <!-- behouden, iets duidelijker opschrijven-->
+    <p>Normalisatie is dus uiterst belangrijk voor een goed linked data model. Maar, normalisatie is alleen mogelijk wanneer je de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed linked data model!</p>
+    <p>Merk op dat het wel mogelijk is om een gedenormaliseerd model over te zetten in een correct (gedenormaliseerd) linked data model. Echter, gaat dit in tegen de principes van linked open data. De gedenormaliseerde entiteitsrepresentatie is namelijk per definitie niet meer herkenbaar in de open wereld. Het is verworden tot een beschrijving van iets wat enkel waarde heeft binnen een zeer specifieke (systeem) context, daarmee de herbruikbaarheid en de linkbaarheid van data verminderend.</p>
+    <p>Een praktische richtlijn die hieruit volgt, is dat je wanneer je een klasse modelleert, alleen die eigenschappen aan een klasse toevoegt die direct tot deze dingen behoren, ofwel essentiele eigenschappen zijn. </p>
+    <p>Nauw verwant is het punt dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens. Echter, eigenschappen die bijvoorbeeld gaan over het registreren van informatie over de instantie in het systeem (door wie? wanneer? etc.) horen in een goed linked data model niet bij de entiteit zelf (de non-information resource), maar bij de information resource. </p>
 
   </section>
 
   <!-- Sectie 5.3 -->
   <section id='basisprincipes-setorientatie'>
     <h2>Setoriëntatie</h2>
+    <!-- Dit is ook weer een belangrijk punt om te noemen. Vond Paul nog niet helemaal duidelijk. Kunnen we denk ik wel met een link oplossen. Setorientatie = set theory = verzamelingenleer.-->
     <p>Linked data maakt gebruik van RDF als gegevensmodel. RDF is setgeoriënteerd. Een klasse in RDF (<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>) is een set van dingen met gedeelde eigenschappen. Klassen kunnen, vergelijkbaar met objectgeoriënteerde klassen, hierarchisch gerelateerd worden. Echter, een belangrijk verschil tussen RDF en het objectgeoriënteerde paradigma is dat alle klassen (sets) kunnen overlappen. Een ding kan tegelijkertijd tot meerdere klassen behoren. Dat wil zeggen dat het ding de eigenschappen van beide klassen draagt. Omdat RDF uit gaat van een open wereld, is het onmogelijk om alle instanties van een klasse van te voren te kennen.</p>
     <p>Deze openheid biedt extreme flexibiliteit, die nodig is om een internet van linked data te kunnen realiseren.</p>
-    <p>[Dit moet misschien naar het transformatie hoofdstuk] Hoewel sommige objectgeoriënteerde talen het concept van multiple inheritance ondersteunen, doet het merendeel dat niet. Een verschijnsel wat daardoor vaak voorkomt in informatiemodellen is typerende / classificerende lijsten. Een objectklasse die een attribuut heeft die begint met type of soort, waarmee een extra typering van instanties kan worden gegeven.</p>
+    <p><!--[Dit moet misschien naar het transformatie hoofdstuk] --> Hoewel sommige objectgeoriënteerde talen het concept van multiple inheritance ondersteunen, doet het merendeel dat niet. Een verschijnsel dat daardoor vaak voorkomt in informatiemodellen is typerende / classificerende lijsten. Een objectklasse heeft dan vaak een attribuut waarvan de naam begint met 'type' of 'soort', waarmee een extra typering van instanties kan worden gegeven. Omdat RDF setgeoriënteerd is, zijn dit soort attributen in linked data niet nodig; in plaats daarvan kan de instantie lid gemaakt worden van meerdere klassen.</p>
   </section>
 
   <!-- Sectie 5.4 -->
   <section id='basisprincipes-referentiedata'>
     <h2>Referentiedata</h2>
-    <p>Referentiadata komt in informatiemodellen doorgaans voor als een enumeratie of codelijst, maar soms ook in de vorm van attributen of complexe datatypes. Referentiedata is een goede indicator van linkbare data. Want het is een manier om verschillende datasets aan elkaar te koppelen of een bepaalde categorisering aan te brengen over verschillende datasets. Ofwel, referentiedata = link naar andere data.</p>
-    <div id='principe-ref-data' class='advisement'>
-      <p><strong>P: Referentiedata zijn links naar andere datasets [TODO wording]</strong></p>
+    <!-- 1 zin uitleg wat we met referentiedata bedoelen toevoegen -->
+    <p>Referentiedata komt in informatiemodellen doorgaans voor als een enumeratie of codelijst, maar soms ook in de vorm van attributen of complexe datatypes. Referentiedata is een goede indicator van linkbare data, want het is een manier om verschillende datasets aan elkaar te koppelen of een bepaalde categorisering aan te brengen over verschillende datasets. Belangrijk om je te realiseren is dat wat voor de één referentiedata is die best in een codelijstje kan, voor de ander de data zelf is. Ofwel, referentiedata = link naar andere data.</p>
+    <aside class="example">
+      <p>In het informatiemodel Golfbaan (IMGolf) bestaat een enumeratie die het type hindernis omschrijft, met twee waarden: </p>
+      <ul>
+        <li>waterpartij</li>
+        <li>bunker</li>
+      </ul>
+      <p>In een ander informatiemodel, dat bijvoorbeeld de informatie modelleert voor beheerders van golfbanen, kunnen Waterpartij en Bunker heel goed zelfstandige klassen zijn met eigenschappen die nodig zijn voor het beheer. Denk bijvoorbeeld aan het soort zand dat gebruikt is in de bunker. Het kan ook goed zijn dat de beheerder de volumes van deze objecten nodig heeft en dus een 3D geometrie beheert in plaats van de vlakgeometrie uit IMGolf. Soorten zand kunnen bovendien weer zelfstandige objecten zijn in een derde context...</p>
+    </aside>
+    <aside id='principe-ref-data' class='advisement'>
+      <p><strong>Referentiedata zijn links naar andere datasets [TODO wording]</strong></p>
       <p> Als referentiedata refereert naar entiteiten, modelleer dan die entiteiten. Rationale: Wanneer deze entiteiten ook als linked data beschikbaar komen, kan dat in de plaats gebruikt worden.<br>
         Voorbeeld: gebruik blank nodes of interne URI's, UUID oid, om de data voorlopig te representeren als het externe data betreft. Als het interne data betreft, munt dan http IRI's.<br>
         Als referentiedata refereert naar concepten, gebruik SKOS. Rationale: ? Enkel nodig voor categorisering. Thematische lijsten of zo.</p>
-    </div>
+      </aside>
   </section>
-
+  <section id='basisprincipes-vocabulaires'>
+    <h2>Vocabulaires</h2>
+    <p>Linked data maakt gebruik van vocabulaires (zoals bv SKOS, FOAF, DCAT, etc..), omwille van interoperabiliteit. Je kunt klassen en eigenschappen, die in  vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
+  </section>
 </section>
 
 <!-- Hoofdstuk 6 -->
@@ -1612,7 +1636,9 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
   <p>Een voordeel van Linked Data datasets is de mogelijkheid om dergelijke datasets met elkaar te verbinden en met elkaar te vergelijken. Door de eenduidige opslagstructuur met triples en het uniforme gebruik van RDF en RDFS, is het mogelijk om uit elke willekeurige Linked Data dataset een model af te leiden die een getrouwe weergave is van deze dataset. Dergelijke modellen kunnen vervolgens met elkaar worden vergeleken. Zo kan snel inzicht verkregen worden waaruit een willekeurige Linked Data dataset bestaat, en bovendien is het mogelijk om verschillende Linked Datasets met elkaar te vergelijken op modelniveau</p>
   <p>Dit hoofdstuk beschrijft de aanpak daartoe. We hebben deze aanpak gebruikt om inzicht te krijgen in hoeverre de drie stijlen van Linked Data modellering van elkaar verschillen en overeen komen.</p>
 </section>
-
+<section class="appendix" id="glossary">
+  <h2>Glossary</h2>
+  <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610].</p>  
 </body>
 
 </html>
