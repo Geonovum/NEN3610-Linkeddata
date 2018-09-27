@@ -204,14 +204,15 @@ Meer praktisch geformuleerd is dit te realiseren door:
   <!-- Sectie 4.2 -->
   <section id='inspire-rdfguidelines'>
     <h2>INSPIRE RDF guidelines</h2>
-    <p>INSPIRE - Guidelines for the RDF encoding of spatial data</p>
-    <p>url:</p>
-    <p>type document: standaard, richtlijn, best practice etc.</p>
-    <p>organisatie:</p>
-    <p>scope:</p>
-    <p>omschrijving:</p>
-    <p>relevantie:</p>
-    <p>inhoudelijke opmerkingen:</p>
+    <p><b>naam:</b> INSPIRE - Guidelines for the RDF encoding of spatial data</p>
+    <p><b>url:</b> http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/</p>
+    <p><b>type document:</b> richtlijn, best practice</p>
+    <p><b>organisatie:</b> ARE3NA project "INSPIRE Re3ference Platform Phase 2"</p>
+    <p><b>scope:</b> Beschrijving van UML-RDF coderingsregels voor representatie van INSPIRE datasets in RDF. Voor INSPIRE is RDF een mogelijk optionele implementatie omgeving die naast het aanbebolen GML een rol kan spelen. Dit onderzoek naar optionele RDF codering komt voort uit de ondersteuning van het algemene e-government en open data community</p>
+    <p><b>omschrijving:</b> Het document beschrijft UML-RDF coderingsregels. De coderingsregels conformeren aan ISO 19118:2011 Geographic information - Encoding. Coderingsregels voor feature types, attributen en associaties zijn opgenomen. Over de UML als input in de coderingsregels wordt gezegd dat het door INSPIRE gebruikte UML profiel (in principe ISO 19109) geen extensie nodig is om zinvol te kunnen coderen naar RDF. De output is een combinatie van RDF Schema en OWL. Voor de RDF serialisatie wordt Turtle aanbevolen. RDF/XML serialisatie is ook opgenomen. Van alle UML constucties, van Package, feature type, attributen, associaties, complexe datatypen etc worden de RDF/Turtle en RDF/XML serialisatie gegeven. Men gaat daarbij niet altijd uit van een standaard mapping maar merkt op dat het voor komt dat men naar de bedoeling van specifieke UML constructies moet kijken hoe die in RDF moeten komen. Bijvoorbeeld een datatype dat een versimpelde vorm van een feature type voorstelt moet in RDF een feature type. Men noemt dit de Permission REC/OWL/type/mapping/dataTypeAsSpatialObjectTypeRepresentation. Interessant is ook dat er een transformatietabel is van ISO 19107 geometrietypen naar GML ontologieklassen van GeoSPARQL (http://www.opengis.net/ont/gml ). Bijvoorbeeld GM_Surface naar gmlowl:Surface.</p>
+    <p><b>relevantie:</b> Zeer relevant voor dit onderzoek. Er worden explicite uitgangspunten gedefinieerd die als basis gelden voor de UML - RDF coderingsregels. Er wordt een format gebruikt om de regels in te specificeren dat mogelijk hergebruikt kan worden. Het document is geschikt voor de automatische conversie maar heeft ook afwegingen om daar van af te wijken. Dit is ook interessante input voor de NEN 3610 UML - RDF codering. Stukken uit dit document kunnen waarschijnlijk hergebruikt worden. Mogelijk is de codering vooral van uit het UML-GML perspectief ingestoken en mist het de RDF optimalisatie. **** nog beargumenteren *****</p>
+    <p><b>inhoudelijke opmerkingen:</b> Zie hierboven. Alleen RDFS en OWL worden als vocabulaire gebruikt. Geen SKOS en SHACL. ***** nog aanvullen met de laatste kennis. Argumentatie wat er anders is in de NEN 3610 UML-LD aanpak ***** 
+	</p>
   </section>
 
   <!-- Sectie 4.3 -->
