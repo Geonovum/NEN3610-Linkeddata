@@ -1159,7 +1159,58 @@ ex:hoek a owl:DataTypeProperty ;
       </section>
 
     </section>
-
+  
+	
+	
+   </section>
+   <!-- Sectie 7.3 -->
+  <section id='handmatige transformatie-encoding'>
+    <h1>Transformatie: handmatige aanpassing - encoding</h1>
+	    <!-- Sectie 7.3.1 -->
+        <section id='inleiding'>
+          <h2>Inleiding</h2>
+		  <p> TODO: tekst over handmatige aanpassing nadat  eerst de basis conversieregels zijn toegepast of overwogen</P>
+        </section>
+		<!-- Sectie 7.3.2 -->
+        <section id='DSO:transformatieregels om tot een juist model te komeen'>
+          <h2>DSO: handmatige transformatieregels</h2>
+        </section>
+		<!-- Sectie 7.3.3 -->
+        <section id='COINS:transformatieregels om tot een juist model te komeen'>
+          <h2>COINS: handmatige transformatieregels</h2>
+		  <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.</p>
+		  <p>Voor meer informatie zie: [http://www.coinsweb.nl/] </p>
+		  <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden. 
+Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
+ 
+1) importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# 
+2) het NEN3610 model zelf transformeren naar een OTL 
+3) Het IMGolf 'standaard' model transformeren naar een OTL 
+  
+de regels die hiervoor toegepast worden zijn: 
+1)    Objecten worden subclasses van coins:Object en van coins:CataloguePart 
+2)    Waardelijsten worden vertaald naar coins:StringProperties 
+3)    Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur. 
+N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. 
+4) Datatype properties worden vertaald naar COINS Kenmerken: 
+    a)    DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties 
+    b)    DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren  
+    c)    Domain en ranges worden goed gezet 
+     
+Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.  
+Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file 
+Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object 
+ 
+In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen. Meer informatie hierover kan gevonden worden in het eindrapport: https://github.com/provincieNH/OTL-BOR/blob/master/OTL-IMBOR%20concept%2020180416.pdf (beter de IamPro link opnemen als deze beschikbaar is)
+		  </p>
+		  
+        </section>
+		<!-- Sectie 7.3.4 -->
+        <section id='OroX:transformatieregels om tot een juist model te komeen'>
+          <h2>ORoX: handmatige transformatieregels</h2>
+		 	  
+        </section>
+   
   </section>
 
 </section>
