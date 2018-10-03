@@ -1256,19 +1256,23 @@ ex:Oud a ex:StatusPand .
 		  <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden. 
 Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
  
+<ul> 
 1) importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# 
 2) het NEN3610 model zelf transformeren naar een OTL 
 3) Het IMGolf 'standaard' model transformeren naar een OTL 
-  
+</ul>
 de regels die hiervoor toegepast worden zijn: 
+<ul>
 1)    Objecten worden subclasses van coins:Object en van coins:CataloguePart 
 2)    Waardelijsten worden vertaald naar coins:StringProperties 
 3)    Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur. 
 N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. 
 4) Datatype properties worden vertaald naar COINS Kenmerken: 
+<ul>
     a)    DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties 
     b)    DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren  
     c)    Domain en ranges worden goed gezet 
+</ul></ul>
      
 Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.  
 Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file 
@@ -1280,8 +1284,15 @@ In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, 
         </section>
 		<!-- Sectie 7.3.4 -->
         <section id='OroX:transformatieregels om tot een juist model te komeen'>
-          <h2>ORoX: handmatige transformatieregels</h2>
-		 	  
+          <h2>OroX: handmatige transformatieregels</h2>
+		  
+		  Voor een goed begrip van de transformatieregels is enige toelichting op het OroX nodig. Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW). 
+		  Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat. 
+		  Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces). 
+		  Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2. Het protocol beschrijft zowel het GWSW model (de "TBox") als de daarop gebaseerde datasets (de "ABox").
+
+		  De Gellish-taal kent een groot aantal maar wel, anders dan RDF, vooraf gedefinieerde relaties ("predicates"). 
+		  In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
         </section>
    
   </section>
@@ -1323,7 +1334,7 @@ In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, 
       <h3>Drie target stijlen</h3>
       <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
       <ul>
-        <li><a href="http://apps.gwsw.nl/doc/GWSW.orox%20Beschrijving.pdf">GWSW.orox</a>: uitwisselingsprotocol voor het Gegevenswoordenboek Stedelijk Water</li>
+        <li><a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF</a>: OroX-protocol voor het Gegevenswoordenboek Stedelijk Water</li>
         <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
         <li><a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a>: beschrijving op basis van de algemene W3c specificaties</li>
       </ul>
