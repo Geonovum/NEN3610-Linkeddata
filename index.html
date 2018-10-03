@@ -333,6 +333,8 @@ Meer praktisch geformuleerd is dit te realiseren door:
         Voorbeeld: gebruik blank nodes of interne URI's, UUID oid, om de data voorlopig te representeren als het externe data betreft. Als het interne data betreft, munt dan http IRI's.<br>
         Als referentiedata refereert naar concepten, gebruik SKOS. Rationale: ? Enkel nodig voor categorisering. Thematische lijsten of zo.</p>
       </aside>
+	<aside class="note">Waterpartij en Bunker uit het voorbeeld kan beter als subklasse van Hindernis beschreven worden? (zie ook hst. Setoriëntatie)</aside>
+	  
   </section>
   <section id='basisprincipes-vocabulaires'>
     <h2>Vocabulaires</h2>
@@ -678,6 +680,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
   nen3610:beginGeldigheid "1938"^^xsd:Date
 .
 </pre>
+
+<aside class="note">Waarom in het voorbeeld imgolf:naam ipv rdfs:label?</aside>
     </section>
 
   </section>
@@ -701,6 +705,9 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
     <p>Bovenstaand figuur geeft ons transformatiedoel weer. Zowel een UML model als een RDF model representeren een bepaalde Universe of Discourse, het deel van de wereld dat we wensen te beschrijven met ons model. Waarbij het model een vereenvoudigde weergave is van deze werkelijkheid. Ons transformatiedoel is geslaagd als het RDF model dat ontstaat vanuit de transformatie van het UML model een model is van dezelfde UoD als die van het originele UML model.</p>
     <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillende uitgangspunten van UML en RDF te veel. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
+
+<aside class="note">Een RDF model kan toch altijd een UML model omvatten? Dan is het ook automatisch te transformeren, anders omschrijven?</aside>
+
     <ul>
       <li>Een <i>correct</i> model betekent dat het RDF model voldoet aan alle constructie-eisen van een RDF model. Het model voldoet aan het metamodel dat we in dit document vaststellen.</li>
       <li>Een <i>juist</i> model is een correct model waarbij het RDF model een model is van hetzelfde UoD als het originele UML model.</li>
@@ -736,6 +743,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <li>SKOS</li>
         <li>SHACL</li>
       </ul>
+	  <aside class="note">GeoSPARQL niet? Is naast een SPARQL-extensie ook een vocabulaire voor geo-gegevens</aside>
       <p>De reden om te kiezen voor deze vocabulaires is:</p>
       <p class='issue' data-number='21'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor RDF en OWL ligt voor de hand, maar de keuze van SHACL verdient wat meer aandacht. (Voorstel nu: beide aanbieden, en verschil uitleggen, zie voorstel in de tekst)</p>
       <ul>
@@ -794,6 +802,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
           <p>
             Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
+			<aside class="note">Deze zin klopt niet. En, wat is ogc:Feature geen owl:Class?</aside>
           </p>
           <pre class='ex-turtle'>
 ex:Golfbaan a owl:Class ;
@@ -814,6 +823,7 @@ nen3610:GeoObject rdfs:subClassOf ogc:Feature .
           <p>
             Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
           </p>
+		  <aside class="note">Die eigenlijk de waarde van een eigenschap beschrijft (de opbouw van de literal)</aside>
           <p>
             Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
             Een voorbeeld van een datatype is het NEN3610ID datatype.
@@ -964,6 +974,26 @@ ex:hoek a owl:DataTypeProperty ;
           <p>
             Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
           </p>
+<aside class="note"> Of is op deze manier in OWL-2 de restrictie wel mogelijk?
+<pre class='ex-turtle'>
+  ex:Perceel a owl:Class .
+
+  ex:Persoon a owl:Class .
+  ex:NatuurlijkPersoon a ex:Persoon .
+  ex:NietNatuurlijkPersoon a ex:Persoon .
+
+  ex:eigenaar a owl:ObjectProperty ;
+     rdfs:domain ex:Perceel .
+  
+  ex:Perceel rdfs:subClassOf       
+   [
+	 rdf:type           owl:Restriction ;
+	 owl:onProperty     ex:eigenaar ;
+	 owl:allValuesFrom  ex:Persoon ;
+   ] 
+  .
+</pre>
+</aside>
           <p>
             Een tweede voorbeeld van een union is de union van literal waardes.
             <figure>
