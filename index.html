@@ -268,7 +268,7 @@ Meer praktisch geformuleerd is dit te realiseren door:
       <li>Een set <em>regels</em>, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Een set regels vormt een 'ontologie', een kennismodel van de [een specifiek kennisdomein in de] werkelijkheid. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data. Een ontologie kun je uitdrukken met RDFS [[rdf-schema]] en OWL [[owl2-primer]].</li>
       <li>Een specificatie van de <em>structuur</em> die de gegevens in een linked dataset hebben, bijvoorbeeld eigenschappen die altijd aanwezig zijn, datatypen, enzovoort. Dit kun je uitdrukken met SHACL [[shacl]].</li>
     </ul>
-    <aside class="note">Derde punt: De structuur van de gegevens (soorten, unieke eigenschappen) is ook (vooral!) met RDFS (rdfs:subClassOf) en met OWL-2 (owl:Restrictionn) te beschrijven.</aside>
+    <aside class="note">Derde punt: De structuur van de gegevens (soorten, unieke eigenschappen) is ook (vooral?) met RDFS (rdfs:subClassOf) en met OWL-2 (owl:Restrictionn) te beschrijven.</aside>
     <p>De hierboven beschreven uitgangspunten van linked data hebben verregaande consequenties die informatiemodelleren voor linked data fundamenteel anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden. </p>
     <p class='issue' data-number='19'>Geef in onderstaande per paragraaf aan wat het effect op de relatie tussen nen 3610 model en linked data model is. In hoofdstuk 7 kan dat dan als best practice uitgewerkt worden</p>
   </section>
@@ -291,6 +291,7 @@ Meer praktisch geformuleerd is dit te realiseren door:
   <section id='basisprincipes-normalisatie'>
     <h2>Normalisatie</h2>
     <p class="issue" data-number="34"></p>
+	<aside class="note">Eens met Hans (mail 20181002): normaliseren is wel echt een relationeel-database-ding, het RDF/Linked data principe conflicteert zelfs? Misschien niet te diep op in gaan, maar alleen de relevantie voor de transformatie vanuit het "genormaliseerde" UML benoemen.</aside>
     <!-- Eerste zinsdeel "omdat ... specifiek is" moet duidelijker. Ik denk dat daar een belangrijk punt zit maar het is nog niet helder. Als we dit echt goed willen uitleggen moeten we om te beginnen beter uitleggen wat een subject is. https://www.w3.org/TR/rdf11-concepts/#data-model gebruiken (plaatje) en zeggen: de kern van linked data is de datastructuur in de vorm van triples. Elke triple bestaat uit een subject, predicaat en object. [korte uitleg van deze 3]. Hier kun je dan ook uitleg over de identiteit van het subject zetten. Idealiter vinden we een andere tekst die dit uitlegt.     -->
     <p>Omdat de identiteit van een subject in linked data heel specifiek is moeten we in onze modellering van de klassen waartoe deze subjects kunnen behoren evenzo specifiek zijn.
       <!-- even uitleggen wat normalisatie hier betekent. Hoe 'normaler', hoe dichter bij de werkelijkheid. Hoe 'denormaler', hoe dichter bij de uiteindelijke implementatievorm. Een plaatje zou hierbij handig zijn. Idealiter vinden we een andere tekst die dit uitlegt.-->
