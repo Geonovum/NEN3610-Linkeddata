@@ -15,6 +15,9 @@
 
 <section id='abstract'>
   <p>Samenvatting van het document.</p>
+  
+  <a href = '#usecases'>Use cases</a>
+  
 </section>
 
 <section id='sotd'>
@@ -802,7 +805,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
           <p>
             Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
-			<aside class="note">Deze zin klopt niet. En, wat is ogc:Feature geen owl:Class?</aside>
+			<aside class="note">De zin loopt niet</aside>
           </p>
           <pre class='ex-turtle'>
 ex:Golfbaan a owl:Class ;
@@ -974,7 +977,7 @@ ex:hoek a owl:DataTypeProperty ;
           <p>
             Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
           </p>
-<aside class="note"> Of is op deze manier in OWL-2 de restrictie wel mogelijk?
+<aside class="note"> Op deze manier is in OWL-2 de restrictie ook mogelijk, persoon is het supertype
 <pre class='ex-turtle'>
   ex:Perceel a owl:Class .
 
@@ -1137,12 +1140,38 @@ ex:hoek a owl:DataTypeProperty ;
         <!-- Sectie 7.2.3.1.5 -->
         <section id='regels-klassen-enumeration'>
           <h5>Klasse met stereotype &lt;&lt;enumeration&gt;&gt;</h5>
+		
+<aside class="note"> Zoiets:
+          <pre class='ex-turtle'>
+ex:StatusPand
+	a                      owl:Class ;
+	rdfs:label             "Realisatie-status van het pand"@nl ;
+	rdfs:subClassOf               
+	[
+	   a                     owl:Class ;
+	   owl:oneOf             (ex:Ontwerp ex:Nieuw ex:Oud)
+	] .
+ex:Ontwerp a ex:StatusPand .
+ex:Nieuw a ex:StatusPand .
+ex:Oud a ex:StatusPand .
+          </pre>
+</aside>
         </section>
-
         <!-- Sectie 7.2.3.1.6 -->
         <section id='regels-klassen-codelist'>
           <h5>Klasse met stereotype &lt;&lt;CodeList&gt;&gt;</h5>
         </section>
+		
+<aside class="note"> Zoiets:
+          <pre class='ex-turtle'>
+ex:Ontwerp a ex:StatusPand ;
+ skos:notation "Code_1".
+ex:Nieuw a ex:StatusPand .
+ skos:notation "Code_2".
+ex:Oud a ex:StatusPand .
+ skos:notation "Code_3".
+          </pre>
+</aside>
 
       </section>
 
