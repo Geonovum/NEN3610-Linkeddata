@@ -1254,23 +1254,23 @@ ex:Oud a ex:StatusPand ;
 		  <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden. 
 		Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
 		 
-		<ul> 
-		<li>1) importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
-		<li>2) het NEN3610 model zelf transformeren naar een OTL </li>
-		<li>3) Het IMGolf 'standaard' model transformeren naar een OTL </li>
-		</ul>
+		<ol> 
+		<li>Importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
+		<li>Het NEN3610 model zelf transformeren naar een OTL </li>
+		<li>Het IMGolf 'standaard' model transformeren naar een OTL </li>
+		</ol>
 		de regels die hiervoor toegepast worden zijn: 
-		<ul>
-		<li>1)    Objecten worden subclasses van coins:Object en van coins:CataloguePart </li>
-		<li>2)    Waardelijsten worden vertaald naar coins:StringProperties </li>
-		<li>3)    Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur. 
+		<ol>
+		<li>Objecten worden subclasses van coins:Object en van coins:CataloguePart </li>
+		<li>Waardelijsten worden vertaald naar coins:StringProperties </li>
+		<li>Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur. 
 		N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. </li>
-		<li>4) Datatype properties worden vertaald naar COINS Kenmerken: </li>
-		<ul>
-			<li>a)    DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
-			<li>b)    DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren  </li>
-			<li>c)    Domain en ranges worden goed gezet </li>
-		</ul></ul>
+		<li>Datatype properties worden vertaald naar COINS Kenmerken: </li>
+		<ol type="a">
+			<li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
+			<li>DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren  </li>
+			<li>Domain en ranges worden goed gezet </li>
+		</ol></ol>
 			 
 		Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.  
 		Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file 
@@ -1286,15 +1286,47 @@ ex:Oud a ex:StatusPand ;
         <section id='OroX:transformatieregels om tot een juist model te komeen'>
           <h2>OroX: handmatige transformatieregels</h2>
 		  
-		  Voor een goed begrip van de transformatieregels is enige toelichting op het OroX nodig. <br/>Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW). 
-		  <br/>Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat. 
+		  Voor een goed begrip van de transformatieregels is een introductie op het OroX nodig. <br/>Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW). 
+		  Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat. 
 		  Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces). 
-		  Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2. Het protocol beschrijft zowel het GWSW model (de "TBox") als de daarop gebaseerde datasets (de "ABox").
+		  <br/>Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>). 
+		  Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
 
 		  <br/><br/>De Gellish-taal kent een groot aantal maar wel, anders dan RDF, vooraf gedefinieerde relaties ("predicates"). 
 		  In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
 		  
-		  TODO: relaties benoemen voor decompositie, taxonomie (definitie), processen, kenmerken
+		  <br/>Stucturen in de GWSW Ontologie zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden. 
+		  Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom. 
+		  <br/>Er is veel analogie tussen OroX en UML te herkennen:
+		  
+		  <h3>UML-concepten versus OroX-concepten</h3>
+		  <br/><b>UML-relaties</b>
+		  <table >
+		  <tr><th>UML-relatie</th><th>OroX-relatie</th></tr>
+		  <tr><td>Generalisatie</td><td>rdfs:subClassOf, owl:Class</td></tr>
+		  <tr><td>Aggregatie, compositie</td><td> gwsw:hasPart</td></tr>
+		  <tr><td>Algemene asscciaties</td><td>gwsw:hasConnection, gwsw:hasRepresentation</td></tr>
+		  </table>
+		  
+		  <br/>UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die (natuurlijk) omgezet in relaties.
+		  
+		  <br/><br/><b>UML-klassen</b>
+		  
+		  <table >
+		  <tr><th>UML-rubriek</th><th>OroX-relatie</th></tr>
+		  <tr><td>Annotaties</td><td>rdfs:label, skos:altLabel, skos:notation, rdfs:isDefinedBy, rdfs:comment, ...</td></tr>
+		  <tr><td>Attributen</td><td>gwsw:hasAspect</td></tr>
+		  <tr><td>Methoden</td><td>gwsw:hasInput, gwsw:hasOutput</td></tr>
+		  </table>
+		  
+		  <h3>Presentatie van OroX in UML</h3>
+		  
+		  Er is applicatie om het OroX-protocol in een UML-schema te presenteren. 
+		  Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke UoD (zie hst. <a href= "#transformatie">Transformatie</a>). 
+		  <br/><br/>Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
+		  
+		  <br/><br/><img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="50%">
+
         </section>
    
   </section>
