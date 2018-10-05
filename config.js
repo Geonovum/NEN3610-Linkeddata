@@ -32,6 +32,21 @@ var respecConfig = {
     name: "Pano Maria",
     company: "Skemu",
     companyURL: "http://skemu.com"
+  }, 
+  {
+    name: "Hans Schevers",
+    company: "Building Bits", 
+    companyURL: "http://www.buildingbits.nl"
+  },  
+  {
+    name: "Ronald van Lanen",
+    company: "Royal HaskoningDHV", 
+    companyURL: "https://www.royalhaskoningdhv.com"
+  },
+  {
+    name: "Joep van Genuchten",
+    company: "Alliander", 
+    companyURL: "https://www.alliander.com/nl"
   }
 ],
   shortName: "nldp",
