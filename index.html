@@ -991,12 +991,12 @@ ex:hoek a owl:DataTypeProperty ;
           <p>
             Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
           </p>
-<aside class="note"> Op deze manier is de UML-union ook te beschrijven: NatuurlijkPersoon en NietNatuurlijkPersoon zijn instanties van ex:Persoon
+<aside class="note"> Wat beschrijft zo'n "UML-union", zijn ex:NatuurlijkPersoon en ex:NietNatuurlijkPersoon specialisaties van ex:Persoon? Dan blijft het simpel:
 <pre class='ex-turtle'>
   ex:Perceel a owl:Class .
   ex:Persoon a owl:Class .
-  ex:NatuurlijkPersoon a ex:Persoon .
-  ex:NietNatuurlijkPersoon a ex:Persoon .
+  ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
+  ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
 
   ex:eigenaar a owl:ObjectProperty ;
      rdfs:domain ex:Perceel ;
@@ -1287,7 +1287,7 @@ ex:Oud a ex:StatusPand ;
 		  <br/>Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>). 
 		  Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
 
-		  <br/><br/>De Gellish-taal kent een groot aantal maar wel, anders dan RDF, vooraf gedefinieerde relaties ("predicates"). 
+		  <br/><br/>De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates"). 
 		  In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
 		  
 		  <br/>Stucturen in de GWSW Ontologie zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden. 
