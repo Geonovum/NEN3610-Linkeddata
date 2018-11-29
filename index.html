@@ -991,21 +991,16 @@ ex:hoek a owl:DataTypeProperty ;
           <p>
             Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
           </p>
-<aside class="note"> Op deze manier is de UML-union ook in OWL-2 te beschrijven: NatuurlijkPersoon en NietNatuurlijkPersoon zijn instanties van ex:Persoon
+<aside class="note"> Op deze manier is de UML-union ook te beschrijven: NatuurlijkPersoon en NietNatuurlijkPersoon zijn instanties van ex:Persoon
 <pre class='ex-turtle'>
   ex:Perceel a owl:Class .
+  ex:Persoon a owl:Class .
   ex:NatuurlijkPersoon a ex:Persoon .
   ex:NietNatuurlijkPersoon a ex:Persoon .
 
   ex:eigenaar a owl:ObjectProperty ;
-     rdfs:domain ex:Perceel .
-  
-  ex:Perceel rdfs:subClassOf       
-   [
-	 rdf:type           owl:Restriction ;
-	 owl:onProperty     ex:eigenaar ;
-	 owl:allValuesFrom  ex:Persoon ;
-   ] 
+     rdfs:domain ex:Perceel ;
+	 rfds:range ex:Persoon
   .
 </pre>
 </aside>
