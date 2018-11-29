@@ -991,11 +991,9 @@ ex:hoek a owl:DataTypeProperty ;
           <p>
             Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
           </p>
-<aside class="note"> Op deze manier is in OWL-2 de restrictie ook mogelijk, persoon is het supertype
+<aside class="note"> Op deze manier is de UML-union ook in OWL-2 te beschrijven: NatuurlijkPersoon en NietNatuurlijkPersoon zijn instanties van ex:Persoon
 <pre class='ex-turtle'>
   ex:Perceel a owl:Class .
-
-  ex:Persoon a owl:Class .
   ex:NatuurlijkPersoon a ex:Persoon .
   ex:NietNatuurlijkPersoon a ex:Persoon .
 
