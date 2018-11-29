@@ -262,6 +262,23 @@ Meer praktisch geformuleerd is dit te realiseren door:
     <p><b>relevantie:</b> De achtergrond en filosofie van Linked Data wordt beschreven in de context van een informatievoorziening middels web-standaarden. Begrippen worden uitgelegd en de relatie tussen data, begrippen en de werkelijkheid wordt beschouwd. Een model van data is iets anders dan een model van begrippen. UML en SKOS-OWL worden daarbij aan elkaar gerelateerd.</p>
   </section>
 
+  <!-- Sectie 4.5 -->
+  <section id='LDProxy'>
+    <h2>Linked Data Proxy (LDProxy)</h2>
+    <p><b>naam: </b>Linked Data Proxy (LDProxy)</p>
+    <p><b>url:</b>https://hub.docker.com/r/iide/ldproxy/</p>
+    <p><b>type document:</b> software</p>
+    <p><b>organisatie:</b>  Supported by European Location Interoperability Solutions for e-Government (ELISE) Action</p>
+    <p><b>scope:</b> datauitwisseling metadapter voor WFS</p>
+    <p><b>omschrijving:</b> ldproxy is an adapter that sits in front of existing WFS services and provides a simple RESTful API and additional output formats like GeoJson, HTML and JSON-LD. These representations are created on the fly using live data from the WFS.
+	
+	ldproxy was designed with the goal to enhance existing WFS services with the ideas from the Spatial Data on the Web Best Practices as well as the Data on the Web Best Practices developed by the W3C. In the meantime the OGC published the first draft of the WFS 3.0 specification, which also builds on these best practices and is mostly implemented by ldproxy.<br>
+  </p>
+    <p><b>relevantie:</b> Deze adapter laat het resultaat zien van de LD publicatie van geodata die middels on the fly mapping uit GML gegenereerd worden. Het resultaat kan met het GML origineel en de formele UML modellen in  de dataspecificaties vergeleken worden.</p>
+  </section>
+  
+  
+  
 </section>
 
 <!-- Hoofdstuk 5 -->
@@ -708,7 +725,11 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 <!-- Hoofdstuk 7 -->
 <section id='transformatie' class="informative">
   <h1>Transformatie van een NEN3610 UML model naar Linked Data</h1>
+<p> voeg toe: inleiding.
 
+methode;
+basisregels voor automatische transformatie;
+afwegingen voor handmatige transformatie </p>
   <!-- Sectie 7.1 -->
   <section id='transformatie-doel'>
     <h2>Transformatiedoel en methode</h2>
@@ -1808,7 +1829,10 @@ Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 
 </section>
 <section class="appendix" id="glossary">
   <h2>Glossary</h2>
-  <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610].</p>  
+  <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610].</p> 
+ <p><dfn data-lt="">UNA</dfn>: Unique Name Assumption [[].</p> 
+ <p><dfn data-lt="">Reificatie</dfn>: ........... [[].</p> 
+ <p><dfn data-lt="e">.........</dfn>:............</p>  
 </body>
 
 </html>
