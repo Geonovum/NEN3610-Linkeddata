@@ -368,52 +368,71 @@
     <section id='UML-OWL-Classes'>
       <h3>UML classes en OWL classes</h3>
       <p> Er bestaat een subtiel verschil tussen wat een UML class vertegenwoordigd en wat een OWL class vertegenwoordigd. Het beschrijven van de oorzaak van dit verschil is buiten de scope van dit document. Echter aan de hand van een voorbeeld moet het lukken om hier toch enig inzicht in te verschaffen, waardoor we tijdens het transformeren tussen UML en OWL, de juiste keuzes kunnen maken. </p>
-      
+
       <section id='PandWoonplaats'>
         <h4>Wat is een Pand en wat is een Woonplaats</h4>
-        
+
         <figure>
           <img src="media/Overerving.png">
           <figcaption>Pand en Woonplaats zoals ze in IMBAG gemodelleerd zijn</figcaption>
         </figure>
-      
+
         <p> Als voorbeeld nemen we een uitsnede uit IMBAG (Informatie Model Basisregistratie Adressen en Gebouwen). Als we intuitief denken aan het concept ‘Pand’, dan denken we aan een gebouw, aan iets waar je naar binnen kunt lopen en dat je aan kunt raken. De formele definitie die IMBAG geeft (op het moment van schrijven) is:</p>
-        
+
         <p> <i>Een Pand is de kleinste, bij de totstandkoming functioneel en bouwkundig-constructief zelfstandige eenheid die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.</i> [[IMBAG]]</p>
-        
+
         <p> Echter, ‘Pand’ oververft eigenschappen als `documentdatum’ en ‘documentnummer’. Deze eigenschappen blijken overerft van de uml class BAG-object. Een andere class die van BAG-object overerft is de Woonplaats. Intuïtief denken we hier aan een regio, met relatief veel bebouwing. De definitie volgens IMBAG:</p>
-        
+
         <p><i> Een Woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente. </i> [[IMBAG]]</p>
       </section>
       <section id='BagObject'>
         <h4>Wat is een BAG-object?</h4>
+<<<<<<< HEAD
       
         <p> Als we puur vanuit een semantisch perspectief (dat OWL hanteert) naar deze classes en hun overerving kijken, dan komen we tot een definitie die is samengesteld gebaseerd op het feit dat een BAG-object `een verzameling vertegenwoordigd die zowel een woonplaatsen als een panden bevat en eigenschappen heeft als documentnummer, en documentdatum’ . Dit doet vermoeden dat BAG-object dus een soort document is. Bij document denken de meeste mensen aan een stapeltje papier of misschien een pdf-je, meer generiek `iets dat dat een beschrijving bevat van iets’. </p>
     
+=======
+
+        <p> Als we puur vanuit een semantisch perspectief (dat OWL hanteert) naar deze classes en hun overerving kijkt, dan komen we tot een definitie die is samengesteld gebaseerd op het feit dat een BAG-object `een verzameling vertegenwoordigd die zowel een woonplaatsen als een panden bevat en eigenschappen heeft als documentnummer, en documentdatum’ . Dit doet vermoeden dat BAG-object dus een soort document is. Bij document denken de meeste mensen aan een stapeltje papier of misschien een pdf-je, meer generiek `iets dat dat een beschrijving bevat van iets’. </p>
+
+>>>>>>> bf0882c3d2a65850a4d2db0f4307d7920d7e4aaa
       </section>
-      
+
       <section id='OWLPand'>
         <h4>OWL revisie: wat is een Pand?</h4>
-      
+
         <p> Als we nu weer terug gaan naar wat een pand dan is, als we vanuit een OWL perspectief naar het UML model kijken, dan zien we in een keer dat een Pand een soort document is. Als we dit samen voegen met de definitie van Pand zoals die in IMBAG wordt gegeven, dan komen we tot het volgende:</p>
+<<<<<<< HEAD
         <p><i> Een Pand is een soort document en is […] die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.</i> </p>
         
+=======
+        <p><i> Een Pand is een soort document en is de kleinst […] die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.</i> </p>
+
+>>>>>>> bf0882c3d2a65850a4d2db0f4307d7920d7e4aaa
         <p> Dit is duidelijk een onterechte interpretatie: een document is niet duurzaam met de aarde verbonden.</p>
-        
+
 
       </section>
       <section id='WatGaatFout'>
         <h4>Wat gaat hier dan fout?</h4>
-      
+
         <p> Wat in dit specifieke geval fout gaat is dat in IMBAG geen onderscheid wordt gemaakt tussen het Pand (het ding dat buiten staat en waar regen op kan vallen) en de documentatie dan wel registratie van dat ding. Dit onderscheid is in UML, en traditionele Object Orientatie vaak niet nodig of niet relevant. Namelijk: als wat in een systeem staat is al een representatie(documentatie) van iets in de werkelijkheid.</p>
+<<<<<<< HEAD
         <p> In het algemeneen kunnen we zeggen dat een UML klasse een blauwdruk geeft voor de verzameling van eigenschappen en gedragingen van een instantie. Vaak betekend dit dat overerving in UML ook een semantische overerving betreft, maar niet per definitie. De UML specificatie lijkt dit te erkennen. Onder het kopje generalistie (sectie 9.2.3.2) staat `Type conformance’ als speciaal geval genoemd: </p>
         
         <p><i>Type conformance means that if one Type conforms to another, then any instance of the first Type may be used as the value of a TypedElement whose type is declared to be the second Type. A Classifier is a Type, and conforms to itself and to all of its generalizations.</i>[[uml]]</p>
         
         <p> Dus enkel in het geval dat een UML superClass voldoet aan type conformance, is de superClass relatie naar de rdfs:subClassOf relatie te vertalen. Helaas is in de meeste UML modellen niet aangeduid of dit daadwerkelijk ook om type conformance gaat. Het is dus aan degene die de transformatie uitvoert om dit te interpreteren.</p>
+=======
+        <p> In het algemeneen kunnen we zeggen dat een UML klasse een blauwdruk geeft voor de verzameling van eigenschappen en gedragingen van een instantie. Vaak betekend dit dat overerving in UML ook een semantische overerving betreft, maar niet per definitie. De UML specificatie geeft hier al hints. Onder het kopje generalistie (sectie 9.2.3.2) staat `Type conformance’ als speciaal geval genoemd: </p>
+
+        <p><i>Type conformance means that if one Type conforms to another, then any instance of the first Type may be used as the value of a TypedElement whose type is declared to be the second Type. A Classifier is a Type, and conforms to itself and to all of its generalizations.</i>[[uml]]</p>
+
+        <p> Dus enkel in het geval dat een UML superClass voldoet aan type conformance, is de superClass relatie naar de rdfs:subClassOf relatie te vertalen. Helaas is in de meeste UML modellen niet aangeduid of dit daadwerkelijk ook het geval is. Het is dus aan degene die de transformatie uitvoert om dit te interpreteren.</p>
+>>>>>>> bf0882c3d2a65850a4d2db0f4307d7920d7e4aaa
       </section>
-      
-      
+
+
     </section>
     </section>
 
@@ -1684,12 +1703,12 @@ ex:Oud a ex:StatusPand ;
         <section id='transformatieregelscoins'>
           <h3>Transformatieregels COINS</h3>
 
-          <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. 
-          De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 
-          2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, 
+          <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie.
+          De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data,
+          2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel,
           van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.
           </br>
-          In COINS2 is gekozen voor het ‘objectificeren’ van relaties en kenmerken waardoor deze expliciet refereerbaar worden en dus o.a. makkelijk te verrijken zijn met 
+          In COINS2 is gekozen voor het ‘objectificeren’ van relaties en kenmerken waardoor deze expliciet refereerbaar worden en dus o.a. makkelijk te verrijken zijn met
           extra informatie zoals bijvoorbeeld meta-informatie.</p>
           <p>Voor meer informatie zie: <a href=http://www.coinsweb.nl>coinsweb</a> </p>
           <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden.
@@ -2211,21 +2230,21 @@ ex:Oud a ex:StatusPand ;
   <section class="appendix" id="glossary">
     <h2>Glossary</h2>
     <p class="issue">Graag review door de werkgroepleden van de definities.</p>
-    <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse|UoD">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610]].</p> 
-    <p><dfn data-lt="unique name assumption|UNA">Unique Name Assumption (UNA)</dfn>: de aanname dat een ding maar één naam (id) heeft. Dus verschillende namen verwijzen naar verschillende dingen (in de werkelijkheid).</p> 
-    <p><dfn data-lt="">Reificatie</dfn>: een manier om metadata aan een <a>triple</a> te hangen.</p> 
+    <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse|UoD">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610]].</p>
+    <p><dfn data-lt="unique name assumption|UNA">Unique Name Assumption (UNA)</dfn>: de aanname dat een ding maar één naam (id) heeft. Dus verschillende namen verwijzen naar verschillende dingen (in de werkelijkheid).</p>
+    <p><dfn data-lt="">Reificatie</dfn>: een manier om metadata aan een <a>triple</a> te hangen.</p>
     <p><dfn data-lt="UML">UML</dfn>: Unified Modeling Language [[uml]]</p>
     <p><dfn data-lt="GML">GML</dfn>: Geography Markup Language [[gml]], een op XML gebaseerde standaard voor uitwisseling van geografische data tussen systemen.</p>
     <p><dfn data-lt="RDF|Resource Description Framework">RDF</dfn>: Resource Description Framework. Zie [[rdf-primer]].</p>
     <p><dfn data-lt="RDFS|RDF Schema">RDFS</dfn>: RDF Schema, taal waarin je een linked data ontologie kan uitdrukken [[rdf-schema]].</p>
     <p><dfn data-lt="SKOS">SKOS</dfn>: Simple Knowledge Organization System. Zie [[skos-primer]]</p>
-    <p><dfn data-lt="OWL">OWL</dfn>: Web Ontology Language [[]], bevat uitgebreidere mogelijkheden dan RDFS om een linked data ontologie uit te drukken. </p>    
-    <p><dfn data-lt="SHACL">SHACL</dfn>: Shapes Constraints Language [[shacl]], een taal om RDF data te valideren tegen een set regels.</p>  
+    <p><dfn data-lt="OWL">OWL</dfn>: Web Ontology Language [[]], bevat uitgebreidere mogelijkheden dan RDFS om een linked data ontologie uit te drukken. </p>
+    <p><dfn data-lt="SHACL">SHACL</dfn>: Shapes Constraints Language [[shacl]], een taal om RDF data te valideren tegen een set regels.</p>
     <p><dfn>Ontologie</dfn>: een kennismodel van de [een specifiek kennisdomein in de] werkelijkheid. Bevat een set regels, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data. Een formele ontologie is... </p>
     <p><dfn>Vocabulaire</dfn>: Een model van begrippen, dat beschrijft welke concepten er in het domein dat je wilt modelleren een rol spelen, en wat ze betekenen. De begrippen zijn (tekstueel) gedefinieerd en hebben onderlinge relaties, zoals bijvoorbeeld in een thesaurus. De term vocabulaire wordt ook wel gebruikt in bredere zin of als synoniem van de term ontologie.</p>
     <p><dfn>Feature type</dfn>: Objecttype dat gerelateerd is aan een locatie, gebruikt voor het representeren van geo-informatie: een geo-object [[NEN3610]].</p>
     <p><dfn data-lt="turtle|ttl">Turtle (ttl)</dfn>: <a>RDF</a> serialisatieformaat. Zie [[turtle]]</p>
-    <p><dfn>RDF/XML</dfn>: <a>RDF</a> serialisatieformaat gebaseerd op XML. </p>    
+    <p><dfn>RDF/XML</dfn>: <a>RDF</a> serialisatieformaat gebaseerd op XML. </p>
     <p><dfn>WFS</dfn>: Web Feature Service; [[wfs]] is een gestandaardiseerd protocol waarmee je geografische vector informatie kunt opvragen, aanleveren, bewerken en analyseren. </p>
     <p><dfn data-lt="Object Oriëntatie|object-oriëntatie|object-georienteerde|objectgeoriënteerde">Object Oriëntatie</dfn>: De werkelijkheid is opgebouwd uit objecten (real world objects). Eigenschappen van objecten worden beschreven door kenmerken. Het model is een abstracte representatie van de werkelijkheid. Objecten worden in het model geo-objecten genoemd (geographic features) en de eigenschappen worden beschreven door attributen. Een objectgeorienteerd informatiemodel is objectgericht: het geeft informatie over individueel te onderscheiden objecten binnen de beschreven werkelijkheid. Het object is de eenheid van informatie [[NEN3610]].</p>
     <p><dfn data-lt="REST|RESTful">Representational State Transfer (REST)</dfn>: Een manier om APIs op te bouwen. Het belangrijkste principe van REST is het scheiden van de API in logische resources ("dingen"). De resources beschrijven de informatie van het "ding". Deze resources worden gemanipuleerd met behulp van HTTP-verzoeken en HTTP-operaties. Elke operatie (GET, POST, PUT, PATCH, DELETE) heeft een specifieke betekenis.</p>
