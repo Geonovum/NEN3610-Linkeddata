@@ -106,22 +106,29 @@ nen3610:Identificatie a owl:Class;
 nen3610:identificatie a owl:ObjectProperty;
 	rdfs:label "identificatie"@nl;
 	dcterms:subject concept:Identificatie;
+	rdfs:range nen3610:Identificatie;
 .
 # Attributen namespace, lokaalID en versie kennen geen concept, dit lijken meer administratieve gegevens
 nen3610:namespace a owl:DatatypeProperty;
 	rdfs:label "namespace"@nl;
 	skos:definition "unieke verwijzing naar een registratie van objecten";
-	skos:scopeNote "Het attribuut 'namespace' is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met 'NL' beginnen."
+	skos:scopeNote "Het attribuut 'namespace' is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met 'NL' beginnen.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:lokaalID a owl:DatatypeProperty;
 	rdfs:label "lokaalID"@nl;
 	skos:definition "unieke identificatiecode binnen een registratie";
-	skos:scopeNote "'lokaalID' is de identificatiecode die een object heeft binnen een (lokale) registratie."
+	skos:scopeNote "'lokaalID' is de identificatiecode die een object heeft binnen een (lokale) registratie.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:versie a owl:DatatypeProperty;
 	rdfs:label "versie"@nl;
 	skos:definition "versie-aanduiding van een object";
 	skos:scopeNote "Het attribuut 'versie' maakt geen deel uit van de identificatie van het object maar kan worden gebruikt om verschillende versies van hetzelfde object te identificeren.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:beginGeldigheid a owl:DatatypeProperty;
 	rdfs:label "beginGeldigheid";
