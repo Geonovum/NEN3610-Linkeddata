@@ -1462,13 +1462,6 @@ ex:Oud a ex:StatusPand ;
           Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF ontologie
           op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
 
-          <h3>Presentatie van OroX in UML</h3>
-
-          Er is applicatie om het OroX-protocol in een UML-schema te presenteren.
-          Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke UoD (zie hst. <a href="#transformatie">Transformatie</a>).
-          <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
-
-          <br /><br /><img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="50%">
         </section>
 
       </section>
@@ -1477,58 +1470,65 @@ ex:Oud a ex:StatusPand ;
 
   </section>
 
-  <!-- Hoofdstuk 9 -->
+  <!-- Hoofdstuk 8 -->
   <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
 
     <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, wordt een transformatie naar RDFS, SKOS en SHACL uitgevoerd</p>
 
-    <!-- Sectie 9.1 -->
+    <!-- Sectie 8.1 -->
     <section>
-      <h2>Model van data Golfbaan confom: SHACL/OWL/RDFS</h2>
+      <h2>Model van data Golfbaan confom: DSO</h2>
 
       <figure>
-        <img src="media/" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in SHACL/OWL/RDFS profiel</figcaption>
+        <img src="visualisaties/imgolf.png" heigh="569">
+        <figcaption>Model van Golfbaan uitgedrukt als Linked Data in DSO profiel</figcaption>
       </figure>
 
     </section>
 
-    <!-- Sectie 9.2 -->
+    <!-- Sectie 8.2 -->
     <section>
       <h2>Model van data Golfbaan confom: GWSW.orox</h2>
 
+      Er is applicatie om het OroX-protocol in een UML-schema te presenteren.
+      Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke UoD (zie hst. <a href="#transformatie">Transformatie</a>).
+      <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
+
+      <br /><br /><img src="" width="50%">
+
       <figure>
-        <img src="media/golfbaan-gwsw-model.png" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
+        <img src="UML%20modellen/IMGolfGWSWroundtrip.png" heigh="569">
+        <figcaption>Model van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
       </figure>
 
     </section>
 
-    <!-- Sectie 9.3 -->
+    <!-- Sectie 8.3 -->
     <section>
       <h2>Model van data Golfbaan confom: COINS</h2>
 
       <figure>
         <img src="media/imgolf-coinsViz.png" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
+        <figcaption>Model van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
       </figure>
 
     </section>
 
   </section>
 
-  <!-- Sectie 10 -->
+  <!-- Hoofdstuk 9 -->
   <section id="dataset2model" class="informative">
     <h1>Aanpak voor het vergelijking van Linked Data datasets</h1>
 
     <p>Een voordeel van Linked Data datasets is de mogelijkheid om dergelijke datasets met elkaar te verbinden en met elkaar te vergelijken. Door de eenduidige opslagstructuur met triples en het uniforme gebruik van RDF en RDFS, is het mogelijk om uit elke willekeurige Linked Data dataset een model af te leiden die een getrouwe weergave is van deze dataset. Dergelijke modellen kunnen vervolgens met elkaar worden vergeleken. Zo kan snel inzicht verkregen worden waaruit een willekeurige Linked Data dataset bestaat, en bovendien is het mogelijk om verschillende Linked Datasets met elkaar te vergelijken op modelniveau</p>
     <p>Dit hoofdstuk beschrijft de aanpak daartoe. We hebben deze aanpak gebruikt om inzicht te krijgen in hoeverre de drie stijlen van Linked Data modellering van elkaar verschillen en overeen komen.</p>
-    <!-- Sectie 8.2 -->
+
+    <!-- Sectie 9.1 -->
     <section id='Target: Metamodel Linked Data' class="informative">
       <h2>Target: Metamodel Linked Data</h2>
 
-      <!-- Sectie 8.2.1 -->
+      <!-- Sectie 9.1.1 -->
       <section id="drie target stijlen">
         <h3>Drie target stijlen</h3>
         <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
@@ -1788,7 +1788,7 @@ ex:Oud a ex:StatusPand ;
         <p>
       </section>
 
-      <!-- Sectie 8.2.2 -->
+      <!-- Sectie 9.1.2 -->
       <section id="Meta-Object-Facility">
         <h3>Meta-Object-Facility</h3>
         <p class='issue' data-number='20'></p>
@@ -1820,9 +1820,9 @@ ex:Oud a ex:StatusPand ;
         <p>De detailuitwerking hiervan is te vinden in <a href="imgolf.html">bijlage 1</a> bij deze handreiking</p>
       </section>
 
-      <!-- Sectie 8.2.3 -->
+      <!-- Sectie 9.1.3 -->
       <section>
-        <h3>Metamodel SHACL/OWL/RDFS</h3>
+        <h3>Metamodel DSO</h3>
         <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
         <figure>
           <img src="media/metamodel_linkeddata.png" heigh="569">
@@ -1901,7 +1901,7 @@ ex:Oud a ex:StatusPand ;
 
       </section>
 
-      <!-- Sectie 8.2.4 -->
+      <!-- Sectie 9.1.4 -->
       <section>
         <h3>Metamodel COINS</h3>
 
@@ -1912,7 +1912,7 @@ ex:Oud a ex:StatusPand ;
 
       </section>
 
-      <!-- Sectie 8.2.5 -->
+      <!-- Sectie 9.1.5 -->
       <section>
         <h3>Metamodel GWSW.orox</h3>
 
