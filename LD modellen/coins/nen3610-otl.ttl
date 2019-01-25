@@ -1,0 +1,89 @@
+# baseURI: http://otl.connecteddata.nl/nen3610-otl/
+# imports: http://definities.geostandaarden.nl/def/nen3610
+# imports: http://www.coinsweb.nl/cbim-2.0.rdf
+# prefix: nen3610-otl
+
+@prefix cbim-2.0: <http://www.coinsweb.nl/cbim-2.0.rdf#> .
+@prefix nen3610-otl: <http://otl.connecteddata.nl/nen3610-otl/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://definities.geostandaarden.nl/def/nen3610#GeoObject>
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:Object ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#Identificatie>
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:Object ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#beginGeldigheid>
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:BeginGeldigheid ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#eindGeldigheid>
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:Eindgeldigheid ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#identificatie>
+  rdfs:domain <http://definities.geostandaarden.nl/def/nen3610#GeoObject> ;
+  rdfs:subPropertyOf cbim-2.0:hasOutgoingConnections ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#lokaalID>
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#namespace>
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+<http://definities.geostandaarden.nl/def/nen3610#versie>
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:
+  rdf:type owl:Ontology ;
+  owl:imports <http://definities.geostandaarden.nl/def/nen3610> ;
+  owl:imports <http://www.coinsweb.nl/cbim-2.0.rdf> ;
+  owl:versionInfo "Created with TopBraid Composer" ;
+.
+nen3610-otl:BeginGeldigheid
+  rdf:type owl:Class ;
+  rdfs:label "Begin geldigheid" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:Eindgeldigheid
+  rdf:type owl:Class ;
+  rdfs:label "Eindgeldigheid" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:Identificatie
+  rdf:type owl:Class ;
+  rdfs:label "Identificatie" ;
+  rdfs:subClassOf cbim-2.0:DirectedConnection ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:allValuesFrom <http://definities.geostandaarden.nl/def/nen3610#Identificatie> ;
+      owl:onProperty cbim-2.0:toObject ;
+    ] ;
+.
+nen3610-otl:LokaalID
+  rdf:type owl:Class ;
+  rdfs:label "Lokaal ID" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:StringProperty ;
+.
+nen3610-otl:Namespace
+  rdf:type owl:Class ;
+  rdfs:label "Namespace" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:StringProperty ;
+.
+nen3610-otl:Versie
+  rdf:type owl:Class ;
+  rdfs:label "Versie" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:StringProperty ;
+.
