@@ -802,7 +802,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
       <p>Toelichting op metamodel NEN 3610.</p>
 
-      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &lt;&lt;FeatureType&gt;&gt;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
+      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &laquo;FeatureType&raquo;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
         Attributen hebben een waardetype dat door een datatype wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een union of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
       </p>
 
@@ -890,7 +890,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
           <!-- Sectie 7.2.4.1.1 -->
           <section id='regels-klassen-featureType'>
-            <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
               Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN3610 klassen.
               De NEN3610 klassen zijn subklassen van nen3610:GeoObject welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire. Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
@@ -942,12 +942,12 @@ nen3610:versie a owl:DatatypeProperty;
 
           <!-- Sectie 7.2.4.1.3 -->
           <section id='regels-klassen-union'>
-            <h5>Klasse met stereotype &lt;&lt;union&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;union&raquo;</h5>
             <p>
-              Een &lt;&lt;union&gt;&gt; is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
+              Een &laquo;union&raquo; is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
               <figure>
                 <img src="media/regels-klassen-union-1.png" height="130">
-                <figcaption>Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van objecten</figcaption>
+                <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
               </figure>
               In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
             </p>
@@ -1011,7 +1011,7 @@ nen3610:versie a owl:DatatypeProperty;
               <figure>
                 <img src="media/regels-klassen-union-2.jpg" height="350">
                 <figcaption>
-                  Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van literal waardes<br>
+                  Klasse met stereotype &laquo;union&raquo; - een union van literal waardes<br>
                   bron: [[INSPIRERDF]]
                 </figcaption>
               </figure>
@@ -1108,7 +1108,7 @@ nen3610:versie a owl:DatatypeProperty;
 
           <!-- Sectie 7.2.4.1.4 -->
           <section id='regels-klassen-external'>
-            <h5>Klasse met stereotype &lt;&lt;external&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
               ...
             </p>
@@ -1148,7 +1148,7 @@ nen3610:versie a owl:DatatypeProperty;
 
           <!-- Sectie 7.2.4.1.5 -->
           <section id='regels-klassen-enumeration'>
-            <h5>Klasse met stereotype &lt;&lt;enumeration&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
 
             <aside class="note"> Zoiets:
               <pre class='ex-turtle'>
@@ -1168,7 +1168,7 @@ ex:Oud a ex:StatusPand .
           </section>
           <!-- Sectie 7.2.4.1.6 -->
           <section id='regels-klassen-codelist'>
-            <h5>Klasse met stereotype &lt;&lt;CodeList&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
           </section>
 
           <aside class="note"> Zoiets:
@@ -1190,16 +1190,16 @@ ex:Oud a ex:StatusPand ;
 
           <!-- Sectie 7.2.4.2.1 -->
           <section id='regels-attributen-identificatie'>
-            <h5>Attribuut met stereotype &lt;&lt;identificatie&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
             <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
           </section>
 
           <!-- Sectie 7.2.4.2.2 -->
           <section id='regels-attributen-voidable'>
-            <h5>Attribuut met stereotype &lt;&lt;voidable&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
             <p>
-              In [[NEN3610]] wordt het gebruik van het stereotype &lt;&lt;voidable&gt;&gt; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
-              In linked data heeft het niet opnemen van de triple die de waarde uitdrukt exact dezelfde betekenis als &lt;&lt;voidable&gt;&gt;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de open-wereld-aanname. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
+              In [[NEN3610]] wordt het gebruik van het stereotype &laquo;voidable&raquo; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
+              In linked data heeft het niet opnemen van de triple die de waarde uitdrukt exact dezelfde betekenis als &laquo;voidable&raquo;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de open-wereld-aanname. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
             </p>
             <p><b>vergelijking met andere best practices</b><br>
               In [[INSPIRERDF]] worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data.
@@ -1208,22 +1208,22 @@ ex:Oud a ex:StatusPand ;
 
           <!-- Sectie 7.2.4.2.3 -->
           <section id='regels-attributen-materieleHistorie'>
-            <h5>Attribuut met stereotype &lt;&lt;materieleHistorie&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
           </section>
 
           <!-- Sectie 7.2.4.2.4 -->
           <section id='regels-attributen-formeleHistorie'>
-            <h5>Attribuut met stereotype &lt;&lt;formeleHistorie&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
           </section>
 
           <!-- Sectie 7.2.4.2.5 -->
           <section id='regels-attributen-materieleLevensduur'>
-            <h5>Attribuut met stereotype &lt;&lt;materieleLevensduur&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
           </section>
 
           <!-- Sectie 7.2.4.2.6 -->
           <section id='regels-attributen-formeleLevensduur'>
-            <h5>Attribuut met stereotype &lt;&lt;formeleLevensduur&gt;&gt;</h5>
+            <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
           </section>
 
         </section>
@@ -1262,7 +1262,7 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.1.1 -->
             <section id='regels-klassen-featureType'>
-              <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
               <p>
                 Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
                 <aside class="note">De zin loopt niet</aside>
@@ -1282,7 +1282,7 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.1.1 -->
             <section id='regels-klassen-dataType'>
-              <h5>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
               <p>
                 Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
               </p>
@@ -1292,7 +1292,7 @@ ex:Oud a ex:StatusPand ;
                 Een voorbeeld van een datatype is het NEN3610ID datatype.
                 <figure>
                   <img src="media/nen3610-dataType.png" height="130">
-                  <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+                  <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
                 </figure>
                 Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
               </p>
@@ -1318,7 +1318,7 @@ ex:Oud a ex:StatusPand ;
                 Neem bijvoorbeeld dit datatype uit IMRO2012.
                 <figure>
                   <img src="media/imro-dataType.png" height="130">
-                  <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+                  <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
                 </figure>
                 Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes van linked data (TODO link naar principe) is dat we dingen specifiek modelleren, zodat anderen er gebruik van kunnen maken.
                 In dit geval is sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
@@ -1338,7 +1338,7 @@ ex:Oud a ex:StatusPand ;
                 TODO: datatype klasse bevat attribuut die metadata op de relatie uitdrukt
                 <figure>
                   <img src="media/imro-dataType2.png" height="230">
-                  <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+                  <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
                 </figure>
               </p>
               <pre class='ex-turtle'>
@@ -1386,12 +1386,12 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.1.3 -->
             <section id='regels-klassen-union'>
-              <h5>Klasse met stereotype &lt;&lt;union&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;union&raquo;</h5>
               <p>
-                Een &lt;&lt;union&gt;&gt; is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
+                Een &laquo;union&raquo; is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
                 <figure>
                   <img src="media/regels-klassen-union-1.png" height="130">
-                  <figcaption>Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van objecten</figcaption>
+                  <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
                 </figure>
                 In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
               </p>
@@ -1455,7 +1455,7 @@ ex:Oud a ex:StatusPand ;
                 <figure>
                   <img src="media/regels-klassen-union-2.jpg" height="350">
                   <figcaption>
-                    Klasse met stereotype &lt;&lt;union&gt;&gt; - een union van literal waardes<br>
+                    Klasse met stereotype &laquo;union&raquo; - een union van literal waardes<br>
                     bron: [[INSPIRERDF]]
                   </figcaption>
                 </figure>
@@ -1552,7 +1552,7 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.1.4 -->
             <section id='regels-klassen-external'>
-              <h5>Klasse met stereotype &lt;&lt;external&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;external&raquo;</h5>
               <p>
                 ...
               </p>
@@ -1592,7 +1592,7 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.1.5 -->
             <section id='regels-klassen-enumeration'>
-              <h5>Klasse met stereotype &lt;&lt;enumeration&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
 
               <aside class="note"> Zoiets:
                 <pre class='ex-turtle'>
@@ -1612,7 +1612,7 @@ ex:Oud a ex:StatusPand ;
             </section>
             <!-- Sectie 7.3.2.2.1.6 -->
             <section id='regels-klassen-codelist'>
-              <h5>Klasse met stereotype &lt;&lt;CodeList&gt;&gt;</h5>
+              <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
             </section>
 
             <aside class="note"> Zoiets:
@@ -1634,16 +1634,16 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.2.1 -->
             <section id='regels-attributen-identificatie'>
-              <h5>Attribuut met stereotype &lt;&lt;identificatie&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
               <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
             </section>
 
             <!-- Sectie 7.3.2.2.2.2 -->
             <section id='regels-attributen-voidable'>
-              <h5>Attribuut met stereotype &lt;&lt;voidable&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
               <p>
-                In [[NEN3610]] wordt het gebruik van het stereotype &lt;&lt;voidable&gt;&gt; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
-                In linked data heeft het niet opnemen van de triple die de waarde uitdrukt exact dezelfde betekenis als &lt;&lt;voidable&gt;&gt;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de open-wereld-aanname. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
+                In [[NEN3610]] wordt het gebruik van het stereotype &laquo;voidable&raquo; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
+                In linked data heeft het niet opnemen van de triple die de waarde uitdrukt exact dezelfde betekenis als &laquo;voidable&raquo;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de open-wereld-aanname. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
               </p>
               <p><b>vergelijking met andere best practices</b><br>
                 In [[INSPIRERDF]] worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data.
@@ -1652,22 +1652,22 @@ ex:Oud a ex:StatusPand ;
 
             <!-- Sectie 7.3.2.2.2.3 -->
             <section id='regels-attributen-materieleHistorie'>
-              <h5>Attribuut met stereotype &lt;&lt;materieleHistorie&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
             </section>
 
             <!-- Sectie 7.3.2.2.2.4 -->
             <section id='regels-attributen-formeleHistorie'>
-              <h5>Attribuut met stereotype &lt;&lt;formeleHistorie&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
             </section>
 
             <!-- Sectie 7.3.2.2.2.5 -->
             <section id='regels-attributen-materieleLevensduur'>
-              <h5>Attribuut met stereotype &lt;&lt;materieleLevensduur&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
             </section>
 
             <!-- Sectie 7.3.2.2.2.6 -->
             <section id='regels-attributen-formeleLevensduur'>
-              <h5>Attribuut met stereotype &lt;&lt;formeleLevensduur&gt;&gt;</h5>
+              <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
             </section>
 
           </section>
