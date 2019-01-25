@@ -80,5 +80,12 @@ var respecConfig = {
       publisher: "ARE3NA project \"INSPIRE Re3ference Platform Phase 2\"",
       date: "2017-07-17"
     }
+	IMBAG: {
+      title: "Informatie Model Basisregistratie Adressen en Gebouwen",
+      href: "https://github.com/Geonovum/IMBAG/blob/master/concept%20catalogus/semantisch%20gegevensmodel/20161104_IMBAG_UML_concept.EAP",
+      status: "Definitief",
+      publisher: "Geonovum",
+      date: "2016-11-04"
+    }
   }
 };
