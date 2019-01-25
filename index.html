@@ -249,7 +249,7 @@
       <p><b>scope:</b> Beschrijving van UML-RDF coderingsregels voor representatie van INSPIRE datasets in RDF. Voor INSPIRE is RDF een mogelijk optionele implementatie omgeving die naast het aanbebolen GML een rol kan spelen. Dit onderzoek naar optionele RDF codering komt voort uit de ondersteuning van het algemene e-government en open data community</p>
       <p><b>omschrijving:</b> Het document beschrijft UML-RDF coderingsregels. De coderingsregels conformeren aan ISO 19118:2011 Geographic information - Encoding. Coderingsregels voor feature types, attributen en associaties zijn opgenomen. Over de UML als input in de coderingsregels wordt gezegd dat het door INSPIRE gebruikte UML profiel (in principe ISO 19109) geen extensie nodig is om zinvol te kunnen coderen naar RDF. De output is een combinatie van RDF Schema en OWL. Voor de RDF serialisatie wordt Turtle aanbevolen. RDF/XML serialisatie is ook opgenomen. Van alle UML constructies, van Package, feature type, attributen, associaties, complexe datatypen etc worden de RDF/Turtle en RDF/XML serialisatie gegeven. Men gaat daarbij niet altijd uit van een standaard mapping maar merkt op dat het voor komt dat men naar de bedoeling van specifieke UML constructies moet kijken hoe die in RDF moeten komen. Bijvoorbeeld een datatype dat een versimpelde vorm van een feature type voorstelt moet in RDF een feature type. Men noemt dit de Permission REC/OWL/type/mapping/dataTypeAsSpatialObjectTypeRepresentation. Interessant is ook dat er een transformatietabel is van ISO 19107 geometrietypen naar GML ontologieklassen van GeoSPARQL (http://www.opengis.net/ont/gml ). Bijvoorbeeld GM_Surface naar gmlowl:Surface.</p>
       <p><b>relevantie:</b> Zeer relevant voor dit onderzoek. Er worden explicite uitgangspunten gedefinieerd die als basis gelden voor de UML - RDF coderingsregels. Er wordt een format gebruikt om de regels in te specificeren dat mogelijk hergebruikt kan worden. Het document is geschikt voor de automatische conversie maar heeft ook afwegingen om daar van af te wijken. Voor het beschrijven van de automatische transformatie van de NEN 3610 UML naar  RDF wordt dit document als referentie gebruikt.</p>
-      <p><b>inhoudelijke opmerkingen:</b> Alleen RDFS en OWL worden als vocabulaire gebruikt. Mogelijk is de codering vooral van uit het UML-GML perspectief ingestoken en mist het de RDF optimalisatie. Voor de NEN 3610 - UML RDF transformatie wordt dat toegevoegd. 
+      <p><b>inhoudelijke opmerkingen:</b> Alleen RDFS en OWL worden als vocabulaire gebruikt. Mogelijk is de codering vooral van uit het UML-GML perspectief ingestoken en mist het de RDF optimalisatie. Voor de NEN 3610 - UML RDF transformatie wordt dat toegevoegd.
       </p>
     </section>
 
@@ -915,6 +915,75 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <img src="media/metamodel_linkeddata.png" heigh="569">
           <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
         </figure>
+
+        <p class=MsoNormal>In de Linked Data community is het gebruik om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breed worden gebruikt door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het metamodel NEN 3610 maken we gebruiken van bestaande, wereldwijd gebruikte standaarden. Deze standaarden zijn in het beheer van de W3c, de organisatie die de internetstandaarden beheerd. Voor ons metamodel gaat het daarbij om de volgende standaarden:
+        </p>
+        <table>
+          <tbody>
+            <th>
+            <td>Prefix</td>
+            <td>Standaard</td>
+            <td>Namespace</td>
+            </th>
+            <tr>
+              <td>rdf</td>
+              <td><a href="http://www.w3.org/TR/rdf11-primer/">Resource description framework</a></td>
+              <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+            </tr>
+            <tr>
+              <td>rdfs</td>
+              <td><a href="http://www.w3.org/TR/rdf-schema/">RDF schema</a></td>
+              <td>http://www.w3.org/2000/01/rdf-schema#</td>
+            </tr>
+            <tr>
+              <td>owl</td>
+              <td><a href="http://www.w3.org/TR/owl2-overview/">Web ontology language</a></td>
+              <td>http://www.w3.org/2002/07/owl#</td>
+            </tr>
+            <tr>
+              <td>sh</td>
+              <td><a href="http://www.w3.org/TR/shacl/">Shape constraint language</a></td>
+              <td>http://www.w3.org/ns/shacl#</td>
+            </tr>
+            <tr>
+              <td>skos</td>
+              <td><a href="http://www.w3.org/TR/skos-primer/">Simple knowledge organization system</a></td>
+              <td>http://www.w3.org/2004/02/skos/core#</td>
+            </tr>
+            <tr>
+              <td>prov</td>
+              <td><a href="http://www.w3.org/TR/prov-primer/">Provenance ontology</a></td>
+              <td>http://www.w3.org/ns/prov#</td>
+            </tr>
+            <tr>
+              <td>dct</td>
+              <td><a href="http://www.dublincore.org/documents/dcmi-terms/">Dublin core terms</a></td>
+              <td>http://purl.org/dc/terms/</td>
+            </tr>
+            <tr>
+              <td>foaf</td>
+              <td><a href="http://xmlns.com/foaf/spec/">Friend of a friend</a></td>
+              <td>http://xmlns.com/foaf/0.1/</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class=MsoNormal>Deze vocabulaires worden op de volgende wijze ingezet:</p>
+        <ul>
+          <li>rdf, rdfs en owl worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In UML termen worden hiermee de klassen, relaties en attributen beschrijven die geïnstantieerd worden als concrete data.</li>
+          <li>rdfs en owl worden ook gebruikt om de formele semantiek van de data te specificeren, voor zover deze uit het UML model zijn is te leiden</li>
+          <li>shacl wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het datatype van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
+          <li>skos wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
+          <li>prov wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
+          <li>dct en foaf worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen</li>
+        </ul>
+
+
+        <p>Betekenisvol model, relatie met ISO/CD 19126</p>
+
+        <p class=MsoNormal>Met het gebruik van skos is het in het Linked Data metamodel mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten.
+          Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 19126 Feature Concepts Dictionaries</p>
+
       </section>
 
       <!-- Sectie 7.2.3 -->
@@ -940,7 +1009,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
             <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
               Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN3610 klassen.
-              De NEN3610 klassen zijn subklassen van nen3610:GeoObject welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire. Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
+              De NEN3610 klassen zijn subklassen van <code>nen3610:GeoObject</code> welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire (<code>gsp:Feature</code>). Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
             </p>
             <pre class='ex-turtle'>
 ex:Golfbaan a owl:Class ;
@@ -949,7 +1018,7 @@ ex:Golfbaan a owl:Class ;
 
 nen3610:FunctioneelGebied rdfs:subClassOf nen3610:GeoObject .
 nen3610:GeoObject rdfs:subClassOf gsp:Feature .
-          </pre>
+            </pre>
             <p><b>vergelijking met andere best practices</b><br>
               Komt overeen met de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_feature">Inspire RDF Guidelines</a> [[INSPIRERDF]].
             </p>
@@ -985,6 +1054,9 @@ nen3610:versie a owl:DatatypeProperty;
   rdfs:range xsd:string ;
 .
             </pre>
+            <p><b>vergelijking met andere best practices</b><br>
+              Komt grotendeels overeen met de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_feature">Inspire RDF Guidelines</a> [[INSPIRERDF]]. De Inspire RDF Guidelines beschrijven nog een uitzondering, maar deze uitzondering laten wij buiten beschouwing.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.1.3 -->
@@ -997,6 +1069,9 @@ nen3610:versie a owl:DatatypeProperty;
                 <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
               </figure>
               In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
+            </p>
+            <p>
+              Een klasse met stereotype union &laquo;union&raquo; transformeren we naar een klasse met een eigenschap <code>owl:unionOf</code> die verwijst naar een <code>rdf:List</code> met een opsomming van de modelelementen die onderdeel zijn van de union in het oorspronkelijke model.
             </p>
             <pre class='ex-turtle'>
   ex:Perceel a owl:Class .
@@ -1016,141 +1091,10 @@ nen3610:versie a owl:DatatypeProperty;
       ex:NietNatuurlijkPersoon
     ) ;
   .
-          </pre>
-            <p>
-              gegeven
-            </p>
-            <pre class='ex-turtle'>
-  data:Dommel a ex:Hond .
-
-  data:2342453 a ex:Perceel ;
-    ex:eigenaar data:Dommel ;
-  .
-          </pre>
-            <p>
-              zal worden afgeleid
-            </p>
-            <pre class='ex-turtle'>
-  data:Dommel a ex:Persoon .
-
-  ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-
-  ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-          </pre>
-            <p>
-              Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
-            </p>
-            <aside class="note"> Wat beschrijft zo'n "UML-union", zijn ex:NatuurlijkPersoon en ex:NietNatuurlijkPersoon specialisaties van ex:Persoon? Dan blijft het simpel:
-              <pre class='ex-turtle'>
-  ex:Perceel a owl:Class .
-  ex:Persoon a owl:Class .
-  ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-  ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-
-  ex:eigenaar a owl:ObjectProperty ;
-     rdfs:domain ex:Perceel ;
-	 rfds:range ex:Persoon
-  .
-              </pre>
-            </aside>
-            <p>
-              Een tweede voorbeeld van een union is de union van literal waardes.
-              <figure>
-                <img src="media/regels-klassen-union-2.jpg" height="350">
-                <figcaption>
-                  Klasse met stereotype &laquo;union&raquo; - een union van literal waardes<br>
-                  bron: [[INSPIRERDF]]
-                </figcaption>
-              </figure>
-
-            </p>
-            <p>
-              In feite drukt de union een restrictie op het bereik van de eigenaar-eigenschap van Perceel uit. Restricties kunnen we uitdrukken met behulp van SHACL.
-            </p>
-            <pre class='ex-turtle'>
-  ex:Perceel a owl:Class .
-
-  ex:NatuurlijkPersoon a owl:Class ;
-
-  ex:NietNatuurlijkPersoon a owl:Class ;
-
-  ex:eigenaar a owl:ObjectProperty ;
-    rdfs:domain ex:Perceel ;
-  .
-
-  ex:PerceelShape a sh:NodeShape ;
-    sh:targetClass ex:Perceel ;
-    sh:property [
-      sh:path ex:eigenaar ;
-      sh:or (
-        [
-          sh:class ex:NatuurlijkPersoon ;
-        ]
-        [
-          sh:class ex:NietNatuurlijkPersoon ;
-        ] ;
-      ) ;
-    ] ;
-  .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              <p>
-                In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot he creeren van instanties die de union uitdrukken.
-              </p>
-              <pre class='ex-turtle'>
-  ex:Perceel a owl:Class ;
-    rdfs:subClassOf [
-      owl:UnionOf (
-        ex:PerceelMetNatuurlijkPersoonEigenaar
-        ex:PerceelMetNietNatuurlijkPersoonEigenaar
-      ) ;
-    ] ;
-  .
-
-  # de set van dingen die 0 niet-natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer natuurlijk-persoon-eigenaren
-  ex:PerceelMetNatuurlijkPersoonEigenaar a owl:Class ;
-    owl:intersectionOf (
-      [
-        a owl:Restriction ;
-        owl:onProperty ex:natuurlijkPersoonEigenaar ;
-        owl:minCardinality 0 ;
-      ]
-      [
-        a owl:Restriction ;
-        owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
-        owl:cardinality 0 ;
-      ]
-    )
-  .
-
-  # de set van dingen die 0 natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer niet-natuurlijk-persoon-eigenaren
-  ex:PerceelMetNietNatuurlijkPersoonEigenaar a owl:Class ;
-    owl:intersectionOf (
-      [
-        a owl:Restriction ;
-        owl:onProperty ex:natuurlijkPersoonEigenaar ;
-        owl:cardinality 0 ;
-      ]
-      [
-        a owl:Restriction ;
-        owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
-        owl:minCardinality 0 ;
-      ]
-    )
-  .
-
-  ex:NatuurlijkPersoon a owl:Class .
-
-  ex:NietNatuurlijkPersoon a owl:Class .
-
-  ex:natuurlijkPersoonEigenaar a owl:ObjectProperty ;
-    rdfs:domain ex:Perceel ;
-  .
-
-  ex:nietNatuurlijkPersoonEigenaar a owl:ObjectProperty ;
-    rdfs:domain ex:Perceel ;
-  .
-            </pre>
+              In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creeren van instanties die de union uitdrukken, wat ongewenst is. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.1.4 -->
@@ -1864,11 +1808,13 @@ ex:Oud a ex:StatusPand ;
   <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
 
     <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
-    <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, wordt een transformatie naar RDFS, SKOS en SHACL uitgevoerd</p>
+    <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, kunnen we een Linked Data model opstellen.</p>
+    <p>Elk van de drie stijlen leidt daarbij tot een eigen interpretatie van het IMGolf model</p>
 
     <!-- Sectie 8.1 -->
     <section>
       <h2>Model van data Golfbaan confom: DSO</h2>
+      <p>Het Linked Data model conform DSO volgt de W3c standaarden RDF, RDFS, OWL en SHACL. Voor de visualisatie wordt aangesloten op de <a href="http://bp4mc2.org/20181107/#grafische-representatie">Nederlandse best practice.</a></p>
 
       <figure>
         <img src="media/imgolf-dso.png" heigh="569">
@@ -1955,7 +1901,7 @@ ex:Oud a ex:StatusPand ;
         <li>Specialisaties achterhalen (bv: indien bepaalde eigenschappen in meerdere klassen voorkomen, dan kun je een superklasse veronderstellen met de gedeelde eigenschappen)</li>
       </ul>
       <p>Vanzelfsprekend kan alleen maar die dingen gegenereerd worden die ook in de brondata zitten. Uitleg of afwijkende namen zijn niet mogelijk, en ook kunnen cardinaliteiten of subklassificaties niet met zekerheid worden afgeleid.</p>
-      <p>Hoewel we voor de generatie uitgaan van het W3c RDF/OWL/SHACL metamodel, zul je zien dat het gegenereerde IMGolf model toch zal afwijken van het met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
+      <p>Een gegenereerde IMGolf model zal afwijken van een met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
       <p>Ook is het niet mogelijk om deze aanpak te gebruiken voor de UML/GML data, aangezien dit geen Linked Data is en dus niet generiek in te lezen is (hier zou dus eerst een basale vertaling van GML naar Linked Data gemaakt moeten worden.</p>
       <p class='issue' title='XSL maken voor GML omzetting naar Linked Data'>Een dergelijke omzetting zou een mooi beginpunt kunnen zijn van een generieke aanpak</p>
     </section>
@@ -1977,7 +1923,7 @@ ex:Oud a ex:StatusPand ;
         <li>M0 betreft het niveau met concrete data: dus in ons voorbeeld data over de Koninklijke Haagse Golf &amp; Countryclub</li>
         <li>M1 betreft het niveau met het model van de data. In ons voorbeeld zijn dit de vier modellen: het origineel in UML en de drie Linked Data stijlen van COINS, OroX en DSO.</li>
         <li>M2 betreft het niveau met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
-        <li>M3 betreft het niveau met het metametamodel. Het is verstandig om hiervoor slechts 1 te hanteren, zodat het makkelijker wordt om de metamodellen met elkaar te vergelijken</li>
+        <li>M3 betreft het niveau met het metametamodel. Als metamatamodel hebben we gekozen voor het model dat afkomstig is van het mechanisme uit de vorige sectie, SHACL.</li>
       </ul>
       <img src="media/mof.png" />
       <p>Van de golfbaan hebben we zowel vier verschijningsvormen op het niveau van M0 (de concrete data) als van M1 (het model):</p>
@@ -1989,372 +1935,265 @@ ex:Oud a ex:StatusPand ;
       </ul>
     </section>
 
-    <!-- Sectie 9.1 -->
-    <section id='Target: Metamodel Linked Data' class="informative">
-      <h2>Target: Metamodel Linked Data</h2>
+    <!-- Sectie 9.3 -->
+    <section id='Linked Data modelstijlen' class="informative">
+      <h2>Linked Data modelstijlen</h2>
 
-      <!-- Sectie 9.1.1 -->
-      <section id="drie target stijlen">
-        <h3>Drie target stijlen</h3>
-        <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
-        <ul>
-          <li><a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF</a>: OroX-protocol voor het Gegevenswoordenboek Stedelijk Water</li>
-          <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
-          <li><a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a>: beschrijving op basis van de algemene W3c specificaties</li>
-        </ul>
-        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (RDF bestanden) voor 1 source (een UML model of XML/GML bestand conform NEN3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie linked data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+      <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
+      <ul>
+        <li><a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF</a>: OroX-protocol voor het Gegevenswoordenboek Stedelijk Water</li>
+        <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
+        <li><a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a>: beschrijving op basis van de algemene W3c specificaties</li>
+      </ul>
+      <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (RDF bestanden) voor 1 source (een UML model of XML/GML bestand conform NEN3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie linked data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
 
-        <p> Voor een deel zijn deze verschillen verklaarbaar doordat er bij elke stijl een verschillende focus is op beoogde doelen of use cases die bediend moeten worden. Deze verschillen uiten zich onder andere in het gebruik van verschillende linked data vocabulaires RDF, RDFS, SKOS, OWL en SHACL. Voor elke stijl wordt in onderstaande matrixen de use cases en de gerelateerde vocabulaires aangegeven.</p>
+      <p> Voor een deel zijn deze verschillen verklaarbaar doordat er bij elke stijl een verschillende focus is op beoogde doelen of use cases die bediend moeten worden. Deze verschillen uiten zich onder andere in het gebruik van verschillende linked data vocabulaires RDF, RDFS, SKOS, OWL en SHACL. Voor elke stijl wordt in onderstaande matrixen de use cases en de gerelateerde vocabulaires aangegeven.</p>
 
 
-        <table>
-          <tbody>
-            <tr>
-              <td><b>Stijl: DSO</b></td>
-              <td><b> vocabulaires<b></td>
-            </tr>
-            <tr>
-              <td><b>use cases</b></td>
-              <td><b>RDF</b></td>
-              <td><b>RDFS<b></td>
-              <td><b>OWL</b></td>
-              <td><b>SKOS<b></td>
-              <td><b>SHACL</b></td>
-            </tr>
-            <tr>
-              <td>begrippenkader (vocabulaire, thesaurus)</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>kennismodel (ontologie) simpel</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>kennismodel (ontologie) complex</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>web van data (publicatie)</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>data validatie</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-            </tr>
-            </tr>
-            <tr>
-              <td>kennisafleiden</td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            </tr>
-            <tr>
-              <td>artificial intelligence</td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <p></p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>Stijl: DSO</b></td>
+            <td><b> vocabulaires<b></td>
+          </tr>
+          <tr>
+            <td><b>use cases</b></td>
+            <td><b>RDF</b></td>
+            <td><b>RDFS<b></td>
+            <td><b>OWL</b></td>
+            <td><b>SKOS<b></td>
+            <td><b>SHACL</b></td>
+          </tr>
+          <tr>
+            <td>begrippenkader (vocabulaire, thesaurus)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>kennismodel (ontologie) simpel</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>kennismodel (ontologie) complex</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>web van data (publicatie)</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>data validatie</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+          </tr>
+          </tr>
+          <tr>
+            <td>kennisafleiden</td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          </tr>
+          <tr>
+            <td>artificial intelligence</td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
 
-        <table>
-          <tbody>
-            <tr>
-              <td><b>Stijl: COINS</b></td>
-              <td><b>vocabulaires<b></td>
-            </tr>
-            <tr>
-              <td><b>use cases</b></td>
-              <td><b>RDF</b></td>
-              <td><b>RDFS<b></td>
-              <td><b>OWL</b></td>
-              <td><b>SKOS<b></td>
-              <td><b>SHACL</b></td>
-            </tr>
-            <tr>
-              <td>uitwisselen bim info</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>heterogene info in samenhang</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>semantiek beschrijven</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>data validatie</td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <p></p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>Stijl: COINS</b></td>
+            <td><b>vocabulaires<b></td>
+          </tr>
+          <tr>
+            <td><b>use cases</b></td>
+            <td><b>RDF</b></td>
+            <td><b>RDFS<b></td>
+            <td><b>OWL</b></td>
+            <td><b>SKOS<b></td>
+            <td><b>SHACL</b></td>
+          </tr>
+          <tr>
+            <td>uitwisselen bim info</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>heterogene info in samenhang</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>semantiek beschrijven</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>data validatie</td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
 
-        <table>
-          <tbody>
-            <tr>
-              <td><b>Stijl: OroX</b></td>
-              <td><b>vocabulaires<b></td>
-            </tr>
-            <tr>
-              <td><b>use cases</b></td>
-              <td><b>RDF</b></td>
-              <td><b>RDFS<b></td>
-              <td><b>OWL</b></td>
-              <td><b>SKOS<b></td>
-              <td><b>SHACL</b></td>
-            </tr>
-            <tr>
-              <td>begrippenkader (vocabulaire, thesaurus)</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>kennismodel (ontologie) complex</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>web van data (publicatie)</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>data validatie</td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <p></p>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>Stijl: OroX</b></td>
+            <td><b>vocabulaires<b></td>
+          </tr>
+          <tr>
+            <td><b>use cases</b></td>
+            <td><b>RDF</b></td>
+            <td><b>RDFS<b></td>
+            <td><b>OWL</b></td>
+            <td><b>SKOS<b></td>
+            <td><b>SHACL</b></td>
+          </tr>
+          <tr>
+            <td>begrippenkader (vocabulaire, thesaurus)</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>kennismodel (ontologie) complex</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>web van data (publicatie)</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>data validatie</td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p></p>
 
-        <table>
-          <tbody>
-            <tr>
-              <td><b>Stijl: NEN 3610</b></td>
-              <td><b>vocabulaires<b></td>
-            </tr>
-            <tr>
-              <td><b>use cases</b></td>
-              <td><b>RDF</b></td>
-              <td><b>RDFS<b></td>
-              <td><b>OWL</b></td>
-              <td><b>SKOS<b></td>
-              <td><b>SHACL</b></td>
-            </tr>
-            <tr>
-              <td>waardelijsten</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>vocabulaire van objecten (begrippenmodel)</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>vocabulaire/kennismodel</td>
-              <td>x</td>
-              <td>x</td>
-              <td>x</td>
-              <td>
-                <- or ->
-              </td>
-              <td>x</td>
-            </tr>
-            <tr>
-              <td>data publicatie</td>
-              <td>x</td>
-              <td>x</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>data validatie</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-            </tr>
-            </tr>
-            <tr>
-              <td>vocabulaires in samenhang/harmoniseren</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>x</td>
-              <td>x</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-      </section>
-
-      <!-- Sectie 9.1.3 -->
-      <section>
-        <h3>Metamodel DSO</h3>
-        <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
-        <figure>
-          <img src="media/metamodel_linkeddata.png" width="80%">
-          <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
-        </figure>
-
-        <p>Toelichting op metamodel NEN 3610 voor Linked Data</p>
-
-        <p class=MsoNormal>In de Linked Data community is het gebruik om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breed worden gebruikt door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het metamodel NEN 3610 maken we gebruiken van bestaande, wereldwijd gebruikte standaarden. Deze standaarden zijn in het beheer van de W3c, de organisatie die de internetstandaarden beheerd. Voor ons metamodel gaat het daarbij om de volgende standaarden:
-        </p>
-        <table>
-          <tbody>
-            <th>
-            <td>Prefix</td>
-            <td>Standaard</td>
-            <td>Namespace</td>
-            </th>
-            <tr>
-              <td>rdf</td>
-              <td><a href="http://www.w3.org/TR/rdf11-primer/">Resource description framework</a></td>
-              <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
-            </tr>
-            <tr>
-              <td>rdfs</td>
-              <td><a href="http://www.w3.org/TR/rdf-schema/">RDF schema</a></td>
-              <td>http://www.w3.org/2000/01/rdf-schema#</td>
-            </tr>
-            <tr>
-              <td>owl</td>
-              <td><a href="http://www.w3.org/TR/owl2-overview/">Web ontology language</a></td>
-              <td>http://www.w3.org/2002/07/owl#</td>
-            </tr>
-            <tr>
-              <td>sh</td>
-              <td><a href="http://www.w3.org/TR/shacl/">Shape constraint language</a></td>
-              <td>http://www.w3.org/ns/shacl#</td>
-            </tr>
-            <tr>
-              <td>skos</td>
-              <td><a href="http://www.w3.org/TR/skos-primer/">Simple knowledge organization system</a></td>
-              <td>http://www.w3.org/2004/02/skos/core#</td>
-            </tr>
-            <tr>
-              <td>prov</td>
-              <td><a href="http://www.w3.org/TR/prov-primer/">Provenance ontology</a></td>
-              <td>http://www.w3.org/ns/prov#</td>
-            </tr>
-            <tr>
-              <td>dct</td>
-              <td><a href="http://www.dublincore.org/documents/dcmi-terms/">Dublin core terms</a></td>
-              <td>http://purl.org/dc/terms/</td>
-            </tr>
-            <tr>
-              <td>foaf</td>
-              <td><a href="http://xmlns.com/foaf/spec/">Friend of a friend</a></td>
-              <td>http://xmlns.com/foaf/0.1/</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class=MsoNormal>Deze vocabulaires worden op de volgende wijze ingezet:</p>
-        <ul>
-          <li>rdf, rdfs en owl worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In UML termen worden hiermee de klassen, relaties en attributen beschrijven die geïnstantieerd worden als concrete data.</li>
-          <li>rdfs en owl worden ook gebruikt om de formele semantiek van de data te specificeren, voor zover deze uit het UML model zijn is te leiden</li>
-          <li>shacl wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het datatype van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
-          <li>skos wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
-          <li>prov wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
-          <li>dct en foaf worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen</li>
-        </ul>
-
-
-        <p>Betekenisvol model, relatie met ISO/CD 19126</p>
-
-        <p class=MsoNormal>Met het gebruik van skos is het in het Linked Data metamodel mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten.
-          Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 19126 Feature Concepts Dictionaries</p>
-
-      </section>
-
-      <!-- Sectie 9.1.4 -->
-      <section>
-        <h3>Metamodel COINS</h3>
-
-        <figure>
-          <img src="media/" heigh="569">
-          <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in COINS profiel</figcaption>
-        </figure>
-
-      </section>
-
-      <!-- Sectie 9.1.5 -->
-      <section>
-        <h3>Metamodel OroX</h3>
-
-        <figure>
-          <img src="media/" heigh="569">
-          <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in OroX profiel</figcaption>
-        </figure>
-
-      </section>
+      <table>
+        <tbody>
+          <tr>
+            <td><b>Stijl: NEN 3610</b></td>
+            <td><b>vocabulaires<b></td>
+          </tr>
+          <tr>
+            <td><b>use cases</b></td>
+            <td><b>RDF</b></td>
+            <td><b>RDFS<b></td>
+            <td><b>OWL</b></td>
+            <td><b>SKOS<b></td>
+            <td><b>SHACL</b></td>
+          </tr>
+          <tr>
+            <td>waardelijsten</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>vocabulaire van objecten (begrippenmodel)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>vocabulaire/kennismodel</td>
+            <td>x</td>
+            <td>x</td>
+            <td>x</td>
+            <td>
+              <- or ->
+            </td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <td>data publicatie</td>
+            <td>x</td>
+            <td>x</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>data validatie</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+          </tr>
+          </tr>
+          <tr>
+            <td>vocabulaires in samenhang/harmoniseren</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>x</td>
+            <td>x</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
 
     </section>
 
