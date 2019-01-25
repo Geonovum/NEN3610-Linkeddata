@@ -892,8 +892,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <section id='regels-klassen-featureType'>
             <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
             <p>
-              Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
-              <aside class="note">De zin loopt niet</aside>
+              Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN3610 klassen.
+              De NEN3610 klassen zijn subklassen van nen3610:GeoObject welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire. Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
             </p>
             <pre class='ex-turtle'>
 ex:Golfbaan a owl:Class ;
@@ -901,28 +901,26 @@ ex:Golfbaan a owl:Class ;
 .
 
 nen3610:FunctioneelGebied rdfs:subClassOf nen3610:GeoObject .
-nen3610:GeoObject rdfs:subClassOf ogc:Feature .
+nen3610:GeoObject rdfs:subClassOf gsp:Feature .
           </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              TODO
+              Komt overeen met de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_feature">Inspire RDF Guidelines</a> [[INSPIRERDF]].
             </p>
           </section>
 
           <!-- Sectie 7.2.4.1.1 -->
           <section id='regels-klassen-dataType'>
-            <h5>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</h5>
+            <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
             <p>
-              Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
+              Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap schrijft.
             </p>
-            <aside class="note">Die eigenlijk de waarde van een eigenschap beschrijft (de opbouw van de literal)</aside>
             <p>
-              Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
+              Het is niet mogelijk om voor deze datatypes een standaard transformatieregel te beschrijven die in alle gevallen de semantisch correcte betekenis van het datatype uitdrukt. Dit is afhankelijk van wat het samenstel van attributen uitdrukt. Daarom wordt een klasse met stereotype &laquo;dataType&raquo; standaard getransformeerd naar een normale klasse met eigenschappen.
               Een voorbeeld van een datatype is het NEN3610ID datatype.
               <figure>
                 <img src="media/nen3610-dataType.png" height="130">
-                <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
+                <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
               </figure>
-              Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
             </p>
             <pre class='ex-turtle'>
 nen3610:Identificatie a owl:Class;
@@ -939,77 +937,7 @@ nen3610:versie a owl:DatatypeProperty;
   rdfs:domain nen3610:Identificatie ;
   rdfs:range xsd:string ;
 .
-          </pre>
-            <p>
-            </p>
-            <p>
-              Neem bijvoorbeeld dit datatype uit IMRO2012.
-              <figure>
-                <img src="media/imro-dataType.png" height="130">
-                <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
-              </figure>
-              Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes van linked data (TODO link naar principe) is dat we dingen specifiek modelleren, zodat anderen er gebruik van kunnen maken.
-              In dit geval is sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
-            </p>
-            <pre class='ex-turtle'>
-ex:specifiekeRol a owl:ObjectProperty ;
-  rdfs:subPropertyOf ex:planrelatie ; # Optioneel
-  rdfs:range ex:Plan ;
-.
-
-ex:Plan a owl:Class .
-          </pre>
-            <p>
-              Hiermee hebben we het model opener en linkbaarder gemaakt. Stel dat er ergens meer informatie bestaat over het plan met die identiteit, dan kan er met dit model nu een link gelegd worden naar de instantie van dat plan.
-            </p>
-            <p>
-              TODO: datatype klasse bevat attribuut die metadata op de relatie uitdrukt
-              <figure>
-                <img src="media/imro-dataType2.png" height="230">
-                <figcaption>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</figcaption>
-              </figure>
-            </p>
-            <pre class='ex-turtle'>
-ex:Label a owl:Class .
-
-ex:tekst a owl:ObjectProperty ;
-  rdfs:domain ex:Label ;
-.
-
-ex:LabelPositie a owl:Class, sh:NodeShape ;
-  rfds:subClassOf rdf:Statement .
-  sh:property
-    [
-      sh:path rdf:subject ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:class ex:Label ;
-    ] ,
-    [
-      sh:path rdf:predicate ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-      sh:hasValue ex:tekst ;
-    ] ,
-    [
-      sh:path rdf:object ;
-      sh:minCount 1 ;
-      sh:maxCount 1 ;
-    ] ;
-.
-
-ex:plaatstingsPunt a owl:ObjectProperty ;
-  rdfs:domain ex:LabelPositie ;
-.
-
-ex:aanpijlingsPunt a owl:ObjectProperty ;
-  rdfs:domain ex:LabelPositie ;
-.
-
-ex:hoek a owl:DataTypeProperty ;
-  rdfs:domain ex:LabelPositie ;
-.
-          </pre>
+            </pre>
           </section>
 
           <!-- Sectie 7.2.4.1.3 -->
