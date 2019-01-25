@@ -10,7 +10,8 @@
 @prefix dcterms: <http://purl.org/dc/terms/>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
-@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
@@ -97,27 +98,38 @@ nen3610:PlanologischGebied a owl:Class;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:PlanologischGebied;
 .
+nen3610:Identificatie a owl:Class;
+	rdfs:label "Identificatie"@nl;
+	dcterms:subject concept:Identificatie;
+.
 
 # Attributen
 nen3610:identificatie a owl:ObjectProperty;
 	rdfs:label "identificatie"@nl;
 	dcterms:subject concept:Identificatie;
+	rdfs:range nen3610:Identificatie;
 .
 # Attributen namespace, lokaalID en versie kennen geen concept, dit lijken meer administratieve gegevens
 nen3610:namespace a owl:DatatypeProperty;
 	rdfs:label "namespace"@nl;
 	skos:definition "unieke verwijzing naar een registratie van objecten";
-	skos:scopeNote "Het attribuut 'namespace' is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met 'NL' beginnen."
+	skos:scopeNote "Het attribuut 'namespace' is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met 'NL' beginnen.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:lokaalID a owl:DatatypeProperty;
 	rdfs:label "lokaalID"@nl;
 	skos:definition "unieke identificatiecode binnen een registratie";
-	skos:scopeNote "'lokaalID' is de identificatiecode die een object heeft binnen een (lokale) registratie."
+	skos:scopeNote "'lokaalID' is de identificatiecode die een object heeft binnen een (lokale) registratie.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:versie a owl:DatatypeProperty;
 	rdfs:label "versie"@nl;
 	skos:definition "versie-aanduiding van een object";
 	skos:scopeNote "Het attribuut 'versie' maakt geen deel uit van de identificatie van het object maar kan worden gebruikt om verschillende versies van hetzelfde object te identificeren.";
+	rdfs:domain nen3610:Identificatie;
+	rdfs:range xsd:string;
 .
 nen3610:beginGeldigheid a owl:DatatypeProperty;
 	rdfs:label "beginGeldigheid";
