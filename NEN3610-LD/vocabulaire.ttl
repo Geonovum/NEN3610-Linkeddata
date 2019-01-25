@@ -97,6 +97,10 @@ nen3610:PlanologischGebied a owl:Class;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:PlanologischGebied;
 .
+nen3610:Identificatie a owl:Class;
+	rdfs:label "Identificatie"@nl;
+	dcterms:subject concept:Identificatie;
+.
 
 # Attributen
 nen3610:identificatie a owl:ObjectProperty;
