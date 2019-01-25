@@ -787,8 +787,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     </section>
 
     <!-- Sectie 7.2 -->
-    <section id='Source: Metamodel NEN3610' class="informative">
-      <h2>Source: Metamodel NEN3610</h2>
+    <section id='transformatiebron' class="informative">
+      <h2>Bronmodel: NEN3610 metamodel</h2>
       <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
 
       <p>Metamodel NEN 3610. (2017-11-9)</p>
@@ -862,7 +862,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
       <!-- Sectie 7.2.2 -->
       <section id="basismetamodel">
-        <h3>Metamodel SHACL/OWL/RDFS</h3>
+        <h3>Basis doelmodel: metamodel op basis van W3c standaarden</h3>
         <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
         <figure>
           <img src="media/metamodel_linkeddata.png" heigh="569">
@@ -1314,116 +1314,162 @@ ex:Oud a ex:StatusPand ;
       <!-- Sectie 7.3.2 -->
       <section id='DSO:transformatieregels om tot een juist model te komeen'>
         <h2>DSO: handmatige transformatieregels</h2>
+
+        <!-- Sectie 7.3.2.1 -->
+        <section id='metamodeldso'>
+          <h3>Metamodel DSO</h3>
+
+          <figure>
+            <img src="media/" heigh="569">
+            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in DSO profiel</figcaption>
+          </figure>
+        </section>
+
+        <!-- Sectie 7.3.2.2 -->
+        <section id='transformatieregelsdso'>
+          <h3>Transformatieregels DSO</h3>
+
+        </section>
       </section>
       <!-- Sectie 7.3.3 -->
       <section id='COINS:transformatieregels om tot een juist model te komeen'>
         <h2>COINS: handmatige transformatieregels</h2>
-        <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.</p>
-        <p>Voor meer informatie zie: [http://www.coinsweb.nl/] </p>
-        <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden.
-          Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
 
-        <ol>
-          <li>Importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
-          <li>Het NEN3610 model zelf transformeren naar een OTL </li>
-          <li>Het IMGolf 'standaard' model transformeren naar een OTL </li>
-        </ol>
-        de regels die hiervoor toegepast worden zijn:
-        <ol>
-          <li>Objecten worden subclasses van coins:Object en van coins:CataloguePart </li>
-          <li>Waardelijsten worden vertaald naar coins:StringProperties </li>
-          <li>Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
-            N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. </li>
-          <li>Datatype properties worden vertaald naar COINS Kenmerken: </li>
-          <ol type="a">
-            <li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
-            <li>DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren </li>
-            <li>Domain en ranges worden goed gezet </li>
+        <!-- Sectie 7.3.3.1 -->
+        <section id='metamodelcoins'>
+          <h3>Metamodel COINS</h3>
+
+          <figure>
+            <img src="media/" heigh="569">
+            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in COINS profiel</figcaption>
+          </figure>
+        </section>
+
+        <!-- Sectie 7.3.3.2 -->
+        <section id='transformatieregelscoins'>
+          <h3>Transformatieregels COINS</h3>
+
+          <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.</p>
+          <p>Voor meer informatie zie: [http://www.coinsweb.nl/] </p>
+          <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden.
+            Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
+
+          <ol>
+            <li>Importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
+            <li>Het NEN3610 model zelf transformeren naar een OTL </li>
+            <li>Het IMGolf 'standaard' model transformeren naar een OTL </li>
           </ol>
-        </ol>
+          de regels die hiervoor toegepast worden zijn:
+          <ol>
+            <li>Objecten worden subclasses van coins:Object en van coins:CataloguePart </li>
+            <li>Waardelijsten worden vertaald naar coins:StringProperties </li>
+            <li>Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
+              N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. </li>
+            <li>Datatype properties worden vertaald naar COINS Kenmerken: </li>
+            <ol type="a">
+              <li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
+              <li>DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren </li>
+              <li>Domain en ranges worden goed gezet </li>
+            </ol>
+          </ol>
 
-        Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
-        Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file
-        Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object
+          Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
+          Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file
+          Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object
 
-        In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
-        CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
-        Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://github.com/provincieNH/OTL-BOR/blob/master/OTL-IMBOR%20concept%2020180416.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
-        </p>
+          In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
+          CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
+          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://github.com/provincieNH/OTL-BOR/blob/master/OTL-IMBOR%20concept%2020180416.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
+          </p>
+        </section>
 
       </section>
       <!-- Sectie 7.3.4 -->
-      <section id='OroX:transformatieregels om tot een juist model te komeen'>
+      <section id='OroX:transformatieregels om tot een juist model te komen'>
         <h2>OroX: handmatige transformatieregels</h2>
 
-        Voor een goed begrip van de transformatieregels is een introductie op het OroX nodig. <br />Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
-        Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
-        Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
-        <br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
-        Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
+        <!-- Sectie 7.3.4.1 -->
+        <section id='metamodelorox'>
+          <h3>Metamodel OroX</h3>
 
-        <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
-        In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
+          <figure>
+            <img src="media/" heigh="569">
+            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
+          </figure>
+        </section>
 
-        <br />Stucturen in de GWSW Ontologie zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
-        Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom.
-        <br />Er is veel analogie tussen OroX en UML te herkennen:
+        <section id='transformatieregelsorox'>
+          <h3>Transformatieregels OroX</h3>
 
-        <h3>UML-concepten versus OroX-concepten</h3>
-        <br /><b>UML-relaties</b>
-        <table>
-          <tr>
-            <th>UML-relatie</th>
-            <th>OroX-relatie</th>
-          </tr>
-          <tr>
-            <td>Generalisatie</td>
-            <td>rdfs:subClassOf, owl:Class</td>
-          </tr>
-          <tr>
-            <td>Aggregatie, compositie</td>
-            <td> gwsw:hasPart</td>
-          </tr>
-          <tr>
-            <td>Algemene asscciaties</td>
-            <td>gwsw:hasConnection, gwsw:hasRepresentation</td>
-          </tr>
-        </table>
+          Voor een goed begrip van de transformatieregels is een introductie op het OroX nodig. <br />Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
+          Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
+          Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
+          <br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
+          Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
 
-        <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die (natuurlijk) omgezet in relaties.
+          <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
+          In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
 
-        <br /><br /><b>UML-klassen</b>
+          <br />Stucturen in de GWSW Ontologie zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
+          Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom.
+          <br />Er is veel analogie tussen OroX en UML te herkennen:
 
-        <table>
-          <tr>
-            <th>UML-rubriek</th>
-            <th>OroX-relatie</th>
-          </tr>
-          <tr>
-            <td>Annotaties</td>
-            <td>rdfs:label, skos:altLabel, skos:notation, rdfs:isDefinedBy, rdfs:comment, ...</td>
-          </tr>
-          <tr>
-            <td>Attributen</td>
-            <td>gwsw:hasAspect</td>
-          </tr>
-          <tr>
-            <td>Methoden</td>
-            <td>gwsw:hasInput, gwsw:hasOutput</td>
-          </tr>
-        </table>
+          <h3>UML-concepten versus OroX-concepten</h3>
+          <br /><b>UML-relaties</b>
+          <table>
+            <tr>
+              <th>UML-relatie</th>
+              <th>OroX-relatie</th>
+            </tr>
+            <tr>
+              <td>Generalisatie</td>
+              <td>rdfs:subClassOf, owl:Class</td>
+            </tr>
+            <tr>
+              <td>Aggregatie, compositie</td>
+              <td> gwsw:hasPart</td>
+            </tr>
+            <tr>
+              <td>Algemene asscciaties</td>
+              <td>gwsw:hasConnection, gwsw:hasRepresentation</td>
+            </tr>
+          </table>
 
-        <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
-        Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF ontologie
-        op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
+          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die (natuurlijk) omgezet in relaties.
 
-        <h3>Presentatie van OroX in UML</h3>
+          <br /><br /><b>UML-klassen</b>
 
-        Er is applicatie om het OroX-protocol in een UML-schema te presenteren.
-        Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke UoD (zie hst. <a href="#transformatie">Transformatie</a>).
-        <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
+          <table>
+            <tr>
+              <th>UML-rubriek</th>
+              <th>OroX-relatie</th>
+            </tr>
+            <tr>
+              <td>Annotaties</td>
+              <td>rdfs:label, skos:altLabel, skos:notation, rdfs:isDefinedBy, rdfs:comment, ...</td>
+            </tr>
+            <tr>
+              <td>Attributen</td>
+              <td>gwsw:hasAspect</td>
+            </tr>
+            <tr>
+              <td>Methoden</td>
+              <td>gwsw:hasInput, gwsw:hasOutput</td>
+            </tr>
+          </table>
 
-        <br /><br /><img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="50%">
+          <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
+          Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF ontologie
+          op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
+
+          <h3>Presentatie van OroX in UML</h3>
+
+          Er is applicatie om het OroX-protocol in een UML-schema te presenteren.
+          Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke UoD (zie hst. <a href="#transformatie">Transformatie</a>).
+          <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
+
+          <br /><br /><img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="50%">
+        </section>
 
       </section>
 
@@ -1431,10 +1477,53 @@ ex:Oud a ex:StatusPand ;
 
   </section>
 
-  <!-- Hoofdstuk 8 -->
-  <section id="transformation-design" class="informative">
-    <h1>Ontwerp van de transformatie</h1>
+  <!-- Hoofdstuk 9 -->
+  <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
 
+    <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
+    <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, wordt een transformatie naar RDFS, SKOS en SHACL uitgevoerd</p>
+
+    <!-- Sectie 9.1 -->
+    <section>
+      <h2>Model van data Golfbaan confom: SHACL/OWL/RDFS</h2>
+
+      <figure>
+        <img src="media/" heigh="569">
+        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in SHACL/OWL/RDFS profiel</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Sectie 9.2 -->
+    <section>
+      <h2>Model van data Golfbaan confom: GWSW.orox</h2>
+
+      <figure>
+        <img src="media/golfbaan-gwsw-model.png" heigh="569">
+        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
+      </figure>
+
+    </section>
+
+    <!-- Sectie 9.3 -->
+    <section>
+      <h2>Model van data Golfbaan confom: COINS</h2>
+
+      <figure>
+        <img src="media/imgolf-coinsViz.png" heigh="569">
+        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
+      </figure>
+
+    </section>
+
+  </section>
+
+  <!-- Sectie 10 -->
+  <section id="dataset2model" class="informative">
+    <h1>Aanpak voor het vergelijking van Linked Data datasets</h1>
+
+    <p>Een voordeel van Linked Data datasets is de mogelijkheid om dergelijke datasets met elkaar te verbinden en met elkaar te vergelijken. Door de eenduidige opslagstructuur met triples en het uniforme gebruik van RDF en RDFS, is het mogelijk om uit elke willekeurige Linked Data dataset een model af te leiden die een getrouwe weergave is van deze dataset. Dergelijke modellen kunnen vervolgens met elkaar worden vergeleken. Zo kan snel inzicht verkregen worden waaruit een willekeurige Linked Data dataset bestaat, en bovendien is het mogelijk om verschillende Linked Datasets met elkaar te vergelijken op modelniveau</p>
+    <p>Dit hoofdstuk beschrijft de aanpak daartoe. We hebben deze aanpak gebruikt om inzicht te krijgen in hoeverre de drie stijlen van Linked Data modellering van elkaar verschillen en overeen komen.</p>
     <!-- Sectie 8.2 -->
     <section id='Target: Metamodel Linked Data' class="informative">
       <h2>Target: Metamodel Linked Data</h2>
@@ -1838,53 +1927,7 @@ ex:Oud a ex:StatusPand ;
 
   </section>
 
-  <!-- Hoofdstuk 9 -->
-  <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
 
-    <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
-    <p>Aan de hand van een informatiemodel in NEN 3610 conform UML van een golfbaan, IMGolf, wordt een transformatie naar RDFS, SKOS en SHACL uitgevoerd</p>
-
-    <!-- Sectie 9.1 -->
-    <section>
-      <h2>Model van data Golfbaan confom: SHACL/OWL/RDFS</h2>
-
-      <figure>
-        <img src="media/" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in SHACL/OWL/RDFS profiel</figcaption>
-      </figure>
-
-    </section>
-
-    <!-- Sectie 9.2 -->
-    <section>
-      <h2>Model van data Golfbaan confom: GWSW.orox</h2>
-
-      <figure>
-        <img src="media/golfbaan-gwsw-model.png" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
-      </figure>
-
-    </section>
-
-    <!-- Sectie 9.3 -->
-    <section>
-      <h2>Model van data Golfbaan confom: COINS</h2>
-
-      <figure>
-        <img src="media/imgolf-coinsViz.png" heigh="569">
-        <figcaption>Metamodel van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
-      </figure>
-
-    </section>
-
-  </section>
-
-  <section id="dataset2model" class="informative">
-    <h1>Aanpak voor het vergelijking van Linked Data datasets</h1>
-
-    <p>Een voordeel van Linked Data datasets is de mogelijkheid om dergelijke datasets met elkaar te verbinden en met elkaar te vergelijken. Door de eenduidige opslagstructuur met triples en het uniforme gebruik van RDF en RDFS, is het mogelijk om uit elke willekeurige Linked Data dataset een model af te leiden die een getrouwe weergave is van deze dataset. Dergelijke modellen kunnen vervolgens met elkaar worden vergeleken. Zo kan snel inzicht verkregen worden waaruit een willekeurige Linked Data dataset bestaat, en bovendien is het mogelijk om verschillende Linked Datasets met elkaar te vergelijken op modelniveau</p>
-    <p>Dit hoofdstuk beschrijft de aanpak daartoe. We hebben deze aanpak gebruikt om inzicht te krijgen in hoeverre de drie stijlen van Linked Data modellering van elkaar verschillen en overeen komen.</p>
-  </section>
   <section class="appendix" id="glossary">
     <h2>Glossary</h2>
     <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610].</p>
