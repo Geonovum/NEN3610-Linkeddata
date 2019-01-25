@@ -1674,8 +1674,8 @@ ex:Oud a ex:StatusPand ;
           <h3>Metamodel COINS</h3>
 
           <figure>
-            <img src="media/" heigh="569">
-            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in COINS profiel</figcaption>
+            <img src="http://www.coinsweb.nl/wiki2/images/e/ed/UML-schema_1280x888.jpg" height="569">
+            <figcaption>Metamodel van COINS</figcaption>
           </figure>
         </section>
 
@@ -1683,8 +1683,14 @@ ex:Oud a ex:StatusPand ;
         <section id='transformatieregelscoins'>
           <h3>Transformatieregels COINS</h3>
 
-          <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.</p>
-          <p>Voor meer informatie zie: [http://www.coinsweb.nl/] </p>
+          <p>COINS (Constructieve Objecten en de INtegratie van Processen en Systemen) is een flexibele standaard voor de uitwisseling van BIM-informatie. 
+          De standaard zorgt ervoor dat verschillende soorten informatie in samenhang in één database kunnen worden vastgelegd, zoals functies, eisen- en objectenbomen, GIS-data, 
+          2D-tekeningen, 3D-modellen, IFC-modellen, en objecttype-bibliotheek. De kern wordt gevormd door een neutraal, software-onafhankelijk datamodel, 
+          van waaruit data in een neutraal format kunnen worden verzonden en ‘vertaald’ naar de software van verschillende projectpartners.
+          </br>
+          In COINS2 is gekozen voor het ‘objectificeren’ van relaties en kenmerken waardoor deze expliciet refereerbaar worden en dus o.a. makkelijk te verrijken zijn met 
+          extra informatie zoals bijvoorbeeld meta-informatie.</p>
+          <p>Voor meer informatie zie: <a href=http://www.coinsweb.nl>coinsweb</a> </p>
           <p>Het IMGolf model is geimplementeerd als een objecttypebibliotheek die in een COINS container gebruikt kan worden.
             Hiervoor zijn de volgende stappen doorlopen vanuit het 'standaard' RDF model: </p>
 
@@ -1702,18 +1708,20 @@ ex:Oud a ex:StatusPand ;
             <li>Datatype properties worden vertaald naar COINS Kenmerken: </li>
             <ol type="a">
               <li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
-              <li>DatatypeProperties informatie wordt gebruikt om een subclasse van COINS:EntityProperty te creëren </li>
+              <li>DatatypeProperties informatie wordt gebruikt om een subklasse van COINS:EntityProperty te creëren </li>
               <li>Domain en ranges worden goed gezet </li>
             </ol>
           </ol>
-
+          <p>
           Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
           Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een gml file
-          Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object
-
+          Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object.
+          In het IMGolf voorbeeld is er voor gekozen om de geometrie met geo:AsWKT op te nemen.
+          </p>
+          <p>
           In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
-          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://github.com/provincieNH/OTL-BOR/blob/master/OTL-IMBOR%20concept%2020180416.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
+          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
           </p>
         </section>
 
