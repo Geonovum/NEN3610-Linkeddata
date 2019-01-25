@@ -753,7 +753,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       afwegingen voor handmatige transformatie </p>
     <!-- Sectie 7.1 -->
     <section id='transformatie-doel'>
-      <h2>Transformatiedoel en methode</h2>
+      <h2>Doel van de transformatie en methode</h2>
 
       <p class='issue' data-number='28'></p>
 
@@ -787,6 +787,28 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     </section>
 
     <!-- Sectie 7.2 -->
+    <section id='Source: Metamodel NEN3610' class="informative">
+      <h2>Source: Metamodel NEN3610</h2>
+      <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
+
+      <p>Metamodel NEN 3610. (2017-11-9)</p>
+
+      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
+
+      <figure>
+        <img src="media/metamodel_attributes.png" height="795">
+        <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
+      </figure>
+
+      <p>Toelichting op metamodel NEN 3610.</p>
+
+      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &lt;&lt;FeatureType&gt;&gt;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
+        Attributen hebben een waardetype dat door een datatype wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een union of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
+      </p>
+
+    </section>
+
+    <!-- Sectie 7.3 -->
     <section id='transformatie-encoding'>
       <h2>Transformatie: basisregels - encoding</h2>
 
@@ -839,12 +861,22 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </section>
 
       <!-- Sectie 7.2.2 -->
+      <section id="basismetamodel">
+        <h3>Metamodel SHACL/OWL/RDFS</h3>
+        <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
+        <figure>
+          <img src="media/metamodel_linkeddata.png" heigh="569">
+          <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
+        </figure>
+      </section>
+
+      <!-- Sectie 7.2.3 -->
       <section id='basisregels'>
         <h3>Basisregels voor transformatie</h3>
         <p>algemene overwegingen, best practices, zie ook hoofdstuk 4</p>
       </section>
 
-      <!-- Sectie 7.2.3 -->
+      <!-- Sectie 7.2.4 -->
       <section id='standaardregels'>
         <h3>Standaard transformatieregels</h3>
 
@@ -852,11 +884,11 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
         <p>transformatie regels van nen 3610 source element naar linked data target element</p>
 
-        <!-- Sectie 7.2.3.1 -->
+        <!-- Sectie 7.2.4.1 -->
         <section id='regels-klassen'>
           <h4>Klassen</h4>
 
-          <!-- Sectie 7.2.3.1.1 -->
+          <!-- Sectie 7.2.4.1.1 -->
           <section id='regels-klassen-featureType'>
             <h5>Klasse met stereotype &lt;&lt;featureType&gt;&gt;</h5>
             <p>
@@ -876,7 +908,7 @@ nen3610:GeoObject rdfs:subClassOf ogc:Feature .
             </p>
           </section>
 
-          <!-- Sectie 7.2.3.1.1 -->
+          <!-- Sectie 7.2.4.1.1 -->
           <section id='regels-klassen-dataType'>
             <h5>Klasse met stereotype &lt;&lt;dataType&gt;&gt;</h5>
             <p>
@@ -980,7 +1012,7 @@ ex:hoek a owl:DataTypeProperty ;
           </pre>
           </section>
 
-          <!-- Sectie 7.2.3.1.3 -->
+          <!-- Sectie 7.2.4.1.3 -->
           <section id='regels-klassen-union'>
             <h5>Klasse met stereotype &lt;&lt;union&gt;&gt;</h5>
             <p>
@@ -1146,7 +1178,7 @@ ex:hoek a owl:DataTypeProperty ;
             </pre>
           </section>
 
-          <!-- Sectie 7.2.3.1.4 -->
+          <!-- Sectie 7.2.4.1.4 -->
           <section id='regels-klassen-external'>
             <h5>Klasse met stereotype &lt;&lt;external&gt;&gt;</h5>
             <p>
@@ -1186,7 +1218,7 @@ ex:hoek a owl:DataTypeProperty ;
           </pre>
           </section>
 
-          <!-- Sectie 7.2.3.1.5 -->
+          <!-- Sectie 7.2.4.1.5 -->
           <section id='regels-klassen-enumeration'>
             <h5>Klasse met stereotype &lt;&lt;enumeration&gt;&gt;</h5>
 
@@ -1206,7 +1238,7 @@ ex:Oud a ex:StatusPand .
           </pre>
             </aside>
           </section>
-          <!-- Sectie 7.2.3.1.6 -->
+          <!-- Sectie 7.2.4.1.6 -->
           <section id='regels-klassen-codelist'>
             <h5>Klasse met stereotype &lt;&lt;CodeList&gt;&gt;</h5>
           </section>
@@ -1224,17 +1256,17 @@ ex:Oud a ex:StatusPand ;
 
         </section>
 
-        <!-- Sectie 7.2.3.2 -->
+        <!-- Sectie 7.2.4.2 -->
         <section id='regels-attributen'>
           <h4>Attributen</h4>
 
-          <!-- Sectie 7.2.3.2.1 -->
+          <!-- Sectie 7.2.4.2.1 -->
           <section id='regels-attributen-identificatie'>
             <h5>Attribuut met stereotype &lt;&lt;identificatie&gt;&gt;</h5>
             <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
           </section>
 
-          <!-- Sectie 7.2.3.2.2 -->
+          <!-- Sectie 7.2.4.2.2 -->
           <section id='regels-attributen-voidable'>
             <h5>Attribuut met stereotype &lt;&lt;voidable&gt;&gt;</h5>
             <p>
@@ -1246,22 +1278,22 @@ ex:Oud a ex:StatusPand ;
             </p>
           </section>
 
-          <!-- Sectie 7.2.3.2.3 -->
+          <!-- Sectie 7.2.4.2.3 -->
           <section id='regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &lt;&lt;materieleHistorie&gt;&gt;</h5>
           </section>
 
-          <!-- Sectie 7.2.3.2.4 -->
+          <!-- Sectie 7.2.4.2.4 -->
           <section id='regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &lt;&lt;formeleHistorie&gt;&gt;</h5>
           </section>
 
-          <!-- Sectie 7.2.3.2.5 -->
+          <!-- Sectie 7.2.4.2.5 -->
           <section id='regels-attributen-materieleLevensduur'>
             <h5>Attribuut met stereotype &lt;&lt;materieleLevensduur&gt;&gt;</h5>
           </section>
 
-          <!-- Sectie 7.2.3.2.6 -->
+          <!-- Sectie 7.2.4.2.6 -->
           <section id='regels-attributen-formeleLevensduur'>
             <h5>Attribuut met stereotype &lt;&lt;formeleLevensduur&gt;&gt;</h5>
           </section>
@@ -1402,28 +1434,6 @@ ex:Oud a ex:StatusPand ;
   <!-- Hoofdstuk 8 -->
   <section id="transformation-design" class="informative">
     <h1>Ontwerp van de transformatie</h1>
-
-    <!-- Sectie 8.1 -->
-    <section id='Source: Metamodel NEN3610' class="informative">
-      <h2>Source: Metamodel NEN3610</h2>
-      <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
-
-      <p>Metamodel NEN 3610. (2017-11-9)</p>
-
-      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
-
-      <figure>
-        <img src="media/metamodel_attributes.png" height="795">
-        <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
-      </figure>
-
-      <p>Toelichting op metamodel NEN 3610.</p>
-
-      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn ‘feature type’. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &lt;&lt;FeatureType&gt;&gt;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 supertypen; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
-        Attributen hebben een waardetype dat door een datatype wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een union of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
-      </p>
-
-    </section>
 
     <!-- Sectie 8.2 -->
     <section id='Target: Metamodel Linked Data' class="informative">
