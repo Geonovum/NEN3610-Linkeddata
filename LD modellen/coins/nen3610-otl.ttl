@@ -13,32 +13,57 @@
 <http://definities.geostandaarden.nl/def/nen3610#GeoObject>
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:Object ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#heeftidentificatie> ;
+    ] ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#Identificatie>
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:Object ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#lokaalID> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#namespace> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#versie> ;
+    ] ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#beginGeldigheid>
+  rdf:type owl:FunctionalProperty ;
   rdfs:domain cbim-2.0:Object ;
   rdfs:range nen3610-otl:BeginGeldigheid ;
   rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#eindGeldigheid>
+  rdf:type owl:FunctionalProperty ;
   rdfs:domain cbim-2.0:Object ;
   rdfs:range nen3610-otl:Eindgeldigheid ;
   rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
-<http://definities.geostandaarden.nl/def/nen3610#identificatie>
+<http://definities.geostandaarden.nl/def/nen3610#heeftidentificatie>
   rdfs:domain <http://definities.geostandaarden.nl/def/nen3610#GeoObject> ;
   rdfs:subPropertyOf cbim-2.0:hasOutgoingConnections ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#lokaalID>
+  rdf:type owl:FunctionalProperty ;
   rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#namespace>
+  rdf:type owl:FunctionalProperty ;
   rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#versie>
+  rdf:type owl:FunctionalProperty ;
   rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
 nen3610-otl:
