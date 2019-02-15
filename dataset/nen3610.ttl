@@ -1,0 +1,15 @@
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+
+@prefix dataset: <http://geonovum.github.io/NEN3610-Linkeddata/dataset/>.
+@prefix domain: <http://geonovum.github.io/NEN3610-Linkeddata/domain/>.
+
+dataset:nen3610 a void:Dataset;
+  dct:title "NEN3610";
+  dct:identifier "nen3610";
+  dcat:theme domain:vocabulary;
+  dcat:keyword "vocabulary";
+  void:triples 1000;
+  dct:description "The NEN3610 Linked Data vocabulary"@en;
+.

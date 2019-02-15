@@ -1,0 +1,40 @@
+{
+  "@id" : "dataset:nen3610",
+  "@type" : "void:Dataset",
+  "description" : {
+    "@language" : "en",
+    "@value" : "The NEN3610 Linked Data vocabulary"
+  },
+  "identifier" : "nen3610",
+  "title" : "NEN3610",
+  "void:triples" : 1000,
+  "keyword" : "vocabulary",
+  "theme" : "domain:vocabulary",
+  "@context" : {
+    "description" : {
+      "@id" : "http://purl.org/dc/terms/description"
+    },
+    "triples" : {
+      "@id" : "http://rdfs.org/ns/void#triples",
+      "@type" : "http://www.w3.org/2001/XMLSchema#integer"
+    },
+    "keyword" : {
+      "@id" : "http://www.w3.org/ns/dcat#keyword"
+    },
+    "theme" : {
+      "@id" : "http://www.w3.org/ns/dcat#theme",
+      "@type" : "@id"
+    },
+    "identifier" : {
+      "@id" : "http://purl.org/dc/terms/identifier"
+    },
+    "title" : {
+      "@id" : "http://purl.org/dc/terms/title"
+    },
+    "void" : "http://rdfs.org/ns/void#",
+    "dct" : "http://purl.org/dc/terms/",
+    "domain" : "http://geonovum.github.io/NEN3610-Linkeddata/domain/",
+    "dcat" : "http://www.w3.org/ns/dcat#",
+    "dataset" : "http://geonovum.github.io/NEN3610-Linkeddata/dataset/"
+  }
+}
