@@ -1,10 +1,10 @@
-# baseURI: http://connecteddata.nl/coins/imgolf/data/
-# imports: http://connecteddata.nl/coins/imgolf/
+# baseURI: http://otl.connecteddata.nl/IMGolf-otl/data/
+# imports: http://otl.connecteddata.nl/IMGolf-otl/
 
-@prefix : <http://connecteddata.nl/coins/imgolf/data/> .
-@prefix cbim20: <http://www.coinsweb.nl/cbim-2.0.rdf#> .
+@prefix : <http://otl.connecteddata.nl/IMGolf-otl/data/> .
+@prefix IMGolf-otl: <http://otl.connecteddata.nl/IMGolf-otl/> .
+@prefix cbim-2.0: <http://www.coinsweb.nl/cbim-2.0.rdf#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix imgolf: <http://connecteddata.nl/coins/imgolf/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -12,141 +12,141 @@
 
 :
   rdf:type owl:Ontology ;
-  owl:imports imgolf: ;
+  owl:imports IMGolf-otl: ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 :Algemene_etiquette
-  rdf:type imgolf:Etiquette ;
-  cbim20:datatypeValue "Algemene etiquette" ;
+  rdf:type IMGolf-otl:Etiquette ;
+  cbim-2.0:datatypeValue "Algemene etiquette" ;
   rdfs:label "Algemene etiquette" ;
 .
 :Driving_range
-  rdf:type imgolf:Parcours ;
+  rdf:type IMGolf-otl:Parcours ;
   rdfs:label "Driving range" ;
 .
 :GolfbaanHasParcours_1
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  imgolf:golfbaanheefthole_heeft_parcours :Hole_1 ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_1 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  IMGolf-otl:golfbaanheefthole_heeft_parcours :Hole_1 ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_1 ;
 .
 :GolfbaanHasParcours_10
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_10 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_10 ;
 .
 :GolfbaanHasParcours_11
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_11 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_11 ;
 .
 :GolfbaanHasParcours_12
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_12 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_12 ;
 .
 :GolfbaanHasParcours_13
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_13 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_13 ;
 .
 :GolfbaanHasParcours_14
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_14 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_14 ;
 .
 :GolfbaanHasParcours_15
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_15 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_15 ;
 .
 :GolfbaanHasParcours_16
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_16 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_16 ;
 .
 :GolfbaanHasParcours_17
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_17 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_17 ;
 .
 :GolfbaanHasParcours_18
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_18 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_18 ;
 .
 :GolfbaanHasParcours_2
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_2 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_2 ;
 .
 :GolfbaanHasParcours_3
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_3 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_3 ;
 .
 :GolfbaanHasParcours_4
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_4 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_4 ;
 .
 :GolfbaanHasParcours_5
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_5 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_5 ;
 .
 :GolfbaanHasParcours_6
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_6 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_6 ;
 .
 :GolfbaanHasParcours_7
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_7 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_7 ;
 .
 :GolfbaanHasParcours_8
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_8 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_8 ;
 .
 :GolfbaanHasParcours_9
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Hole_9 ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Hole_9 ;
 .
 :GolfbaanHasParcours_DR
-  rdf:type imgolf:GolfbaanHeeftHole ;
-  cbim20:hasAssembly :Golfbaan_1 ;
-  cbim20:hasPart :Driving_range ;
+  rdf:type IMGolf-otl:GolfbaanHeeftHole ;
+  cbim-2.0:hasAssembly :Golfbaan_1 ;
+  cbim-2.0:hasPart :Driving_range ;
 .
 :Golfbaan_1
-  rdf:type imgolf:Golfbaan ;
-  imgolf:golfbaan_heeft_gebruiksstatus :in_gebruik ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_1 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_10 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_11 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_12 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_13 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_14 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_15 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_16 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_17 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_18 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_2 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_3 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_4 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_5 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_6 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_7 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_8 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_9 ;
-  imgolf:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_DR ;
-  imgolf:golfbaan_heeft_heefttoegang :HeeftToegang_1 ;
-  imgolf:golfbaan_heeft_naam :Naam_1 ;
-  imgolf:golfbaan_heeft_natuurwaarde imgolf:laag ;
-  imgolf:golfbaan_heeft_typegolfbaan imgolf:linksbaan ;
-  cbim20:name "Golfbaan 1" ;
+  rdf:type IMGolf-otl:Golfbaan ;
+  IMGolf-otl:golfbaan_heeft_gebruiksstatus :in_gebruik ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_1 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_10 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_11 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_12 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_13 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_14 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_15 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_16 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_17 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_18 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_2 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_3 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_4 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_5 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_6 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_7 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_8 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_9 ;
+  IMGolf-otl:golfbaan_heeft_golfbaanheefthole :GolfbaanHasParcours_DR ;
+  IMGolf-otl:golfbaan_heeft_heefttoegang :HeeftToegang_1 ;
+  IMGolf-otl:golfbaan_heeft_naam :Naam_1 ;
+  IMGolf-otl:golfbaan_heeft_natuurwaarde IMGolf-otl:laag ;
+  IMGolf-otl:golfbaan_heeft_typegolfbaan IMGolf-otl:linksbaan ;
+  cbim-2.0:name "Golfbaan 1" ;
   geo:hasGeometry :Golfbaan_1_geom ;
   rdfs:label "Koninklijke Haagse Golf en Country Club" ;
 .
@@ -156,79 +156,79 @@
   rdfs:label "Golfbaan 1 geom" ;
 .
 :Green_1
-  rdf:type imgolf:Green ;
-  imgolf:parcoursdeel_heeft_parcoursdeelheefthole :ParcoursHasHole_1 ;
-  imgolf:parcoursdeel_heeft_typeparcoursdeel imgolf:green ;
-  cbim20:name "Green 1" ;
+  rdf:type IMGolf-otl:Green ;
+  IMGolf-otl:parcoursdeel_heeft_parcoursdeelheefthole :ParcoursHasHole_1 ;
+  IMGolf-otl:parcoursdeel_heeft_typeparcoursdeel IMGolf-otl:green ;
+  cbim-2.0:name "Green 1" ;
   geo:hasGeometry :green_1_geom ;
 .
 :HeeftHindernis_1
-  rdf:type imgolf:HeeftHindernis ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Hindernis_1 ;
+  rdf:type IMGolf-otl:HeeftHindernis ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Hindernis_1 ;
 .
 :HeeftHindernis_2
-  rdf:type imgolf:HeeftHindernis ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Hindernis_2 ;
+  rdf:type IMGolf-otl:HeeftHindernis ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Hindernis_2 ;
 .
 :HeeftParcoursDeel_1_fairway_1
-  rdf:type imgolf:HeeftParcoursDeel ;
-  imgolf:heeftparcoursdeel_heeft_parcoursdeel :fairway_1 ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :fairway_1 ;
+  rdf:type IMGolf-otl:HeeftParcoursDeel ;
+  IMGolf-otl:heeftparcoursdeel_heeft_parcoursdeel :fairway_1 ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :fairway_1 ;
 .
 :HeeftParcoursDeel_1_green
-  rdf:type imgolf:HeeftParcoursDeel ;
-  imgolf:heeftparcoursdeel_heeft_parcoursdeel :Green_1 ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Green_1 ;
+  rdf:type IMGolf-otl:HeeftParcoursDeel ;
+  IMGolf-otl:heeftparcoursdeel_heeft_parcoursdeel :Green_1 ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Green_1 ;
 .
 :HeeftParcoursDeel_1_semirough_1
-  rdf:type imgolf:HeeftParcoursDeel ;
-  imgolf:heeftparcoursdeel_heeft_parcoursdeel :semirough_1_1 ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :semirough_1_1 ;
+  rdf:type IMGolf-otl:HeeftParcoursDeel ;
+  IMGolf-otl:heeftparcoursdeel_heeft_parcoursdeel :semirough_1_1 ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :semirough_1_1 ;
 .
 :HeeftParcoursDeel_1_semirough_2
-  rdf:type imgolf:HeeftParcoursDeel ;
-  imgolf:heeftparcoursdeel_heeft_parcoursdeel :semirough_1_2 ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :semirough_1_2 ;
+  rdf:type IMGolf-otl:HeeftParcoursDeel ;
+  IMGolf-otl:heeftparcoursdeel_heeft_parcoursdeel :semirough_1_2 ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :semirough_1_2 ;
 .
 :HeeftTee_1_blauw
-  rdf:type imgolf:HeeftTeeBlauw ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Tee_1_blauw ;
+  rdf:type IMGolf-otl:HeeftTeeBlauw ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Tee_1_blauw ;
   rdfs:label "heeft tee 1 blauw" ;
 .
 :HeeftTee_1_geel
-  rdf:type imgolf:HeeftTeeGeel ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Tee_1_geel ;
+  rdf:type IMGolf-otl:HeeftTeeGeel ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Tee_1_geel ;
   rdfs:label "heeft tee 1 geel" ;
 .
 :HeeftTee_1_rood
-  rdf:type imgolf:HeeftTeeRood ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Tee_1_rood ;
+  rdf:type IMGolf-otl:HeeftTeeRood ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Tee_1_rood ;
   rdfs:label "heeft tee 1 rood" ;
 .
 :HeeftTee_1_wit
-  rdf:type imgolf:HeeftTeeWit ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :Tee_1_wit ;
+  rdf:type IMGolf-otl:HeeftTeeWit ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :Tee_1_wit ;
   rdfs:label "heeft tee 1 wit" ;
 .
 :HeeftToegang_1
-  rdf:type imgolf:HeeftToegang ;
-  imgolf:heefttoegang_heeft_toeganggolfbaan :ToegangGolfbaan_1 ;
-  cbim20:modificationDate "2018-03-15T18:06:08.134"^^xsd:dateTime ;
+  rdf:type IMGolf-otl:HeeftToegang ;
+  IMGolf-otl:heefttoegang_heeft_toeganggolfbaan :ToegangGolfbaan_1 ;
+  cbim-2.0:modificationDate "2018-03-15T18:06:08.134"^^xsd:dateTime ;
   rdfs:label "HeeftToegang_1" ;
 .
 :Hindernis_1
-  rdf:type imgolf:Hindernis ;
-  imgolf:hindernis_heeft_typehindernis imgolf:bunker ;
+  rdf:type IMGolf-otl:Hindernis ;
+  IMGolf-otl:hindernis_heeft_typehindernis IMGolf-otl:bunker ;
   geo:hasGeometry :Hindernis_1_geom ;
 .
 :Hindernis_1_geom
@@ -236,8 +236,8 @@
   geo:asWKT "POLYGON ((4.370075046115646 52.137709479718865,4.370075046115646 52.137722649700656,4.370096503787766 52.137735819678561,4.370096503787766 52.137748989652572,4.370117961459886 52.137748989652572,4.370139419132005 52.137748989652572,4.370139419132005 52.137762159622689,4.370160876804125 52.137748989652572,4.370182334476245 52.137748989652572,4.370182334476245 52.137735819678561,4.370182334476245 52.137722649700656,4.370182334476245 52.137709479718865,4.370160876804125 52.137709479718865,4.370160876804125 52.137696309733165,4.370139419132005 52.137683139743586,4.370117961459886 52.137683139743586,4.370096503787766 52.137683139743586,4.370096503787766 52.137696309733165,4.370075046115646 52.137696309733165,4.370075046115646 52.137709479718865))"^^geo:wktLiteral ;
 .
 :Hindernis_2
-  rdf:type imgolf:Hindernis ;
-  imgolf:hindernis_heeft_typehindernis imgolf:bunker ;
+  rdf:type IMGolf-otl:Hindernis ;
+  IMGolf-otl:hindernis_heeft_typehindernis IMGolf-otl:bunker ;
   geo:hasGeometry :Hindernis_2_geom ;
 .
 :Hindernis_2_geom
@@ -245,279 +245,279 @@
   geo:asWKT "POLYGON ((4.370075046115646 52.137709479718865,4.370075046115646 52.137722649700656,4.370096503787766 52.137735819678561,4.370096503787766 52.137748989652572,4.370117961459886 52.137748989652572,4.370139419132005 52.137748989652572,4.370139419132005 52.137762159622689,4.370160876804125 52.137748989652572,4.370182334476245 52.137748989652572,4.370182334476245 52.137735819678561,4.370182334476245 52.137722649700656,4.370182334476245 52.137709479718865,4.370160876804125 52.137709479718865,4.370160876804125 52.137696309733165,4.370139419132005 52.137683139743586,4.370117961459886 52.137683139743586,4.370096503787766 52.137683139743586,4.370096503787766 52.137696309733165,4.370075046115646 52.137696309733165,4.370075046115646 52.137709479718865))"^^geo:wktLiteral ;
 .
 :Hole_1
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_heefthindernis :HeeftHindernis_1 ;
-  imgolf:parcours_heeft_heefthindernis :HeeftHindernis_2 ;
-  imgolf:parcours_heeft_heeftparcoursdeel :HeeftParcoursDeel_1_green ;
-  imgolf:parcours_heeft_heefttee :HeeftTee_1_blauw ;
-  imgolf:parcours_heeft_heefttee :HeeftTee_1_geel ;
-  imgolf:parcours_heeft_heefttee :HeeftTee_1_rood ;
-  imgolf:parcours_heeft_heefttee :HeeftTee_1_wit ;
-  imgolf:parcours_heeft_nummer :Nummer_1 ;
-  imgolf:parcours_heeft_par :Par_5 ;
-  cbim20:name "Hole 1" ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_heefthindernis :HeeftHindernis_1 ;
+  IMGolf-otl:parcours_heeft_heefthindernis :HeeftHindernis_2 ;
+  IMGolf-otl:parcours_heeft_heeftparcoursdeel :HeeftParcoursDeel_1_green ;
+  IMGolf-otl:parcours_heeft_heefttee :HeeftTee_1_blauw ;
+  IMGolf-otl:parcours_heeft_heefttee :HeeftTee_1_geel ;
+  IMGolf-otl:parcours_heeft_heefttee :HeeftTee_1_rood ;
+  IMGolf-otl:parcours_heeft_heefttee :HeeftTee_1_wit ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_1 ;
+  IMGolf-otl:parcours_heeft_par :Par_5 ;
+  cbim-2.0:name "Hole 1" ;
   geo:hasGeometry :hole_1_geom ;
   rdfs:label "Hole 1" ;
 .
 :Hole_10
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_10 ;
-  imgolf:parcours_heeft_par :Par_5 ;
-  cbim20:name "Hole 10" ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_10 ;
+  IMGolf-otl:parcours_heeft_par :Par_5 ;
+  cbim-2.0:name "Hole 10" ;
   rdfs:label "Hole 10" ;
 .
 :Hole_11
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_11 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_11 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 11" ;
 .
 :Hole_12
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_12 ;
-  imgolf:parcours_heeft_par :Par_3 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_12 ;
+  IMGolf-otl:parcours_heeft_par :Par_3 ;
   rdfs:label "Hole 12" ;
 .
 :Hole_13
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_13 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_13 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 13" ;
 .
 :Hole_14
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_14 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_14 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 14" ;
 .
 :Hole_15
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_15 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_15 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 15" ;
 .
 :Hole_16
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_16 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_16 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 16" ;
 .
 :Hole_17
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_17 ;
-  imgolf:parcours_heeft_par :Par_3 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_17 ;
+  IMGolf-otl:parcours_heeft_par :Par_3 ;
   rdfs:label "Hole 17" ;
 .
 :Hole_18
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_18 ;
-  imgolf:parcours_heeft_par :Par_5 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_18 ;
+  IMGolf-otl:parcours_heeft_par :Par_5 ;
   rdfs:label "Hole 18" ;
 .
 :Hole_2
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_2 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_2 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 2" ;
 .
 :Hole_3
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_3 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_3 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 3" ;
 .
 :Hole_4
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_4 ;
-  imgolf:parcours_heeft_par :Par_3 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_4 ;
+  IMGolf-otl:parcours_heeft_par :Par_3 ;
   rdfs:label "Hole 4" ;
 .
 :Hole_5
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_5 ;
-  imgolf:parcours_heeft_par :Par_5 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_5 ;
+  IMGolf-otl:parcours_heeft_par :Par_5 ;
   rdfs:label "Hole 5" ;
 .
 :Hole_6
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_6 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_6 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 6" ;
 .
 :Hole_7
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_7 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_7 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 7" ;
 .
 :Hole_8
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_8 ;
-  imgolf:parcours_heeft_par :Par_3 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_8 ;
+  IMGolf-otl:parcours_heeft_par :Par_3 ;
   rdfs:label "Hole 8" ;
 .
 :Hole_9
-  rdf:type imgolf:Parcours ;
-  imgolf:parcours_heeft_nummer :Nummer_9 ;
-  imgolf:parcours_heeft_par :Par_4 ;
+  rdf:type IMGolf-otl:Parcours ;
+  IMGolf-otl:parcours_heeft_nummer :Nummer_9 ;
+  IMGolf-otl:parcours_heeft_par :Par_4 ;
   rdfs:label "Hole 9" ;
 .
 :Introducee
-  rdf:type imgolf:Vereisten ;
+  rdf:type IMGolf-otl:Vereisten ;
   rdfs:label "Introducee" ;
 .
 :Lid
-  rdf:type imgolf:Vereisten ;
+  rdf:type IMGolf-otl:Vereisten ;
   rdfs:label "Lid" ;
 .
 :Naam_1
-  rdf:type imgolf:Naam ;
-  cbim20:datatypeValue "Koninklijke Haagse Golf en Country Club" ;
-  cbim20:name "Koninklijke Haagse Golf en Country Club" ;
+  rdf:type IMGolf-otl:Naam ;
+  cbim-2.0:datatypeValue "Koninklijke Haagse Golf en Country Club" ;
+  cbim-2.0:name "Koninklijke Haagse Golf en Country Club" ;
   rdfs:label "Koninklijke Haagse Golf en Country Club" ;
 .
 :Nummer_1
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 1 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 1 ;
   rdfs:label "1" ;
 .
 :Nummer_10
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 10 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 10 ;
   rdfs:label "10" ;
 .
 :Nummer_11
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 11 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 11 ;
   rdfs:label "11" ;
 .
 :Nummer_12
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 12 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 12 ;
   rdfs:label "12" ;
 .
 :Nummer_13
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 13 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 13 ;
   rdfs:label "13" ;
 .
 :Nummer_14
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 14 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 14 ;
   rdfs:label "14" ;
 .
 :Nummer_15
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 15 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 15 ;
   rdfs:label "15" ;
 .
 :Nummer_16
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 16 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 16 ;
   rdfs:label "16" ;
 .
 :Nummer_17
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 17 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 17 ;
   rdfs:label "17" ;
 .
 :Nummer_18
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 18 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 18 ;
   rdfs:label "18" ;
 .
 :Nummer_2
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 2 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 2 ;
   rdfs:label "2" ;
 .
 :Nummer_3
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 3 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 3 ;
   rdfs:label "3" ;
 .
 :Nummer_4
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 4 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 4 ;
   rdfs:label "4" ;
 .
 :Nummer_5
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 5 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 5 ;
   rdfs:label "5" ;
 .
 :Nummer_6
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 6 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 6 ;
   rdfs:label "6" ;
 .
 :Nummer_7
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 7 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 7 ;
   rdfs:label "7" ;
 .
 :Nummer_8
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 8 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 8 ;
   rdfs:label "8" ;
 .
 :Nummer_9
-  rdf:type imgolf:Nummer ;
-  cbim20:datatypeValue 9 ;
+  rdf:type IMGolf-otl:Nummer ;
+  cbim-2.0:datatypeValue 9 ;
   rdfs:label "9" ;
 .
 :Par_3
-  rdf:type imgolf:Par ;
-  cbim20:datatypeValue 3 ;
+  rdf:type IMGolf-otl:Par ;
+  cbim-2.0:datatypeValue 3 ;
   rdfs:label "Par 3" ;
 .
 :Par_4
-  rdf:type imgolf:Par ;
-  cbim20:datatypeValue 4 ;
+  rdf:type IMGolf-otl:Par ;
+  cbim-2.0:datatypeValue 4 ;
   rdfs:label "Par 4" ;
 .
 :Par_5
-  rdf:type imgolf:Par ;
-  cbim20:datatypeValue 5 ;
+  rdf:type IMGolf-otl:Par ;
+  cbim-2.0:datatypeValue 5 ;
   rdfs:label "Par 5" ;
 .
 :ParcoursHasHole_1
-  rdf:type imgolf:ParcoursDeelHeeftHole ;
-  cbim20:hasAssembly :Hole_1 ;
-  cbim20:hasPart :hole_1 ;
+  rdf:type IMGolf-otl:ParcoursDeelHeeftHole ;
+  cbim-2.0:hasAssembly :Hole_1 ;
+  cbim-2.0:hasPart :hole_1 ;
 .
 :Tee_1_blauw
-  rdf:type imgolf:Tee ;
+  rdf:type IMGolf-otl:Tee ;
   geo:hasGeometry :tee_1_blauw_geom ;
   rdfs:label "1 blauw" ;
 .
 :Tee_1_geel
-  rdf:type imgolf:Tee ;
+  rdf:type IMGolf-otl:Tee ;
   geo:hasGeometry :tee_1_geel_geom ;
   rdfs:label "1 geel" ;
 .
 :Tee_1_rood
-  rdf:type imgolf:Tee ;
+  rdf:type IMGolf-otl:Tee ;
   geo:hasGeometry :tee_1_rood_geom ;
   rdfs:label "1 rood" ;
 .
 :Tee_1_wit
-  rdf:type imgolf:Tee ;
+  rdf:type IMGolf-otl:Tee ;
   geo:hasGeometry :tee_1_wit_geom ;
   rdfs:label "1 wit" ;
 .
 :ToegangGolfbaan_1
-  rdf:type imgolf:ToegangGolfbaan ;
-  imgolf:toeganggolfbaan_heeft_etiquette :Algemene_etiquette ;
-  imgolf:toeganggolfbaan_heeft_toegangkelijkheid imgolf:openbaar ;
-  imgolf:toeganggolfbaan_heeft_vereisten :Introducee ;
-  imgolf:toeganggolfbaan_heeft_vereisten :Lid ;
+  rdf:type IMGolf-otl:ToegangGolfbaan ;
+  IMGolf-otl:toeganggolfbaan_heeft_etiquette :Algemene_etiquette ;
+  IMGolf-otl:toeganggolfbaan_heeft_toegangkelijkheid IMGolf-otl:openbaar ;
+  IMGolf-otl:toeganggolfbaan_heeft_vereisten :Introducee ;
+  IMGolf-otl:toeganggolfbaan_heeft_vereisten :Lid ;
   rdfs:label "ToegangGolfbaan_1" ;
 .
 :fairway_1
-  rdf:type imgolf:ParcoursDeel ;
-  imgolf:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
-  imgolf:parcoursdeel_heeft_typeparcoursdeel imgolf:fairway ;
+  rdf:type IMGolf-otl:ParcoursDeel ;
+  IMGolf-otl:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
+  IMGolf-otl:parcoursdeel_heeft_typeparcoursdeel IMGolf-otl:fairway ;
   geo:hasGeometry :fairway_1_geom ;
 .
 :fairway_1_geom
@@ -529,7 +529,7 @@
   geo:asWKT "POLYGON ((4.36988192706657 52.137735819678561,4.369860469394449 52.137762159622689,4.36983901172233 52.137788499551242,4.36981755405021 52.137828009414861,4.36981755405021 52.137854349304476,4.36981755405021 52.137880689178509,4.36983901172233 52.137893859109688,4.36983901172233 52.137920198960366,4.369860469394449 52.13793336887985,4.36988192706657 52.137946538795454,4.369924842410809 52.137959708707164,4.369946300082928 52.137959708707164,4.369967757755047 52.137959708707164,4.370010673099287 52.137959708707164,4.370032130771406 52.137959708707164,4.370075046115646 52.137959708707164,4.370096503787766 52.137946538795454,4.370117961459886 52.137946538795454,4.370139419132005 52.13793336887985,4.370139419132005 52.137920198960366,4.370160876804125 52.137907029036974,4.370160876804125 52.137893859109688,4.370160876804125 52.137867519243436,4.370160876804125 52.137854349304476,4.370160876804125 52.137841179361615,4.370160876804125 52.137828009414861,4.370117961459886 52.137788499551242,4.370053588443526 52.137762159622689,4.369989215427167 52.137735819678561,4.369989215427167 52.137722649700656,4.369967757755047 52.137722649700656,4.369946300082928 52.137722649700656,4.369924842410809 52.137722649700656,4.369903384738689 52.137722649700656,4.36988192706657 52.137735819678561))"^^geo:wktLiteral ;
 .
 :hole_1
-  rdf:type imgolf:Hole ;
+  rdf:type IMGolf-otl:Hole ;
   geo:hasGeometry :hole_1_geom ;
   rdfs:label "hole 1" ;
 .
@@ -538,19 +538,19 @@
   geo:asWKT "POINT (4.37 52.1378)"^^geo:wktLiteral ;
 .
 :in_gebruik
-  rdf:type imgolf:Gebruiksstatus ;
+  rdf:type IMGolf-otl:Gebruiksstatus ;
   rdfs:label "in gebruik" ;
 .
 :semirough_1_1
-  rdf:type imgolf:ParcoursDeel ;
-  imgolf:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
-  imgolf:parcoursdeel_heeft_typeparcoursdeel imgolf:semi-rough ;
+  rdf:type IMGolf-otl:ParcoursDeel ;
+  IMGolf-otl:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
+  IMGolf-otl:parcoursdeel_heeft_typeparcoursdeel IMGolf-otl:semi-rough ;
   geo:hasGeometry :semirough_1_geom ;
 .
 :semirough_1_2
-  rdf:type imgolf:ParcoursDeel ;
-  imgolf:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
-  imgolf:parcoursdeel_heeft_typeparcoursdeel imgolf:semi-rough ;
+  rdf:type IMGolf-otl:ParcoursDeel ;
+  IMGolf-otl:parcoursdeel_heeft_parcoursdeelheefthole :GolfbaanHasParcours_1 ;
+  IMGolf-otl:parcoursdeel_heeft_typeparcoursdeel IMGolf-otl:semi-rough ;
   geo:hasGeometry :semirough_1_2_geom ;
 .
 :semirough_1_2_geom
@@ -581,3 +581,4 @@
   geo:asWKT "POLYGON ((4.369903384738689 52.134495887768701,4.369924842410809 52.134482716832871,4.369903384738689 52.134482716832871,4.369903384738689 52.13446954589314,4.36988192706657 52.13446954589314,4.369860469394449 52.13446954589314,4.36983901172233 52.13446954589314,4.36981755405021 52.134482716832871,4.36979609637809 52.134482716832871,4.36979609637809 52.134495887768701,4.36981755405021 52.134495887768701,4.36981755405021 52.134509058700637,4.369860469394449 52.134509058700637,4.36988192706657 52.134509058700637,4.369903384738689 52.134495887768701))"^^geo:wktLiteral ;
   rdfs:label "1 wit geom" ;
 .
+
