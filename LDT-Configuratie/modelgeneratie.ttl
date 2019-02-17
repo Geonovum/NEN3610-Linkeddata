@@ -23,6 +23,10 @@ localupdatestage:container2model a elmo:Production;
 	elmo:contains stage:ShapeProduction_scene11;
 	elmo:contains stage:ShapeProduction_scene12;
 	elmo:contains stage:ShapeProduction_scene13;
+	elmo:contains stage:ShapeProduction_scene14;
+	elmo:contains stage:ShapeProduction_scene15;
+	elmo:contains stage:ShapeProduction_scene16;
+	elmo:contains stage:ShapeProduction_scene17;
 	elmo:contains stage:ShapeProduction_scene98;
 	elmo:contains stage:ShapeProduction_scene99;
 .
@@ -45,6 +49,10 @@ localupdatestage:data2model a elmo:Production;
 	elmo:contains stage:ShapeProduction_scene11;
 	elmo:contains stage:ShapeProduction_scene12;
 	elmo:contains stage:ShapeProduction_scene13;
+	elmo:contains stage:ShapeProduction_scene14;
+	elmo:contains stage:ShapeProduction_scene15;
+	elmo:contains stage:ShapeProduction_scene16;
+	elmo:contains stage:ShapeProduction_scene17;
 	elmo:contains stage:ShapeProduction_scene98;
 	elmo:contains stage:ShapeProduction_scene99;
 .
@@ -372,7 +380,8 @@ stage:ShapeProduction_scene13 a elmo:Scene;
         sh:property ?propertynodeproperty
       .
       ?propertynodeproperty a sh:PropertyShape;
-        sh:path ?valueproperty
+        sh:path ?valueproperty;
+				sh:class ?valuepropertyclass
       .
     }
     where {
@@ -380,8 +389,9 @@ stage:ShapeProduction_scene13 a elmo:Scene;
         select distinct
             ?property (IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
             (IRI(concat("urn:propertynode:",md5(str(?class)),md5(str(?property)))) as ?propertynode)
-            ("Shape" as ?propertynodename)
+            ("<>" as ?propertynodename)
             ?valueproperty (IRI(concat("urn:valueproperty",md5(concat(str(?class),str(?property),str(?valueproperty))))) as ?propertynodeproperty)
+						?valuepropertyclass
         where {
           ?item rdf:type ?class.
           ?item ?property ?value.
@@ -390,6 +400,191 @@ stage:ShapeProduction_scene13 a elmo:Scene;
           FILTER NOT EXISTS {
             ?value rdf:type ?valueclass
           }
+					OPTIONAL {
+						?valuepropertyvalue rdf:type ?valuepropertyclass
+					}
+        }
+      }
+    }
+  ''';
+.
+
+stage:ShapeProduction_scene14 a elmo:Scene;
+	elmo:index "14";
+	rdfs:label "Add object cardinality for targetclass nodes";
+	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+			?propertyshape sh:minCount ?mincount.
+			?propertyshape sh:maxCount ?maxcount
+		}
+		where {
+			graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+				select distinct
+						(IRI(concat("urn:objproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
+						?mincount ?maxcount
+				where {
+					select ?class ?property (min(?cnt) as ?mincount) (max(?cnt) as ?maxcount)
+					where {
+						{
+							select ?class ?s ?property (count(?o) as ?cnt)
+						  where {
+					      ?s a ?class.
+					      ?s ?property ?o.
+								FILTER (isIRI(?o) || isBlank(?o))
+						  }
+						  group by ?class ?s ?property
+						}
+						UNION
+						{
+							select ?class ?s1 ?property (0 as ?cnt) where {
+								?s a ?class.
+								?s ?property ?o.
+								?s1 a ?class
+								FILTER (isIRI(?o) || isBlank(?o))
+								FILTER NOT EXISTS {
+									?s1 ?property ?o1
+									FILTER (isIRI(?o) || isBlank(?o))
+								}
+							}
+						}
+					}
+					group by ?class ?property
+				}
+			}
+		}
+	''';
+.
+
+stage:ShapeProduction_scene15 a elmo:Scene;
+	elmo:index "15";
+	rdfs:label "Add datatype cardinality for targetclass nodes";
+	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
+		insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+			?propertyshape sh:minCount ?mincount.
+			?propertyshape sh:maxCount ?maxcount
+		}
+		where {
+			graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+				select distinct
+						(IRI(concat("urn:dtproperty:",md5(str(?class)),".",md5(str(?property)))) as ?propertyshape)
+						?mincount ?maxcount
+				where {
+					select ?class ?property (min(?cnt) as ?mincount) (max(?cnt) as ?maxcount)
+					where {
+						{
+							select ?class ?s ?property (count(?o) as ?cnt)
+						  where {
+					      ?s a ?class.
+					      ?s ?property ?o.
+								FILTER (isLiteral(?o))
+						  }
+						  group by ?class ?s ?property
+						}
+						UNION
+						{
+							select ?class ?s1 ?property (0 as ?cnt) where {
+								?s a ?class.
+								?s ?property ?o.
+								?s1 a ?class
+								FILTER (isLiteral(?o))
+								FILTER NOT EXISTS {
+									?s1 ?property ?o1
+									FILTER (isLiteral(?o))
+								}
+							}
+						}
+					}
+					group by ?class ?property
+				}
+			}
+		}
+	''';
+.
+
+stage:ShapeProduction_scene16 a elmo:Scene;
+	elmo:index "16";
+	rdfs:label "Add cardinality for blank node properties";
+	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+			?propertynodeproperty sh:minCount ?mincount.
+			?propertynodeproperty sh:maxCount ?maxcount
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select distinct
+            (IRI(concat("urn:valueproperty",md5(concat(str(?class),str(?property),str(?valueproperty))))) as ?propertynodeproperty)
+						?mincount ?maxcount
+        where {
+					select ?class ?property ?valueproperty (min(?cnt) as ?mincount) (max(?cnt) as ?maxcount)
+					where {
+						{
+							select ?class ?property ?value ?valueproperty (count(?o) as ?cnt)
+						  where {
+								?item rdf:type ?class.
+								?item ?property ?value.
+								FILTER (isBlank(?value))
+								?value ?valueproperty ?o
+								FILTER NOT EXISTS {
+			            ?value rdf:type ?valueclass
+			          }
+						  }
+						  group by ?class ?property ?value ?valueproperty
+						}
+						UNION
+						{
+							select ?class ?property ?value ?valueproperty (0 as ?cnt) where {
+								?item rdf:type ?class.
+								?item ?property ?value.
+								FILTER (isBlank(?value))
+								?value ?valueproperty ?o.
+								FILTER NOT EXISTS {
+			            ?value rdf:type ?valueclass
+			          }
+								?item ?property ?value1.
+								FILTER (isBlank(?value1))
+								FILTER NOT EXISTS {
+			            ?value1 rdf:type ?valueclass1.
+								}
+								FILTER NOT EXISTS {
+									?value1 ?valueproperty ?o1.
+								}
+							}
+						}
+					}
+					group by ?class ?property ?valueproperty
+
+        }
+      }
+    }
+  ''';
+.
+stage:ShapeProduction_scene17 a elmo:Scene;
+	elmo:index "17";
+	rdfs:label "Create roles (double typing)";
+	elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
+    insert into <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+      ?shape sh:property ?role.
+			?role sh:path rdf:type.
+			?role sh:hasValue ?roleclass.
+    }
+    where {
+      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationsource> {
+        select (IRI(concat("urn:class",md5(str(?class)))) as ?shape)
+							 ?roleclass (IRI(concat("urn:role",md5(concat(str(?class),str(?roleclass))))) as ?role)
+        where {
+          ?s rdf:type ?class.
+					?s rdf:type ?roleclass.
+					FILTER (?class != ?roleclass)
+					FILTER NOT EXISTS {
+						?s1 rdf:type ?class.
+						FILTER NOT EXISTS {
+							?s1 rdf:type ?roleclass
+						}
+					}
         }
       }
     }
