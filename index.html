@@ -384,9 +384,9 @@
 
       <p> Er bestaat een subtiel verschil tussen wat een <a>UML</a> class vertegenwoordigd en wat een <a>OWL</a> class vertegenwoordigd. Het beschrijven van de oorzaak van dit verschil is buiten de scope van dit document. Echter aan de hand van een voorbeeld moet het lukken om hier toch enig inzicht in te verschaffen, waardoor we tijdens het transformeren tussen UML en OWL, de juiste keuzes kunnen maken. </p>
       <p> Zowel in UML als in OWL bestaat er een principe dat over overerving. In OWL door de <a href="http://www.w3.org/2002/07/owl#subClassOf">rdfs:subClassOf</a> relatie. In UML wordt overerving aangeduid met de superClass relatie. OWL gaat uitsluitend uit van semantische relaties, dit wordt ook wel het type genoemd. Bijvoorbeeld: een mens is een type zoogdier. We kunnen dus stellen dat de owl:Class mens een <a href="http://www.w3.org/2002/07/owl#subClassOf">rdfs:subClassOf</a> is van de owl:Class zoogdier. Het zelfde is correct in UML: een uml class persoon heeft een superClass relatie met de uml class zoogdier. Dit is voor de meeste mensen intuïtief correct. Echter, in uml mag de superclass ook voor andere doeleinden gebruikt worden. Dit wordt in de volgende paragrafen beschreven.</p>
-
+    </section>
       <section id='PandWoonplaats'>
-        <h4>Wat is een Pand en wat is een Woonplaats</h4>
+        <h3>Wat is een Pand en wat is een Woonplaats</h3>
 
         <figure>
           <img src="media/Overerving.png">
@@ -402,7 +402,7 @@
         <p><i> Een Woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente. </i> [[IMBAG]]</p>
       </section>
       <section id='BagObject'>
-        <h4>Wat is een BAG-object?</h4>
+        <h3>Wat is een BAG-object?</h3>
 
         <p> Als we puur vanuit een semantisch perspectief (dat OWL hanteert) naar deze classes en hun overerving kijken, dan komen we tot een definitie die is samengesteld gebaseerd op het feit dat een BAG-object `een verzameling vertegenwoordigd die zowel een woonplaatsen als een panden bevat en eigenschappen heeft als documentnummer, en documentdatum’ . Dit doet vermoeden dat BAG-object dus een soort document is. Bij document denken de meeste mensen aan een stapeltje papier of misschien een pdf-je, meer generiek `iets dat dat een beschrijving bevat van iets’. </p>
 
@@ -410,20 +410,20 @@
       </section>
 
       <section id='OWLPand'>
-        <h4>OWL revisie: wat is een Pand?</h4>
+        <h3>Als je met een OWL bril naar UML kijkt: wat is een Pand?</h3>
 
         <p> Als we nu weer terug gaan naar wat een pand dan is, als we vanuit een OWL perspectief naar het <a>UML</a> model kijken, dan zien we in een keer dat een Pand een soort document is. Als we dit samen voegen met de definitie van Pand zoals die in IMBAG wordt gegeven, dan komen we tot het volgende:</p>
 
         <p><i> Een Pand is een soort document en is […] die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.</i> </p>
 
-        <p> Dit is duidelijk een onterechte interpretatie: een document is niet duurzaam met de aarde verbonden.</p>
+        <p> Dit is duidelijk een onterechte interpretatie: een document is niet duurzaam met de aarde verbonden en niet betreedbaar.</p>
 
 
       </section>
       <section id='WatGaatFout'>
-        <h4>Wat gaat hier dan fout?</h4>
+        <h3>Waar ontstaat het misverstand?</h3>
 
-        <p> Wat in dit specifieke geval fout gaat is dat in IMBAG geen onderscheid wordt gemaakt tussen het Pand (het ding dat buiten staat en waar regen op kan vallen) en de documentatie dan wel registratie van dat ding. Dit onderscheid is in <a>UML</a>, en traditionele <a>object-oriëntatie</a> vaak niet nodig of niet relevant. Namelijk: als wat in een systeem staat is al een representatie(documentatie) van iets in de werkelijkheid.</p>
+        <p> Wat in dit specifieke geval fout gaat is dat in IMBAG geen onderscheid wordt gemaakt tussen het Pand (het ding dat buiten staat en waar regen op kan vallen) en de documentatie dan wel registratie van dat ding. Dit onderscheid is in <a>UML</a>, en traditionele <a>object-oriëntatie</a> vaak niet nodig of niet relevant. Namelijk: alles wat in een systeem staat is al een representatie(documentatie) van iets in de werkelijkheid.</p>
 
         <p> In het algemeneen kunnen we zeggen dat een UML klasse een blauwdruk geeft voor de verzameling van eigenschappen en gedragingen van een instantie. Vaak betekend dit dat overerving in UML ook een semantische overerving betreft, maar niet per definitie. De UML specificatie lijkt dit te erkennen. Onder het kopje generalisatie (sectie 9.2.3.2) staat `Type conformance’ als speciaal geval genoemd: </p>
 
@@ -435,7 +435,7 @@
 
 
     </section>
-    </section>
+    
 
     <!-- Sectie 5.4 -->
     <section id='basisprincipes-referentiedata'>
