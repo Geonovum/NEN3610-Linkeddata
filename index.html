@@ -1231,16 +1231,16 @@ ex:Oud a ex:StatusPand ;
 
     </section>
     <!-- Sectie 7.4 -->
-    <section id='handmatige transformatie-encoding'>
-      <h1>Transformatie: handmatige aanpassing - encoding</h1>
+    <section id='specifieke transformatie-encoding'>
+      <h1>Transformatie: specifieke aanpassing - encoding</h1>
       <!-- Sectie 7.3.1 -->
       <section id='inleiding2'>
         <h2>Inleiding</h2>
-        <p> TODO: tekst over handmatige aanpassing nadat eerst de basis conversieregels zijn toegepast of overwogen</P>
+        <p> TODO: tekst over specifieke aanpassing nadat eerst de basis conversieregels zijn toegepast of overwogen</P>
       </section>
       <!-- Sectie 7.3.2 -->
       <section id='DSO:transformatieregels om tot een juist model te komeen'>
-        <h2>DSO: handmatige transformatieregels</h2>
+        <h2>DSO: specifieke transformatieregels</h2>
 
         <!-- Sectie 7.3.2.1 -->
         <section id='metamodeldso'>
@@ -1680,8 +1680,8 @@ ex:Oud a ex:StatusPand ;
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of OTL's. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
             zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht. 
             <br>
-            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een OTL 
-            in principe zo dicht mogelijk bij de standaard Linked data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
+            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een OTL 
+            in principe zo dicht mogelijk bij de standaard Linked Data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
             Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen. 
 
          
@@ -1715,19 +1715,11 @@ ex:Oud a ex:StatusPand ;
             <li>Het NEN3610 model zelf transformeren naar een OTL </li>
             <li>Het IMGolf 'standaard' model transformeren naar een OTL </li>
           </ol>
-          de regels die hiervoor toegepast worden zijn:
-          <ol>
-            <li>Objecten worden subclasses van coins:Object en van coins:CataloguePart </li>
-            <li>Waardelijsten worden vertaald naar coins:StringProperties </li>
-            <li>Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
-              N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. Deze tranformatie is moeilijk in een generieke regel te definieren. </li>
-            <li><a>Datatype</a> properties worden vertaald naar COINS Kenmerken: </li>
-            <ol type="a">
-              <li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
-              <li>DatatypeProperties informatie wordt gebruikt om een subklasse van COINS:EntityProperty te creëren </li>
-              <li>Domain en ranges worden goed gezet </li>
-            </ol>
-          </ol>
+           
+            Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
+              N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. 
+              Deze tranformatie is moeilijk in een generieke regel te definieren. 
+
           <p>
           Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
           Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een <a>GML</a>> file
@@ -1746,9 +1738,21 @@ ex:Oud a ex:StatusPand ;
             <h4>Klassen</h4>
               <section id='otl-regels-klassen-featureType'>
               <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
+              <pre class='ex-turtle'>
+  nen3610:GeoObject
+      rdfs:subClassOf cbim-2.0:CataloguePart ;
+      rdfs:subClassOf cbim-2.0:Object ;
+                </pre>
                 </section>
                 <section id='otl-regels-klassen-dataType'>
                     <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
+                    Klassen met stereotype dataType worden een subklasse van ComplexPropertyValue
+                <pre class='ex-turtle'>
+    IMGolf-otl:ToegangGolfbaan
+          rdf:type owl:Class ;
+          rdfs:subClassOf cbim-2.0:CataloguePart ;
+          rdfs:subClassOf cbim-2.0:ComplexPropertyValue ;
+                </pre>
                 </section>
                 <section id='otl-regels-klassen-union'>
                     <h5>Klasse met stereotype &laquo;union&raquo;</h5>
@@ -1758,14 +1762,54 @@ ex:Oud a ex:StatusPand ;
                 </section>
                 <section id='regels-klassen-enumeration'>
                     <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
+                Waardelijsten worden vertaald naar coins:StringProperties
                 </section>
  
                 <section id='otl-regels-klassen-codelist'>
                     <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+                    Waardelijsten worden vertaald naar coins:StringProperties
+                    <pre class='ex-turtle'>
+    IMGolf-otl:Natuurwaarde
+      rdf:type owl:Class ;
+      rdfs:subClassOf cbim-2.0:CataloguePart ;
+      rdfs:subClassOf cbim-2.0:StringProperty ;
+      .
+    IMGolf-otl:geen
+      rdf:type IMGolf-otl:Natuurwaarde ;
+      .
+    IMGolf-otl:hoog
+      rdf:type IMGolf-otl:Natuurwaarde ;
+      .
+    IMGolf-otl:laag
+      rdf:type IMGolf-otl:Natuurwaarde ;
+      .  
+                    </pre>
                 </section>
         </section>
               <section id='otl-regels-attributen'>
                 <h4>Attributen</h4>
+                <a>Datatype</a> properties worden vertaald naar COINS Kenmerken:
+            <ol type="a">
+              <ol>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </ol>
+              <ol>DatatypeProperties informatie wordt gebruikt om een subklasse van COINS:EntityProperty te creëren </ol>
+              <ol>Domain en ranges worden goed gezet </ol>
+            </ol>
+                <pre class='ex-turtle'>
+      IMGolf-otl:parcours_heeft_nummer
+          rdf:type owl:ObjectProperty ;
+          rdfs:domain IMGolf-otl:Parcours ;
+          rdfs:range IMGolf-otl:Nummer ;
+          rdfs:subPropertyOf cbim-2.0:hasProperties ;
+          .
+
+      IMGolf-otl:Nummer
+          rdf:type owl:Class ;
+          rdfs:subClassOf cbim-2.0:CataloguePart ;
+          rdfs:subClassOf cbim-2.0:IntegerProperty ;
+          .
+
+                </pre>
+
                 <section id='otl-regels-attributen-identificatie'>
                   <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
                 </section>
