@@ -1674,9 +1674,17 @@ ex:Oud a ex:StatusPand ;
         </section>
       </section>
       <!-- Sectie 7.3.3 -->
-      <section id='COINS:transformatieregels om tot een juist model te komeen'>
-        <h2>COINS: handmatige transformatieregels</h2>
+      <section id='Linked data in de bouwsector:transformatieregels om tot een juist model te komen'>
+        <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
 
+            In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of OTL's. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
+            zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht. 
+            <br>
+            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een OTL 
+            in principe zo dicht mogelijk bij de standaard Linked data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
+            Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen. 
+
+         
         <!-- Sectie 7.3.3.1 -->
         <section id='metamodelcoins'>
           <h3>Metamodel COINS</h3>
@@ -1686,7 +1694,7 @@ ex:Oud a ex:StatusPand ;
             <figcaption>Metamodel van COINS</figcaption>
           </figure>
         </section>
-
+      
         <!-- Sectie 7.3.3.2 -->
         <section id='transformatieregelscoins'>
           <h3>Transformatieregels COINS</h3>
@@ -1732,8 +1740,56 @@ ex:Oud a ex:StatusPand ;
           Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
           </p>
         </section>
-
-      </section>
+          <section id='transformatieregelsotl'>
+              <h3>Transformatieregels OTL</h3>
+        <section id='otl-regels-klassen'>
+            <h4>Klassen</h4>
+              <section id='otl-regels-klassen-featureType'>
+              <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
+                </section>
+                <section id='otl-regels-klassen-dataType'>
+                    <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
+                </section>
+                <section id='otl-regels-klassen-union'>
+                    <h5>Klasse met stereotype &laquo;union&raquo;</h5>
+                </section>
+                <section id='regels-klassen-external'>
+                    <h5>Klasse met stereotype &laquo;external&raquo;</h5>
+                </section>
+                <section id='regels-klassen-enumeration'>
+                    <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
+                </section>
+ 
+                <section id='otl-regels-klassen-codelist'>
+                    <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+                </section>
+        </section>
+              <section id='otl-regels-attributen'>
+                <h4>Attributen</h4>
+                <section id='otl-regels-attributen-identificatie'>
+                  <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
+                </section>
+                <section id='otl-regels-attributen-voidable'>
+                    <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
+                </section>
+                <section id='otl-regels-attributen-materieleHistorie'>
+                    <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+                  </section>
+                  <section id='otl-regels-attributen-formeleHistorie'>
+                    <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+                  </section>
+      
+                  <section id='otl-regels-attributen-materieleLevensduur'>
+                    <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+                  </section>
+      
+                  <section id='otl-regels-attributen-formeleLevensduur'>
+                    <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
+                  </section>
+              </section>
+            </section>
+          </section> 
+      
       <!-- Sectie 7.3.4 -->
       <section id='OroX:transformatieregels om tot een juist model te komen'>
         <h2>OroX: Specifieke transformatieregels</h2>
