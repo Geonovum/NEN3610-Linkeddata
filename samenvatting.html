@@ -1,0 +1,79 @@
+<h2>Samenvatting</h2>
+
+<p>Een Informatiestandaard en meer specifiek daarbinnen een informatiemodel, is een
+formele beschrijvingen van een begrippenkader dat wordt gebruikt binnen een
+toepassingsdomein binnen een digitale context. Op basis van
+informatiestandaarden wordt het proces van gegevensinwinning, gegevensdeling en
+het gebruik van gegevens ingericht. Informatiestandaarden vormen daarmee een
+belangrijk onderdeel van de architectuur van de digitale informatieoverheid, de
+i-overheid. In het raamwerk van geo-informatiestandaarden is het Basismodel
+Geo-informatie (NEN 3610) het handboek voor het opstellen van
+geo-informatiemodellen. NEN 3610 volgt hierin de aanpak van de ISO TC211
+Geo-information/Geomatics waarin object oriëntatie als principe en UML
+modelleringstaal als richtlijn worden genomen om informatiemodellen in te
+beschrijven.</p>
+
+<p>De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit
+verschillende domeinen aan elkaar moeten worden gekoppeld. De i-overheid vraagt
+hier ook om. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een
+uitdaging: tijdens de ontwikkeling van modellen voor specifieke
+informatiedomeinen worden impliciete aannames gemaakt die wel werken binnen een
+specifiek domein maar data integratie tussen domeinen kan compliceren. Hiernaast
+speelt een tweede ontwikkeling een rol. Organisaties hebben steeds meer te maken
+met een veelheid van informatiestandaarden die elk vanuit eigen perspectief van
+belang zijn en ook behouden moeten blijven. In plaats van een veelheid van 1 op
+1 transformaties of koppelingen tussen standaarden is men op zoek naar een
+mechanisme om met een algemeen koppelvlak semantische begrippen aan elkaar te
+kunnen relateren.</p>
+
+<p>Met (onder andere) deze uitdaging in gedachten, heeft het W3C een aantal
+\`recommendations’ (standaarden) opgesteld omtrent linked data. Deze standaarden
+specificeren methoden om de aannames rond datadefinities meer expliciet te maken
+en daardoor op een machine leesbare manier meer betekenis aan de data te geven,
+specifiek met het oog op integratie van data uit verschillende bronnen. De
+implementatie context is daarbij het WEB. Hier is dus een beweging van
+applicatie gericht naar WEB ondersteund.</p>
+
+<p>Er ontstaat hierbij een situatie dat binnen de wereld van informatiestandaarden
+de huidige manier van werken als traditioneel wordt bestempeld en linked data
+als de nieuwe, innovatieve oplossing wordt gepositioneerd. Dit document richt
+zich juist op de koppeling en integratie van beide methodes. Hier wordt inhoud
+aan gegeven door de NEN 3610 methodiek uit te drukken in linked data. Er is een
+NEN 3610 ontologie gemaakt en gepubliceerd die de basis legt voor een
+gezamenlijk vocabulaire voor geo-informatie-ontologien. Daarnaast zijn er
+transformatieregels opgesteld waarmee de in NEN 3610 gedefinieerde en in UML
+uitgedrukte geo-informatiemodellen getransformeerd kunnen worden naar
+geo-informatie-ontologien. Er wordt hierbij uitgegaan van internationale
+initiatieven die hier al voor ontwikkeld zijn o.a. bij INSPIRE, ISO en W3C. Door
+dit toe te passen en door te ontwikkelen in de Nederlandse context wordt deze
+kennis in Nederland geborgd in zowel de geo-uml als de geo-linked data
+community. Het levert ook weer kennis op die naar de internationale fora
+teruggebracht wordt.</p>
+
+<p>Het open samenwerkingsverband dat voor dit onderwerp door Geonovum is opgezet
+bestaat uit een verzameling van experts uit overheidspartijen die operationele
+toepassingen in linked data en geo-informatie ontwikkelen of beheren. Drie
+ontwikkelingen zijn hierin richtinggevened: de methode OroX, de methode COINS en
+de methode DSO. Deze soms ook verschillende methodes hebben een gezamenlijke
+basis in één generiek metamodel voor linked geo-data. Dit metamodel samen met
+het NEN 3610 metamodel is de basis voor een set aan generieke
+transformatieregels om een NEN 3610 informatiemodel te kunnen transformeren naar
+een eerste versie van een linked geo-data ontologie. Het resultaat hiervan is
+echter nog niet geoptimaliseerd voor linked data toepassingen en heeft maar
+beperkte operationele waarde. De data zijn als het ware nog maar beperkt
+gelinked in al bestaand vocabulaire en UML constructies werken onbedoeld en
+verkeerd door in de linked data ontologie. Door naast de generieke
+tranformatieregels nog specifieke regels te ontwikkelen wordt de kwaliteit van
+de ontologie verhoogd en de bruikbaarheid binnen de linked data context wel
+bereikt. De ontwikkelde transformatieregels zijn een handboek voor het omzetten
+van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is
+naar de verschillende linked data vocabulaires die hiervoor van toepassing zijn:
+RDF, RDFS, SKOS, OWL en SHACL.</p>
+
+<p>Door de transformatieregels te beschrijven en toe te passen op een fictief NEN
+3610 geo-informatiemodel van een golfbaan, IMGolf, is er een realistische
+testcase waarin de semantiek van een NEN 3610-UML met de semantiek van een
+resulterende linked data ontologie wordt vergeleken. Door vervolgens ook een
+dataset van een golfbaan in beide modellen uit te drukken ontstaat een volledige
+test van werkelijkheid naar abstract model van de werkelijkheid naar een data
+representatie van de werkelijkheid.</p>
