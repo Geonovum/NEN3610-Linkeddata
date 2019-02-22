@@ -1674,10 +1674,10 @@ ex:Oud a ex:StatusPand ;
       <section id='Linked data in de bouwsector:transformatieregels om tot een juist model te komen'>
         <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
 
-            In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of OTL's. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
+            In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
             zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht. 
             <br>
-            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een OTL 
+            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een <a>OTL</a> 
             in principe zo dicht mogelijk bij de standaard Linked Data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
             Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen. 
 
@@ -1709,17 +1709,15 @@ ex:Oud a ex:StatusPand ;
 
           <ol>
             <li>Importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
-            <li>Het NEN3610 model zelf transformeren naar een OTL </li>
-            <li>Het IMGolf 'standaard' model transformeren naar een OTL </li>
+            <li>Het NEN3610 model zelf transformeren naar een <a>OTL</a> </li>
+            <li>Het IMGolf 'standaard' model transformeren naar een <a>OTL</a> </li>
           </ol>
            
-            Object properties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
-              N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. 
-              Deze tranformatie is moeilijk in een generieke regel te definieren. 
+            
 
           <p>
           Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
-          Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een <a>GML</a>> file
+          Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een <a>GML</a> file
           Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object.
           In het IMGolf voorbeeld is er voor gekozen om de geometrie met geo:AsWKT op te nemen.
           </p>
@@ -1728,9 +1726,7 @@ ex:Oud a ex:StatusPand ;
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
           Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
           </p>
-        </section>
-          <section id='transformatieregelsotl'>
-              <h3>Transformatieregels OTL</h3>
+        
         <section id='otl-regels-klassen'>
             <h4>Klassen</h4>
               <section id='otl-regels-klassen-featureType'>
@@ -1751,12 +1747,12 @@ ex:Oud a ex:StatusPand ;
           rdfs:subClassOf cbim-2.0:ComplexPropertyValue ;
                 </pre>
                 </section>
-                <section id='otl-regels-klassen-union'>
+                <!--<section id='otl-regels-klassen-union'>
                     <h5>Klasse met stereotype &laquo;union&raquo;</h5>
                 </section>
                 <section id='regels-klassen-external'>
                     <h5>Klasse met stereotype &laquo;external&raquo;</h5>
-                </section>
+                </section>-->
                 <section id='regels-klassen-enumeration'>
                     <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
                 Waardelijsten worden vertaald naar coins:StringProperties
@@ -1807,7 +1803,7 @@ ex:Oud a ex:StatusPand ;
 
                 </pre>
 
-                <section id='otl-regels-attributen-identificatie'>
+               <!-- <section id='otl-regels-attributen-identificatie'>
                   <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
                 </section>
                 <section id='otl-regels-attributen-voidable'>
@@ -1826,7 +1822,30 @@ ex:Oud a ex:StatusPand ;
       
                   <section id='otl-regels-attributen-formeleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
-                  </section>
+                  </section>-->
+              </section>
+              <section  id='otl-regels-associaties'>
+                  <h4>Associaties</h4>
+                  Associaties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
+                  N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. 
+                  Deze tranformatie is moeilijk in een generieke regel te definieren. 
+                  <pre class='ex-turtle'>
+        IMGolf-otl:GolfbaanHeeftHole
+              rdf:type owl:Class ;
+              rdfs:label "Golfbaan heeft hole (parcours)" ;
+              rdfs:subClassOf IMGolf-otl:HeeftHole ;
+              rdfs:subClassOf [
+                  rdf:type owl:Restriction ;
+                  owl:allValuesFrom IMGolf-otl:Golfbaan ;
+                  owl:onProperty cbim-2.0:hasAssembly ;
+                ] ;
+              rdfs:subClassOf [
+                  rdf:type owl:Restriction ;
+                  owl:allValuesFrom IMGolf-otl:Parcours ;
+                  owl:onProperty cbim-2.0:hasPart ;
+                ] ;
+             .
+                  </pre>
               </section>
             </section>
           </section> 
@@ -2414,6 +2433,7 @@ ex:Oud a ex:StatusPand ;
     <p><dfn>W3C</dfn>: World Wide Web Consortium, internationale organisatie voor de standaardisatie van het het web.</p>
     <p><dfn>OGC</dfn>: Open Geospatial Consortium, internationale organisatie voor de standaardisatie van geo-informatie.</p>
     <p><dfn>OMG</dfn>: Object Management Group, internationale organisatie voor de standaardisatie van technische standaarden zoals UML.</p>
+    <p><dfn>OTL</dfn>: Object Type Library. Term die in de bouwsector gebruikt wordt en overeenkomt met <a>Ontologie</a>.</p>
 </section>
 </body>
 
