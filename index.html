@@ -337,6 +337,7 @@
       </ul>
       <aside class="note">Een IRI is gewoon een URI, maar beter internationaal bruikbaar omdat je in een IRI ook tekens uit niet-latijns schrift kan gebruiken.</aside>
       <p>Het is daarnaast ook belangrijk om precies te zijn over het <a>subject</a> dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een linked data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in linked data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een <a>triple</a>, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in linked data onderscheid gemaakt tussen <a>information resources</a> en <a>non-information resources</a>. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiele historie, zou je dit in linked data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
+      <p>Rond het onderwerp identificatie openbaart zich een ander belangrijk verschil tussen UML en OWL. Dit heeft te maken met de Unique Naming Assumption (<a>UNA</a>) in UML. Daarmee wordt namelijk gesteld dat een unieke ID naar een unieke entitiet verweist en dat een unieke entiteit door 1 unieke ID wordt aangeduid. Dit betekend dat 2 objecten met 2 verschillende ID's nooit naar het zelfde kunnen, dan wel mogen, verwijzen. Deze aanname zit niet aan de grondslag van linked data. Het idee is namelijk dat meerdere mensen iets over het zelfde ding kunnen zeggen, en dan kun je er vanuitgaan dat ze daar ook een andere ID voor hebben gebruikt. Door de <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a> relatie kan in linked data aangegeven worden dat twee verschillende ID's naar het zelfde ding verwijzen. </p>
     </section>
 
     <!-- Sectie 5.2 -->
@@ -348,8 +349,21 @@
       <p>Omdat de identiteit van een subject in linked data heel specifiek is moeten we in onze modellering van de klassen waartoe deze subjects kunnen behoren evenzo specifiek zijn.
         <!-- even uitleggen wat normalisatie hier betekent. Hoe 'normaler', hoe dichter bij de werkelijkheid. Hoe 'denormaler', hoe dichter bij de uiteindelijke implementatievorm. Een plaatje zou hierbij handig zijn. Idealiter vinden we een andere tekst die dit uitlegt.-->
         Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>, waarbij delen tot aan de tweede normaalvorm. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch <a>objectgeoriënteerde</a> insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
-      <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. De normaalvorm uit de relationele theorie die hier het dichtste bijkomt is de zesde normaalvorm.</p>
+      
+
+      
+      
+      <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden. De normaalvorm uit de relationele theorie die hier het dichtste bijkomt is de zesde normaalvorm.</p>
       <!-- behouden, iets duidelijker opschrijven-->
+            <figure>
+                  <img src="media/normalisatie1.png" >
+                  <figcaption> Een model van object perssoon in de eerste normaalvorm.</figcaption>
+                </figure>
+      
+      <figure>
+                  <img src="media/normalisatie2.png" >
+                  <figcaption> Een model van objecten perssoon en adres in de tweede normaalvorm.</figcaption>
+                </figure>
       <p>Normalisatie is dus uiterst belangrijk voor een goed linked data model. Maar, normalisatie is alleen mogelijk wanneer je de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed linked data model!</p>
       <p>Merk op dat het wel mogelijk is om een gedenormaliseerd model over te zetten in een correct (gedenormaliseerd) linked data model. Echter, gaat dit in tegen de principes van linked open data. De gedenormaliseerde entiteitsrepresentatie is namelijk per definitie niet meer herkenbaar in de open wereld. Het is verworden tot een beschrijving van iets wat enkel waarde heeft binnen een zeer specifieke (systeem) context, daarmee de herbruikbaarheid en de linkbaarheid van data verminderend.</p>
       <p>Een praktische richtlijn die hieruit volgt, is dat je wanneer je een klasse modelleert, alleen die eigenschappen aan een klasse toevoegt die direct tot deze dingen behoren, ofwel essentiele eigenschappen zijn. </p>
@@ -1108,40 +1122,27 @@ nen3610:versie a owl:DatatypeProperty;
           <section id='regels-klassen-external'>
             <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
-              ...
+              Indien in een model wordt verwezen naar een object in een andere registratie, kan de klasse waarnaar wordt verwezen worden opgenomen in het UML met het stereotype &laquo;external&raquo;.
+              <figure>
+                <img src="media/nen3610-external.png" height="130">
+                <figcaption>Klasse met stereotype &laquo;externaë&raquo;</figcaption>
+              </figure>
+              In een linked data omgeving is het gebruikelijk om gebruik te maken van bestaande ontologieën wanneer deze beschikbaar zijn. Als er een ontologie bestaat waar de externe klasse gedefinieerd is kun je direct gebruik maken van de klasse. Wanneer dit niet het geval is zal daar voor een eigen klasse geïntroduceerd moeten worden. Omdat dit per model kan verschillen worden klassen met stereotype &laquo;external&raquo; en de associaties naar deze klasse getransformeerd als een normale klasse en associatie maar met een herkenbare prefix <em>EXTERNAL_</em> zodat er handmatig bepaald kan worden wat de beste aanpak is voor het specifieke model.
             </p>
             <pre class='ex-turtle'>
-  ex:pand a owl:ObjectProperty ;
+  ex:EXTERNAL_pand a owl:ObjectProperty ;
+    rdfs:label "EXTERNAL pand" ;
     rdfs:domain ex:Gebouw ;
-    rdfs:range bag:Pand ;
+    rdfs:range ex:EXTERNAL_Pand ;
   .
 
-  # voorbeelddata:
-  data:gebouw-123 a ex:Gebouw ;
-    ex:pand bag-pand:0003100000117485 ;
+  ex:EXTERNAL_Pand a owl:Class ;
+    rdfs:label "EXTERNAL Pand" ;
   .
             </pre>
-            <p>
-              In dit specifieke geval is het aannemelijk dat met het gebouw daadwerkelijk dezelfde entiteit geïdentificeerd wordt als de entiteit die de gekoppelde instantie van bag:Pand ook identificeert. In dit geval is het ook mogelijk om deze twee instanties aan elkaar gelijk te stellen. Hier is zorgvuldigheid bij geboden [TODO ref owl:sameAs en ref contextualised semantics].
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
             </p>
-            <pre class='ex-turtle'>
-  data:gebouw-123 owl:sameAs bag-pand:0003100000117485 .
-          </pre>
-            <p>
-              Het is in linked data niet alleen mogelijk om objecten aan elkaar gelijk te stellen, maar het is daarnaast ook mogelijk om nieuwe eigenschappen van objecten te definiëren. In de filosofie van linked data betekent dat zoveel als nieuwe uitdrukkingen kunnen doen over een extern onderwerp (<a>subject</a>) in je eigen <a>vocabulaire</a>.
-              Stel dat we over het gebouw ook uitdrukkingen wensen te doen over de inhoud in m³. We hebben al besloten dat ons gebouw hetzelfde is als het externe BAG-pand en verwachten geen instanties van gebouwen die niet als pand in de BAG bestaan. Dan is het mogelijk om een eigenschap ex:inhoud te definieren die op instanties van panden uit de BAG gebruikt kan worden.
-            </p>
-            <pre class='ex-turtle'>
-  ex:inhoud a owl:DatatypeProperty ;
-    rdfs:domain bag:Pand ;
-    rdfs:range xsd:decimal ;
-  .
-
-  # voorbeelddata:
-  bag-pand:0003100000117485
-    ex:inhoud 804.6 ;
-  .
-          </pre>
           </section>
 
           <!-- Sectie 7.2.4.1.5 -->
@@ -1229,7 +1230,7 @@ ex:Oud a ex:StatusPand ;
       </section>
 
     </section>
-    <!-- Sectie 7.3 -->
+    <!-- Sectie 7.4 -->
     <section id='handmatige transformatie-encoding'>
       <h1>Transformatie: handmatige aanpassing - encoding</h1>
       <!-- Sectie 7.3.1 -->
@@ -1791,7 +1792,7 @@ ex:Oud a ex:StatusPand ;
       
       <!-- Sectie 7.3.4 -->
       <section id='OroX:transformatieregels om tot een juist model te komen'>
-        <h2>OroX: handmatige transformatieregels</h2>
+        <h2>OroX: Specifieke transformatieregels</h2>
 
         <!-- Sectie 7.3.4.1 -->
         <section id='metamodelorox'>
@@ -1814,8 +1815,24 @@ ex:Oud a ex:StatusPand ;
 
           <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
+		  
+		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE). 
+		  In de volgende tabel is dat aangegeven met “CE”.
+		  
+          <figure>
+            <img src="media/OroX Tabel Predicates.png">
+            <figcaption>De toegepaste predicates in GWSW-OroX</figcaption>
+          </figure>
+		  
+		  Voor het uitdrukken van class expressions voorziet OWL 2 in een groot aantal (restrictie) properties. 
+		  Daarmee kunnen we klassen expliciet onderscheiden, de volgende tabel geeft aan welke een opsomGWSW Ontologie bevat de volgende :
+          
+		  <figure>
+            <img src="media/OroX Tabel CE.png" height="300">
+            <figcaption>De toegepaste restricties in GWSW-OroX</figcaption>
+          </figure>
 
-          <br />Stucturen in de GWSW <a>ontologie</a> zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
+          <br />Soortenbomen in de GWSW <a>ontologie</a> zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
           Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom.
           <br />Er is veel analogie tussen OroX en <a>UML</a> te herkennen:
 
@@ -1840,7 +1857,8 @@ ex:Oud a ex:StatusPand ;
             </tr>
           </table>
 
-          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die (natuurlijk) omgezet in relaties.
+          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geobjectificeerd". 
+		  Zo worden attributen classes die met relaties verbonden zijn aan de UML-klasse.
 
           <br /><br /><b>UML-klassen</b>
 
@@ -1862,6 +1880,7 @@ ex:Oud a ex:StatusPand ;
               <td>gwsw:hasInput, gwsw:hasOutput</td>
             </tr>
           </table>
+
 
           <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
           Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF <a>ontologie</a>
