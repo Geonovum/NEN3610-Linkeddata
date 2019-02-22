@@ -1108,40 +1108,27 @@ nen3610:versie a owl:DatatypeProperty;
           <section id='regels-klassen-external'>
             <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
-              ...
+              Indien in een model wordt verwezen naar een object in een andere registratie, kan de klasse waarnaar wordt verwezen worden opgenomen in het UML met het stereotype &laquo;external&raquo;.
+              <figure>
+                <img src="media/nen3610-external.png" height="130">
+                <figcaption>Klasse met stereotype &laquo;externaë&raquo;</figcaption>
+              </figure>
+              In een linked data omgeving is het gebruikelijk om gebruik te maken van bestaande ontologieën wanneer deze beschikbaar zijn. Als er een ontologie bestaat waar de externe klasse gedefinieerd is kun je direct gebruik maken van de klasse. Wanneer dit niet het geval is zal daar voor een eigen klasse geïntroduceerd moeten worden. Omdat dit per model kan verschillen worden klassen met stereotype &laquo;external&raquo; en de associaties naar deze klasse getransformeerd als een normale klasse en associatie maar met een herkenbare prefix <em>EXTERNAL_</em> zodat er handmatig bepaald kan worden wat de beste aanpak is voor het specifieke model.
             </p>
             <pre class='ex-turtle'>
-  ex:pand a owl:ObjectProperty ;
+  ex:EXTERNAL_pand a owl:ObjectProperty ;
+    rdfs:label "EXTERNAL pand" ;
     rdfs:domain ex:Gebouw ;
-    rdfs:range bag:Pand ;
+    rdfs:range ex:EXTERNAL_Pand ;
   .
 
-  # voorbeelddata:
-  data:gebouw-123 a ex:Gebouw ;
-    ex:pand bag-pand:0003100000117485 ;
+  ex:EXTERNAL_Pand a owl:Class ;
+    rdfs:label "EXTERNAL Pand" ;
   .
             </pre>
-            <p>
-              In dit specifieke geval is het aannemelijk dat met het gebouw daadwerkelijk dezelfde entiteit geïdentificeerd wordt als de entiteit die de gekoppelde instantie van bag:Pand ook identificeert. In dit geval is het ook mogelijk om deze twee instanties aan elkaar gelijk te stellen. Hier is zorgvuldigheid bij geboden [TODO ref owl:sameAs en ref contextualised semantics].
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
             </p>
-            <pre class='ex-turtle'>
-  data:gebouw-123 owl:sameAs bag-pand:0003100000117485 .
-          </pre>
-            <p>
-              Het is in linked data niet alleen mogelijk om objecten aan elkaar gelijk te stellen, maar het is daarnaast ook mogelijk om nieuwe eigenschappen van objecten te definiëren. In de filosofie van linked data betekent dat zoveel als nieuwe uitdrukkingen kunnen doen over een extern onderwerp (<a>subject</a>) in je eigen <a>vocabulaire</a>.
-              Stel dat we over het gebouw ook uitdrukkingen wensen te doen over de inhoud in m³. We hebben al besloten dat ons gebouw hetzelfde is als het externe BAG-pand en verwachten geen instanties van gebouwen die niet als pand in de BAG bestaan. Dan is het mogelijk om een eigenschap ex:inhoud te definieren die op instanties van panden uit de BAG gebruikt kan worden.
-            </p>
-            <pre class='ex-turtle'>
-  ex:inhoud a owl:DatatypeProperty ;
-    rdfs:domain bag:Pand ;
-    rdfs:range xsd:decimal ;
-  .
-
-  # voorbeelddata:
-  bag-pand:0003100000117485
-    ex:inhoud 804.6 ;
-  .
-          </pre>
           </section>
 
           <!-- Sectie 7.2.4.1.5 -->
@@ -1229,7 +1216,7 @@ ex:Oud a ex:StatusPand ;
       </section>
 
     </section>
-    <!-- Sectie 7.3 -->
+    <!-- Sectie 7.4 -->
     <section id='handmatige transformatie-encoding'>
       <h1>Transformatie: handmatige aanpassing - encoding</h1>
       <!-- Sectie 7.3.1 -->
@@ -1735,7 +1722,7 @@ ex:Oud a ex:StatusPand ;
       </section>
       <!-- Sectie 7.3.4 -->
       <section id='OroX:transformatieregels om tot een juist model te komen'>
-        <h2>OroX: handmatige transformatieregels</h2>
+        <h2>OroX: Specifieke transformatieregels</h2>
 
         <!-- Sectie 7.3.4.1 -->
         <section id='metamodelorox'>
@@ -1758,8 +1745,24 @@ ex:Oud a ex:StatusPand ;
 
           <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
+		  
+		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE). 
+		  In de volgende tabel is dat aangegeven met “CE”.
+		  
+          <figure>
+            <img src="media/OroX Tabel Predicates.png">
+            <figcaption>De toegepaste predicates in GWSW-OroX</figcaption>
+          </figure>
+		  
+		  Voor het uitdrukken van class expressions voorziet OWL 2 in een groot aantal (restrictie) properties. 
+		  Daarmee kunnen we klassen expliciet onderscheiden, de volgende tabel geeft aan welke een opsomGWSW Ontologie bevat de volgende :
+          
+		  <figure>
+            <img src="media/OroX Tabel CE.png" height="300">
+            <figcaption>De toegepaste restricties in GWSW-OroX</figcaption>
+          </figure>
 
-          <br />Stucturen in de GWSW <a>ontologie</a> zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
+          <br />Soortenbomen in de GWSW <a>ontologie</a> zijn gebaseerd op de onderscheidende kenmerken van concepten. Door determineren, maken van voldoende keuzes wordt een soort gevonden.
           Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom.
           <br />Er is veel analogie tussen OroX en <a>UML</a> te herkennen:
 
@@ -1784,7 +1787,8 @@ ex:Oud a ex:StatusPand ;
             </tr>
           </table>
 
-          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die (natuurlijk) omgezet in relaties.
+          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geobjectificeerd". 
+		  Zo worden attributen classes die met relaties verbonden zijn aan de UML-klasse.
 
           <br /><br /><b>UML-klassen</b>
 
@@ -1806,6 +1810,7 @@ ex:Oud a ex:StatusPand ;
               <td>gwsw:hasInput, gwsw:hasOutput</td>
             </tr>
           </table>
+
 
           <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
           Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF <a>ontologie</a>
