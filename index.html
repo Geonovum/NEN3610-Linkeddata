@@ -1108,40 +1108,27 @@ nen3610:versie a owl:DatatypeProperty;
           <section id='regels-klassen-external'>
             <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
-              ...
+              Indien in een model wordt verwezen naar een object in een andere registratie, kan de klasse waarnaar wordt verwezen worden opgenomen in het UML met het stereotype &laquo;external&raquo;.
+              <figure>
+                <img src="media/nen3610-external.png" height="130">
+                <figcaption>Klasse met stereotype &laquo;externaë&raquo;</figcaption>
+              </figure>
+              In een linked data omgeving is het gebruikelijk om gebruik te maken van bestaande ontologieën wanneer deze beschikbaar zijn. Als er een ontologie bestaat waar de externe klasse gedefinieerd is kun je direct gebruik maken van de klasse. Wanneer dit niet het geval is zal daar voor een eigen klasse geïntroduceerd moeten worden. Omdat dit per model kan verschillen worden klassen met stereotype &laquo;external&raquo; en de associaties naar deze klasse getransformeerd als een normale klasse en associatie maar met een herkenbare prefix <em>EXTERNAL_</em> zodat er handmatig bepaald kan worden wat de beste aanpak is voor het specifieke model.
             </p>
             <pre class='ex-turtle'>
-  ex:pand a owl:ObjectProperty ;
+  ex:EXTERNAL_pand a owl:ObjectProperty ;
+    rdfs:label "EXTERNAL pand" ;
     rdfs:domain ex:Gebouw ;
-    rdfs:range bag:Pand ;
+    rdfs:range ex:EXTERNAL_Pand ;
   .
 
-  # voorbeelddata:
-  data:gebouw-123 a ex:Gebouw ;
-    ex:pand bag-pand:0003100000117485 ;
+  ex:EXTERNAL_Pand a owl:Class ;
+    rdfs:label "EXTERNAL Pand" ;
   .
             </pre>
-            <p>
-              In dit specifieke geval is het aannemelijk dat met het gebouw daadwerkelijk dezelfde entiteit geïdentificeerd wordt als de entiteit die de gekoppelde instantie van bag:Pand ook identificeert. In dit geval is het ook mogelijk om deze twee instanties aan elkaar gelijk te stellen. Hier is zorgvuldigheid bij geboden [TODO ref owl:sameAs en ref contextualised semantics].
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
             </p>
-            <pre class='ex-turtle'>
-  data:gebouw-123 owl:sameAs bag-pand:0003100000117485 .
-          </pre>
-            <p>
-              Het is in linked data niet alleen mogelijk om objecten aan elkaar gelijk te stellen, maar het is daarnaast ook mogelijk om nieuwe eigenschappen van objecten te definiëren. In de filosofie van linked data betekent dat zoveel als nieuwe uitdrukkingen kunnen doen over een extern onderwerp (<a>subject</a>) in je eigen <a>vocabulaire</a>.
-              Stel dat we over het gebouw ook uitdrukkingen wensen te doen over de inhoud in m³. We hebben al besloten dat ons gebouw hetzelfde is als het externe BAG-pand en verwachten geen instanties van gebouwen die niet als pand in de BAG bestaan. Dan is het mogelijk om een eigenschap ex:inhoud te definieren die op instanties van panden uit de BAG gebruikt kan worden.
-            </p>
-            <pre class='ex-turtle'>
-  ex:inhoud a owl:DatatypeProperty ;
-    rdfs:domain bag:Pand ;
-    rdfs:range xsd:decimal ;
-  .
-
-  # voorbeelddata:
-  bag-pand:0003100000117485
-    ex:inhoud 804.6 ;
-  .
-          </pre>
           </section>
 
           <!-- Sectie 7.2.4.1.5 -->
@@ -1229,7 +1216,7 @@ ex:Oud a ex:StatusPand ;
       </section>
 
     </section>
-    <!-- Sectie 7.3 -->
+    <!-- Sectie 7.4 -->
     <section id='handmatige transformatie-encoding'>
       <h1>Transformatie: handmatige aanpassing - encoding</h1>
       <!-- Sectie 7.3.1 -->
