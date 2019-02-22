@@ -129,5 +129,6 @@ var respecConfig = {
       href: "https://en.wikipedia.org/wiki/Application_programming_interface",
       publisher: "Wikipedia",
       date: "2019-02-22"
+     },
   }
 };
