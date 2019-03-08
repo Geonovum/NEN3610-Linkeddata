@@ -132,18 +132,21 @@ var respecConfig = {
      },
      UNA: {
        id: "UNA",
+       title: "Unique name assumption",
        href: "https://en.wikipedia.org/wiki/Unique_name_assumption",
        publisher: "Wikipedia",
        date: "20181212"
      },
      IRI: {
        id: "IRI",
+       title: "Internationalized resource identifier",
        href: "https://nl.wikipedia.org/wiki/Internationalized_resource_identifier",
        publisher: "Wikipedia", 
        date: "20180707"
      },
-     setorientatie: {
-       id: "setorientatie",
+    verzamelingenleer: {
+       id: "verzamelingenleer",
+       title: "Verzamelingenleer",
        href: "https://nl.wikipedia.org/wiki/Verzamelingenleer",
        publisher: "Wikipedia",
        date: "20181103"
