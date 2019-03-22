@@ -48,10 +48,12 @@ stage:Menu a elmo:Part;
       rdfs:label "Modelgeneratie";
       elmo:data [elmo:index "1"; rdfs:label "Upload data"; html:link "container/upload"];
       elmo:data [elmo:index "2"; rdfs:label "Upload model"; html:link "container/model"];
-      elmo:data [elmo:index "3"; rdfs:label "Genereer model vanuit data"; html:link "update/container2model"];
-      elmo:data [elmo:index "4"; rdfs:label "Genereer model vanuit golfbaandata"; html:link "update/data2model"];
-      elmo:data [elmo:index "5"; rdfs:label "Genereer metamodel vanuit model"; html:link "update/model2metamodel"];
-      elmo:data [elmo:index "6"; rdfs:label "Modelvisualisatie"; html:link "query/modelvisualisatie"];
+			elmo:data [elmo:index "3"; rdfs:label "Upload diagram"; html:link "container/diagram"];
+      elmo:data [elmo:index "4"; rdfs:label "Genereer model vanuit data"; html:link "update/container2model"];
+      elmo:data [elmo:index "5"; rdfs:label "Genereer model vanuit golfbaandata"; html:link "update/data2model"];
+      elmo:data [elmo:index "6"; rdfs:label "Genereer metamodel vanuit model"; html:link "update/model2metamodel"];
+      elmo:data [elmo:index "7"; rdfs:label "Modelvisualisatie (technisch)"; html:link "query/modelvisualisatie"];
+			elmo:data [elmo:index "8"; rdfs:label "Modelvisualisatie (logisch)"; html:link "query/modelvisualisatie-logisch"];
     ];
 		elmo:data [
 			elmo:index "7";
