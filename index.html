@@ -821,9 +821,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </figure>
 
       <p>Bovenstaand figuur geeft ons transformatiedoel weer. Zowel een <a>UML</a> model als een <a>RDF</a> model representeren een bepaalde <a>universe of discourse</a> (Uod), het deel van de wereld dat we wensen te beschrijven met ons model. Waarbij het model een vereenvoudigde weergave is van deze werkelijkheid. Ons transformatiedoel is geslaagd als het RDF model dat ontstaat vanuit de transformatie van het UML model een model is van dezelfde UoD als die van het originele UML model.</p>
-      <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillende uitgangspunten van UML en RDF te veel. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
-
-      <aside class="note">Een RDF model kan toch altijd een UML model omvatten? Dan is het ook automatisch te transformeren, anders omschrijven?</aside>
+      <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillen de uitgangspunten van UML en RDF te veel, zoals beschreven in <a href="#basisprincipes">hoofdstuk 5</a>. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
 
       <ul>
         <li>Een <i>correct</i> model betekent dat het RDF model voldoet aan alle constructie-eisen van een RDF model. Het model voldoet aan het <a>metamodel</a> dat we in dit document vaststellen.</li>
@@ -835,7 +833,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <figcaption>Correct vs Juist model</figcaption>
       </figure>
 
-      <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk kunnen zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, daadwerkelijk om te zetten naar RDF, waarbij een automatische vertaller zou kunnen worden gemaakt, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model als input dienen.</p>
+      <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
 
       <figure>
         <img src="media/transformatiedoel.png">
@@ -845,25 +843,24 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     </section>
 
     <!-- Sectie 7.2 -->
-    <section id='transformatiebron' class="informative">
+    <section id='transformatiebron'>
+
       <h2>Bronmodel: NEN3610 metamodel</h2>
-      <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
-
-      <p>Metamodel NEN 3610. (2017-11-9)</p>
-
-      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
+      <p>Het bronmodel in de transformatie moet voldoen aan het metamodel achter NEN 3610.</p>
+      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
 
       <figure>
         <img src="media/metamodel_attributes.png" height="795">
         <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
       </figure>
 
-      <p>Toelichting op metamodel NEN 3610.</p>
+      <section id='nen3610-toelichting'>
+        <h3>Toelichting op metamodel NEN 3610</h3>
 
-      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn <a>feature type</a>. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &laquo;FeatureType&raquo;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 <a>supertypen</a>; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
-        Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een <a>union</a> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
-      </p>
-
+        <p>Voor NEN 3610 is <code>Objecttype</code> een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn <a>feature type</a>. Een <code>FeatureType</code> is een <code>Objecttype</code> dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype <code>GeoObject</code>. Een <code>GeoObject</code> heeft dus als stereotype <code>&laquo;FeatureType&raquo;</code>. Dit is identiek aan de ISO191xx set van standaarden. Een <code>FeatureType</code> heeft 0 of 1 <a>supertypen</a>; 0 of meer eigenschappen (<code>EigenschapType</code>); 0 of meer beperkingen (<code>Constraint</code>). Eigenschappen zijn attributen (<code>AttribuutType</code>) of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol (<code>Associatierol</code>) van het ‘target objecttype’.</p>
+        <p>Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een <code>DataType</code> is een <code>PrimitiefDatatype</code> (integer, characterstring boolean, gm_surface enz), een <code>Waardelijst</code>, een <code>Union</code> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een <code>Union</code> faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een <code>Enumeratie</code> is een niet uitbreidbare <code>Waardelijst</code> in de namespace van het model. Een <code>CodeList</code> is een externe lijst waarvan de waarden buiten het model worden beheerd.
+        </p>
+      </section>
     </section>
 
     <!-- Sectie 7.3 -->
