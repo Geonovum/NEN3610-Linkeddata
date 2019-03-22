@@ -1125,22 +1125,34 @@ nen3610:versie a owl:DatatypeProperty;
           <!-- Sectie 7.2.4.1.5 -->
           <section id='regels-klassen-enumeration'>
             <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
-
-            <aside class="note"> Zoiets:
-              <pre class='ex-turtle'>
-ex:StatusPand
-  a                      owl:Class ;
-  rdfs:label             "Realisatie-status van het pand"@nl ;
-  rdfs:subClassOf
-  [
-     a                     owl:Class ;
-     owl:oneOf             (ex:Ontwerp ex:Nieuw ex:Oud)
-  ] .
-ex:Ontwerp a ex:StatusPand .
-ex:Nieuw a ex:StatusPand .
-ex:Oud a ex:StatusPand .
-          </pre>
-            </aside>
+            <p>
+              Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
+              <figure>
+                <img src="media/nen3610-enumeration.png" height="350">
+                <figcaption>
+                  Klasse met stereotype &laquo;enumeration&raquo;
+                </figcaption>
+              </figure>
+            </p>
+            <p>
+              Een enumeratie kan verschillende soorten dingen opsommen. Een lijst met waardes, bijv. een opsomming van nummers, maar ook een lijst met concepten, datatypes , of objecten. Het is dan ook niet triviaal om een goede automatische vertaling te bepalen die een enumeratie kan vertalen naar linked data. Om deze reden kiezen we voor een standaardtransformatie naar een klasse gelijknamig aan de enumeratieklasse, en instanties van deze klasse voor elk van de geenumereerde waardes.
+              De genumereeerde waardes worden ook met een <code>owl:oneOf</code> constructie begrensd door de enumeratieklasse.
+            </p>
+            <pre class='ex-turtle'>
+imgolf:NatuurwaardeValue a owl:Class ;
+rdfs:label "Natuurwaarde value"@nl ;
+rdfs:subClassOf [
+  a owl:Class ;
+  owl:oneOf (imgolf:Hoog imgolf:Laag imgolf:Geen) ;
+] ;
+.
+imgolf:Hoog a imgolf:NatuurwaardeValue .
+imgolf:Laag a imgolf:NatuurwaardeValue .
+imgolf:Geen a imgolf:NatuurwaardeValue .
+            </pre>
+            <p><b>vergelijking met andere best practices</b><br>
+              In [[INSPIRERDF]] wordt voorgeschreven om een enumeratie te modelleren als <code>rdfs:Datatype</code> in plaats van als klasse. Dit leidt tot enumeratiewaardes die een literal zijn, met het datatype van de enumeratie. Bijvoorbeeld <code>"hoog"^^imgolf:NatuurwaardeValue</code>. De reden om hiervan af te wijken is omdat enumeraties vaker waardelijsten zijn die een object of concept modelleren, dan een lijst van letterlijke waardes. Door deze waardes als objecten te modelleren blijft het mogelijk om nieuwe uitdrukkingen te doen over de waardes.
+            </p>
           </section>
           <!-- Sectie 7.2.4.1.6 -->
           <section id='regels-klassen-codelist'>
@@ -1568,35 +1580,6 @@ ex:Oud a ex:StatusPand ;
             <!-- Sectie 7.3.2.2.1.5 -->
             <section id='dso-regels-klassen-enumeration'>
               <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
-
-              <p>
-                Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
-                <figure>
-                  <img src="media/nen3610-enumeration.png" height="350">
-                  <figcaption>
-                    Klasse met stereotype &laquo;enumeration&raquo;
-                  </figcaption>
-                </figure>
-              </p>
-              <p>
-                Een enumeratie kan verschillende soorten dingen opsommen. Een lijst met waardes, bijv. een opsomming van nummers, maar ook een lijst met concepten, datatypes , of objecten. Het is dan ook niet triviaal om een goede automatische vertaling te bepalen die een enumeratie kan vertalen naar linked data. Om deze reden kiezen we voor een standaardtransformatie naar een klasse gelijknamig aan de enumeratieklasse, en instanties van deze klasse voor elk van de geenumereerde waardes.
-                De genumereeerde waardes worden ook met een <code>owl:oneOf</code> constructie begrensd door de enumeratieklasse.
-              </p>
-              <pre class='ex-turtle'>
-imgolf:NatuurwaardeValue a owl:Class ;
-  rdfs:label "Natuurwaarde value"@nl ;
-  rdfs:subClassOf [
-    a owl:Class ;
-    owl:oneOf (imgolf:Hoog imgolf:Laag imgolf:Geen) ;
-  ] ;
-.
-imgolf:Hoog a imgolf:NatuurwaardeValue .
-imgolf:Laag a imgolf:NatuurwaardeValue .
-imgolf:Geen a imgolf:NatuurwaardeValue .
-              </pre>
-              <p><b>vergelijking met andere best practices</b><br>
-                In [[INSPIRERDF]] wordt voorgeschreven om een enumeratie te modelleren als <code>rdfs:Datatype</code> in plaats van als klasse. Dit leidt tot enumeratiewaardes die een literal zijn, met het datatype van de enumeratie. Bijvoorbeeld <code>"hoog"^^imgolf:NatuurwaardeValue</code>. De reden om hiervan af te wijken is omdat enumeraties vaker waardelijsten zijn die een object of concept modelleren, dan een lijst van letterlijke waardes. Door deze waardes als objecten te modelleren blijft het mogelijk om nieuwe uitdrukkingen te doen over de waardes.
-              </p>
             </section>
             <!-- Sectie 7.3.2.2.1.6 -->
             <section id='dso-regels-klassen-codelist'>
