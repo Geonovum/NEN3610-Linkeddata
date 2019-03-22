@@ -1713,13 +1713,14 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <p>
           In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
-          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a>
+          Meer informatie hierover kan gevonden worden in het <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">Eindrapport OTL-BOR</a>.
           </p>
         
         <section id='otl-regels-klassen'>
             <h4>Klassen</h4>
               <section id='otl-regels-klassen-featureType'>
               <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
+              Klassen met stereotype featureType worden een subklasse van Object en van CataloguePart.
               <pre class='ex-turtle'>
   nen3610:GeoObject
       rdfs:subClassOf cbim-2.0:CataloguePart ;
@@ -1728,7 +1729,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
                 </section>
                 <section id='otl-regels-klassen-dataType'>
                     <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
-                    Klassen met stereotype dataType worden een subklasse van ComplexPropertyValue
+                    Klassen met stereotype dataType worden een subklasse van ComplexPropertyValue.
                 <pre class='ex-turtle'>
     IMGolf-otl:ToegangGolfbaan
           rdf:type owl:Class ;
@@ -1736,12 +1737,21 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           rdfs:subClassOf cbim-2.0:ComplexPropertyValue ;
                 </pre>
                 </section>
-                <!--<section id='otl-regels-klassen-union'>
+                <section id='otl-regels-klassen-union'>
                     <h5>Klasse met stereotype &laquo;union&raquo;</h5>
+                    Voor een union gelden in principe geen andere regels dan de standaard transformatie.
                 </section>
                 <section id='regels-klassen-external'>
                     <h5>Klasse met stereotype &laquo;external&raquo;</h5>
-                </section>-->
+                    Voor een external type wordt een ObjectProperty voor aangemaakt met als range het externe object.
+                    <pre class='ex-turtle'>
+      IMGolf-otl:golfbaan_heeft_AdresseerbaarObject
+        rdf:type owl:ObjectProperty ;
+        rdfs:domain IMGolf-otl:Golfbaan ;
+        rdfs:range &#x3C;http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject&#x3E; ;
+        rdfs:subPropertyOf cbim-2.0:hasProperties ;.
+                    </pre>
+                </section>
                 <section id='regels-klassen-enumeration'>
                     <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
                 Waardelijsten worden vertaald naar coins:StringProperties
