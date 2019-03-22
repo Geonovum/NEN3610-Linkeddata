@@ -107,4 +107,12 @@ shape:NEN3610Identificatie a sh:NodeShape;
 		sh:maxLength 25 ;
 		sh:message "versie voldoet niet aan de eisen" ;
 	];
+	sh:property [
+		sh:name "rdf:value";
+		sh:path rdf:value;
+		sh:datatype xsd:string;
+		sh:maxCount 1;
+		sh:pattern "^[A-Za-z0-9_,.-]*$" ;
+		sh:message "value voldoet niet aan de eisen" ;
+	];
 .
