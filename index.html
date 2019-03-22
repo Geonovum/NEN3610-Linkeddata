@@ -1179,7 +1179,22 @@ ex:Oud a ex:StatusPand ;
           <!-- Sectie 7.2.4.2.1 -->
           <section id='regels-attributen-identificatie'>
             <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
-            <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
+            <p>
+              Er is geen transformatie nodig voor attributen met dit stereotype. Voorkomens van deze identificaties kunnen direct gebruik maken van de identificatie constructen in het <a href="https://definities.geostandaarden.nl/def/nen3610#">NEN3610 vocabulaire</a>.
+              Op basis van het NEN3610 vocabulaire kan een identificatie-instantie er zo uit zien:
+            </p>
+            <pre class='ex-turtle'>
+ex:ex:NL.IMGOLF.1-v01 a imgolf:Golfbaan ;
+nen3610:identificatie ex:id-NL.IMGOLF.1-v01 ;
+.
+
+ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
+nen3610:namespace "NL.IMGOLF" ;
+nen3610:lokaalID "1" ;
+nen3610:versie "v01" ;       # optioneel
+rdf:value "NL.IMGOLF.1-v01"  # optioneel om de samengestelde identificatie op te nemen
+.
+            </pre>
           </section>
 
           <!-- Sectie 7.2.4.2.2 -->
