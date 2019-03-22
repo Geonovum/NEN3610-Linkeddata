@@ -188,7 +188,7 @@
     <p>NEN 3610 is als standaard in het leven geroepen om geo-informatie eenduidig uit te kunnen wisselen tussen Nederlandse organisaties. Met het oog op bovenstaande ontwikkelingen wordt het relevant om te kijken hoe de NEN 3610 standaard in de context van Linked Data uit te drukken om uiteindelijk het data integratie proces binnen en ook buiten het geo-domein, te bevorderen. Van belang hierbij is ook te beseffen dat beide methoden elkaar niet uitsluiten maar juist complementair zijn in hun toepassing. UML-OO met informatiemodellen voor definitie van data uitwisseling in een gecontroleerde omgeving en Linked Data met kennismodellen als mechanisme voor data-integratie en publicatie in de open WEB-omgeving.</p>
 
         <figure>
-          <img src="media/UML-OO en LD.png">
+          <img src="media/UML-OO en LD.png" height="350">
           <figcaption>Openen van de data silo's. 'UML-OO NEN 3610' en 'Linked data methode' naast elkaar.</figcaption>
         </figure>
 
@@ -203,23 +203,13 @@
 
     <p>Er zijn een aantal standaarden en handleidingen die relevant zijn voor de implementatie van geo in LD. Het gaat hierbij specifiek om standaarden die gericht zijn op de relatie tussen modellering van geo-informatie en implementatie daarvan in LD. Van elke standaard wordt kort het toepassingsgebied, een samenvatting en de relevantie voor het NEN 3610 - LD profiel beschreven </p>
 
-    <ul>
-      <li>naam:</li>
-      <li>url:</li>
-      <li>type document: standaard, richtlijn, best practice etc.</li>
-      <li>organisatie:</li>
-      <li>scope:</li>
-      <li>omschrijving:</li>
-      <li>relevantie:</li>
-      <li>inhoudelijke opmerkingen:</li>
-    </ul>
-
-    <p>Lijst van standaarden en handreikingen:</p>
+    <p>De volgende standaarden en handreikingen worden behandeld:</p>
     <ul>
       <li>ISO 19150-2: 2015 - Geographic information -- Ontology -- Part 2: Rules for developing ontologies in the Web Ontology Language (OWL)</li>
       <li>INSPIRE - Guidelines for the RDF encoding of spatial data</li>
       <li>W3C - Spatial Data on the Web Best Practices</li>
       <li>Betekenisvol verbinden van informatie met BP4mc2-praktijkervaringen</li>
+      <li>Linked Data Proxy (LDProxy)</li>
     </ul>
 
     <!-- Sectie 4.1 -->
@@ -1477,10 +1467,9 @@ ex:Oud a ex:StatusPand ;
     .
               </pre>
               <p><b>vergelijking met andere best practices</b><br>
-                <p>
-                  In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot he creeren van instanties die de union uitdrukken.
-                </p>
-                <pre class='ex-turtle'>
+                In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot he creeren van instanties die de union uitdrukken.
+              </p>
+              <pre class='ex-turtle'>
     ex:Perceel a owl:Class ;
       rdfs:subClassOf [
         owl:UnionOf (
@@ -1604,7 +1593,10 @@ imgolf:NatuurwaardeValue a owl:Class ;
 imgolf:Hoog a imgolf:NatuurwaardeValue .
 imgolf:Laag a imgolf:NatuurwaardeValue .
 imgolf:Geen a imgolf:NatuurwaardeValue .
-             </pre>
+              </pre>
+              <p><b>vergelijking met andere best practices</b><br>
+                In [[INSPIRERDF]] wordt voorgeschreven om een enumeratie te modelleren als <code>rdfs:Datatype</code> in plaats van als klasse. Dit leidt tot enumeratiewaardes die een literal zijn, met het datatype van de enumeratie. Bijvoorbeeld <code>"hoog"^^imgolf:NatuurwaardeValue</code>. De reden om hiervan af te wijken is omdat enumeraties vaker waardelijsten zijn die een object of concept modelleren, dan een lijst van letterlijke waardes. Door deze waardes als objecten te modelleren blijft het mogelijk om nieuwe uitdrukkingen te doen over de waardes.
+              </p>
             </section>
             <!-- Sectie 7.3.2.2.1.6 -->
             <section id='dso-regels-klassen-codelist'>
@@ -1719,12 +1711,12 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
           Een mogelijkheid is om een ShapeRepresentation instantie op te nemen met een verwijzing naar bijvoorbeeld een <a>GML</a> file
           Een andere mogelijkheid is om een geosparql geometrie op te nemen als eigenschap bij een COINS object.
-          In het IMGolf voorbeeld is er voor gekozen om de geometrie met geo:AsWKT op te nemen.
+          In het IMGolf voorbeeld is er voor gekozen om de geometrie op de geosparql wijze met geo:AsWKT op te nemen.
           </p>
           <p>
           In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
-          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
+          Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a>
           </p>
 
         <section id='otl-regels-klassen'>

@@ -57,6 +57,31 @@ IMGolf-otl:Golfbaan
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/beginTijd> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/objectbeginTijd> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/eindTijd> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/objecteindTijd> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty IMGolf-otl:golfbaan_heeft_AdresseerbaarObject ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:onClass IMGolf-otl:Gebruiksstatus ;
       owl:onProperty IMGolf-otl:golfbaan_heeft_gebruiksstatus ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -249,12 +274,12 @@ IMGolf-otl:Hole
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#beginGeldigheid> ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/beginGeldigheid> ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:minCardinality "0"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#eindGeldigheid> ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/eindGeldigheid> ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -292,6 +317,26 @@ IMGolf-otl:Parcours
   rdfs:label "Parcours" ;
   rdfs:subClassOf <http://definities.geostandaarden.nl/def/nen3610#GeoObject> ;
   rdfs:subClassOf <http://www.coinsweb.nl/cbim-2.0.rdf#Part> ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/beginGeldigheid> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/tijdstipRegistratie> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/eindGeldigheid> ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty <http://otl.connecteddata.nl/nen3610-otl/eindRegistratie> ;
+    ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -409,14 +454,14 @@ IMGolf-otl:ToegangGolfbaan
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass IMGolf-otl:Etiquette ;
-      owl:onProperty IMGolf-otl:toeganggolfbaan_heeft_etiquette ;
-      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onClass IMGolf-otl:Toegangkelijkheid ;
+      owl:onProperty IMGolf-otl:toeganggolfbaan_heeft_toegangkelijkheid ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:onClass IMGolf-otl:Toegangkelijkheid ;
-      owl:onProperty IMGolf-otl:toeganggolfbaan_heeft_toegangkelijkheid ;
+      owl:onClass IMGolf-otl:Etiquette ;
+      owl:onProperty IMGolf-otl:toeganggolfbaan_heeft_etiquette ;
       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
     ] ;
   rdfs:subClassOf [
@@ -488,6 +533,13 @@ IMGolf-otl:geen
   a IMGolf-otl:Natuurwaarde ;
   rdfs:label "geen" ;
 .
+IMGolf-otl:golfbaan_heeft_AdresseerbaarObject
+  a owl:ObjectProperty ;
+  rdfs:domain IMGolf-otl:Golfbaan ;
+  rdfs:label "golfbaan heeft gebruiksstatus" ;
+  rdfs:range <http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject> ;
+  rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
+.
 IMGolf-otl:golfbaan_heeft_gebruiksstatus
   a owl:ObjectProperty ;
   rdfs:domain IMGolf-otl:Golfbaan ;
@@ -505,21 +557,21 @@ IMGolf-otl:golfbaan_heeft_golfbaanheefthole
 IMGolf-otl:golfbaan_heeft_heefttoegang
   a owl:ObjectProperty ;
   rdfs:domain IMGolf-otl:Golfbaan ;
-  rdfs:label "parcoursdeel heeft heefttoegang" ;
+  rdfs:label "golfbaan heeft heefttoegang" ;
   rdfs:range IMGolf-otl:HeeftToegang ;
   rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
 .
 IMGolf-otl:golfbaan_heeft_naam
   a owl:ObjectProperty ;
   rdfs:domain IMGolf-otl:Golfbaan ;
-  rdfs:label "parcoursdeel heeft naam" ;
+  rdfs:label "golfbaan heeft naam" ;
   rdfs:range IMGolf-otl:Naam ;
   rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
 .
 IMGolf-otl:golfbaan_heeft_natuurwaarde
   a owl:ObjectProperty ;
   rdfs:domain IMGolf-otl:Golfbaan ;
-  rdfs:label "parcoursdeel heeft natuurwaarde" ;
+  rdfs:label "golfbaan heeft natuurwaarde" ;
   rdfs:range IMGolf-otl:Natuurwaarde ;
   rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
 .
