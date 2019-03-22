@@ -536,7 +536,7 @@ IMGolf-otl:geen
 IMGolf-otl:golfbaan_heeft_AdresseerbaarObject
   a owl:ObjectProperty ;
   rdfs:domain IMGolf-otl:Golfbaan ;
-  rdfs:label "golfbaan heeft gebruiksstatus" ;
+  rdfs:label "golfbaan heeft AdresseerbaarObject" ;
   rdfs:range <http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject> ;
   rdfs:subPropertyOf <http://www.coinsweb.nl/cbim-2.0.rdf#hasProperties> ;
 .
