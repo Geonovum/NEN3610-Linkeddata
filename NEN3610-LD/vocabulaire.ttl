@@ -12,13 +12,15 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix schema: <http://schema.org/>.
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
 
 # Ontology
 <http://definities.geostandaarden.nl/def/nen3610> a owl:Ontology;
-	rdfs:label "NEN3610 Vocabulaire";
+	rdfs:label "NEN3610 Ontologie"@nl;
+	rdfs:label "NEN3610 Ontology"@en;
 .
 
 # Imported
@@ -26,45 +28,62 @@ geosparql:Feature a owl:Class;
 	rdfs:label "Feature"@en;
 	rdfs:comment "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types."@en;
 .
-<http://schema.org/Place> a owl:Class;
+schema:Place a rdfs:Class;
 	rdfs:label "Place"@en;
 	rdfs:comment "Entities that have a somewhat fixed, physical extension."@en;
+.
+schema:AdministrativeArea a rdfs:Class;
+	rdfs:label "AdministrativeArea"@en;
+	rdfs:comment "A geographical region, typically under the jurisdiction of a particular government."@en;
+	rdfs:subClassOf schema:Place;
 .
 
 # Klasse-model
 nen3610:GeoObject a owl:Class;
-	rdfs:label "Geo-object"@nl ;
+	rdfs:label "Geo-object"@nl;
+	rdfs:label "Geo-object"@en;
 	dcterms:subject concept:GeoObject;
-	rdfs:subClassOf geosparql:Feature ;
-	rdfs:seeAlso <http://schema.org/Place> # possibly rdfs:subClassOf?? would be interesting
+	rdfs:subClassOf geosparql:Feature;
+	rdfs:seeAlso schema:Place;
 .
 nen3610:Weg a owl:Class;
 	rdfs:label "Weg"@nl;
+	rdfs:label "Street"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Weg;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Terrein a owl:Class;
 	rdfs:label "Terrein"@nl;
+	rdfs:label "Terrain"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Terrein;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Water a owl:Class;
 	rdfs:label "Water"@nl;
+	rdfs:label "Water"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Water;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Spoorbaan a owl:Class;
 	rdfs:label "Spoorbaan"@nl;
+	rdfs:label "Railroad"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Spoorbaan;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Gebouw a owl:Class;
 	rdfs:label "Gebouw"@nl;
+	rdfs:label "Building"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Gebouw;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Leiding a owl:Class;
 	rdfs:label "Leiding"@nl;
+	rdfs:label "Pipe"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Leiding;
 .
@@ -72,40 +91,50 @@ nen3610:Kunstwerk a owl:Class;
 	rdfs:label "Kunstwerk"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Kunstwerk;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Inrichtingselement a owl:Class;
 	rdfs:label "Inrichtingselement"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:Inrichtingselement;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:RegistratiefGebied a owl:Class;
 	rdfs:label "Registratief gebied"@nl;
+	rdfs:label "Administrative area"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:RegistratiefGebied;
+	rdfs:subClassOf schema:AdministrativeArea;
 .
 nen3610:GeografischGebied a owl:Class;
 	rdfs:label "Geografisch gebied"@nl;
+	rdfs:label "Geographical area"@en;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:GeografischGebied;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:FunctioneelGebied a owl:Class;
 	rdfs:label "Functioneel gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:FunctioneelGebied
+	rdfs:subClassOf schema:Place;
 .
 nen3610:PlanologischGebied a owl:Class;
 	rdfs:label "Planologisch gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
 	dcterms:subject concept:PlanologischGebied;
+	rdfs:subClassOf schema:Place;
 .
 nen3610:Identificatie a owl:Class;
 	rdfs:label "Identificatie"@nl;
+	rdfs:label "Identification"@en;
 	dcterms:subject concept:Identificatie;
 .
 
 # Attributen
 nen3610:identificatie a owl:ObjectProperty;
 	rdfs:label "identificatie"@nl;
+	rdfs:label "identification"@en;
 	dcterms:subject concept:Identificatie;
 	rdfs:range nen3610:Identificatie;
 .
@@ -119,6 +148,7 @@ nen3610:namespace a owl:DatatypeProperty;
 .
 nen3610:lokaalID a owl:DatatypeProperty;
 	rdfs:label "lokaalID"@nl;
+	rdfs:label "localID"@en;
 	skos:definition "unieke identificatiecode binnen een registratie";
 	skos:scopeNote "'lokaalID' is de identificatiecode die een object heeft binnen een (lokale) registratie.";
 	rdfs:domain nen3610:Identificatie;
@@ -126,16 +156,19 @@ nen3610:lokaalID a owl:DatatypeProperty;
 .
 nen3610:versie a owl:DatatypeProperty;
 	rdfs:label "versie"@nl;
+	rdfs:label "version"@en;
 	skos:definition "versie-aanduiding van een object";
 	skos:scopeNote "Het attribuut 'versie' maakt geen deel uit van de identificatie van het object maar kan worden gebruikt om verschillende versies van hetzelfde object te identificeren.";
 	rdfs:domain nen3610:Identificatie;
 	rdfs:range xsd:string;
 .
 nen3610:beginGeldigheid a owl:DatatypeProperty;
-	rdfs:label "beginGeldigheid";
+	rdfs:label "beginGeldigheid"@nl;
+	rdfs:label "validFrom"@en;
 	dcterms:subject concept:BeginGeldigheid;
 .
 nen3610:eindGeldigheid a owl:DatatypeProperty;
-	rdfs:label "eindGeldigheid";
+	rdfs:label "eindGeldigheid"@nl;
+	rdfs:label "validTo"@en;
 	dcterms:subject concept:EindGeldigheid;
 .

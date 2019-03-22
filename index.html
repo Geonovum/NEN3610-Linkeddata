@@ -452,7 +452,7 @@
   <section id='nen3610ld'>
     <h1>De NEN3610 ontologie</h1>
     <p>NEN 3610 beschrijft algemene regels voor het opstellen van een <a>UML</a> informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in <a>RDF</a>.</p>
-    <p>De NEN3610 ontologie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN3610 standaard [[NEN3610]]. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN3610 tekst leidend.</p>
+    <p>De NEN3610 ontologie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN3610 tekst leidend.</p>
     <p>Het NEN3610 Linked Data profiel bestaat uit de volgende onderdelen:</p>
     <ul>
       <li><i>Verwijzingen</i>: metadata van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
@@ -467,6 +467,9 @@
       <p>Elk van deze verwijzingen zijn opgenomen in het NEN3610 Linked Data model. Bij het terugverwijzen naar de standaard, verwijzen we precies naar de sectie in de standaard. Alleen die onderdelen die we ook daadwerkelijk gebruiken als bron zijn opgenomen.</p>
       <p>Alle URI's voor verwijzingen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/document/</code></p>
       <p>Een volledige <a>turtle</a> download is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/referenties.ttl">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/referenties.ttl</a></p>
+      <!--
+      <p>Een volledige <a>turtle</a> download is te vinden op: <a href="http://definities.geostandaarden.nl/nen3610/id/documenten.ttl">http://definities.geostandaarden.nl/nen3610/id/documenten.ttl</a></p>
+      -->
       <p>De volgende vocabulaires zijn gebruikt:</p>
       <table>
         <tbody>
@@ -728,16 +731,9 @@
           </tr>
         </tbody>
       </table>
-      <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse. Voor de aansluiting met search engines, is ook een eerste aanzet gemaakt om te verbinden met schema.org</p>
-      <p class='issue'>Uitgezocht moet worden of we een geo-object ook een subklasse kunnen maken van schema.org/Place, of dat we niet verder komen dan seeAlso.</p>
-      <pre class="turtle">
-nen3610:GeoObject a owl:Class;
-  rdfs:label "Geo-object"@nl ;
-  dcterms:subject concept:GeoObject;
-  rdfs:subClassOf geosparql:Feature ;
-  rdfs:seeAlso &lt;http://schema.org/Place>
-.
-      </pre>
+      <p>Om de NEN3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN3610 ook "gelezen" worden in een bredere context.</p>
+      <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
+      <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: https://schema.org/Place en https://schema.org/AdministrativeArea. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een schema:AdministrativeArea.</p>
     </section>
 
     <!-- Sectie 6.4 -->
