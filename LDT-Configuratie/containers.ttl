@@ -131,3 +131,10 @@ containerlocal:datasets a elmo:Container;
   elmo:contains stage:Menu;
   elmo:representation elmo:UploadRepresentation;
 .
+containerlocal:diagram a elmo:Container;
+  rdfs:label "Upload diagram (graphml)";
+  elmo:contains stage:Menu;
+  elmo:replaces <http://linkeddata.ordina.nl/nen3610/id/dataset/diagramtarget>;
+  elmo:representation elmo:UploadRepresentation;
+  elmo:translator elmo:GraphmlTranslator;
+.
