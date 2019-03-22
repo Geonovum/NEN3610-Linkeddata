@@ -187,7 +187,10 @@
 
     <p>NEN 3610 is als standaard in het leven geroepen om geo-informatie eenduidig uit te kunnen wisselen tussen Nederlandse organisaties. Met het oog op bovenstaande ontwikkelingen wordt het relevant om te kijken hoe de NEN 3610 standaard in de context van Linked Data uit te drukken om uiteindelijk het data integratie proces binnen en ook buiten het geo-domein, te bevorderen. Van belang hierbij is ook te beseffen dat beide methoden elkaar niet uitsluiten maar juist complementair zijn in hun toepassing. UML-OO met informatiemodellen voor definitie van data uitwisseling in een gecontroleerde omgeving en Linked Data met kennismodellen als mechanisme voor data-integratie en publicatie in de open WEB-omgeving.</p>
 
-
+        <figure>
+          <img src="media/UML-OO en LD.png">
+          <figcaption>Openen van de data silo's. 'UML-OO NEN 3610' en 'Linked data methode' naast elkaar.</figcaption>
+        </figure>
 
   </section>
 
@@ -1575,22 +1578,32 @@ ex:Oud a ex:StatusPand ;
             <!-- Sectie 7.3.2.2.1.5 -->
             <section id='dso-regels-klassen-enumeration'>
               <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
-
-              <aside class="note"> Zoiets:
-                <pre class='ex-turtle'>
-  ex:StatusPand
-    a                      owl:Class ;
-    rdfs:label             "Realisatie-status van het pand"@nl ;
-    rdfs:subClassOf
-    [
-      a                     owl:Class ;
-      owl:oneOf             (ex:Ontwerp ex:Nieuw ex:Oud)
-    ] .
-  ex:Ontwerp a ex:StatusPand .
-  ex:Nieuw a ex:StatusPand .
-  ex:Oud a ex:StatusPand .
-            </pre>
-              </aside>
+              
+              <p>
+                Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
+                <figure>
+                  <img src="media/nen3610-enumeration.png" height="350">
+                  <figcaption>
+                    Klasse met stereotype &laquo;enumeration&raquo;
+                  </figcaption>
+                </figure>
+              </p>
+              <p>
+                Een enumeratie kan verschillende soorten dingen opsommen. Een lijst met waardes, bijv. een opsomming van nummers, maar ook een lijst met concepten, datatypes , of objecten. Het is dan ook niet triviaal om een goede automatische vertaling te bepalen die een enumeratie kan vertalen naar linked data. Om deze reden kiezen we voor een standaardtransformatie naar een klasse gelijknamig aan de enumeratieklasse, en instanties van deze klasse voor elk van de geenumereerde waardes.
+                De genumereeerde waardes worden ook met een <code>owl:oneOf</code> constructie begrensd door de enumeratieklasse.
+              </p>
+              <pre class='ex-turtle'>
+imgolf:NatuurwaardeValue a owl:Class ;
+  rdfs:label "Natuurwaarde value"@nl ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:oneOf (imgolf:Hoog imgolf:Laag imgolf:Geen) ;
+  ] ;
+.
+imgolf:Hoog a imgolf:NatuurwaardeValue .
+imgolf:Laag a imgolf:NatuurwaardeValue .
+imgolf:Geen a imgolf:NatuurwaardeValue .
+             </pre>
             </section>
             <!-- Sectie 7.3.2.2.1.6 -->
             <section id='dso-regels-klassen-codelist'>
