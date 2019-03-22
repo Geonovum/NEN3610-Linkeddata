@@ -14,7 +14,7 @@
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:Object ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#heeftidentificatie> ;
     ] ;
@@ -23,92 +23,175 @@
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:Object ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#lokaalID> ;
+      owl:onProperty nen3610-otl:lokaalID ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:cardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#namespace> ;
+      owl:onProperty nen3610-otl:namespace ;
     ] ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty <http://definities.geostandaarden.nl/def/nen3610#versie> ;
+      owl:onProperty nen3610-otl:versie ;
     ] ;
-.
-<http://definities.geostandaarden.nl/def/nen3610#beginGeldigheid>
-  rdf:type owl:FunctionalProperty ;
-  rdfs:domain cbim-2.0:Object ;
-  rdfs:range nen3610-otl:BeginGeldigheid ;
-  rdfs:subPropertyOf cbim-2.0:hasProperties ;
-.
-<http://definities.geostandaarden.nl/def/nen3610#eindGeldigheid>
-  rdf:type owl:FunctionalProperty ;
-  rdfs:domain cbim-2.0:Object ;
-  rdfs:range nen3610-otl:Eindgeldigheid ;
-  rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
 <http://definities.geostandaarden.nl/def/nen3610#heeftidentificatie>
   rdfs:domain <http://definities.geostandaarden.nl/def/nen3610#GeoObject> ;
   rdfs:subPropertyOf cbim-2.0:hasOutgoingConnections ;
 .
-<http://definities.geostandaarden.nl/def/nen3610#lokaalID>
-  rdf:type owl:FunctionalProperty ;
-  rdfs:subPropertyOf cbim-2.0:hasProperties ;
-.
-<http://definities.geostandaarden.nl/def/nen3610#namespace>
-  rdf:type owl:FunctionalProperty ;
-  rdfs:subPropertyOf cbim-2.0:hasProperties ;
-.
-<http://definities.geostandaarden.nl/def/nen3610#versie>
-  rdf:type owl:FunctionalProperty ;
-  rdfs:subPropertyOf cbim-2.0:hasProperties ;
-.
 nen3610-otl:
-  rdf:type owl:Ontology ;
+  a owl:Ontology ;
   owl:imports <http://definities.geostandaarden.nl/def/nen3610> ;
   owl:imports <http://www.coinsweb.nl/cbim-2.0.rdf> ;
   owl:versionInfo "Created with TopBraid Composer" ;
 .
 nen3610-otl:BeginGeldigheid
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Begin geldigheid" ;
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:DateTimeProperty ;
 .
+nen3610-otl:BeginTijd
+  a owl:Class ;
+  rdfs:label "Begin Tijd" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:EindRegistratie
+  a owl:Class ;
+  rdfs:label "Eind Registratie" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:EindTijd
+  a owl:Class ;
+  rdfs:label "Eind Tijd" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
 nen3610-otl:Eindgeldigheid
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Eindgeldigheid" ;
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:DateTimeProperty ;
 .
 nen3610-otl:Identificatie
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Identificatie" ;
   rdfs:subClassOf cbim-2.0:DirectedConnection ;
   rdfs:subClassOf [
-      rdf:type owl:Restriction ;
+      a owl:Restriction ;
       owl:allValuesFrom <http://definities.geostandaarden.nl/def/nen3610#Identificatie> ;
       owl:onProperty cbim-2.0:toObject ;
     ] ;
 .
 nen3610-otl:LokaalID
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Lokaal ID" ;
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:StringProperty ;
 .
 nen3610-otl:Namespace
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Namespace" ;
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:StringProperty ;
 .
+nen3610-otl:ObjectBeginTijd
+  a owl:Class ;
+  rdfs:label "Object Begin Tijd" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:ObjectEindTijd
+  a owl:Class ;
+  rdfs:label "Object Eind Tijd" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
+nen3610-otl:TijdstipRegistratie
+  a owl:Class ;
+  rdfs:label "Tijdstip Registratie" ;
+  rdfs:subClassOf cbim-2.0:CataloguePart ;
+  rdfs:subClassOf cbim-2.0:DateTimeProperty ;
+.
 nen3610-otl:Versie
-  rdf:type owl:Class ;
+  a owl:Class ;
   rdfs:label "Versie" ;
   rdfs:subClassOf cbim-2.0:CataloguePart ;
   rdfs:subClassOf cbim-2.0:StringProperty ;
+.
+nen3610-otl:beginGeldigheid
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:BeginGeldigheid ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:beginTijd
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:BeginTijd ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:eindGeldigheid
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:Eindgeldigheid ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:eindRegistratie
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:EindRegistratie ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:eindTijd
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:EindTijd ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:lokaalID
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:namespace
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:objectbeginTijd
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:ObjectBeginTijd ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:objecteindTijd
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:ObjectEindTijd ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:tijdstipRegistratie
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:domain cbim-2.0:Object ;
+  rdfs:range nen3610-otl:TijdstipRegistratie ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
+.
+nen3610-otl:versie
+  a owl:FunctionalProperty ;
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf cbim-2.0:hasProperties ;
 .
