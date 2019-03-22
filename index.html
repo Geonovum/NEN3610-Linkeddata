@@ -354,7 +354,7 @@
                   <img src="media/Normalisatie1.png" >
                   <figcaption> Een model van object persoon in de eerste normaalvorm. Persoon en adres, in werkelijkheid twee verschillende dingen, staan hier in één klasse.</figcaption>
                 </figure>
-      
+
       <figure>
                   <img src="media/normalisatie2.png" >
                   <figcaption> Een model van objecten persoon en adres in de tweede normaalvorm. Persoon en adres zijn in deze vorm gescheiden.</figcaption>
@@ -462,6 +462,7 @@
   <section id='nen3610ld'>
     <h1>De NEN3610 ontologie</h1>
     <p>NEN 3610 beschrijft algemene regels voor het opstellen van een <a>UML</a> informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze afspraken en het semantisch model uitgedrukt in <a>RDF</a>.</p>
+    <p>De NEN3610 ontologie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN3610 standaard [[NEN3610]]. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN3610 tekst leidend.</p>
     <p>Het NEN3610 Linked Data profiel bestaat uit de volgende onderdelen:</p>
     <ul>
       <li><i>Verwijzingen</i>: metadata van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
@@ -1578,7 +1579,7 @@ ex:Oud a ex:StatusPand ;
             <!-- Sectie 7.3.2.2.1.5 -->
             <section id='dso-regels-klassen-enumeration'>
               <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
-              
+
               <p>
                 Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
                 <figure>
@@ -1674,13 +1675,13 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
         <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
 
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
-            zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht. 
+            zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
             <br>
-            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een <a>OTL</a> 
+            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een <a>OTL</a>
             in principe zo dicht mogelijk bij de standaard Linked Data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
-            Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen. 
+            Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen.
 
-         
+
         <!-- Sectie 7.3.3.1 -->
         <section id='metamodelcoins'>
           <h3>Metamodel COINS</h3>
@@ -1690,7 +1691,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
             <figcaption>Metamodel van COINS</figcaption>
           </figure>
         </section>
-      
+
         <!-- Sectie 7.3.3.2 -->
         <section id='transformatieregelscoins'>
           <h3>Transformatieregels COINS</h3>
@@ -1711,8 +1712,8 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
             <li>Het NEN3610 model zelf transformeren naar een <a>OTL</a> </li>
             <li>Het IMGolf 'standaard' model transformeren naar een <a>OTL</a> </li>
           </ol>
-           
-            
+
+
 
           <p>
           Het uitwisselen van Geometrie kan in COINS op verschillende manieren worden geimplementeerd.
@@ -1725,7 +1726,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
           Meer informatie hierover kan gevonden worden in het eindrapport: <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">OTL-IMBOR concept 20180416</a> (beter de IamPro link opnemen als deze beschikbaar is)
           </p>
-        
+
         <section id='otl-regels-klassen'>
             <h4>Klassen</h4>
               <section id='otl-regels-klassen-featureType'>
@@ -1756,7 +1757,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
                     <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
                 Waardelijsten worden vertaald naar coins:StringProperties
                 </section>
- 
+
                 <section id='otl-regels-klassen-codelist'>
                     <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
                     Waardelijsten worden vertaald naar coins:StringProperties
@@ -1774,7 +1775,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
       .
     IMGolf-otl:laag
       rdf:type IMGolf-otl:Natuurwaarde ;
-      .  
+      .
                     </pre>
                 </section>
         </section>
@@ -1814,11 +1815,11 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
                   <section id='otl-regels-attributen-formeleHistorie'>
                     <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
                   </section>
-      
+
                   <section id='otl-regels-attributen-materieleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
                   </section>
-      
+
                   <section id='otl-regels-attributen-formeleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
                   </section>-->
@@ -1826,8 +1827,8 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
               <section  id='otl-regels-associaties'>
                   <h4>Associaties</h4>
                   Associaties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
-                  N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is. 
-                  Deze tranformatie is moeilijk in een generieke regel te definieren. 
+                  N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is.
+                  Deze tranformatie is moeilijk in een generieke regel te definieren.
                   <pre class='ex-turtle'>
         IMGolf-otl:GolfbaanHeeftHole
               rdf:type owl:Class ;
@@ -1847,8 +1848,8 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
                   </pre>
               </section>
             </section>
-          </section> 
-      
+          </section>
+
       <!-- Sectie 7.3.4 -->
       <section id='OroX:transformatieregels om tot een juist model te komen'>
         <h2>OroX: Specifieke transformatieregels</h2>
@@ -1874,18 +1875,18 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
 
           <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
-		  
-		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE). 
+
+		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE).
 		  In de volgende tabel is dat aangegeven met “CE”.
-		  
+
           <figure>
             <img src="media/OroX Tabel Predicates.png" width="800">
             <figcaption>De toegepaste predicates in GWSW-OroX</figcaption>
           </figure>
-		  
-		  Voor het uitdrukken van class expressions voorziet OWL 2 in een groot aantal (restrictie) properties. 
+
+		  Voor het uitdrukken van class expressions voorziet OWL 2 in een groot aantal (restrictie) properties.
 		  Daarmee kunnen we klassen expliciet onderscheiden, de volgende tabel geeft aan welke een opsomGWSW Ontologie bevat de volgende :
-          
+
 		  <figure>
             <img src="media/OroX Tabel CE.png" height="300">
             <figcaption>De toegepaste restricties in GWSW-OroX</figcaption>
@@ -1916,7 +1917,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
             </tr>
           </table>
 
-          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geobjectificeerd". 
+          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geobjectificeerd".
 		  Zo worden attributen classes die met relaties verbonden zijn aan de UML-klasse.
 
           <br /><br /><b>UML-klassen</b>
