@@ -94,6 +94,68 @@ var respecConfig = {
       status: "Definitief",
       publisher: "Geonovum",
       date: "2017-06-14"
-    },  
+    },
+    REIFICATION: {
+      id: "reif",  
+      title: "Reification (computer science)",
+      href: "https://en.wikipedia.org/wiki/Reification_(computer_science)#RDF_and_OWL",
+      publisher: "Wikipedia",
+      date: "2019-02-22"
+    },     
+    ONTOLOGY: {
+      id: "ontology",  
+      title: "Ontology (information science)",
+      href: "https://en.wikipedia.org/wiki/Ontology_(information_science)",
+      publisher: "Wikipedia",
+      date: "2019-02-22"
+    }, 
+    vocab: {
+      id: "vocab",  
+      title: "Controlled vocabulary",
+      href: "https://en.wikipedia.org/wiki/Controlled_vocabulary",
+      publisher: "Wikipedia",
+      date: "2019-02-22"
+    }, 
+        rest: {
+      id: "rest",  
+      title: "Representational state transfer",
+      href: "https://en.wikipedia.org/wiki/Representational_state_transfer",
+      publisher: "Wikipedia",
+      date: "2019-02-22"
+    }, 
+     api: {
+      id: "api",  
+      title: "Application programming interface",
+      href: "https://en.wikipedia.org/wiki/Application_programming_interface",
+      publisher: "Wikipedia",
+      date: "2019-02-22"
+     },
+     UNA: {
+       id: "UNA",
+       title: "Unique name assumption",
+       href: "https://en.wikipedia.org/wiki/Unique_name_assumption",
+       publisher: "Wikipedia",
+       date: "20181212"
+     },
+     IRI: {
+       id: "IRI",
+       title: "Internationalized resource identifier",
+       href: "https://nl.wikipedia.org/wiki/Internationalized_resource_identifier",
+       publisher: "Wikipedia", 
+       date: "20180707"
+     },
+    verzamelingenleer: {
+       id: "verzamelingenleer",
+       title: "Verzamelingenleer",
+       href: "https://nl.wikipedia.org/wiki/Verzamelingenleer",
+       publisher: "Wikipedia",
+       date: "20181103"
+     },
+    "iso-19126-2009": {
+       id: "iso-19109-2009",
+       title: "ISO 19126:2009 Geographic information -- Feature concept dictionaries and registers",
+       href: "https://www.iso.org/standard/44875.html",
+       date: "200911"
+    } 
   }
 };
