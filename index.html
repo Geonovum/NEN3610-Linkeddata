@@ -821,9 +821,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </figure>
 
       <p>Bovenstaand figuur geeft ons transformatiedoel weer. Zowel een <a>UML</a> model als een <a>RDF</a> model representeren een bepaalde <a>universe of discourse</a> (Uod), het deel van de wereld dat we wensen te beschrijven met ons model. Waarbij het model een vereenvoudigde weergave is van deze werkelijkheid. Ons transformatiedoel is geslaagd als het RDF model dat ontstaat vanuit de transformatie van het UML model een model is van dezelfde UoD als die van het originele UML model.</p>
-      <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillende uitgangspunten van UML en RDF te veel. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
-
-      <aside class="note">Een RDF model kan toch altijd een UML model omvatten? Dan is het ook automatisch te transformeren, anders omschrijven?</aside>
+      <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillen de uitgangspunten van UML en RDF te veel, zoals beschreven in <a href="#basisprincipes">hoofdstuk 5</a>. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
 
       <ul>
         <li>Een <i>correct</i> model betekent dat het RDF model voldoet aan alle constructie-eisen van een RDF model. Het model voldoet aan het <a>metamodel</a> dat we in dit document vaststellen.</li>
@@ -835,7 +833,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <figcaption>Correct vs Juist model</figcaption>
       </figure>
 
-      <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk kunnen zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, daadwerkelijk om te zetten naar RDF, waarbij een automatische vertaller zou kunnen worden gemaakt, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model als input dienen.</p>
+      <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
 
       <figure>
         <img src="media/transformatiedoel.png">
@@ -845,25 +843,24 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     </section>
 
     <!-- Sectie 7.2 -->
-    <section id='transformatiebron' class="informative">
+    <section id='transformatiebron'>
+
       <h2>Bronmodel: NEN3610 metamodel</h2>
-      <p>Beschrijving van het metamodel achter NEN 3610. Het source model in de transformatie</p>
-
-      <p>Metamodel NEN 3610. (2017-11-9)</p>
-
-      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
+      <p>Het bronmodel in de transformatie moet voldoen aan het metamodel achter NEN 3610.</p>
+      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
 
       <figure>
         <img src="media/metamodel_attributes.png" height="795">
         <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
       </figure>
 
-      <p>Toelichting op metamodel NEN 3610.</p>
+      <section id='nen3610-toelichting'>
+        <h3>Toelichting op metamodel NEN 3610</h3>
 
-      <p class=MsoNormal>Voor NEN 3610 is objecttype een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn <a>feature type</a>. Een feature type is een objecttype met dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype GeoObject. Een GeoObject heeft dus als stereotype &laquo;FeatureType&raquo;. Dit is identiek aan de ISO191xx set van standaarden. Een FeatureType heeft 0 of 1 <a>supertypen</a>; 0 of meer eigenschappen; 0 of meer beperkingen (Constraint). Eigenschappen zijn attributen of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol van het ‘target objecttype’.<br>
-        Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een datatype is primitief (integer, characterstring boolean, gm_surface enz), een waardelijst, een <a>union</a> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een union faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een enumeratie is een niet uitbreidbare waardelijst in de namespace van het model. Een codeList is een externe lijst waarvan de waarden buiten het model worden beheerd.
-      </p>
-
+        <p>Voor NEN 3610 is <code>Objecttype</code> een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn <a>feature type</a>. Een <code>FeatureType</code> is een <code>Objecttype</code> dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype <code>GeoObject</code>. Een <code>GeoObject</code> heeft dus als stereotype <code>&laquo;FeatureType&raquo;</code>. Dit is identiek aan de ISO191xx set van standaarden. Een <code>FeatureType</code> heeft 0 of 1 <a>supertypen</a>; 0 of meer eigenschappen (<code>EigenschapType</code>); 0 of meer beperkingen (<code>Constraint</code>). Eigenschappen zijn attributen (<code>AttribuutType</code>) of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol (<code>Associatierol</code>) van het ‘target objecttype’.</p>
+        <p>Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een <code>DataType</code> is een <code>PrimitiefDatatype</code> (integer, characterstring boolean, gm_surface enz), een <code>Waardelijst</code>, een <code>Union</code> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een <code>Union</code> faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een <code>Enumeratie</code> is een niet uitbreidbare <code>Waardelijst</code> in de namespace van het model. Een <code>CodeList</code> is een externe lijst waarvan de waarden buiten het model worden beheerd.
+        </p>
+      </section>
     </section>
 
     <!-- Sectie 7.3 -->
@@ -873,7 +870,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       <!-- Sectie 7.2.1 -->
       <section id='transformatie-encoding-inleiding'>
         <h3>Inleiding</h3>
-        <p>Beschrijving van basisregels en uitwerking van details voor transformatie van <a>UML</a> constructen naar LD encoding</p>
+        <p>Deze paragraaf bevat de beschrijving van de basisregels en de uitwerking van details voor transformatie van <a>UML</a> constructen naar linked data.</p>
         <p>Voor de transformatie van een UML model naar Linked Data maken we gebruik van de volgende vocabulaires:</p>
         <ul>
           <li>RDF</li>
@@ -890,24 +887,24 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <li>We gebruiken standaarden die specifiek zijn ontworpen voor het doel waar wij ze voor willen inzetten:
             <ul>
               <li><a>RDF</a>/RDFS/OWL voor het benoemen en typeren van de termen voor klassen (owl:Class), attributen (owl:DatatypeProperty) en relaties (owl:ObjectProperty).</li>
-              <li><a>RDFS</a>/<a>OWL</a> voor het specificeren van formele <a>ontologie</a> (dmv rdfs:range en rdfs:domain, rdfs:subClassOf en owl:Restriction)</li>
+              <li><a>RDFS</a>/<a>OWL</a> voor het specificeren van een formele <a>ontologie</a> (door middel van <code>rdfs:range</code> en <code>rdfs:domain</code>, <code>rdfs:subClassOf</code> en <code>owl:Restriction</code>)</li>
               <li><a>SKOS</a> voor het opnemen van definities en aanvullende beschrijvingen voor de gebruikte termen</li>
               <li><a>SHACL</a> voor het specificeren van de gegevensstructuren en gegevensregels zoals aanwezig in het UML model</li>
             </ul>
           </li>
-          <li>De standaarden sluiten goed aan bij de denkwijze binnen <a>UML</a>, waardoor een vergelijking tussen UML en het Linked Data "relatief" eenvoudig is</li>
-          <li>Het linked data principe maakt het mogelijk om de vier genoemde onderdelen (terminologie, ontologie, betekenis en gegevensregels) van elkaar te onderscheiden en afzonderlijk te beheren. Dit maakt het mogelijk om specifieke aanpassingen te doen, mocht de opzet in het UML model anders geïnterpreteerd moeten worden dan uit een automatische vertaling mogelijk is. We verwachten dat dit met name zal spelen bij de formele ontologie</li>
+          <li>De standaarden sluiten goed aan bij de denkwijze binnen <a>UML</a>, waardoor een vergelijking tussen UML en Linked Data "relatief" eenvoudig is.</li>
+          <li>Het linked data principe maakt het mogelijk om de vier genoemde onderdelen (terminologie, ontologie, betekenis en gegevensregels) van elkaar te onderscheiden en afzonderlijk te beheren. Dit maakt het mogelijk om specifieke aanpassingen te doen, mocht de opzet in het UML model anders geïnterpreteerd moeten worden dan uit een automatische vertaling mogelijk is. We verwachten dat dit met name zal spelen bij de formele ontologie.</li>
         </ul>
-        <p>Specifieke aandacht is nodig voor de vertaling van het UML enerzijds naar <a>RDFS</a> en <a>OWL</a> formele ontologie, en anderzijds naar SHACL gegevensregels</p>
-        <p>In beginsel berust de vertaling naar de formele ontologie en naar de SHACL gegevensregels op dezelfde UML onderdelen. Zo worden UML cardinaliteiten enerzijds vertaalt naar owl:Restrictions, en anderszijds naar sh:PropertyShapes. Je zou kunnen stellen dan 1 van de twee voldoende is. Echter, waar in UML het onderscheid tussen formele ontologie en gegevensregels vaak impliciet is, bestaan hier in Linked Data expliciet verschillende vocabulaires</p>
-        <p>Door beide varianten te realiseren, bestaat de mogelijkheid voor de afnemer om een keuze te maken welke variant het beste past bij het originele UML model</p>
-        <p>Hieronder benoemen we enkele verschillen en overeenkomsten tussen UML, SHACL en OWL</p>
+        <p>Specifieke aandacht is nodig voor de vertaling van het UML enerzijds naar <a>RDFS</a> en <a>OWL</a> formele ontologie, en anderzijds naar SHACL gegevensregels.</p>
+        <p>In beginsel berust de vertaling naar de formele ontologie en naar de SHACL gegevensregels op dezelfde UML onderdelen. Zo worden UML cardinaliteiten enerzijds vertaalt naar owl:Restrictions, en anderszijds naar sh:PropertyShapes. Je zou kunnen stellen dan 1 van de twee voldoende is. Echter, waar in UML het onderscheid tussen formele ontologie en gegevensregels vaak impliciet is, bestaan hier in Linked Data expliciet verschillende vocabulaires voor.</p>
+        <p>Door beide varianten te realiseren, bestaat de mogelijkheid voor de afnemer om een keuze te maken welke variant het beste past bij het originele UML model en de specifieke use case.</p>
+        <p>Hieronder benoemen we enkele verschillen en overeenkomsten tussen UML, SHACL en OWL:</p>
         <ul>
           <li>Zowel UML als SHACL gaan uit van een <a>closed-world assumption</a>, waarbij het model <i>beperkt</i> wat mogelijk is. Dit in tegenstelling tot OWL dat uitgaat van een <a>open-world assumption</a>, waarbij het model <i>afleidt</i> wat mogelijk is.</li>
-          <li>Zowel owl:maxCardinality 1 als sh:maxCount 1 komen overeen met de x..1 cardinaliteit in UML. Er bestaat echter ook een verschil. Mocht bijvoorbeeld bij een eigenschap "is-getrouwd-met" gelden dat een persoon maar met 1 ander persoon getrouwd mag zijn, en in de database treffen we de waarden "Piet is getrouwd met Marie" en "Klaas is getrouwd met Marie", dan veronderstelt de owl restrictie dat Piet en Klaas dezelfde personen zijn, terwijl de shacl restrictie aangeeft dat de dataset niet voldoet aan de betreffende gegevensregel.</li>
-          <li>Eenzelfde verschil speelt rondom het gebruik van rdfs:range en rdfs:domain. Indien bijvoorbeeld een property ex:naam wordt geïntroduceerd met rdfs:range ex:Persoon, dan betekent dit dat als een <a>subject</a> een ex:naam heeft, het een persoon is (zelfs als een dergelijke naam is gegeven aan iets dat eigenlijk een schip is). In geval van shacl zou een PropertyShape gespecifieerd worden die stelt dat de eigenschap ex:naam alleen maar gebruikt mag worden bij de klasse Persoon</li>
-          <li>OWL is ontworpen voor classificatie-doeleinden (afleidingen), terwijl SHACL ontworpen is voor data-validatie. Zie <a href="http://spinrdf.org/shacl-and-owl.html">shacl and owl</a> voor een uitgebreide vergelijking</li>
-          <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie bijvoorbeeld de <a href="http://shacl.org/playground">SHACL playground validator</a></li>
+          <li>Zowel <code>owl:maxCardinality 1</code> als <code>sh:maxCount 1</code> komen overeen met de x..1 cardinaliteit in UML. Er bestaat echter ook een verschil. Mocht bijvoorbeeld bij een eigenschap "is-getrouwd-met" gelden dat een persoon maar met 1 ander persoon getrouwd mag zijn, en in de database treffen we de waarden "Piet is getrouwd met Marie" en "Klaas is getrouwd met Marie", dan veronderstelt de owl restrictie dat Piet en Klaas dezelfde personen zijn, terwijl de SHACL restrictie aangeeft dat de dataset niet voldoet aan de betreffende gegevensregel.</li>
+          <li>Eenzelfde verschil speelt rondom het gebruik van <code>rdfs:range</code> en <code>rdfs:domain</code>. Indien bijvoorbeeld een property <code>ex:naam</code> wordt geïntroduceerd met <code>rdfs:range</code> <code>ex:Persoon</code>, dan betekent dit dat als een <a>subject</a> een <code>ex:naam</code> heeft, het een persoon is (zelfs als een dergelijke naam is gegeven aan iets dat eigenlijk een schip is). In geval van SHACL zou een PropertyShape gespecifieerd worden die stelt dat de eigenschap code>ex:naam</code> alleen maar gebruikt mag worden bij de klasse <code>Persoon</code>.</li>
+          <li>OWL is ontworpen voor classificatie-doeleinden (afleidingen), terwijl SHACL ontworpen is voor data-validatie. Zie <a href="http://spinrdf.org/shacl-and-owl.html">shacl and owl</a> voor een uitgebreide vergelijking.</li>
+          <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie bijvoorbeeld de <a href="http://shacl.org/playground">SHACL playground validator.</a></li>
           <li>Het gebruik van OWL maakt het mogelijk de kennis in de formele ontologie te gebruiken om nieuwe informatie af te leiden uit bestaande data. Zie <a href="https://www.cs.vu.nl/~guus/public/owl-restrictions/">owl restrictions</a> voor een goede introductie.</li>
         </ul>
         <p>Het belangrijkste criterium voor het gebruik van SHACL versus OWL formele ontologie ligt hiermee vooral in het beoogde doel van UML:</p>
@@ -915,7 +912,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <li>als vastlegging van formele kennis over de ontologie te gebruiken voor het afleiden van nieuwe informatie, of</li>
           <li>als vastlegging van gegevensregels over de informatie die mag worden vastgelegd en mag worden uitgewisseld in berichten.</li>
         </ul>
-        <p>Vaak is dit onderscheid niet zo scherp te maken, waardoor wij beide varianten aanbieden. De visualisaties die in dit document staan van de <a>RDF</a> modellen (SHACL en/of OWL) zijn op beide manieren te lezen: als restricties, of als afleidingen</p>
+        <p>Vaak is dit onderscheid niet zo scherp te maken, waardoor wij beide varianten aanbieden. De visualisaties die in dit document staan van de <a>RDF</a> modellen (SHACL en/of OWL) zijn op beide manieren te lezen: als restricties, of als afleidingen.</p>
       </section>
 
       <!-- Sectie 7.2.2 -->
@@ -927,7 +924,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
         </figure>
 
-        <p class=MsoNormal>In de Linked Data community is het gebruik om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breed worden gebruikt door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het <a>metamodel</a> NEN 3610 maken we gebruiken van bestaande, wereldwijd gebruikte standaarden. Deze standaarden zijn in het beheer van de W3c, de organisatie die de internetstandaarden beheerd. Voor ons metamodel gaat het daarbij om de volgende standaarden:
+        <p>In de Linked Data community is het gebruikelijk om voor een model zoveel mogelijk gebruik te maken van vocabulaires die reeds breed worden toegepast door anderen. Op deze manier wordt de interoperabiliteit vergroot. Voor het <a>metamodel</a> NEN 3610 maken we gebruik van bestaande en wereldwijd veelvuldig toegepaste standaarden. Deze standaarden zijn in beheer bij de <a href="https://www.w3.org">W3C</a>, de organisatie die de webstandaarden beheert. Voor ons metamodel gaat het daarbij om de volgende standaarden:
         </p>
         <table>
           <tbody>
@@ -981,19 +978,15 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
         <p class=MsoNormal>Deze <a>vocabulaires</a> worden op de volgende wijze ingezet:</p>
         <ul>
-          <li>rdf, rdfs en owl worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In <a>UML</a> termen worden hiermee de klassen, relaties en attributen beschrijven die geïnstantieerd worden als concrete data.</li>
-          <li>rdfs en owl worden ook gebruikt om de formele semantiek van de data te specificeren, voor zover deze uit het UML model zijn is te leiden</li>
-          <li>shacl wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het <a>datatype</a> van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
-          <li>skos wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
-          <li>prov wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
-          <li>dct en foaf worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen</li>
+          <li>RDF, RDFS en OWL worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In <a>UML</a> termen worden hiermee de klassen, relaties en attributen beschrijven die geïnstantieerd worden als concrete data.</li>
+          <li>RDFS en OWL worden ook gebruikt om de formele semantiek van de data te specificeren, voor zover deze uit het UML model zijn is te leiden.</li>
+          <li>SHACL wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het <a>datatype</a> van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
+          <li>SKOS wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
+          <li>PROV wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
+          <li>Dublin Core terms en FOAF worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen.</li>
         </ul>
 
-
-        <p>Betekenisvol model, relatie met ISO/CD 19126</p>
-
-        <p class=MsoNormal>Met het gebruik van skos is het in het Linked Data <a>metamodel</a> mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten.
-          Hierdoor wordt feitelijk een invulling gegeven aan een vertaling van het ISO/CD 19126 Feature Concepts Dictionaries</p>
+        <p>Met het gebruik van SKOS is het in het Linked Data <a>metamodel</a> mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten. Hierdoor wordt feitelijk een invulling gegeven aan de standaard ISO 19126 Feature Concepts Dictionaries [[iso-19126-2009]].</p>
 
       </section>
 
@@ -2420,9 +2413,9 @@ ex:Oud a ex:StatusPand ;
     <p><dfn data-lt="metamodel|metametamodellen">Metamodel</dfn>: een set regels voor het modelleren van informatie. Voorbeelden: het General Feature Model [[iso-19109-2015]], het Metamodel voor Informatiemodellen [[MIM]].</p>
     <p><dfn data-lt="supertype|supertypen">Supertype</dfn>: de hogere klasse in een overervingshiërarchie [[NEN3610]].</p>
     <p><dfn>Union</dfn>: gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie [[NEN3610]].</p>
-    <p><dfn data-lt="datatype|Datatype|datatypen">Datatype</dfn>: gestructureerd datatype zonder identiteit [[NEN3610]].</p>
+    <p><dfn data-lt="datatype|Datatype|datatypen">Datatype</dfn>: UML constructie met het stereotype &laquo;dataType&raquo: gestructureerd datatype zonder identiteit [[NEN3610]]. Specificatie van een waardedomein met operaties die zijn toegestaan op waarden uit dit domein [[iso-19103-2015]]</p>
     <p><dfn data-lt="open-world assumption|OWA|open-wereld-aanname">Open world assumption (OWA)</dfn>: modelleeruitgangspunt waarbij het model afleidt wat mogelijk is (bijvoorbeeld in OWL).</p>
-    <p><dfn data-lt="closed-world assumption|CWA">Closed world assumption (CWA)</dfn>: modelleeruitgangspunt waarbij het model beperkt wat mogelijk is (bijvoorbeend in UML).</p>
+    <p><dfn data-lt="closed-world assumption|CWA">Closed world assumption (CWA)</dfn>: modelleeruitgangspunt waarbij het model beperkt wat mogelijk is (bijvoorbeeld in UML).</p>
     <p><dfn>W3C</dfn>: World Wide Web Consortium, internationale organisatie voor de standaardisatie van het het web.</p>
     <p><dfn>OGC</dfn>: Open Geospatial Consortium, internationale organisatie voor de standaardisatie van geo-informatie.</p>
     <p><dfn>OMG</dfn>: Object Management Group, internationale organisatie voor de standaardisatie van technische standaarden zoals UML.</p>
