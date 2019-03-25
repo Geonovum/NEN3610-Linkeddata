@@ -150,6 +150,12 @@ var respecConfig = {
        href: "https://nl.wikipedia.org/wiki/Verzamelingenleer",
        publisher: "Wikipedia",
        date: "20181103"
-     }
+     },
+    "iso-19126-2009": {
+       id: "iso-19109-2009",
+       title: "ISO 19126:2009 Geographic information -- Feature concept dictionaries and registers",
+       href: "https://www.iso.org/standard/44875.html",
+       date: "200911"
+    } 
   }
 };

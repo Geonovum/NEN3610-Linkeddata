@@ -631,13 +631,60 @@ stage:ShapeProduction_scene99 a elmo:Scene;
 .
 
 stage:ModelVisualisatie a elmo:Representation;
-  elmo:url-pattern "/query/modelvisualisatie";
+  elmo:url-pattern "/query/modelvisualisatie$";
   elmo:contains stage:Menu;
   elmo:appearance elmo:VocabularyAppearance;
   elmo:query '''
-    construct {?s ?p ?o}
+    construct {
+			?s ?p ?o.
+			?ds ?dp ?do.
+		}
     where {
-      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {?s ?p ?o}
+      { graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {?s ?p ?o}}
+			UNION
+		  { graph <http://linkeddata.ordina.nl/nen3610/id/dataset/diagramtarget> {?ds ?dp ?do}}
+    }
+  ''';
+.
+
+stage:ModelVisualisatieLogisch a elmo:Representation;
+  elmo:url-pattern "/query/modelvisualisatie-logisch$";
+  elmo:contains stage:Menu;
+  elmo:appearance elmo:VocabularyAppearance;
+  elmo:query '''
+		prefix sh: <http://www.w3.org/ns/shacl#>
+    construct {
+			?ns a sh:NodeShape.
+			?ns sh:name ?nslabel.
+			?ns sh:targetClass ?tclass.
+			?ns sh:property ?ps.
+			?ps a sh:PropertyShape.
+			?ps sh:name ?pslabel.
+			?ps ?psprop ?psobj.
+			?ds ?dp ?do.
+		}
+    where {
+			{
+	      graph <http://linkeddata.ordina.nl/nen3610/id/dataset/generationtarget> {
+					?ns a sh:NodeShape.
+					?ns rdfs:label ?nslabel.
+					FILTER (lang(?nslabel)="@LANGUAGE@" || lang(?nslabel)="")
+					OPTIONAL {?ns sh:targetClass ?tclass}
+					OPTIONAL {
+						?ns sh:property ?ps.
+						?ps rdfs:label ?pslabel.
+						FILTER (lang(?pslabel)="@LANGUAGE@" || lang(?pslabel)="")
+						OPTIONAL {
+							?ps ?psprop ?psobj
+							FILTER (?psprop != sh:name)
+						}
+					}
+				}
+			}
+			UNION
+			{
+			  graph <http://linkeddata.ordina.nl/nen3610/id/dataset/diagramtarget> {?ds ?dp ?do}
+			}
     }
   ''';
 .
