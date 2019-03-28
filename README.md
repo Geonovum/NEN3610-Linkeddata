@@ -1,7 +1,7 @@
 # NEN3610-Linkeddata
 Repository voor het werken aan een linked data profiel op NEN3610.
 
-Dit profiel wordt beschreven in een document. Het (nu nog lege) concept document wordt op Github ontwikkeld en is te lezen op https://geonovum.github.io/NEN3610-Linkeddata. 
+Dit profiel wordt beschreven in een document. Het concept document wordt op Github ontwikkeld en is te lezen op https://geonovum.github.io/NEN3610-Linkeddata. 
 
 <b>Groepsproces: Indienen van issues</b><BR>
 De tot standkoming van het profiel is een open groepsproces. Via deze github kunnen bijdragen worden geleverd.
