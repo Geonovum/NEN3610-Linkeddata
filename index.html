@@ -1163,18 +1163,6 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
               In [[INSPIRERDF]] worden CodeLists gemodelleerd m.b.v. SKOS. Gezien het afhankelijk is van de type waarden in de waardelijst, en de specifieke modelleringsstijl die wordt toegepast, of een modellering met SKOS toepasselijk is laten we deze keuze aan de handmatige transformatie over.
             </p>
           </section>
-
-          <aside class="note"> Zoiets:
-            <pre class='ex-turtle'>
-ex:Ontwerp a ex:StatusPand ;
- skos:notation "Code_1".
-ex:Nieuw a ex:StatusPand ;
- skos:notation "Code_2".
-ex:Oud a ex:StatusPand ;
- skos:notation "Code_3".
-            </pre>
-          </aside>
-
         </section>
 
         <!-- Sectie 7.2.4.2 -->
@@ -1217,6 +1205,69 @@ rdf:value "NL.IMGOLF.1-v01"  # optioneel om de samengestelde identificatie op te
           <!-- Sectie 7.2.4.2.3 -->
           <section id='regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+            <p>
+              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnne we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
+            </p>
+            <p>
+              Het uitdrukken van eigenschappen die over een set uitdrukkingen gaan is in RDF niet triviaal. Het is namelijk niet mogelijk om een set van uitdrukkingen in de subjectpositie van een triple te gebruiken. We hebben hier een manier nodig om een set bij elkaar horende triples te kunnen beschrijven als een ding.
+            </p>
+            <p>
+              Neem bijvoorbeeld de IMGolf klasse Parcours. Deze heeft de attributen <code>beginGeldigheid</code> en <code>eindGeldigheid</code> met stereotype &laquo;materieleHistorie&raquo;.
+              <figure>
+                <img src="media/imgolf-materieelformeel.png" height="350">
+                <figcaption>
+                  Attribuut met stereotype &laquo;materieleHistorie&raquo;
+                </figcaption>
+              </figure>
+              Deze attributen slaan niet alleen op het Parcours als ding in de werkelijkheid, maar op de beschrijving van het Parcours met de eigenschappen zoals <code>nummer</code>, <code>par</code> en <code>geometry</code>.
+            </p>
+            <p>
+              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. We kunnen gebruik maken van het FOAF vocabulaire voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="">wordt toegepast</a>.
+            </p>
+            <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf nen3610:GeoObject ;
+  rdfs:label "Parcours" ;
+.
+imgolf:nummer a owl:DatatypeProperty ;
+  rdfs:label "nummer" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:integer ;
+.
+imgolf:par a owl:DatatypeProperty ;
+  rdfs:label "par" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:integer ;
+.
+#---------------#
+# Voorbeelddata
+#---------------#
+ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
+  rdfs:label "Parcours 4" ;
+  nen3610:identificatie ex:id-NL.IMGOLF.4 ;
+  imgolf:nummer 4 ;
+  imgolf:par 3 ;
+  foaf:isPrimaryTopicOf ex-doc:20180101/parcours-NL.IMGOLF.4; # verbinding van NIR met IR
+.
+
+ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
+  rdfs:label "Beschrijving van Parcours 4" ;
+  nen3610:beginGeldigheid "2018-01-01"^^xsd:date ;
+  nen3610:eindGeldigheid "2019-03-22"^^xsd:date ;
+.
+            </pre>
+            <p>
+              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met 1 of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> of <code>foaf:page</code> property, welke respectievelijk aanduiden dat de <a>non-information resource</a> het hoofdonderwerp danwel onderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
+            </p>
+            <aside class="note">
+              Let op! Wanneer je in één dataset meerdere materieel geldige beschrijvingen van hetzelfde object in de werkelijkheidheid hebt is het noodzakelijk deze van elkaar te scheiden. Gezien de identificatie/IRI van het ding in de werkelijkheid niet veranderd, heb je een manier nodig om de bij elkaar horende set uitdrukkingen te scheiden van andere sets uitdrukkingen. Hiervoor kun je gebruik maken van (named) graphs.
+            </aside>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.4 -->

@@ -31,7 +31,7 @@ var respecConfig = {
   {
     name: "Pano Maria",
     company: "Skemu",
-    companyURL: "http://skemu.com"
+    companyURL: "https://skemu.com"
   }, 
   {
     name: "Hans Schevers",
@@ -156,6 +156,20 @@ var respecConfig = {
       title: "ISO 19126:2009 Geographic information -- Feature concept dictionaries and registers",
       href: "https://www.iso.org/standard/44875.html",
       date: "200911"
+    },
+    "LINKED-DATA-EVOLVING-WEB": {
+      "authors": [
+          "Tom Heath",
+          "Christian Bizer"
+      ],
+      "href": "http://linkeddatabook.com/editions/1.0/",
+      "title": "Linked Data: Evolving the Web into a Global Data Space (1st edition)",
+      "date": "2011",
+      "publisher": "Morgan & Claypool",
+      "deliveredBy": [
+        "http://linkeddatabook.com"
+      ],
+      "isbn": "9781608454303/9781608454310 "
     }
   }
 };
