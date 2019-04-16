@@ -1153,6 +1153,15 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <!-- Sectie 7.2.4.1.6 -->
           <section id='regels-klassen-codelist'>
             <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+            <p>
+              Indien vooraf niet bekend is welke waarden een bepaald attribuut kan krijgen, maar er wel een lijst waarschijnlijke waarden is, dan wordt in plaats van een enumeratie een CodeList gebruikt. Een CodeList is een klasse met als stereotype &laquo;CodeList&raquo;.
+            </p>
+            <p>
+              Gezien er structureel geen verschil is met een enumeratie, wordt een klasse met sterotype &laquo;CodeList&raquo; op dezelfde manier getransformeerd.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              In [[INSPIRERDF]] worden CodeLists gemodelleerd m.b.v. SKOS. Gezien het afhankelijk is van de type waarden in de waardelijst, en de specifieke modelleringsstijl die wordt toegepast, of een modellering met SKOS toepasselijk is laten we deze keuze aan de handmatige transformatie over.
+            </p>
           </section>
 
           <aside class="note"> Zoiets:
