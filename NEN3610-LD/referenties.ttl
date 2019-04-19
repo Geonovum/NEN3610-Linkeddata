@@ -219,6 +219,10 @@ referentie:NEN3610-2011-7.2.5.2 a dctypes:Text;
 	rdfs:label "Sectie 7.2.5.2 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2.5;
 .
+referentie:NEN3610-2011-7.2.6 a dctypes:Text;
+	rdfs:label "Sectie 7.2.6 NEN3610:2011"@nl;
+	dcterms:isPartOf referentie:NEN3610-2011-7.2;
+.
 
 referentie:NEN3610-2011-7.3 a dctypes:Text;
 	rdfs:label "Sectie 7.3 NEN3610:2011"@nl;
