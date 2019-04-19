@@ -539,7 +539,7 @@
     <!-- Sectie 6.2 -->
     <section id='nen3610ld-begrippen'>
       <h2>Begrippen</h2>
-      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen definities die gelden voor toepassen van deze standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen en definities die gelden voor toepassen van de NEN3610 standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
       <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
       <p>De URI voor het begrippenkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
       <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
@@ -762,8 +762,9 @@ imgolf-begrip:Golfbaan a skos:Concept;
       <section id="nen3610-ld-gebruik-vocabulaire">
         <h3>Maak gebruik van de NEN3610 vocabulaire</h3>
         <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
-        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen</p>
-        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
+        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen.</p>
+        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire.</p>
+        <p>In dit voorbeeld is ook de relatie gelegd tussen de klasse <code>imgolf:Golfbaan</code> en het begrip "Golfbaan". Een goede gewoonte is om hiervoor <code>dct:subject</code> te gebruiken.</p>
         <pre class='ex-turtle'>
 @prefix nen3610: &lt;http://definities.geostandaarden.nl/def/nen3610#>.
 @prefix imgolf: &lt;http://definities.geostandaarden.nl/def/imgolf#>.
@@ -771,11 +772,18 @@ imgolf-begrip:Golfbaan a skos:Concept;
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#>.
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>.
 @prefix geosparql: &lt;http://www.opengis.net/ont/geosparql#>.
+@prefix dct: &lt;http://purl.org/dc/terms/#>.
 
 imgolf:Golfbaan a owl:Class;
   rdfs:label "Golfbaan"@nl;
   rdfs:subClassOf nen3610:FunctioneelGebied;
+  dct:subject imgolf-begrip:Golfbaan;
 .
+imgolf:naam a owl:DatatypeProperty;
+  rdfs:label "naam"@nl;
+  rdfs:subPropertyOf rdfs:label
+.
+
 golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
   owl:sameAs &lt;http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
   geosparql:hasGeometry geometrie:KoninklijkeHaagseGenCC;
@@ -784,7 +792,6 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 .
         </pre>
 
-        <aside class="note">Waarom in het voorbeeld imgolf:naam ipv rdfs:label?</aside>
       </section>
 
     </section>
