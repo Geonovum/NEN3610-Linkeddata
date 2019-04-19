@@ -39,7 +39,7 @@
   <section id='inleiding' class="informative">
     <h1>Inleiding</h1>
 
-    <p>Steeds meer wordt linked data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technische uitwisselingsformat. NEN 3610 is hiermee niet voorbereid om semantiek en gegevensdeling en uitwisseling middels linked data te realiseren.</p>
+    <p>Steeds meer wordt linked data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee niet voorbereid om semantiek, gegevensdeling en uitwisseling middels linked data te realiseren.</p>
 
     <p>NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
       In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als linked data betrokken zijn samen te brengen rond het onderdwerp NEN 3610 toegepast in linked data. Het doel daarvan is te komen tot een gezamelijke werkwijze die zorgt voor interoperabiliteit tussen linked geo-data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.</p>
@@ -48,8 +48,8 @@
 
     <P>Als resultaat worden de volgende producten ontwikkeld:</p>
     <p>1) De NEN 3610 ontologie. De standaard NEN 3610 vertaald naar een LD implementatie.</p>
-    <p>Hiermee wordt het vocabulair gerealiseerd dat als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data toe te passen.</p>
-    <P>Het hiermee gecreerde vocabulaire wordt de kandidaat standaard voor de ontologie van NEN 3610.</p>
+    <p>Hiermee wordt het vocabulaire gerealiseerd dat als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data toe te passen.</p>
+    <P>Het hiermee gecreërde vocabulaire wordt de kandidaat standaard voor de ontologie van NEN 3610.</p>
 
     <p>2) Transformatieregels of coderingsregels voor een vertaling van een NEN 3610-UML informatiemodel naar een Linked Data omgeving.</p>
     <p>De transformatieregels zijn een handreiking voor het omzetten van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is naar de verschillende Linked Data vocabulaires die hiervoor van toepassing zijn: <a>RDF</a>, <a>RDFS</a>, <a>SKOS</a>, <a>OWL</a> en <a>SHACL</a>. </p>
@@ -165,7 +165,7 @@
 
   <!-- Hoofdstuk 3 -->
   <section id="usecases" class="informative">
-    <h1>Use cases voor een NEN3610 Linked Data profiel</h1>
+    <h1>Use case voor een NEN 3610 Linked Data profiel</h1>
 
 
     <p><b>De use case die we willen beantwoorden is:</b></p>
@@ -181,11 +181,11 @@
     <p>2) een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.</p>
 
     <P><b>Achtergrond:</b></p>
-    <p>Tot nu toe worden veel informatie standaarden in <a>UML</a> uitgedrukt. Het <a>Object Oriëntatie</a> paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de <a>werkelijkheid</a>. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moeten worden gekoppeld. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.</p>
+    <p>Tot nu toe worden veel informatie standaarden in <a>UML</a> uitgedrukt. Het <a>Object Oriëntatie</a> paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de <a>werkelijkheid</a>. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moet worden gekoppeld. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.</p>
 
-    <p>Met (onder andere) deze uitdaging in gedachten, heeft het <a>W3C</a> een aantal `recommendations’ (standaarden) opgesteld omtrent Linked Data. Deze standaarden specificeren methoden om de aannames rond data definities meer expliciet te maken en daardoor op een machine leesbare manier meer betekenis aan de data te geven, specifiek met het oog op integratie van data uit verschillende bronnen. De implementatie context is daarbij het WEB. Hier is dus een beweging van applicatie gericht naar WEB ondersteund.</p>
+    <p>Met (onder andere) deze uitdaging in gedachten, heeft het <a>W3C</a> een aantal `recommendations’ (standaarden) opgesteld omtrent Linked Data. Deze standaarden specificeren methoden om de aannames rond data definities meer expliciet te maken en daardoor op een machine leesbare manier meer betekenis aan de data te geven, specifiek met het oog op integratie van data uit verschillende bronnen. De implementatie context is daarbij het web. Hiermee wordt dus een beweging van applicatie gericht werken naar web gericht werken ondersteund.</p>
 
-    <p>NEN 3610 is als standaard in het leven geroepen om geo-informatie eenduidig uit te kunnen wisselen tussen Nederlandse organisaties. Met het oog op bovenstaande ontwikkelingen wordt het relevant om te kijken hoe de NEN 3610 standaard in de context van Linked Data uit te drukken om uiteindelijk het data integratie proces binnen en ook buiten het geo-domein, te bevorderen. Van belang hierbij is ook te beseffen dat beide methoden elkaar niet uitsluiten maar juist complementair zijn in hun toepassing. UML-OO met informatiemodellen voor definitie van data uitwisseling in een gecontroleerde omgeving en Linked Data met kennismodellen als mechanisme voor data-integratie en publicatie in de open WEB-omgeving.</p>
+    <p>NEN 3610 is als standaard in het leven geroepen om geo-informatie eenduidig uit te kunnen wisselen tussen Nederlandse organisaties. Met het oog op bovenstaande ontwikkelingen wordt het relevant om te kijken hoe de NEN 3610 standaard in de context van Linked Data is uit te drukken om uiteindelijk het data integratie proces binnen en ook buiten het geo-domein te bevorderen. Van belang hierbij is ook te beseffen dat beide methoden elkaar niet uitsluiten maar juist complementair zijn in hun toepassing. UML-OO met informatiemodellen voor definitie van data uitwisseling in een gecontroleerde omgeving en Linked Data met kennismodellen als mechanisme voor data-integratie en publicatie in de open web-omgeving.</p>
 
         <figure>
           <img src="media/UML-OO en LD.png" height="350">
@@ -1153,19 +1153,16 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <!-- Sectie 7.2.4.1.6 -->
           <section id='regels-klassen-codelist'>
             <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+            <p>
+              Indien vooraf niet bekend is welke waarden een bepaald attribuut kan krijgen, maar er wel een lijst waarschijnlijke waarden is, dan wordt in plaats van een enumeratie een CodeList gebruikt. Een CodeList is een klasse met als stereotype &laquo;CodeList&raquo;.
+            </p>
+            <p>
+              Gezien er structureel geen verschil is met een enumeratie, wordt een klasse met sterotype &laquo;CodeList&raquo; op dezelfde manier getransformeerd.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              In [[INSPIRERDF]] worden CodeLists gemodelleerd m.b.v. SKOS. Gezien het afhankelijk is van de type waarden in de waardelijst, en de specifieke modelleringsstijl die wordt toegepast, of een modellering met SKOS toepasselijk is laten we deze keuze aan de handmatige transformatie over.
+            </p>
           </section>
-
-          <aside class="note"> Zoiets:
-            <pre class='ex-turtle'>
-ex:Ontwerp a ex:StatusPand ;
- skos:notation "Code_1".
-ex:Nieuw a ex:StatusPand ;
- skos:notation "Code_2".
-ex:Oud a ex:StatusPand ;
- skos:notation "Code_3".
-            </pre>
-          </aside>
-
         </section>
 
         <!-- Sectie 7.2.4.2 -->
@@ -1181,14 +1178,14 @@ ex:Oud a ex:StatusPand ;
             </p>
             <pre class='ex-turtle'>
 ex:ex:NL.IMGOLF.1-v01 a imgolf:Golfbaan ;
-nen3610:identificatie ex:id-NL.IMGOLF.1-v01 ;
+  nen3610:identificatie ex:id-NL.IMGOLF.1-v01 ;
 .
 
 ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
-nen3610:namespace "NL.IMGOLF" ;
-nen3610:lokaalID "1" ;
-nen3610:versie "v01" ;       # optioneel
-rdf:value "NL.IMGOLF.1-v01"  # optioneel om de samengestelde identificatie op te nemen
+  nen3610:namespace "NL.IMGOLF" ;
+  nen3610:lokaalID "1" ;
+  nen3610:versie "v01" ;       # optioneel
+  rdf:value "NL.IMGOLF.1-v01"  # optioneel om de samengestelde identificatie op te nemen
 .
             </pre>
           </section>
@@ -1208,11 +1205,108 @@ rdf:value "NL.IMGOLF.1-v01"  # optioneel om de samengestelde identificatie op te
           <!-- Sectie 7.2.4.2.3 -->
           <section id='regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+            <p>
+              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnen we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
+            </p>
+            <p>
+              Het uitdrukken van eigenschappen die over een set uitdrukkingen gaan is in RDF niet triviaal. Het is namelijk niet mogelijk om een set van uitdrukkingen in de subjectpositie van een triple te gebruiken. We hebben hier een manier nodig om een set bij elkaar horende triples te kunnen beschrijven als een ding.
+            </p>
+            <p>
+              Neem bijvoorbeeld de IMGolf klasse Parcours. Deze heeft de attributen <code>beginGeldigheid</code> en <code>eindGeldigheid</code> met stereotype &laquo;materieleHistorie&raquo;.
+              <figure>
+                <img src="media/imgolf-materieelformeel.png" height="350">
+                <figcaption>
+                  Attribuut met stereotypes &laquo;materieleHistorie&raquo; en &laquo;formeleHistorie&raquo;
+                </figcaption>
+              </figure>
+              Deze attributen slaan niet alleen op het Parcours als ding in de werkelijkheid, maar op de beschrijving van het Parcours met de eigenschappen zoals <code>nummer</code>, <code>par</code> en <code>geometry</code>.
+            </p>
+            <p>
+              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. We kunnen gebruik maken van het FOAF vocabulaire voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="">wordt toegepast</a>.
+            </p>
+            <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf nen3610:GeoObject ;
+  rdfs:label "Parcours" ;
+.
+imgolf:nummer a owl:DatatypeProperty ;
+  rdfs:label "nummer" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:integer ;
+.
+imgolf:par a owl:DatatypeProperty ;
+  rdfs:label "par" ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:integer ;
+.
+#---------------#
+# Voorbeelddata
+#---------------#
+ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
+  rdfs:label "Parcours 4" ;
+  nen3610:identificatie ex:id-NL.IMGOLF.4 ;
+  imgolf:nummer 4 ;
+  imgolf:par 3 ;
+  foaf:isPrimaryTopicOf ex-doc:20180101/parcours-NL.IMGOLF.4; # verbinding van NIR met IR
+.
+
+ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
+  rdfs:label "Beschrijving van Parcours 4" ;
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
+.
+            </pre>
+            <p>
+              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met 1 of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> of <code>foaf:page</code> property, welke respectievelijk aanduiden dat de <a>non-information resource</a> het hoofdonderwerp danwel onderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
+            </p>
+            <aside class="note">
+              Let op! Wanneer je in één dataset meerdere materieel geldige beschrijvingen van hetzelfde object in de werkelijkheidheid hebt is het noodzakelijk deze van elkaar te scheiden. Gezien de identificatie/IRI van het ding in de werkelijkheid niet veranderd, heb je een manier nodig om de bij elkaar horende set uitdrukkingen te scheiden van andere sets uitdrukkingen. Hiervoor kun je gebruik maken van (named) graphs.
+            </aside>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.4 -->
           <section id='regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+            <p>
+              Een attribuut met stereotype &laquo;formeleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in een registratie uit. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;formeleHistorie&raquo; is een attribuut voor historie van geldigheid van de registratie van een set uitdrukkingen over een object in de werkelijkheid".
+            </p>
+            <p>
+              Gezien formele historie, net als materiele historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden.
+              Wanneer we uitgaan van hetzelfde voorbeeld als in <a href=#regels-attributen-materieleHistorie>7.3.4.2.3</a> kunnen we formele historie als volgt modelleren.
+            </p>
+            <pre class='ex-turtle'>
+ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
+  rdfs:label "Parcours 4" ;
+  nen3610:identificatie ex:id-NL.IMGOLF.4 ;
+  imgolf:nummer 4 ;
+  imgolf:par 3 ;
+  foaf:isPrimaryTopicOf ex-doc:20180101/parcours-NL.IMGOLF.4; # verbinding van NIR met IR
+.
+
+ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
+  rdfs:label "Beschrijving van Parcours 4" ;
+
+  # materiele historie
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
+
+  # formele historie
+  nen3610:tijdstipRegistratie "2018-01-02T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindRegistratie "2019-04-19T00:00:00.000+02:00"^^xsd:dateTime ;
+.
+            </pre>
+            <p>
+              Door ook hier de set uitdrukkingen te representeren als <a>information resource</a> kunnen we uitdrukkingen doen over de formele historie van deze information resource. Dit maakt het mogelijk om verschillende information resources over dezelfde <a>non-information resource</a> naast elkaar te kunnen laten bestaan. Bij linked data publicatie kan hiermee de gewenste versie gepubliceerd worden.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.5 -->
