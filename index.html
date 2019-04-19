@@ -266,7 +266,7 @@
 	    <p><b>url:</b> <a href=http://bp4mc2.org/>http://bp4mc2.org/</a> </p>
       <p><b>type document:</b> publicatie</p>
       <p><b>organisatie:</b> Platform implementatie Linked Open Data (PiLOD)</p>
-      <p><b>scope:</b> todo</p>
+      <p><b>scope:</b> best practices voor het toepassen van standaard Linked Data vocabulaires voor het beschrijven van een gegevenscatalogus. De scope is breder in de zin dat BP4mc2 ook betrekking heeft op datasets, datakwaliteit en gegevenscatalogi, waarbij we voor NEN3610 focussen op gegevensmodellen. BP4mc2 gaat niet specifiek in op geometrische vraagstukken.</p>
       <p><b>omschrijving:</b> Publicatie over het proces om data op het web te presenteren. Linked Data is daarbij de methode. Inzicht wordt gegeven in de relatie tussen betekenis van gebeurtenissen in de werkelijkheid en hoe die vertaalt worden in begrippen en semantiek middels de grammatica van <a>SKOS</a> en <a>OWL</a>. De uri als sleutel voor objecten in een informatiesysteem en de rol van registers worden benadrukt. De publicatie geeft een uiteenzetting van theorie en praktijk over Linked Data, de methode, begrippen en manier van denken en werkwijze. Er is een verschil en een relatie tussen een datamodel (gegevens) en een model (begrippen) van de werkelijkheid. UML wordt daarbij gepositioneerd als methode voor het datamodel en SKOS-OWL voor het begrippen model. De architectuur van een Linked Data implementatie wordt toegelicht.<br>
       </p>
       <p><b>relevantie:</b> De achtergrond en filosofie van Linked Data wordt beschreven in de context van een informatievoorziening middels web-standaarden. Begrippen worden uitgelegd en de relatie tussen data, begrippen en de werkelijkheid wordt beschouwd. Een model van data is iets anders dan een model van begrippen. UML en SKOS-OWL worden daarbij aan elkaar gerelateerd.</p>
@@ -306,10 +306,9 @@
       <p>Een informatiemodel in de linked data wereld kan bestaan uit verschillende onderdelen:</p>
       <ul>
         <li>Een model van <em>begrippen</em>, dat beschrijft welke concepten er in het domein dat je wilt modelleren een rol spelen, en wat ze betekenen. Dit kun je uitdrukken met <a>SKOS</a> [[skos-primer]].</li>
-        <li>Een set <em>regels</em>, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Een set regels vormt een <a>ontologie</a>, een kennismodel van (een specifiek kennisdomein in) de werkelijkheid. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data. Een ontologie kun je uitdrukken met <a>RDFS</a> [[rdf-schema]] en <a>OWL</a> [[owl2-primer]].</li>
-        <li>Een specificatie van de <em>structuur</em> die de gegevens in een linked dataset hebben, bijvoorbeeld eigenschappen die altijd aanwezig zijn, <a>datatypen</a>, enzovoort. Dit kun je uitdrukken met <a>SHACL</a> [[shacl]].</li>
+        <li>Een <em>ontologie</em>, die een kennisdomein beschrijft in termen van klassen en eigenschappen die relevant zijn binnen dit kennisdomein, aangevuld met <em>regels</em>, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Met behulp van een ontologie kunnen computers begrijpen wat de data betekent en redeneren over data. Een ontologie kun je uitdrukken met <a>RDFS</a> [[rdf-schema]] en <a>OWL</a> [[owl2-primer]].</li>
+        <li>Een specificatie van de <em>structuur</em> die de gegevens in een linked dataset hebben, bijvoorbeeld eigenschappen die altijd aanwezig zijn voor een specifieke klasse, <a>datatypen</a>, cardinaliteiten, enzovoort. Dit kun je uitdrukken met <a>SHACL</a> [[shacl]].</li>
       </ul>
-      <aside class="issue" data-number="49">De structuur van de gegevens (soorten, unieke eigenschappen) is ook (vooral?) met RDFS (rdfs:subClassOf) en met OWL-2 (owl:Restriction) te beschrijven.</aside>
       <p>De hierboven beschreven uitgangspunten van linked data hebben verregaande consequenties die informatiemodelleren voor linked data fundamenteel anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden. </p>
     </section>
     <!--De tekst hieronder moet kunnen leunen op de Linked Data 101 uitleg. -->
@@ -538,7 +537,7 @@
     <!-- Sectie 6.2 -->
     <section id='nen3610ld-begrippen'>
       <h2>Begrippen</h2>
-      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen definities die gelden voor toepassen van deze standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen en definities die gelden voor toepassen van de NEN3610 standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
       <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
       <p>De URI voor het begrippenkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
       <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
@@ -633,14 +632,14 @@
     </section>
 
     <!-- Sectie 6.3 -->
-    <section id='nen3610ld-vocabulaire'>
+    <section id='nen3610ld-ontologie'>
       <h2>Klassen en eigenschappen</h2>
       <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen. Het geeft de klassen en eigenschappen die gebruikt kunnen worden in informatiemodellen die gebaseerd zijn op de NEN3610 standaard.</p>
-      <p>Voor het realiseren van Linked Data modellen die op de NEN3610 standaard zijn gebaseerd, is dit het meest belangrijke onderdeel. Voor Linked Data geldt dat zoveel mogelijk gebruik wordt gemaakt van algemeen gebruikte <a>vocabulaires</a>. Met dit onderdeel van het NEN3610 Linked Data model, wordt een dergelijke vocabulaire gepubliceerd.</p>
-      <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze vocabulaire.</p>
+      <p>Voor het realiseren van Linked Data modellen die op de NEN3610 standaard zijn gebaseerd, is dit het meest belangrijke onderdeel. Voor Linked Data geldt dat zoveel mogelijk gebruik wordt gemaakt van algemeen gebruikte <a>vocabulaires</a> en <a>ontologieën</a>. Met dit onderdeel van het NEN3610 Linked Data model, wordt een dergelijke ontologie gepubliceerd.</p>
+      <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze ontologie.</p>
       <p>De URI voor zowel klassen als eigenschappen begint met <code>http://definities.geostandaarden.nl/def/nen3610#</code>.</p>
       <p>Daarbij geldt dat de verwijzing naar een klasse altijd begint met een hoofdletter (UpperCamelCase) en de verwijzing naar een eigenschap altijd begint met een kleine letter (LowerCamelCase)</p>
-      <p>Een volledige beschrijving is te vinden op: <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire">https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/vocabulaire</a></p>
+      <p>Een volledige beschrijving is te vinden op: <a href="http://definities.geostandaarden.nl/def/nen3610">http://definities.geostandaarden.nl/def/nen3610</a></p>
       <p>De volgende vocabulaires zijn gebruikt:</p>
       <table>
         <tbody>
@@ -761,8 +760,10 @@ imgolf-begrip:Golfbaan a skos:Concept;
       <section id="nen3610-ld-gebruik-vocabulaire">
         <h3>Maak gebruik van de NEN3610 vocabulaire</h3>
         <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
-        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen</p>
-        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire</p>
+        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen.</p>
+        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire.</p>
+        <p>In dit voorbeeld is ook de relatie gelegd tussen de klasse <code>imgolf:Golfbaan</code> en het begrip "Golfbaan". Een goede gewoonte is om hiervoor <code>dct:subject</code> te gebruiken.</p>
+        <p>Tenslotte laat dit voorbeeld ook zien hoe je vanuit eigen data rechtstreeks kunt verwijzen naar data van een ander. Een goede gewoonte is om hiervoor de URI uit de data van de andere te gebruiken als deze beschikbaar is.</p>
         <pre class='ex-turtle'>
 @prefix nen3610: &lt;http://definities.geostandaarden.nl/def/nen3610#>.
 @prefix imgolf: &lt;http://definities.geostandaarden.nl/def/imgolf#>.
@@ -770,11 +771,18 @@ imgolf-begrip:Golfbaan a skos:Concept;
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#>.
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#>.
 @prefix geosparql: &lt;http://www.opengis.net/ont/geosparql#>.
+@prefix dct: &lt;http://purl.org/dc/terms/#>.
 
 imgolf:Golfbaan a owl:Class;
   rdfs:label "Golfbaan"@nl;
   rdfs:subClassOf nen3610:FunctioneelGebied;
+  dct:subject imgolf-begrip:Golfbaan;
 .
+imgolf:naam a owl:DatatypeProperty;
+  rdfs:label "naam"@nl;
+  rdfs:subPropertyOf rdfs:label
+.
+
 golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
   owl:sameAs &lt;http://brt.basisregistraties.overheid.nl/top10nl/id/functioneel-gebied/128367769>;
   geosparql:hasGeometry geometrie:KoninklijkeHaagseGenCC;
@@ -783,7 +791,6 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 .
         </pre>
 
-        <aside class="note">Waarom in het voorbeeld imgolf:naam ipv rdfs:label?</aside>
       </section>
 
     </section>
@@ -856,7 +863,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <section id='transformatie-encoding'>
       <h2>Transformatie: basisregels - encoding</h2>
 
-      <!-- Sectie 7.2.1 -->
+      <!-- Sectie 7.3.1 -->
       <section id='transformatie-encoding-inleiding'>
         <h3>Inleiding</h3>
         <p>Deze paragraaf bevat de beschrijving van de basisregels en de uitwerking van details voor transformatie van <a>UML</a> constructen naar linked data.</p>
@@ -867,8 +874,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <li>OWL</li>
           <li>SKOS</li>
           <li>SHACL</li>
+          <li>GeoSparql</li>
         </ul>
-        <aside class="note">GeoSPARQL niet? Is naast een SPARQL-extensie ook een vocabulaire voor geogegevens</aside>
         <p>De reden om te kiezen voor deze <a>vocabulaires</a> is:</p>
         <p class='issue' data-number='21'>De keuze voor deze vocabulaires is voorlopig. Het is van belang om deze keuze zo goed mogelijk te verantwoorden. De keuze voor <a>RDF</a> en <a>OWL</a> ligt voor de hand, maar de keuze van <a>SHACL</a> verdient wat meer aandacht. (Voorstel nu: beide aanbieden, en verschil uitleggen, zie voorstel in de tekst)</p>
         <ul>
@@ -996,6 +1003,21 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <!-- Sectie 7.2.4.1 -->
         <section id='regels-klassen'>
           <h4>Klassen</h4>
+          <section id='regels-klassen-algemeen'>
+            <h5>Klassen algemeen</h5>
+            <p>
+              TODO: Klasse wordt owl:Class
+            </p>
+            <p>
+              TODO: Specialisatie wordt rdfs:subClassOf
+            </p>
+            <p>
+              TODO: Aggregatie&Compositie wordt een ?relatie
+            </p>
+            <p>
+              TODO: Absracte klasse, conctrete klasse, instantie
+            </p>
+          </section>
 
           <!-- Sectie 7.2.4.1.1 -->
           <section id='regels-klassen-featureType'>
@@ -1167,6 +1189,18 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
         <!-- Sectie 7.2.4.2 -->
         <section id='regels-attributen'>
           <h4>Attributen</h4>
+          <section id='regels-attributen-algemeen'>
+            <h5>Attributen algemeen</h5>
+            <p>
+              TODO: Attribuut wordt owl:DatatypeProperty, owl:ObjectProperty
+            </p>
+            <p>
+              TODO: Associatie wordt owl:ObjectProperty
+            </p>
+            <p>
+              TODO: Kardinaliteit
+            </p>
+          </section>
 
           <!-- Sectie 7.2.4.2.1 -->
           <section id='regels-attributen-identificatie'>
@@ -1205,7 +1239,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
           <section id='regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
             <p>
-              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnne we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
+              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnen we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
             </p>
             <p>
               Het uitdrukken van eigenschappen die over een set uitdrukkingen gaan is in RDF niet triviaal. Het is namelijk niet mogelijk om een set van uitdrukkingen in de subjectpositie van een triple te gebruiken. We hebben hier een manier nodig om een set bij elkaar horende triples te kunnen beschrijven als een ding.
@@ -1215,7 +1249,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
               <figure>
                 <img src="media/imgolf-materieelformeel.png" height="350">
                 <figcaption>
-                  Attribuut met stereotype &laquo;materieleHistorie&raquo;
+                  Attribuut met stereotypes &laquo;materieleHistorie&raquo; en &laquo;formeleHistorie&raquo;
                 </figcaption>
               </figure>
               Deze attributen slaan niet alleen op het Parcours als ding in de werkelijkheid, maar op de beschrijving van het Parcours met de eigenschappen zoals <code>nummer</code>, <code>par</code> en <code>geometry</code>.
@@ -1254,8 +1288,8 @@ ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-informati
 
 ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
   rdfs:label "Beschrijving van Parcours 4" ;
-  nen3610:beginGeldigheid "2018-01-01"^^xsd:date ;
-  nen3610:eindGeldigheid "2019-03-22"^^xsd:date ;
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
 .
             </pre>
             <p>
@@ -1272,17 +1306,57 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           <!-- Sectie 7.2.4.2.4 -->
           <section id='regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+            <p>
+              Een attribuut met stereotype &laquo;formeleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in een registratie uit. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;formeleHistorie&raquo; is een attribuut voor historie van geldigheid van de registratie van een set uitdrukkingen over een object in de werkelijkheid".
+            </p>
+            <p>
+              Gezien formele historie, net als materiele historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden.
+              Wanneer we uitgaan van hetzelfde voorbeeld als in <a href=#regels-attributen-materieleHistorie>7.3.4.2.3</a> kunnen we formele historie als volgt modelleren.
+            </p>
+            <pre class='ex-turtle'>
+ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
+  rdfs:label "Parcours 4" ;
+  nen3610:identificatie ex:id-NL.IMGOLF.4 ;
+  imgolf:nummer 4 ;
+  imgolf:par 3 ;
+  foaf:isPrimaryTopicOf ex-doc:20180101/parcours-NL.IMGOLF.4; # verbinding van NIR met IR
+.
+
+ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
+  rdfs:label "Beschrijving van Parcours 4" ;
+
+  # materiele historie
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
+
+  # formele historie
+  nen3610:tijdstipRegistratie "2018-01-02T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindRegistratie "2019-04-19T00:00:00.000+02:00"^^xsd:dateTime ;
+.
+            </pre>
+            <p>
+              Door ook hier de set uitdrukkingen te representeren als <a>information resource</a> kunnen we uitdrukkingen doen over de formele historie van deze information resource. Dit maakt het mogelijk om verschillende information resources over dezelfde <a>non-information resource</a> naast elkaar te kunnen laten bestaan. Bij linked data publicatie kan hiermee de gewenste versie gepubliceerd worden.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.5 -->
           <section id='regels-attributen-materieleLevensduur'>
             <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+            <p>
+              TODO: vergelijkbaar met materiele- en formele historie.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.6 -->
           <section id='regels-attributen-formeleLevensduur'>
             <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
           </section>
+          <p>
+            TODO: vergelijkbaar met materiele- en formele historie.
+          </p>
 
         </section>
 
