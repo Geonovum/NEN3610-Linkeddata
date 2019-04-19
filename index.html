@@ -1206,7 +1206,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
           <section id='regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
             <p>
-              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnne we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
+              Een attribuut met stereotype &laquo;materieleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in de werkelijkheid uit [[NEN3610]]. In een linked data context kunnen we dit scherper formuleren als: "een attribuut voor historie van geldigheid van een set uitdrukkingen over een object in de werkelijkheid". De historie die hiermee wordt beschreven slaat immers op de geldigheid van het geheel van eigenschappen van een object op een bepaald moment in de tijd.
             </p>
             <p>
               Het uitdrukken van eigenschappen die over een set uitdrukkingen gaan is in RDF niet triviaal. Het is namelijk niet mogelijk om een set van uitdrukkingen in de subjectpositie van een triple te gebruiken. We hebben hier een manier nodig om een set bij elkaar horende triples te kunnen beschrijven als een ding.
@@ -1255,8 +1255,8 @@ ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-informati
 
 ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
   rdfs:label "Beschrijving van Parcours 4" ;
-  nen3610:beginGeldigheid "2018-01-01"^^xsd:date ;
-  nen3610:eindGeldigheid "2019-03-22"^^xsd:date ;
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
 .
             </pre>
             <p>
@@ -1273,6 +1273,40 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           <!-- Sectie 7.2.4.2.4 -->
           <section id='regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+            <p>
+              Een attribuut met stereotype &laquo;formeleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in een registratie uit. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;formeleHistorie&raquo; is een attribuut voor historie van geldigheid van de registratie van een set uitdrukkingen over een object in de werkelijkheid".
+            </p>
+            <p>
+              Gezien formele historie, net als materiele historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden.
+              Wanneer we uitgaan van hetzelfde voorbeeld als in <a href=#regels-attributen-materieleHistorie>7.3.4.2.3</a> kunnen we formele historie als volgt modelleren.
+            </p>
+            <pre class='ex-turtle'>
+ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
+  rdfs:label "Parcours 4" ;
+  nen3610:identificatie ex:id-NL.IMGOLF.4 ;
+  imgolf:nummer 4 ;
+  imgolf:par 3 ;
+  foaf:isPrimaryTopicOf ex-doc:20180101/parcours-NL.IMGOLF.4; # verbinding van NIR met IR
+.
+
+ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information resource
+  rdfs:label "Beschrijving van Parcours 4" ;
+
+  # materiele historie
+  nen3610:beginGeldigheid "2018-01-01T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindGeldigheid "2019-03-22T00:00:00.000+01:00"^^xsd:dateTime ;
+
+  # formele historie
+  nen3610:tijdstipRegistratie "2018-01-02T00:00:00.000+01:00"^^xsd:dateTime ;
+  nen3610:eindRegistratie "2019-04-19T00:00:00.000+02:00"^^xsd:dateTime ;
+.
+            </pre>
+            <p>
+              Door ook hier de set uitdrukkingen te representeren als <a>information resource</a> kunnen we uitdrukkingen doen over de formele historie van deze information resource. Dit maakt het mogelijk om verschillende information resources over dezelfde <a>non-information resource</a> naast elkaar te kunnen laten bestaan. Bij linked data publicatie kan hiermee de gewenste versie gepubliceerd worden.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
 
           <!-- Sectie 7.2.4.2.5 -->
