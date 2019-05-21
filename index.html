@@ -1982,7 +1982,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 
         <!-- Sectie 7.3.4.1 -->
         <section id='metamodelorox'>
-          <h3>Metamodel OroX</h3>
+          <h3>Metamodel NEN 3610 conform GWSW-OroX</h3>
 
           <figure>
             <img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="1000">
@@ -1993,15 +1993,25 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
         <section id='transformatieregelsorox'>
           <h3>Transformatieregels OroX</h3>
 
-          Voor een goed begrip van de transformatieregels eerst een korte introductie van het OroX. <br />Het GWSW-OroX protocol is in eerste instantie ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
+          Voor een goed begrip van de transformatieregels eerst een korte introductie van het OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
           Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
           Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
-          <br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
+          <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
+
+		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
+		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
 
           <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
+		  
+		  In de volgende figuur staat het metamodel van de GWSW Relaties:
 
+          <figure>
+            <img src="media/Metamodel OroX.jpg" width="800">
+            <figcaption>Metamodel GWSW-OroX Relaties</figcaption>
+          </figure>
+		 		  
 		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE).
 		  In de volgende tabel is dat aangegeven met “CE”.
 
