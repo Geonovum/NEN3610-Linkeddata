@@ -12,6 +12,7 @@
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix schema: <http://definities.geostandaarden.nl/nen3610/id/conceptscheme/>.
+@prefix collectie: <http://definities.geostandaarden.nl/nen3610/id/collection/>.
 @prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
 
 # Begrippenkader
@@ -279,6 +280,49 @@ concept:EindRegistratie a skos:Concept;
 	rdfs:label "Eind registratie"@nl;
 	skos:definition "Eind van de periode dat deze instantie van het object geldig is in de registratie. Wanneer deze waarde niet is ingevuld is de instantie nog geldig"@nl;
 	dcterms:source referentie:NEN3610-2011-7.2.5.2;
+.
+
+# Reden waarom een waarde voor een attribuut afwezig is (sectie 7.2.6 NEN3610-2011)
+collectie:VoidReasonValue a skos:Collection;
+	rdfs:label "Void reason value"@en;
+	rdfs:label "Reden afwezigheid waarde"@nl;
+	skos:definition "reden waarom een 'void-waarde' is ingevuld";
+	dcterms:source referentie:NEN3610-2011-7.2.6;
+	skos:member concept:GeenWaarde;
+	skos:member concept:NietOndersteund;
+	skos:member concept:WaardeOnbekend;
+	skos:member concept:VastgesteldOnbekend;
+	skos:member concept:NietGeautoriseerd;
+.
+concept:GeenWaarde a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Geen waarde"@nl;
+	skos:definition "Element heeft in werkelijkheid geen waarde"@nl;
+	dcterms:source referentie:NEN3610-2011-7.2.6;
+.
+concept:NietOndersteund a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Niet ondersteund"@nl;
+	skos:definition "Zender houdt in zijn registratie geen waarde voor dit attribuut bij. Geldt voor alle objecten van dit objecttype"@nl;
+	dcterms:source referentie:NEN3610-2011-7.2.6;
+.
+concept:WaardeOnbekend a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Waarde onbekend"@nl;
+	skos:definition "Element is verplicht maar de waarde is bij de zender niet bekend"@nl;
+	dcterms:source referentie:NEN3610-2011-7.2.6;
+.
+concept:VastgesteldOnbekend a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Vastgesteld onbekend"@nl;
+	skos:definition "Er is vastgesteld dat de waarde van het attribuut onbekend is en hoogst waarschijnlijk niet meer kan worden achterhaald (bijvoorbeeld omdat het brondocument onleesbaar is of het object niet meer bestaat in de werkelijkheid)"@nl;
+	dcterms:source referentie:NEN3610-2011-7.2.6;
+.
+concept:NietGeautoriseerd a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Niet geautoriseerd"@nl;
+	skos:definition "Deze zender vindt dat de ontvanger niet geautoriseerd is om de waarde te kennen"@nl;
+	dcterms:source referentie:NEN3610-2011-7.2.6;
 .
 
 # Semantisch model (sectie 7.3 NEN3610-2011)
