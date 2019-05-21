@@ -2093,7 +2093,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
               <td> gwsw:hasPart</td>
             </tr>
             <tr>
-              <td>Algemene asscciaties</td>
+              <td>Algemene associaties</td>
               <td>gwsw:hasConnection, gwsw:hasRepresentation</td>
             </tr>
           </table>
@@ -2126,6 +2126,80 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
           Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF <a>ontologie</a>
           op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
+		  
+		  
+		  <h3>Transformatie-voorbeelden OroX</h3>
+		  
+		  Voor een semantisch rijke datastructuur worden de begrippen zo expliciet mogelijk beschreven. 
+		  Om die reden zullen objecttyperingen niet als domeinslijst opduiken. 
+		  
+		  <br/><br/>De domeinwaardenlijst in het UML van NEN3610-IMGolf:
+		  
+		  <figure>
+            <img src="media/Enum parcours.jpg" height="300">
+            <figcaption>Domeinwaarden type parcours</figcaption>
+          </figure>
+		  
+		  <br/><br/>Wordt conform GWSW-OroX als volgt gemodelleerd":
+		  
+		  <pre class='ex-turtle'>
+				gwsw:AfslagplaatsWit
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats wit"@nl ;
+					rdfs:subClassOf               gwsw:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				gwsw:AfslagplaatsGeel
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats geel"@nl ;
+					rdfs:subClassOf               gwsw:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				gwsw:AfslagplaatsBlauw
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats blauw"@nl ;
+					rdfs:subClassOf               gwsw:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				gwsw:AfslagplaatsRood
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats rood"@nl ;
+					rdfs:subClassOf               gwsw:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+		  </pre>
+
+		  Vooral voor objecttypes is de expliciteit belangrijk. Ook het GWSW-OroX hanteert collecties. Bijvoorbeeld voor kenmerken, die worden als individuals gemodelleerd.
+		  
+		  <br/><br/>De domeinwaardenlijst in het UML van NEN3610-IMGolf:
+		  
+		  <figure>
+            <img src="media/Enum natuurwaarde.jpg" height="300">
+            <figcaption>Domeinwaarden natuurwaarde</figcaption>
+          </figure>
+		  
+		  <br/><br/>Wordt in het GWSW-OroX als collectie gemodelleerd:
+		  
+		  <pre class='ex-turtle'>
+			gwsw:NatuurwaardeColl
+				rdf:type                      owl:Class ;
+				rdfs:label                    "Natuurwaarde (coll)"@nl ;
+				rdfs:subClassOf               gwsw:Verzameling ;
+				rdfs:subClassOf               
+				[
+					rdf:type                      owl:Class ;
+					owl:oneOf                     (gwsw:Hoog gwsw:Laag gwsw:Geen )
+				] .
+			gwsw:Hoog
+				rdf:type                      gwsw:NatuurwaardeColl ;
+				rdfs:label                    "Hoog"@nl .
+			gwsw:Laag
+				rdf:type                      gwsw:NatuurwaardeColl ;
+				rdfs:label                    "Laag"@nl .
+			gwsw:Geen
+				rdf:type                      gwsw:NatuurwaardeColl ;
+				rdfs:label                    "Geen"@nl .
+		  </pre>
 
         </section>
 
