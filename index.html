@@ -1977,7 +1977,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           </section>
 
       <!-- Sectie 7.3.4 -->
-      <section id='OroX:transformatieregels om tot een juist model te komen'>
+      <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
         <h2>OroX: Linked data Stedelijk Water, specifieke transformatieregels</h2>
 
         <!-- Sectie 7.3.4.1 -->
@@ -2001,8 +2001,42 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 
 		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
 		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
+		  
+		  Bijvoorbeeld een "Afslagplaats geel" is een soort "Tee" (afslagplaats) en heeft als functie "Voor dummies". Met OWL 2 kan dat als volgt worden uitgedrukt:  
+		  
+		  De definitie van de "Afslagplaats geel":
+		  
+		  <pre class='ex-turtle'>
+			gwsw:AfslagplaatsGeel
+				rdf:type                      owl:Class ;
+				rdfs:label                    "Afslagplaats geel"@nl ;
+				rdfs:subClassOf               gwsw:Tee ;
+		  </pre>
+		  
+		  De definitie van de individual "Voor dummies":
+		  
+		  <pre class='ex-turtle'>
+			gwsw:VoorDummies
+				rdf:type                      gwsw:Functie ;
+				rdfs:label                    "Voor dummies"@nl .
+		  </pre>
+		  
+		  Vervolgens "Afslagplaats geel" beschijven als subklasse van de functie-restrictie
+		  
+		  <pre class='ex-turtle'>
+			[	rdf:type                      owl:Restriction ;
+				owl:onProperty                gwsw:hasAspect ;
+				owl:someValuesFrom            
+				[
+				owl:intersectionOf            ( gwsw:Functie
+				[
+					rdf:type                      owl:Restriction ;
+					owl:onProperty                gwsw:hasReference ;
+					owl:hasValue                  gwsw:VoorDummies ] ) ]
+			] rdfs:subClassOf               gwsw:AfslagplaatsGeel .
+		  </pre>
 
-          <br /><br />De Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
+          <br /><br />De oorspronkelijke Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
 		  
 		  In de volgende figuur staat het metamodel van de GWSW Relaties:
