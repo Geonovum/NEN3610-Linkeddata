@@ -996,7 +996,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
         <p class='issue' data-number='27'>Gebruik bij voorbaat IMGolf voorbeelden?</p>
 
-        <p>transformatie regels van nen 3610 source element naar linked data target element</p>
+        <p>transformatie regels van nen 3610 source element naar RDF linked data target element</p>
 
         <!-- Sectie 7.2.4.1 -->
         <section id='regels-klassen'>
@@ -1004,16 +1004,46 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <section id='regels-klassen-algemeen'>
             <h5>Klassen algemeen</h5>
             <p>
-              TODO: Klasse wordt owl:Class
+              Een klasse in een NEN3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse.
             </p>
+            <pre class='ex-turtle'>
+imgolf:Parcours a owl:Class ;
+  rdfs:label "Parcours" ;
+  rdfs:comment "Een Parcours is een golfbaandeel dat van een tee via de fairway (indien aanwezig) tot de bijbehorende green loopt" ;
+.
+            </pre>
             <p>
-              TODO: Specialisatie wordt rdfs:subClassOf
+              Specialisatie, of sub-klasse relaties in een UML NEN3610 model tussen klassen worden in RDF modellen opgenomen als een <code>rdfs:subClassOf</code> relatie tussen de genoemde klassen.
             </p>
+            <pre class='ex-turtle'>
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf nen3610:GeoObject ;
+.
+            </pre>
             <p>
-              TODO: Aggregatie&Compositie wordt een ?relatie
+              Aggregatie- en compositierelaties worden gemodelleerd als normale relaties, gebruikmakend van de specifieke naam die de relatie in het oorspronkelijke model heeft. Zie de <a href="#regels-attributen-algemeen">algemene transformatieregels voor attributen</a> voor meer informatie.
             </p>
+            <pre class='ex-turtle'>
+imgolf:parcoursDeel a owl:ObjectProperty .
+
+imgolf:ParcoursDeel a owl:Class .
+
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:parcoursDeel ;
+    owl:someValuesFrom imgolf:ParcoursDeel ;
+  ] ;
+.
+            </pre>
             <p>
-              TODO: Absracte klasse, conctrete klasse, instantie
+              Instanties van klassen worden, zoals standaard in rdf, verbonden met den klassen via een <code>rdf:type</code> eigenschap (of in Turtle met de verkort versie daarvan: <code>a</code>).
+            </p>
+            <pre class='ex-turtle'>
+:hole1 a imgolf:Parcours .
+            </pre>
+            <p>
+              In een NEN3610 mdoel kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
             </p>
           </section>
 
@@ -1025,7 +1055,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
               De NEN3610 klassen zijn subklassen van <code>nen3610:GeoObject</code> welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire (<code>gsp:Feature</code>). Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
             </p>
             <pre class='ex-turtle'>
-ex:Golfbaan a owl:Class ;
+imgolf:Golfbaan a owl:Class ;
   rdfs:subClassOf nen3610:FunctioneelGebied ;
 .
 
@@ -1122,15 +1152,15 @@ nen3610:versie a owl:DatatypeProperty;
               In een linked data omgeving is het gebruikelijk om gebruik te maken van bestaande ontologieën wanneer deze beschikbaar zijn. Als er een ontologie bestaat waar de externe klasse gedefinieerd is kun je direct gebruik maken van de klasse. Wanneer dit niet het geval is zal daar voor een eigen klasse geïntroduceerd moeten worden. Omdat dit per model kan verschillen worden klassen met stereotype &laquo;external&raquo; en de associaties naar deze klasse getransformeerd als een normale klasse en associatie maar met een herkenbare prefix <em>EXTERNAL_</em> zodat er handmatig bepaald kan worden wat de beste aanpak is voor het specifieke model.
             </p>
             <pre class='ex-turtle'>
-  ex:EXTERNAL_pand a owl:ObjectProperty ;
-    rdfs:label "EXTERNAL pand" ;
-    rdfs:domain ex:Gebouw ;
-    rdfs:range ex:EXTERNAL_Pand ;
-  .
+ex:EXTERNAL_pand a owl:ObjectProperty ;
+  rdfs:label "EXTERNAL pand" ;
+  rdfs:domain ex:Gebouw ;
+  rdfs:range ex:EXTERNAL_Pand ;
+.
 
-  ex:EXTERNAL_Pand a owl:Class ;
-    rdfs:label "EXTERNAL Pand" ;
-  .
+ex:EXTERNAL_Pand a owl:Class ;
+  rdfs:label "EXTERNAL Pand" ;
+.
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
               Geen.
@@ -1190,13 +1220,36 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <section id='regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
-              TODO: Attribuut wordt owl:DatatypeProperty, owl:ObjectProperty
+              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk  datatype, en naar een <code>owl:ObjectProperty</code> wanneer het verwijst naar een niet-letterlijk datatype.
+              Daarbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen, en een rdfs:range en het bereik van de waarde te definieren.
             </p>
+            <pre class='ex-turtle'>
+imgolf:naam a owl:DatatypeProperty .
+
+imgolf:Golfbaan a owl:Class ;
+  rfds:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:naam ;
+    owl:someValuesFrom xsd:string ;
+  ] ;
+.
+            </pre>
             <p>
-              TODO: Associatie wordt owl:ObjectProperty
+              Een associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt op dezelfde manier als attributen gekoppelde met de klasse waarop het voorkomt en de klasse waarnaar het verwijst.
             </p>
+            <pre class='ex-turtle'>
+imgolf:hole a owl:ObjectProperty .
+
+imgolf:Golfbaan a owl:Class ;
+  rfds:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:hole ;
+    owl:someValuesFrom imgolf:Parcours ;
+  ] ;
+.
+            </pre>
             <p>
-              TODO: Kardinaliteit
+              Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie geen uitspraken over gedaan.
             </p>
           </section>
 
@@ -1208,7 +1261,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
               Op basis van het NEN3610 vocabulaire kan een identificatie-instantie er zo uit zien:
             </p>
             <pre class='ex-turtle'>
-ex:ex:NL.IMGOLF.1-v01 a imgolf:Golfbaan ;
+ex:NL.IMGOLF.1-v01 a imgolf:Golfbaan ;
   nen3610:identificatie ex:id-NL.IMGOLF.1-v01 ;
 .
 
