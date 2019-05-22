@@ -323,7 +323,7 @@
         <li><a href="https://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a> (Engels)</li>
       </ul>
       <aside class="note">Een IRI is gewoon een URI, maar beter internationaal bruikbaar omdat je in een IRI ook tekens uit niet-latijns schrift kan gebruiken.</aside>
-      <p>Het is daarnaast ook belangrijk om precies te zijn over het <a>subject</a> dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een linked data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in linked data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een <a>triple</a>, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in linked data onderscheid gemaakt tussen <a>information resources</a> en <a>non-information resources</a>. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiele historie, zou je dit in linked data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
+      <p>Het is daarnaast ook belangrijk om precies te zijn over het <a>subject</a> dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een linked data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in linked data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een <a>triple</a>, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in linked data onderscheid gemaakt tussen <a>information resources</a> en <a>non-information resources</a>. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiële historie, zou je dit in linked data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
       <p>Er is nog een ander belangrijk verschil tussen UML en OWL. Dit heeft te maken met de Unique Naming Assumption (<a>UNA</a>) in UML. Daarmee wordt namelijk gesteld dat een unieke ID naar een unieke entiteit verwijst en dat een unieke entiteit door 1 unieke ID wordt aangeduid. Dit betekent dat 2 objecten met 2 verschillende ID's nooit naar hetzelfde kunnen, dan wel mogen, verwijzen. In linked data is dit laatste wél mogelijk. Het idee is namelijk dat meerdere mensen iets over het zelfde ding kunnen zeggen, en dan kun je er vanuit gaan dat ze daar ook een andere ID voor hebben gebruikt. Door de <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a> relatie kan in linked data aangegeven worden dat twee verschillende ID's naar het zelfde ding verwijzen.</p>
       <aside class="note">
         <h3>Consequenties voor NEN3610</h3>
@@ -1358,11 +1358,11 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           <section id='regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
             <p>
-              Een attribuut met stereotype &laquo;formeleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in een registratie uit. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;formeleHistorie&raquo; is een attribuut voor historie van geldigheid van de registratie van een set uitdrukkingen over een object in de werkelijkheid".
+              Een attribuut met stereotype &laquo;formeleHistorie&raquo; drukt de historie van veranderingen van eigenschappen van een object in een registratie uit [[NEN3610]]. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;formeleHistorie&raquo; is een attribuut voor historie van geldigheid van de registratie van een set uitdrukkingen over een object in de werkelijkheid".
             </p>
             <p>
-              Gezien formele historie, net als materiele historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden.
-              Wanneer we uitgaan van hetzelfde voorbeeld als in <a href=#regels-attributen-materieleHistorie>7.3.4.2.3</a> kunnen we formele historie als volgt modelleren.
+              Gezien formele historie, net als materiële historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden.
+              Wanneer we uitgaan van hetzelfde voorbeeld als in <a href=#regels-attributen-materieleHistorie>7.3.4.2.4</a> kunnen we formele historie als volgt modelleren.
             </p>
             <pre class='ex-turtle'>
 ex:parcours-NL.IMGOLF.4 a imgolf:Parcours ;                   # De non-information resource
@@ -1393,21 +1393,35 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
             </p>
           </section>
 
-          <!-- Sectie 7.2.4.2.5 -->
+          <!-- Sectie 7.3.4.2.6 -->
           <section id='regels-attributen-materieleLevensduur'>
             <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+            <aside class="issue">Kunnen we dit niet standaard vertalen naar materiele historie? De properties drukken eigenlijk hetzelfde uit.</aside>
             <p>
-              TODO: vergelijkbaar met materiele- en formele historie.
+              Een attribuut met stereotype &laquo;materieleLevensduur&raquo; drukt de tijdsinterval van geldigheid van het object in de werkelijkheid uit [[NEN3610]]. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;materieleLevensduur&raquo; is een attribuut voor het vastleggen van de tijdsinterval van werkelijk voorkomen van uitdrukkingen over een object in de werkelijkheid".
+            </p>
+            <p>
+              Gezien materiële levensduur, net als materiële historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden. Het enige verschil met het voorbeeld in <a href=#regels-attributen-materieleHistorie>7.3.4.2.4</a> is dat waar we bij materiële historie <code>nen3610:beginGeldigheid</code> en <code>nen3610:eindGeldigheid</code> wordt gebruikt, dat bij materiële levensduur respectievelijk de eigenschappen <code>nen3610:beginTijd</code> en <code>nen3610:eindTijd</code> is.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
             </p>
           </section>
 
-          <!-- Sectie 7.2.4.2.6 -->
+          <!-- Sectie 7.3.4.2.7 -->
           <section id='regels-attributen-formeleLevensduur'>
             <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
+            <aside class="issue">Kunnen we dit niet standaard vertalen naar formele historie? De propertynaam objectBeginTijd past ook niet lekker bij de linked data manier van kijken naar deze eigenschappen</aside>
+            <p>
+              Een attribuut met stereotype &laquo;formeleLevensduur&raquo; drukt de tijdsinterval van geldigheid van het object in de registratie uit [[NEN3610]]. In een linked data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;materieleLevensduur&raquo; is een attribuut voor het vastleggen van de tijdsinterval van het in een registratie voorkomen van uitdrukkingen over een object in de werkelijkheid".
+            </p>
+            <p>
+              Gezien formele levensduur, net als materiële- en formele historie, iets zegt over een set uitdrukkingen, kan dit op vergelijkbare manier gemodelleerd worden. Het enige verschil met het voorbeeld in <a href=#regels-attributen-formeleHistorie>7.3.4.2.5</a> is dat waar we bij formele historie <code>nen3610:tijdstipRegistratie</code> en <code>nen3610:eindRegistratie</code> wordt gebruikt, dat bij formele levensduur respectievelijk de eigenschappen <code>nen3610:objectBeginTijd</code> en <code>nen3610:objectEindTijd</code> is.
+            </p>
+            <p><b>vergelijking met andere best practices</b><br>
+              Geen.
+            </p>
           </section>
-          <p>
-            TODO: vergelijkbaar met materiele- en formele historie.
-          </p>
 
         </section>
 
