@@ -2024,6 +2024,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 		  Vervolgens "Afslagplaats geel" beschijven als subklasse van de functie-restrictie
 		  
 		  <pre class='ex-turtle'>
+			gwsw:AfslagplaatsGeel			  rdfs:subClassOf               	
 			[	rdf:type                      owl:Restriction ;
 				owl:onProperty                gwsw:hasAspect ;
 				owl:someValuesFrom            
@@ -2033,7 +2034,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 					rdf:type                      owl:Restriction ;
 					owl:onProperty                gwsw:hasReference ;
 					owl:hasValue                  gwsw:VoorDummies ] ) ]
-			] rdfs:subClassOf               gwsw:AfslagplaatsGeel .
+			] .
 		  </pre>
 
 		  Afhankelijk van het gehanteerde OWL-expressieniveau kan een Graph-database Reasoner afleiden dat bim:WelkType een "Afslagplaats geel" is:
