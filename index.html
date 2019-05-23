@@ -334,6 +334,13 @@
     <!-- Sectie 5.2 -->
     <section id='basisprincipes-normalisatie'>
       <h2>Normalisatie</h2>
+	  
+      <aside class="note">
+        <h3>mv (20190523): Past dit hier?</h3>
+        <p>Normalisatie wordt hier goed toegelicht maar volgens mij is er nauwelijks verband met Linked-data modelleering. Past hier niet, denk aan onze eerdere discussie over constructivisme. 
+		De modellerings-principes verder uitwerken? Ook iets zeggen over het (al dan niet) semantisch verrijken van UML modellen tijdens de transformatie.</p>
+      </aside>
+	  
       <p>Zoals uitgelegd in de vorige paragraaf, is het in linked data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
       <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
             <figure>
@@ -455,6 +462,11 @@
       <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name <a>SKOS</a> gebruikt.</li>
       <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>
     </ul>
+	
+      <aside class="note">
+        <h3>mv (20190523): Waarom deze onderverdeling?</h3>
+        <p>Ik begrijp de noodzaak van deze onderverdeling niet. Klassen en eigenschappen dekken de lading niet? Graag voorbeelden ter illustratie</p>
+      </aside>
 
     <!-- Sectie 6.1 -->
     <section id='nen3610ld-verwijzingen'>
@@ -727,6 +739,13 @@
           </tr>
         </tbody>
       </table>
+	  
+      <aside class="note">
+        <h3>mv (20190523): toevoegen</h3>
+        <p>rdfs:comment, rdfs:seeAlso, skos:notation, owl:symetrictProperty, owl:annotationProperty, ...</p>
+      </aside>
+
+	  
       <p>Om de NEN3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN3610 ook "gelezen" worden in een bredere context.</p>
       <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
       <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: <a href="https://schema.org/Place">schema:Place</a> en <a href="https://schema.org/AdministrativeArea">schema:AdministrativeArea</a>. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een rdfs:subClassOf schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een rdfs:subClassOf schema:AdministrativeArea.</p>
@@ -1006,6 +1025,13 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
             <p>
               Een klasse in een NEN3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse.
             </p>
+			
+      <aside class="note">
+        <h3>mv (20190523): skos:definition in plaats rdfs:comment?</h3>
+        <p>Definities zouden een meer centrale rol moeten spelen?</p>
+      </aside>
+
+			
             <pre class='ex-turtle'>
 imgolf:Parcours a owl:Class ;
   rdfs:label "Parcours" ;
@@ -1023,6 +1049,13 @@ imgolf:Parcours a owl:Class ;
             <p>
               Aggregatie- en compositierelaties worden gemodelleerd als normale relaties, gebruikmakend van de specifieke naam die de relatie in het oorspronkelijke model heeft. Zie de <a href="#regels-attributen-algemeen">algemene transformatieregels voor attributen</a> voor meer informatie.
             </p>
+			
+      <aside class="note">
+        <h3>mv (20190523): Of een expliciete meronomie?</h3>
+        <p>Gebruik van "niet-normale" relaties als hasPart maakt het model sprekender. Hebben we bewust deze keuze gemaakt?</p>
+      </aside>
+
+			
             <pre class='ex-turtle'>
 imgolf:parcoursDeel a owl:ObjectProperty .
 
@@ -1223,6 +1256,12 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
               Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk  datatype, en naar een <code>owl:ObjectProperty</code> wanneer het verwijst naar een niet-letterlijk datatype.
               Daarbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen, en een rdfs:range en het bereik van de waarde te definieren.
             </p>
+     <aside class="note">
+        <h3>mv (20190523): Ander voorbeeld?</h3>
+        <p>Hier past rdfs:label, kies een ander voorbeeld. Inleidende tekst klopt niet met OWL-voorbeeld.</p>
+      </aside>
+
+			
             <pre class='ex-turtle'>
 imgolf:naam a owl:DatatypeProperty .
 
@@ -2045,7 +2084,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 
       <!-- Sectie 7.3.4 -->
       <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
-        <h2>OroX: Linked data Stedelijk Water, specifieke transformatieregels</h2>
+        <h2>OroX, Linked data Stedelijk Water: Specifieke transformatieregels</h2>
 
         <!-- Sectie 7.3.4.1 -->
         <section id='metamodelorox'>
@@ -2069,18 +2108,18 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
 		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
 		  
-		  <br>/<br/>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
-		  Door te beschrijven dat "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.
+		  <br/><br/>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
+		  Als in een dataset "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.
 		  <br/>De definitie van Parcours in RDF wordt dan:
 		  
 		  <pre class='ex-turtle'>
-		  gwsw:Parcours					  rdfs:subClassOf
+		  gwsw:Parcours				  rdfs:subClassOf
 		  [
-			rdf:type                      owl:Restriction ;
-			rdfs:label                    "wsw:hasPart_Tee" ;
-			owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
-			owl:onProperty                gwsw:hasPart ;
-			owl:onClass                   gwsw:Tee
+				rdf:type                    owl:Restriction ;
+				rdfs:label                  "wsw:hasPart_Tee" ;
+				owl:qualifiedCardinality    "1"^^xsd:nonNegativeInteger ;
+				owl:onProperty              gwsw:hasPart ;
+				owl:onClass                 gwsw:Tee
 		  ] .
 		  </pre>
 		  
@@ -2118,10 +2157,10 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 			] .
 		  </pre>
 
-		  Afhankelijk van het gehanteerde OWL-expressieniveau kan een Graph-database Reasoner afleiden dat bim:WelkType een "Afslagplaats geel" is:
+		  Afhankelijk van het gehanteerde OWL-expressieniveau kan een RDF-Reasoner uit onderstaande beschrijving afleiden dat bim:Iets mogelijk een "Afslagplaats geel" is:
 		  
 		  <pre class='ex-turtle'>
-		    bim:WelkType 
+		    bim:Iets 
 				rdf:type 					gwsw:Tee ;
 				gwsw:hasAspect 
 				[ 	rdf:type gwsw:Functie ;
@@ -2137,7 +2176,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           De oorspronkelijke Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
 		  
-		  In de volgende figuur staat het metamodel van de GWSW Relaties:
+		  In de volgende figuur staan schematisch de GWSW Relaties:
 
           <figure>
             <img src="media/Metamodel OroX.jpg" width="800">
@@ -2168,9 +2207,9 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 		
           <h3>UML-concepten versus OroX-concepten</h3>
 		  
-          Er is zeker analogie tussen OroX en <a>UML</a> te herkennen:
+          Een vergelijking tussen OroX en UML:
 		  
-          <br /><br /><b>UML-relaties</b>
+          <br /><br /><b>Relaties</b>
           <table>
             <tr>
               <th width="200">UML-relatie</th>
@@ -2190,10 +2229,10 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
             </tr>
           </table>
 
-          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geobjectificeerd".
-		  Zo worden attributen classes die met relaties verbonden zijn aan de UML-klasse.
+          <br />UML verdeelt de eigenschappen van klassen in een aantal rubrieken, in het OroX worden die "geclassificeerd".
+		  Zo worden UML-attributen aparte klassen die met relaties verbonden zijn aan de UML-klasse.
 
-          <br /><br /><b>UML-klassen</b>
+          <br /><br /><b>Klassen en attributen</b>
 
           <table>
             <tr>
