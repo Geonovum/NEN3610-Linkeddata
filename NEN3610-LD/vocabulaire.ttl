@@ -116,7 +116,7 @@ nen3610:GeografischGebied a owl:Class;
 nen3610:FunctioneelGebied a owl:Class;
 	rdfs:label "Functioneel gebied"@nl;
 	rdfs:subClassOf nen3610:GeoObject;
-	dcterms:subject concept:FunctioneelGebied
+	dcterms:subject concept:FunctioneelGebied;
 	rdfs:subClassOf schema:Place;
 .
 nen3610:PlanologischGebied a owl:Class;
