@@ -1077,7 +1077,7 @@ nen3610:GeoObject rdfs:subClassOf gsp:Feature .
           <section id='regels-klassen-dataType'>
             <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
             <p>
-              Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap schrijft.
+              Een NEN3610 UML klasse met stereotype &laquo;dataType&raquo; wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap schrijft.
             </p>
             <p>
               Het is niet mogelijk om voor deze <a>datatypen</a> een standaard transformatieregel te beschrijven die in alle gevallen de semantisch correcte betekenis van het datatype uitdrukt. Dit is afhankelijk van wat het samenstel van attributen uitdrukt. Daarom wordt een klasse met stereotype &laquo;dataType&raquo; standaard getransformeerd naar een normale klasse met eigenschappen.
@@ -1104,7 +1104,7 @@ nen3610:versie a owl:DatatypeProperty;
 .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              Komt grotendeels overeen met de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_feature">Inspire RDF Guidelines</a> [[INSPIRERDF]]. De Inspire RDF Guidelines beschrijven nog een uitzondering, maar deze uitzondering laten wij buiten beschouwing.
+              Komt grotendeels overeen met de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_datatype">Inspire RDF Guidelines</a> [[INSPIRERDF]]. De Inspire RDF Guidelines beschrijven nog een uitzondering, maar deze uitzondering laten wij buiten beschouwing.
             </p>
           </section>
 
@@ -1142,7 +1142,7 @@ nen3610:versie a owl:DatatypeProperty;
   .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creëren van instanties die de union uitdrukken, wat ongewenst is. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
+              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire RDF Guidelines</a> wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creëren van instanties die de union uitdrukken, wat ongewenst is [[INSPIRERDF]]. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
             </p>
           </section>
 
@@ -1202,7 +1202,7 @@ imgolf:Laag a imgolf:NatuurwaardeValue .
 imgolf:Geen a imgolf:NatuurwaardeValue .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              In [[INSPIRERDF]] wordt voorgeschreven om een enumeratie te modelleren als <code>rdfs:Datatype</code> in plaats van als klasse. Dit leidt tot enumeratiewaardes die een literal zijn, met het datatype van de enumeratie. Bijvoorbeeld <code>"hoog"^^imgolf:NatuurwaardeValue</code>. De reden om hiervan af te wijken is omdat enumeraties vaker waardelijsten zijn die een object of concept modelleren, dan een lijst van letterlijke waardes. Door deze waardes als objecten te modelleren blijft het mogelijk om nieuwe uitdrukkingen te doen over de waardes.
+              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_enumeration">Inspire RDF Guidelines</a> wordt voorgeschreven om een enumeratie te modelleren als <code>rdfs:Datatype</code> in plaats van als klasse [[INSPIRERDF]]. Dit leidt tot enumeratiewaardes die een literal zijn, met het datatype van de enumeratie. Bijvoorbeeld <code>"hoog"^^imgolf:NatuurwaardeValue</code>. De reden om hiervan af te wijken is omdat enumeraties vaker waardelijsten zijn die een object of concept modelleren, dan een lijst van letterlijke waardes. Door deze waardes als objecten te modelleren blijft het mogelijk om nieuwe uitdrukkingen te doen over de waardes.
             </p>
           </section>
           <!-- Sectie 7.3.4.1.7 -->
@@ -1215,7 +1215,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
               Gezien er structureel geen verschil is met een enumeratie, wordt een klasse met sterotype &laquo;CodeList&raquo; op dezelfde manier getransformeerd.
             </p>
             <p><b>vergelijking met andere best practices</b><br>
-              In [[INSPIRERDF]] worden CodeLists gemodelleerd m.b.v. SKOS. Gezien het afhankelijk is van de type waarden in de waardelijst, en de specifieke modelleringsstijl die wordt toegepast, of een modellering met SKOS toepasselijk is laten we deze keuze aan de handmatige transformatie over.
+              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_codelist">Inspire RDF Guidelines</a> worden CodeLists gemodelleerd m.b.v. SKOS [[INSPIRERDF]]. Gezien het afhankelijk is van de type waarden in de waardelijst, en de specifieke modelleringsstijl die wordt toegepast, of een modellering met SKOS toepasselijk is laten we deze keuze aan de handmatige transformatie over.
             </p>
           </section>
         </section>
@@ -1280,7 +1280,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
               In linked data heeft het niet opnemen van de <a>triple</a> die de waarde uitdrukt exact dezelfde betekenis als &laquo;voidable&raquo;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de <a>open-wereld-aanname</a>. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
             </p>
             <p><b>vergelijking met andere best practices</b><br>
-              In [[INSPIRERDF]] worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data.
+              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_prop_voidable">Inspire RDF Guidelines</a> worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data [[INSPIRERDF]].
             </p>
           </section>
 
