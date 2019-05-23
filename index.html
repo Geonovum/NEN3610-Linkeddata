@@ -1043,48 +1043,14 @@ imgolf:Parcours a owl:Class ;
 .
             </pre>
             <p>
-              Specialisatie, of sub-klasse relaties in een UML NEN3610 model tussen klassen worden in RDF modellen opgenomen als een <code>rdfs:subClassOf</code> relatie tussen de genoemde klassen.
-            </p>
-            <pre class='ex-turtle'>
-imgolf:Parcours a owl:Class ;
-  rdfs:subClassOf nen3610:GeoObject ;
-.
-            </pre>
-            <p>
-              Aggregatie- en compositierelaties worden gemodelleerd als normale relaties, gebruikmakend van de specifieke naam die de relatie in het oorspronkelijke model heeft. Zie de <a href="#regels-attributen-algemeen">algemene transformatieregels voor attributen</a> voor meer informatie.
-            </p>
-			
-      <aside class="note">
-        <h3>mv (20190523): Of een expliciete meronomie?</h3>
-        <p>Gebruik van "niet-normale" relaties als hasPart maakt het model sprekender. Hebben we bewust deze keuze gemaakt?</p>
-        <p>
-          pano (20190523): Voor mij was het een bewuste keuze, maar er valt over te discussieren. Ik ben van mening dat als de relatie benoemd is dat je die relatienaam moet gebruiken. Maar, ik kan me ook een model voorstellen waarin een compositierelatie niet is benoemd. Dan zouden we kunnen defaulten naar een ??:hasPart relatie. Een andere optie is het standaard opnemen van een rdfs:subProperty naar een ??:hasPart relatie, alleen ken ik geen breed gebruikte standaard hasPart relatie.
-        </p>
-      </aside>
-
-			
-            <pre class='ex-turtle'>
-imgolf:parcoursDeel a owl:ObjectProperty .
-
-imgolf:ParcoursDeel a owl:Class .
-
-imgolf:Parcours a owl:Class ;
-  rdfs:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty imgolf:parcoursDeel ;
-    owl:someValuesFrom imgolf:ParcoursDeel ;
-  ] ;
-.
-            </pre>
-            <p>
               Instanties van klassen worden, zoals standaard in rdf, verbonden met den klassen via een <code>rdf:type</code> eigenschap (of in Turtle met de verkort versie daarvan: <code>a</code>).
             </p>
             <pre class='ex-turtle'>
 :hole1 a imgolf:Parcours .
             </pre>
-            <p>
+            <aside class='note'>
               In een NEN3610 mdoel kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
-            </p>
+            </aside>
           </section>
 
           <!-- Sectie 7.3.4.1.2 -->
@@ -1176,7 +1142,7 @@ nen3610:versie a owl:DatatypeProperty;
   .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creeren van instanties die de union uitdrukken, wat ongewenst is. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
+              In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creëren van instanties die de union uitdrukken, wat ongewenst is. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
             </p>
           </section>
 
@@ -1187,7 +1153,7 @@ nen3610:versie a owl:DatatypeProperty;
               Indien in een model wordt verwezen naar een object in een andere registratie, kan de klasse waarnaar wordt verwezen worden opgenomen in het UML met het stereotype &laquo;external&raquo;.
               <figure>
                 <img src="media/nen3610-external.png" height="130">
-                <figcaption>Klasse met stereotype &laquo;externaë&raquo;</figcaption>
+                <figcaption>Klasse met stereotype &laquo;external&raquo;</figcaption>
               </figure>
               In een linked data omgeving is het gebruikelijk om gebruik te maken van bestaande ontologieën wanneer deze beschikbaar zijn. Als er een ontologie bestaat waar de externe klasse gedefinieerd is kun je direct gebruik maken van de klasse. Wanneer dit niet het geval is zal daar voor een eigen klasse geïntroduceerd moeten worden. Omdat dit per model kan verschillen worden klassen met stereotype &laquo;external&raquo; en de associaties naar deze klasse getransformeerd als een normale klasse en associatie maar met een herkenbare prefix <em>EXTERNAL_</em> zodat er handmatig bepaald kan worden wat de beste aanpak is voor het specifieke model.
             </p>
@@ -1261,18 +1227,15 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <section id='regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
-              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk datatype, en naar een <code>owl:ObjectProperty</code> wanneer het verwijst naar een niet-letterlijk datatype.
-              Daarbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
+              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
             </p>
-     <aside class="note">
-        <h3>mv (20190523): Ander voorbeeld?</h3>
-        <p>Hier past rdfs:label, kies een ander voorbeeld. Inleidende tekst klopt niet met OWL-voorbeeld.</p>
-        <p>
-          pàno (20190523): In een automatische transformatie kun je niet bepalen waar rdfs:label past. Dus zul je een naam property ook naar een naam property transformeren lijkt me. Maar, ik vind het prima om een ander voorbeeld te nemen. Ik heb de tekst ook aangepast.
-        </p>
-      </aside>
-
-			
+            <aside class="note">
+              <h3>mv (20190523): Ander voorbeeld?</h3>
+              <p>Hier past rdfs:label, kies een ander voorbeeld. Inleidende tekst klopt niet met OWL-voorbeeld.</p>
+              <p>
+                pano (20190523): In een automatische transformatie kun je niet bepalen waar rdfs:label past. Dus zul je een naam property ook naar een naam property transformeren lijkt me. Maar, ik vind het prima om een ander voorbeeld te nemen. Ik heb de tekst ook aangepast.
+              </p>
+            </aside>
             <pre class='ex-turtle'>
 imgolf:par a owl:DatatypeProperty .
 
@@ -1284,23 +1247,8 @@ imgolf:Parcours a owl:Class ;
   ] ;
 .
             </pre>
-            <p>
-              Een associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt op dezelfde manier als attributen gekoppelde met de klasse waarop het voorkomt en de klasse waarnaar het verwijst.
-            </p>
-            <pre class='ex-turtle'>
-imgolf:hole a owl:ObjectProperty .
-
-imgolf:Golfbaan a owl:Class ;
-  rfds:subClassOf [
-    a owl:Restriction ;
-    owl:onProperty imgolf:hole ;
-    owl:someValuesFrom imgolf:Parcours ;
-  ] ;
-.
-            </pre>
-            <p>
-              Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie geen uitspraken over gedaan.
-            </p>
+            <aside class='note'>Wanneer een attribuut van een UML-klasse geen letterlijke waarde als bereik heeft, wordt deze behandeld als een associatie (zie <a href="#regels-associaties">paragraaf 7.3.4.3</a>). Dit is bijvoorbeeld het geval bij attributen die verwijzen naar klassen met stereotype &laquo;dataType&raquo; of &laquo;enumeration&raquo;.
+            </aside>
           </section>
 
           <!-- Sectie 7.3.4.2.2 -->
@@ -1473,6 +1421,88 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
             </p>
           </section>
 
+        </section>
+
+        <!-- Sectie 7.3.4.3 -->
+        <section id='regels-associaties'>
+          <h4>Associaties</h4>
+          Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
+          <!-- Sectie 7.3.4.3.1 -->
+          <section id='regels-associaties-simpel'>
+            <h5>Simpele associaties</h5>
+            <p>
+              Een simpele associatie is een associatie tussen twee klassen, zonder extra eigenschappen. Een simpele associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt op vergelijkbare manier als bij attributen gekoppeld met de klasse waarop het voorkomt en de klasse waarnaar de associatie verwijst.
+            </p>
+            <pre class='ex-turtle'>
+imgolf:hole a owl:ObjectProperty .
+
+imgolf:Golfbaan a owl:Class ;
+  rfds:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:hole ;
+    owl:someValuesFrom imgolf:Parcours ;
+  ] ;
+.
+            </pre>
+          </section>
+
+          <!-- Sectie 7.3.4.3.2 -->
+          <section id='regels-associaties-aggr-comp'>
+            <h5>Aggregatie en compositie</h5>
+            <p>
+              Aggregatie- en compositie-associaties worden gemodelleerd als <a href="#regels-associaties-simpel">simpele associaties</a>, gebruikmakend van de specifieke naam die de associatie in het oorspronkelijke model heeft.
+            </p>
+
+            <aside class='note'>
+              <h3>mv (20190523): Of een expliciete meronomie?</h3>
+              <p>Gebruik van "niet-normale" relaties als hasPart maakt het model sprekender. Hebben we bewust deze keuze gemaakt?</p>
+              <p>
+                pano (20190523): Voor mij was het een bewuste keuze, maar er valt over te discussieren. Ik ben van mening dat als de relatie benoemd is dat je die relatienaam moet gebruiken. Maar, ik kan me ook een model voorstellen waarin een compositierelatie niet is benoemd. Dan zouden we kunnen defaulten naar een ??:hasPart relatie. Een andere optie is het standaard opnemen van een rdfs:subProperty naar een ??:hasPart relatie, alleen ken ik geen breed gebruikte standaard hasPart relatie.
+              </p>
+            </aside>
+
+            <pre class='ex-turtle'>
+imgolf:parcoursDeel a owl:ObjectProperty .
+
+imgolf:ParcoursDeel a owl:Class .
+
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:parcoursDeel ;
+    owl:someValuesFrom imgolf:ParcoursDeel ;
+  ] ;
+.
+            </pre>
+          </section>
+
+          <!-- Sectie 7.3.4.3.3 -->
+          <section id='regels-associaties-gen-spec'>
+            <h5>Generalisatie/Specialisatie</h5>
+            <p>
+              Generalitisatie- en specialisatie-associaties in een UML NEN3610 model tussen klassen worden in RDF modellen gemodelleerd als subtype-associatie, uitgedrukt met een <code>rdfs:subClassOf</code> relatie tussen de betrokken klassen.
+            </p>
+            <pre class='ex-turtle'>
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf nen3610:GeoObject ;
+.
+            </pre>
+          </section>
+
+          <!-- Sectie 7.3.4.3.4 -->
+          <section id='regels-associaties-associatieklassen'>
+            <h5>Associatieklassen</h5>
+            <p>
+              Een associatieklasse drukt een verband uit tussen twee objecten, waarbij er ook gegevens over dit verband worden vastgelegd. Bij de standaardtransformatie naar een RDF linked data modellering worden associatieklassen als normale klassen behandeld.
+          </section>
+
+        </section>
+
+        <section id='regels-attributen-kardinaliteit'>
+          <h4>Kardinaliteit</h4>
+          <p>
+            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie geen uitspraken over gedaan.
+          </p>
         </section>
 
       </section>
