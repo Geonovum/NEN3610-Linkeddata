@@ -338,7 +338,10 @@
       <aside class="note">
         <h3>mv (20190523): Past dit hier?</h3>
         <p>Normalisatie wordt hier goed toegelicht maar volgens mij is er nauwelijks verband met Linked-data modelleering. Past hier niet, denk aan onze eerdere discussie over constructivisme. 
-		De modellerings-principes verder uitwerken? Ook iets zeggen over het (al dan niet) semantisch verrijken van UML modellen tijdens de transformatie.</p>
+    De modellerings-principes verder uitwerken? Ook iets zeggen over het (al dan niet) semantisch verrijken van UML modellen tijdens de transformatie.</p>
+        <p>
+          pano (20190523): Ik begrijp het commentaar niet. In mijn optiek is normalisatie essentieel voor linked data. Waarom wordt in dit stuk volgens mij ook helder toegelicht. Als je dat anders ziet moeten we het misschien nog aanscherpen.
+        </p>
       </aside>
 	  
       <p>Zoals uitgelegd in de vorige paragraaf, is het in linked data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
@@ -1025,13 +1028,13 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
             <p>
               Een klasse in een NEN3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse.
             </p>
-			
+
       <aside class="note">
         <h3>mv (20190523): skos:definition in plaats rdfs:comment?</h3>
         <p>Definities zouden een meer centrale rol moeten spelen?</p>
+        <p>pano (20190523):  Waarom is skos:definition beter dan rdfs:comment? rdfs:comment is bedoeld voor "A description of the subject resource." Dat is precies het doel hier. Gebruik van skos:definition zou ik niet in de standaard transformatie willen opnemen. Ik zou die property zelf namelijk nooit op klassen gebruiken, maar alleen op instanties van skos:Concept. Het is uiteraard mogelijk om dit in een specifieker transformatieprofiel wel op te nemen.</p>
       </aside>
 
-			
             <pre class='ex-turtle'>
 imgolf:Parcours a owl:Class ;
   rdfs:label "Parcours" ;
@@ -1053,6 +1056,9 @@ imgolf:Parcours a owl:Class ;
       <aside class="note">
         <h3>mv (20190523): Of een expliciete meronomie?</h3>
         <p>Gebruik van "niet-normale" relaties als hasPart maakt het model sprekender. Hebben we bewust deze keuze gemaakt?</p>
+        <p>
+          pano (20190523): Voor mij was het een bewuste keuze, maar er valt over te discussieren. Ik ben van mening dat als de relatie benoemd is dat je die relatienaam moet gebruiken. Maar, ik kan me ook een model voorstellen waarin een compositierelatie niet is benoemd. Dan zouden we kunnen defaulten naar een ??:hasPart relatie. Een andere optie is het standaard opnemen van een rdfs:subProperty naar een ??:hasPart relatie, alleen ken ik geen breed gebruikte standaard hasPart relatie.
+        </p>
       </aside>
 
 			
@@ -1253,23 +1259,26 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <section id='regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
-              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk  datatype, en naar een <code>owl:ObjectProperty</code> wanneer het verwijst naar een niet-letterlijk datatype.
-              Daarbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen, en een rdfs:range en het bereik van de waarde te definieren.
+              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk datatype, en naar een <code>owl:ObjectProperty</code> wanneer het verwijst naar een niet-letterlijk datatype.
+              Daarbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
             </p>
      <aside class="note">
         <h3>mv (20190523): Ander voorbeeld?</h3>
         <p>Hier past rdfs:label, kies een ander voorbeeld. Inleidende tekst klopt niet met OWL-voorbeeld.</p>
+        <p>
+          pàno (20190523): In een automatische transformatie kun je niet bepalen waar rdfs:label past. Dus zul je een naam property ook naar een naam property transformeren lijkt me. Maar, ik vind het prima om een ander voorbeeld te nemen. Ik heb de tekst ook aangepast.
+        </p>
       </aside>
 
 			
             <pre class='ex-turtle'>
-imgolf:naam a owl:DatatypeProperty .
+imgolf:par a owl:DatatypeProperty .
 
-imgolf:Golfbaan a owl:Class ;
+imgolf:Parcours a owl:Class ;
   rfds:subClassOf [
     a owl:Restriction ;
-    owl:onProperty imgolf:naam ;
-    owl:someValuesFrom xsd:string ;
+    owl:onProperty imgolf:par ;
+    owl:someValuesFrom xsd:integer ;
   ] ;
 .
             </pre>
