@@ -2060,8 +2060,8 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
         <section id='transformatieregelsorox'>
           <h3>Transformatieregels OroX</h3>
 
-          Voor een goed begrip van de transformatieregels eerst een korte introductie van het OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
-          Oorspronkelijk was het GWSW (een project van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
+          Voor een goed begrip van de transformatieregels eerst een korte introductie van het GWSW-OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
+          Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
           Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
           <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
@@ -2069,9 +2069,23 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
 		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
 		  
-		  Bijvoorbeeld een "Afslagplaats geel" is een soort "Tee" (afslagplaats) en heeft als functie "Voor dummies". Met OWL 2 kan dat als volgt worden uitgedrukt:  
+		  <br>/<br/>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
+		  Door te beschrijven dat "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.
+		  <br/>De definitie van Parcours in RDF wordt dan:
 		  
-		  <br/><br/>De definitie van de "Afslagplaats geel":
+		  <pre class='ex-turtle'>
+		  gwsw:Parcours					  rdfs:subClassOf
+		  [
+			rdf:type                      owl:Restriction ;
+			rdfs:label                    "wsw:hasPart_Tee" ;
+			owl:qualifiedCardinality      "1"^^xsd:nonNegativeInteger ;
+			owl:onProperty                gwsw:hasPart ;
+			owl:onClass                   gwsw:Tee
+		  ] .
+		  </pre>
+		  
+		  Een "Afslagplaats geel" is een soort "Tee" (afslagplaats) en heeft als functie "Afslaan voor dummies". Met OWL 2 kan dat als volgt worden uitgedrukt:  
+		  <br/>De definitie van de "Afslagplaats geel":
 		  
 		  <pre class='ex-turtle'>
 			gwsw:AfslagplaatsGeel
@@ -2080,12 +2094,12 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 				rdfs:subClassOf               gwsw:Tee ;
 		  </pre>
 		  
-		  De definitie van de functie-instantie "Voor dummies":
+		  De definitie van de functie-instantie "Afslaan voor dummies":
 		  
 		  <pre class='ex-turtle'>
 			gwsw:VoorDummies
 				rdf:type                      gwsw:Functie ;
-				rdfs:label                    "Voor dummies"@nl .
+				rdfs:label                    "Afslaan voor dummies"@nl .
 		  </pre>
 		  
 		  Vervolgens "Afslagplaats geel" beschijven als subklasse van de functie-restrictie
