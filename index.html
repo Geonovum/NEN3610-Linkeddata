@@ -1039,7 +1039,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
             <pre class='ex-turtle'>
 imgolf:Parcours a owl:Class ;
   rdfs:label "Parcours" ;
-  rdfs:comment "Een Parcours is een golfbaandeel dat van een tee via de fairway (indien aanwezig) tot de bijbehorende green loopt" ;
+  rdfs:comment """Een Parcours is een golfbaandeel dat van een tee via de fairway
+  (indien aanwezig) tot de bijbehorende green loopt""" ;
 .
             </pre>
             <p>
@@ -1142,7 +1143,7 @@ nen3610:versie a owl:DatatypeProperty;
   .
             </pre>
             <p><b>vergelijking met andere best practices</b><br>
-              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire RDF Guidelines</a> wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot het creëren van instanties die de union uitdrukken, wat ongewenst is [[INSPIRERDF]]. In de basis transformatieregels houden wij hier geen rekening mee. Het is wel aangeraden om hier in de verdere handmatige transformatie rekening mee te houden.
+              In de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire RDF Guidelines</a> wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou kunnen leiden tot het creëren van onlogische instanties van de union-klasse, wat ongewenst is [[INSPIRERDF]]. Dit komt voor wanneer een union een combinatie van eigenschappen gebruikt die niet van hetzelfde soort zijn. Het is een terechte constatering, maar de voorgestelde alternatieve modellering is overgecompliceerd voor het meerendeel van de gevallen. In de standaard transformatieregels houden wij hier dan ook geen rekening mee. Het is wel aan te raden om hier in de verdere handmatige transformatie rekening mee te houden.
             </p>
           </section>
 
@@ -1186,8 +1187,8 @@ ex:EXTERNAL_Pand a owl:Class ;
               </figure>
             </p>
             <p>
-              Een enumeratie kan verschillende soorten dingen opsommen. Een lijst met waardes, bijv. een opsomming van nummers, maar ook een lijst met concepten, datatypes , of objecten. Het is dan ook niet triviaal om een goede automatische vertaling te bepalen die een enumeratie kan vertalen naar linked data. Om deze reden kiezen we voor een standaardtransformatie naar een klasse gelijknamig aan de enumeratieklasse, en instanties van deze klasse voor elk van de geenumereerde waardes.
-              De genumereeerde waardes worden ook met een <code>owl:oneOf</code> constructie begrensd door de enumeratieklasse.
+              Een enumeratie kan verschillende soorten dingen opsommen. Een lijst met waardes, bijv. een opsomming van nummers, maar ook een lijst met concepten, datatypes, of objecten. Het is dan ook niet triviaal om een goede automatische vertaling te bepalen die een enumeratie kan vertalen naar linked data. Om deze reden kiezen we voor een standaardtransformatie naar een klasse gelijknamig aan de enumeratieklasse, en instanties van deze klasse voor elk van de geënumereerde waardes.
+              De geënumereeerde waardes worden ook met een <code>owl:oneOf</code> constructie begrensd door de enumeratieklasse.
             </p>
             <pre class='ex-turtle'>
 imgolf:NatuurwaardeValue a owl:Class ;
@@ -1227,7 +1228,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
           <section id='regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
-              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
+              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypeProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
             </p>
             <aside class="note">
               <h3>mv (20190523): Ander voorbeeld?</h3>
@@ -1240,7 +1241,7 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
 imgolf:par a owl:DatatypeProperty .
 
 imgolf:Parcours a owl:Class ;
-  rfds:subClassOf [
+  rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty imgolf:par ;
     owl:someValuesFrom xsd:integer ;
@@ -1437,7 +1438,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 imgolf:hole a owl:ObjectProperty .
 
 imgolf:Golfbaan a owl:Class ;
-  rfds:subClassOf [
+  rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty imgolf:hole ;
     owl:someValuesFrom imgolf:Parcours ;
@@ -1494,6 +1495,7 @@ imgolf:Parcours a owl:Class ;
             <h5>Associatieklassen</h5>
             <p>
               Een associatieklasse drukt een verband uit tussen twee objecten, waarbij er ook gegevens over dit verband worden vastgelegd. Bij de standaardtransformatie naar een RDF linked data modellering worden associatieklassen als normale klassen behandeld.
+            </p>
           </section>
 
         </section>
@@ -1509,226 +1511,218 @@ imgolf:Parcours a owl:Class ;
 
     </section>
     <!-- Sectie 7.4 -->
-    <section id='specifieke transformatie-encoding'>
+    <section id='specifieke-transformatie-encoding'>
       <h1>Transformatie: specifieke aanpassing - encoding</h1>
-      <!-- Sectie 7.3.1 -->
-      <section id='inleiding2'>
+      <!-- Sectie 7.4.1 -->
+      <section id='specifieke-transformatie-inleiding'>
         <h2>Inleiding</h2>
-        <p> TODO: tekst over specifieke aanpassing nadat eerst de basis conversieregels zijn toegepast of overwogen</P>
+        <p>
+          Zoals in <a href="#basisprincipes" >hoofdstuk 5</a> is uitgelegd, is het niet mogelijk om altijd een goed linked datamodel te verkrijgen uit een automatische vertaling van een UML-informatiemodel. Daarnaast zijn er in de praktijk verschillende metamodellen die gehanteerd worden bij het modelleren van linked data. 
+        </p>
+        <p>
+          In dit hoofdstuk wordt voor drie metamodellen die in Nederland worden toegepast uiteengezet welke overwegingen er spelen bij het transformeren naar een RDF linked data model en welke specifieke transformatieregels er voor dat metamodel gehanteerd worden.
+        </p>
       </section>
-      <!-- Sectie 7.3.2 -->
-      <section id='DSO:transformatieregels om tot een juist model te komeen'>
+      <!-- Sectie 7.4.2 -->
+      <section id='dso-regels'>
         <h2>DSO: specifieke transformatieregels</h2>
-
-        <!-- Sectie 7.3.2.1 -->
-        <section id='metamodeldso'>
+        <!-- Sectie 7.4.2.1 -->
+        <section id='dso-regels-metamodel'>
           <h3>Metamodel DSO</h3>
-
-          <figure>
-            <img src="media/" heigh="569">
-            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in DSO profiel</figcaption>
-          </figure>
+          <p>
+              Het DSO hanteert het basis doelmodel gebaseerd op W3C standaarden, zoals beschreven in <a href="#basismetamodel">paragraaf 7.3.2</a> en afgebeeld in Figuur 9. Daarnaast wordt er gestreefd naar een genormaliseerd informatiemodel, om de herbruikbaarheid en linkbaarheid van de linked data te maximaliseren.
+          </p>
         </section>
-
-        <!-- Sectie 7.3.2.2 -->
-        <section id='transformatieregelsdso'>
+        <!-- Sectie 7.4.2.2 -->
+        <section id='dso-regels-transformatie'>
           <h3>Transformatieregels DSO</h3>
-          <!-- Sectie 7.3.2.2.1 -->
+          <!-- Sectie 7.4.2.2.1 -->
           <section id='dso-regels-klassen'>
             <h4>Klassen</h4>
 
-            <!-- Sectie 7.3.2.2.1.1 -->
+            <!-- Sectie 7.4.2.2.1.1 -->
+            <section id='dso-regels-klassen-algemeen'>
+              <h5>Klassen algemeen</h5>
+              <p>
+                Ten opzichte van de transformatieregels beschreven in <a href="#regels-klassen-algemeen"></a> zijn er enkele afwijkingen in de transformatie conform het DSO metamodel alsook een aantal toevoegingen.
+              </p>
+              <h6>Afwijkingen</h6>
+              <p>
+                Daar waar een waarde voor <code>rdfs:label</code> gegeneerd is op basis van de klassenaam, wordt de waarde aangepast naar een label in een correct Nederlands.
+              </p>
+              <pre class='ex-turtle'>
+imgolf:ParcoursDeel a owl:Class ;
+  #-- rdfs:label "ParcoursDeel" ; -- vervalt
+  rdfs:label "Parcoursdeel" ;
+.
+            </pre>
+              <h6>Toevoegingen</h6>
+              <p>
+                Het DSO metamodel is gebaseerd op het <a href="##basismetamodel">basis doelmodel</a> en maakt onderscheid tussen terminologie (RDF, RDFS, OWL), formele semantiek (RDFS, OWL), gegevensregels (SHACL) en betekenis in de vorm van begrippen (SKOS).
+                Voor een klasse wordt altijd, in ieder geval, een instantie van <code>owl:Class</code> gemaakt conform de standaard transformatieregels, maar ook:
+                <ul>
+                  <li>
+                    minimaal een instantie van <code>sh:NodeShape</code> (SHACL) om gegevensregels en structuur van de klasse en gerelateerde eigenschappen aan te geven. De node shape is verbonden met de klasse via <code>sh:targetClass</code> property.
+                  </li>
+                  <li>
+                    en een instantie van <code>skos:Concept</code> (SKOS) om een begrip te beschrijven die de betekenis van de klasse uitdrukt. Deze wordt vanuit de instantie van <code>owl:Class</code> verbonden via de <code>dct:subject</code> property.
+                  </li>
+                </ul>
+              </p>
+              <pre class='ex-turtle'>
+imgolf:Parcours a owl:Class ;
+  rdfs:label "Parcours" ;
+  rdfs:comment """Een Parcours is een golfbaandeel dat van een tee via de fairway
+  (indien aanwezig) tot de bijbehorende green loopt""" ;
+  dct:subject imgolf-beg:Parcours ;
+.
+
+imgolf-sh:Parcours a sh:NodeShape ;
+  sh:targetClass imgolf:Parcours ;
+  sh:property
+   ...          # beschrijving van attributen en associaties met SHACL
+.
+
+imgolf-beg:Parcours a skos:Concept ;
+  skos:prefLabel "Parcours"@nl ;
+  skos:definition """Een Parcours is een golfbaandeel dat van een tee via de fairway
+  (indien aanwezig) tot de bijbehorende green loopt"""@nl ;
+  ...           # verder beschrijving van het begrip conform SKOS
+.
+
+              </pre>
+              <aside class='note'>
+                Het definiëren van een SHACL <code>sh:NodeShape</code> en een <code>skos:Concept</code> wordt voor alle instanties van owl:Class gedaan.
+              </aside>
+            </section>
+
+            <!-- Sectie 7.4.2.2.1.2 -->
             <section id='dso-regels-klassen-featureType'>
               <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
               <p>
-                Een NEN3610 <a>UML</a> klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In linked data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in linked data een klasse met het stereotype featureType in linked data ook een klasse die een sub-type is van een van de nen3610 klassen.
-                <aside class="note">De zin loopt niet</aside>
-              </p>
-              <pre class='ex-turtle'>
-  ex:Golfbaan a owl:Class ;
-    rdfs:subClassOf nen3610:FunctioneelGebied ;
-  .
-
-  nen3610:FunctioneelGebied rdfs:subClassOf nen3610:GeoObject .
-  nen3610:GeoObject rdfs:subClassOf ogc:Feature .
-            </pre>
-              <p><b>vergelijking met andere best practices</b><br>
-                TODO
+                Geen afwijking, anders dan beschreven in <a href="#dso-regels-klassen-algemeen">paragraaf 7.4.2.2.1.1</a>
               </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.1.1 -->
+            <!-- Sectie 7.4.2.2.1.3 -->
             <section id='dso-regels-klassen-dataType'>
               <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
               <p>
-                Een NEN3610 UML klasse met stereotype dataType wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap beschrijft.
-              </p>
-              <aside class="note">Die eigenlijk de waarde van een eigenschap beschrijft (de opbouw van de literal)</aside>
-              <p>
-                Het is niet mogelijk om voor deze <a>datatypen</a> een standaard transformatieregel te beschrijven. Het is afhankelijk van wat het samenstel van attributen uitdrukt.<br>
-                Een voorbeeld van een datatype is het NEN3610ID datatype.
-                <figure>
-                  <img src="media/nen3610-dataType.png" height="130">
-                  <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
-                </figure>
-                Bij dit datatype beschrijven alle attributen hetzelfde ding. Samen vormen ze een één identificatie. In dit geval is het mogelijk om hier een kasse voor te definiëren.
-              </p>
-              <pre class='ex-turtle'>
-  nen3610:Identificatie a owl:Class;
-  .
-  nen3610:namespace a owl:DatatypeProperty;
-    rdfs:domain nen3610:Identificatie ;
-    rdfs:range xsd:string ;
-  .
-  nen3610:lokaalID a owl:DatatypeProperty;
-    rdfs:domain nen3610:Identificatie ;
-    rdfs:range xsd:string ;
-  .
-  nen3610:versie a owl:DatatypeProperty;
-    rdfs:domain nen3610:Identificatie ;
-    rdfs:range xsd:string ;
-  .
-            </pre>
-              <p>
+                Zoals opgemerkt in <a href="">paragraaf 7.3.4.1.3</a> is het bij het transformeren van een Een NEN3610 UML klasse met stereotype &laquo;dataType&raquo; belangrijk om te goed te kijken naar wat het samenstel van attributen van de klasse uitdrukt.
               </p>
               <p>
-                Neem bijvoorbeeld dit datatype uit IMRO2012.
+                Neem bijvoorbeeld dit datatype uit IMRO2012 die een relatie van het ene plan naar een ander plan beschrijft.
                 <figure>
                   <img src="media/imro-dataType.png" height="130">
                   <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
                 </figure>
-                Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes van linked data (TODO link naar principe) is dat we dingen specifiek modelleren, zodat anderen er gebruik van kunnen maken.
-                In dit geval is sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
+                Het is uiteraard mogelijk om hier een klasse "ExternPlanReferentie" van te creëren, maar wat levert het op? Als we goed kijken naar wat hier wordt uitgedrukt, dan wordt hier een relatie gelegd naar een ander ding. Een van de principes die het DSO metamodel hanteert is dat een RDF linked data model genormaliseerd moet zijn. Dat betekent dat we dingen zo specifiek mogelijk onderscheiden, zodat derden vanuit hun eigen context (her)gebruik kunnen maken van de data die in het model is uitgedrukt.
+                In dit geval is er sprake van een verwijzing naar een plan én de rol die dat plan speelt ten op zichte van een ander plan. De rol kan in de linked data getransformeerd worden tot een property, die een instantie van een plan als bereik heeft. Zo kan worden uitgedrukt dat een instantie een specifieke relatie (o.b.v. de rol) heeft met een specifiek plan.
               </p>
               <pre class='ex-turtle'>
-  ex:specifiekeRol a owl:ObjectProperty ;
-    rdfs:subPropertyOf ex:planrelatie ; # Optioneel
-    rdfs:range ex:Plan ;
-  .
+ex:specifiekeRol a owl:ObjectProperty ;
+  rdfs:subPropertyOf ex:planrelatie ; # Optioneel
+  rdfs:range ex:Plan ;
+.
 
-  ex:Plan a owl:Class .
+ex:Plan a owl:Class .
             </pre>
               <p>
-                Hiermee hebben we het model opener en linkbaarder gemaakt. Stel dat er ergens meer informatie bestaat over het plan met die identiteit, dan kan er met dit model nu een link gelegd worden naar de instantie van dat plan.
+                Hiermee hebben we het model opener en linkbaarder gemaakt. Stel dat er ergens meer informatie bestaat over hetzelfde plan, dan kan er met dit model nu een link gelegd worden naar de instantie van dat plan.
+              </p>
+
+              <p>
+                Een ander voorbeeld is de datatype-klasse <code>ToegangGolfbaan</code> uit het IMGOLF model. Een golfbaan heeft een attribuut <code>toegang</code> met als waardetype <code>ToegangGolfbaan</code>. <code>ToegangGolfbaan</code> heeft zelf de attributen <code>vereisten</code>, die een tekstuele beschrijving van de toegangseisen tot de golfbaan beschrijven, de waarde <code>etiquette</code>, die de etiquette van de golfbaan beschrijft en een eigen <code>toegang</code> attribuut die aangeeft of toegang tot de golfbaan openbaar of besloten is.
               </p>
               <p>
-                TODO: datatype klasse bevat attribuut die metadata op de relatie uitdrukt
-                <figure>
-                  <img src="media/imro-dataType2.png" height="230">
-                  <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
-                </figure>
+                Wederom is dit wel een goed model om data over golfbanen in uit te drukken, maar is het geen goed genormaliseerd model van de werkelijkheid. De klasse <code>ToegangGolfbaan</code> groepeert wel een aantal eigenschappen die iets met de toegang tot golfbane te maken hebben, maar dat maakt niet dat er dingen, of concepten zijn in de werkelijkheid die deze eigenschappen hebben. Deze groepering maken we in het RDF linked data model dan ook niet. We modelleren deze eigenschappen als eigenschap van de golfbaan. <code>vereisten</code> wordt eigenschap <code>imgolf:toegangsvereisten</code>, <code>etiquette</code> wordt <code>imgolf:etiquette</code> en de <code>toegang</code> eigenschap van <code>ToegangGolfbaan</code> wordt <code>imgolf:toegankelijkheid</code>. Daarnaast verdwijnt de eigenschap <code>toegang</code> op de klasse <code>Golfbaan</code>.
               </p>
               <pre class='ex-turtle'>
-  ex:Label a owl:Class .
+#---------------#
+# terminologie
+#---------------#
 
-  ex:tekst a owl:ObjectProperty ;
-    rdfs:domain ex:Label ;
-  .
+imgolf:Golfbaan a owl:Class .
 
-  ex:LabelPositie a owl:Class, sh:NodeShape ;
-    rfds:subClassOf rdf:Statement .
-    sh:property
-      [
-        sh:path rdf:subject ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:class ex:Label ;
-      ] ,
-      [
-        sh:path rdf:predicate ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-        sh:hasValue ex:tekst ;
-      ] ,
-      [
-        sh:path rdf:object ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
+imgolf:toegangsvereisten a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:etiquette a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:toegankelijkheid a owl:ObjectProperty ;
+  rdfs:range skos:Concept ;
+.
+
+#-------------------#
+# formele semantiek
+#-------------------#
+
+imgolf:Golfbaan
+  rdfs:subClassOf
+    [
+      a owl:Restriction ;
+      owl:onProperty imgolf:toegangsvereisten ;
+      owl:minCardinality 0 ;
+    ] ,
+    [
+      a owl:Restriction ;
+      owl:onProperty imgolf:etiquette ;
+      owl:minCardinality 0 ;
+    ] ,
+    [
+      a owl:Restriction ;
+      owl:onProperty imgolf:toegankelijkheid ;
+      owl:minCardinality 0 ;                    # Kardinaliteit 0..* omdat we ontologisch
+                                                # niet strict willen zijn
+    ] ;
+.
+
+#----------------#
+# gegevensregels
+#----------------#
+
+imgolf-sh:Golfbaan a sh:NodeShape ;
+  sh:targetClass imgolf:Golfbaan ;
+  sh:property
+    [
+      sh:path imgolf:toegangsvereisten ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:string ;
+    ] ,
+    [
+      sh:path imgolf:etiquette ;
+      sh:maxCount 1 ;
+      sh:datatype xsd:string ;
+    ] ,
+    [
+      sh:path imgolf:toegankelijkheid ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node [
+        sh:property [
+          sh:path [ sh:inversePath skos:member ] ; # onderdeel van skos:Collection
+          sh:hasValue imgolf-collectie:Toegankelijkheid ;
+        ] ;
       ] ;
-  .
-
-  ex:plaatstingsPunt a owl:ObjectProperty ;
-    rdfs:domain ex:LabelPositie ;
-  .
-
-  ex:aanpijlingsPunt a owl:ObjectProperty ;
-    rdfs:domain ex:LabelPositie ;
-  .
-
-  ex:hoek a owl:DataTypeProperty ;
-    rdfs:domain ex:LabelPositie ;
-  .
+    ]
+.
             </pre>
+            <aside class='note'>
+              Merk op dat deze voorbeelden geen uitputtende lijst aan mogelijke transformaties van klasses met stereotype &laquo;dataType&raquo; zijn. Het is aan de modelleur, of transformeerder, om te bepalen wat de beste vertaling is naar een linked data model, rekening houdend met de principes van linked data.
+            </aside>
             </section>
 
-            <!-- Sectie 7.3.2.2.1.3 -->
+            <!-- Sectie 7.4.2.2.1.4 -->
             <section id='dso-regels-klassen-union'>
               <h5>Klasse met stereotype &laquo;union&raquo;</h5>
               <p>
-                Een <a>union</a> is een gestructureerd <a>datatype</a> zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
-                <figure>
-                  <img src="media/regels-klassen-union-1.png" height="130">
-                  <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
-                </figure>
-                In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
+                Voor unions van dingen van hetzelfde supertype wordt dezelfde modellering als de standaard transformatie gehanteerd. Wanneer dit niet het geval is wordt gekeken naar de beste manier om de specifieke klasse te modelleren. In alle gevallen wordt de union ook in SHACL uitgedrukt. SHACL levert meestal een veel beknoptere en duidelijkere modellering, zonder dat het semantische consequenties met zich meebrengt.
               </p>
-              <pre class='ex-turtle'>
-    ex:Perceel a owl:Class .
-
-    ex:NatuurlijkPersoon a owl:Class .
-
-    ex:NietNatuurlijkPersoon a owl:Class .
-
-    ex:eigenaar a owl:ObjectProperty ;
-      rdfs:domain ex:Perceel ;
-      rdfs:range ex:Persoon ;
-    .
-
-    ex:Persoon
-      owl:unionOf (
-        ex:NatuurlijkPersoon
-        ex:NietNatuurlijkPersoon
-      ) ;
-    .
-            </pre>
               <p>
-                gegeven
-              </p>
-              <pre class='ex-turtle'>
-    data:Dommel a ex:Hond .
-
-    data:2342453 a ex:Perceel ;
-      ex:eigenaar data:Dommel ;
-    .
-            </pre>
-              <p>
-                zal worden afgeleid
-              </p>
-              <pre class='ex-turtle'>
-    data:Dommel a ex:Persoon .
-
-    ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-
-    ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-            </pre>
-              <p>
-                Wanneer we de OWL afleidingsregels volgen, wordt afgeleid dat Dommel, naast een hond, ook een persoon is.
-              </p>
-              <aside class="note"> Wat beschrijft zo'n "UML-union", zijn ex:NatuurlijkPersoon en ex:NietNatuurlijkPersoon specialisaties van ex:Persoon? Dan blijft het simpel:
-                <pre class='ex-turtle'>
-    ex:Perceel a owl:Class .
-    ex:Persoon a owl:Class .
-    ex:NatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-    ex:NietNatuurlijkPersoon rdfs:subClassOf ex:Persoon .
-
-    ex:eigenaar a owl:ObjectProperty ;
-      rdfs:domain ex:Perceel ;
-    rfds:range ex:Persoon
-    .
-                </pre>
-              </aside>
-              <p>
-                Een tweede voorbeeld van een union is de union van literal waardes.
+                Neem het voorbeeld van een union van literal waardes uit de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire RDF Guidelines</a> [[INSPIRERDF]].
                 <figure>
                   <img src="media/regels-klassen-union-2.jpg" height="350">
                   <figcaption>
@@ -1736,200 +1730,261 @@ imgolf:Parcours a owl:Class ;
                     bron: [[INSPIRERDF]]
                   </figcaption>
                 </figure>
-
               </p>
               <p>
-                In feite drukt de union een restrictie op het bereik van de eigenaar-eigenschap van Perceel uit. Restricties kunnen we uitdrukken met behulp van <a>SHACL</a>.
+                De modellering die in het insprire voorbeeld wordt uitgevoerd is semantisch correct, maar extreem verbeus. Wanneer het uitdrukken van dergelijke semantiek gewenst is kan de beschreven aanpak gebruikt worden worden. Wanneer dit niet noodzakelijk is, is het voldoende om SHACL te gebruiken om een waardebereik te definieren die de union nabootst.
               </p>
+              <p>
+                In onderstaande uitwerking beschrijven we een SHACL <code>sh:NodeShape</code> die correspondeert met het <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire voorbeeld</a>. Onze shape bevat een <code>sh:xone</code> conditie die uitdrukt dat exact één van de properties <code>:meanAgeByMonth</code>, <code>:meanAgeByWeek</code> of <code>:meanAgeByYear</code> aanwezig moet zijn.
+               </p>
               <pre class='ex-turtle'>
-    ex:Perceel a owl:Class .
-
-    ex:NatuurlijkPersoon a owl:Class ;
-
-    ex:NietNatuurlijkPersoon a owl:Class ;
-
-    ex:eigenaar a owl:ObjectProperty ;
-      rdfs:domain ex:Perceel ;
-    .
-
-    ex:PerceelShape a sh:NodeShape ;
-      sh:targetClass ex:Perceel ;
+bio-sh:BiomarkerThematicMetadata a sh:NodeShape ;
+  sh:targetClass :BiomarkerThematicMetadata ;
+  sh:xone (
+    [
       sh:property [
-        sh:path ex:eigenaar ;
-        sh:or (
-          [
-            sh:class ex:NatuurlijkPersoon ;
-          ]
-          [
-            sh:class ex:NietNatuurlijkPersoon ;
-          ] ;
-        ) ;
+        sh:path :meanAgeByMonth ;
+        sh:datatype xsd:integer ;
       ] ;
-    .
-              </pre>
-              <p><b>vergelijking met andere best practices</b><br>
-                In [[INSPIRERDF]] wordt voorgeschreven om een union niet als een union van klassen te modelleren, omdat dit zou leiden tot he creeren van instanties die de union uitdrukken.
-              </p>
-              <pre class='ex-turtle'>
-    ex:Perceel a owl:Class ;
-      rdfs:subClassOf [
-        owl:UnionOf (
-          ex:PerceelMetNatuurlijkPersoonEigenaar
-          ex:PerceelMetNietNatuurlijkPersoonEigenaar
-        ) ;
+    ]
+    [
+      sh:property [
+        sh:path :meanAgeByWeek ;
+        sh:datatype xsd:integer ;
       ] ;
-    .
-
-    # de set van dingen die 0 niet-natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer natuurlijk-persoon-eigenaren
-    ex:PerceelMetNatuurlijkPersoonEigenaar a owl:Class ;
-      owl:intersectionOf (
-        [
-          a owl:Restriction ;
-          owl:onProperty ex:natuurlijkPersoonEigenaar ;
-          owl:minCardinality 0 ;
-        ]
-        [
-          a owl:Restriction ;
-          owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
-          owl:cardinality 0 ;
-        ]
-      )
-    .
-
-    # de set van dingen die 0 natuurlijk-persoon-eigenaren kunnen hebben en 0 of meer niet-natuurlijk-persoon-eigenaren
-    ex:PerceelMetNietNatuurlijkPersoonEigenaar a owl:Class ;
-      owl:intersectionOf (
-        [
-          a owl:Restriction ;
-          owl:onProperty ex:natuurlijkPersoonEigenaar ;
-          owl:cardinality 0 ;
-        ]
-        [
-          a owl:Restriction ;
-          owl:onProperty ex:nietNatuurlijkPersoonEigenaar ;
-          owl:minCardinality 0 ;
-        ]
-      )
-    .
-
-    ex:NatuurlijkPersoon a owl:Class .
-
-    ex:NietNatuurlijkPersoon a owl:Class .
-
-    ex:natuurlijkPersoonEigenaar a owl:ObjectProperty ;
-      rdfs:domain ex:Perceel ;
-    .
-
-    ex:nietNatuurlijkPersoonEigenaar a owl:ObjectProperty ;
-      rdfs:domain ex:Perceel ;
-    .
+    ]
+    [
+      sh:property [
+        sh:path :meanAgeByYear ;
+        sh:datatype xsd:integer ;
+      ] ;
+    ]
+  ) ;
+.
               </pre>
+              <aside class='note'>
+                Net als bij andere stereotypen is het niet mogelijk om een uitputtende lijst aan transformatieregels te geven. Er is te veel variatie mogelijk in bron UML modellen om tot eenduidige transformatieregels te komen die tot een goed RDF linked data model komen.
+              </aside>
             </section>
 
-            <!-- Sectie 7.3.2.2.1.4 -->
+            <!-- Sectie 7.4.2.2.1.5 -->
             <section id='dso-regels-klassen-external'>
               <h5>Klasse met stereotype &laquo;external&raquo;</h5>
               <p>
-                ...
+                In de standaard transformatieregels wordt een klasse met stereotype &laquo;external&raquo; herkenbaar getransformeerd door de prefix EXTERNAL_ op te nemen in de naam van de klasse. In de specifieke DSO-transformatieregels worden deze klassen waar mogelijk vervangen door, of gerelateerd aan, bestaande ontologieën. Wanneer deze ontologieën niet bestaan wordt de klasse in eigen context gemodelleerd.
+              </p>
+              <p>
+                Wanneer we het voorbeeld uit IMGOLF nemen waar een golfbaan een relatie <code>BAGAdres</code> heeft met een klassse met stereotype &laquo;external&raquo; <code>AdresserbaarObject</code>, kunnen we als volgt direct de IRI van de bestaande klasse <code><a href="http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject">bag:AdresseerbaarObject</a></code> uit de BAG-ontologie gebruiken.
               </p>
               <pre class='ex-turtle'>
-    ex:pand a owl:ObjectProperty ;
-      rdfs:domain ex:Gebouw ;
-      rdfs:range bag:Pand ;
-    .
+imgolf:Golfbaan a owl:Class .
 
-    # voorbeelddata:
-    data:gebouw-123 a ex:Gebouw ;
-      ex:pand bag-pand:0003100000117485 ;
-    .
+imgolf:bagAdres a owl:ObjectProperty ;
+  #-- rdfs:range imgolf:EXTERNAL_AdresserbaarObject ; --# vervalt
+  rdfs:range bag:AdresseerbaarObject .                  # gebruikt direct externe IRI.
+.
               </pre>
-              <p>
-                In dit specifieke geval is het aannemelijk dat met het gebouw daadwerkelijk dezelfde entiteit geïdentificeerd wordt als de entiteit die de gekoppelde instantie van bag:Pand ook identificeert. In dit geval is het ook mogelijk om deze twee instanties aan elkaar gelijk te stellen. Hier is zorgvuldigheid bij geboden [TODO ref owl:sameAs en ref contextualised semantics].
-              </p>
-              <pre class='ex-turtle'>
-    data:gebouw-123 owl:sameAs bag-pand:0003100000117485 .
-            </pre>
-              <p>
-                Het is in linked data niet alleen mogelijk om objecten aan elkaar gelijk te stellen, maar het is daarnaast ook mogelijk om nieuwe eigenschappen van objecten te definiëren. In de filosofie van linked data betekent dat zoveel als nieuwe uitdrukkingen kunnen doen over een extern onderwerp (<a>subject</a>) in je eigen vocabulaire.
-                Stel dat we over het gebouw ook uitdrukkingen wensen te doen over de inhoud in m³. We hebben al besloten dat ons gebouw hetzelfde is als het externe BAG-pand en verwachten geen instanties van gebouwen die niet als pand in de BAG bestaan. Dan is het mogelijk om een eigenschap ex:inhoud te definieren die op instanties van panden uit de BAG gebruikt kan worden.
-              </p>
-              <pre class='ex-turtle'>
-    ex:inhoud a owl:DatatypeProperty ;
-      rdfs:domain bag:Pand ;
-      rdfs:range xsd:decimal ;
-    .
-
-    # voorbeelddata:
-    bag-pand:0003100000117485
-      ex:inhoud 804.6 ;
-    .
-            </pre>
             </section>
 
-            <!-- Sectie 7.3.2.2.1.5 -->
+            <!-- Sectie 7.4.2.2.1.6 -->
             <section id='dso-regels-klassen-enumeration'>
               <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
+              <p>
+                Zoals opgemerkt in paragraaf <a href="#regels-klassen-enumeration">7.3.4.1.6</a> kan een enumeratie verschillende soorten dingen opsommen. Bij verschillende dingen horen verschillende aanpakken, immers, we willen dingen zo specifiek mogelijk modelleren, zodat anderen ze kunnen herkennen en (her)gebruiken of eraan linken.
+              </p>
+              <h6>Enumeraties van types</h6>
+              <p>
+                TODO
+              </p>
+              <h6>Enumeraties van concrete dingen</h6>
+              <p>
+                TODO
+              </p>
+              <h6>Enumeraties van conceptuele dingen</h6>
+              <p>
+                TODO
+              </p>
+              <h6>Enumeraties van literaire waardes</h6>
+              <p>
+                TODO
+              </p>
+
             </section>
-            <!-- Sectie 7.3.2.2.1.6 -->
+            <!-- Sectie 7.4.2.2.1.7 -->
             <section id='dso-regels-klassen-codelist'>
               <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
-            </section>
-
-            <aside class="note"> Zoiets:
+              <p>
+                Zoals opgemerkt eerder opgemerkt wordt een klasse met stereotype &laquo;CodeList&raquo; op dezelfde manier behandeld als een klass stereotype &laquo;enumeration&raquo;. Voor illustratiedoeleinden wordt hieronder alsnog een voorbeeld van de klasse met stereotype &laquo;CodeList&raquo; <code>GebruiksstatusValue</code> uit het IMGOLF uitgewerkt.<br>
+                Omdat de codelijst abstracte concepten modelleert, maken we gebruik van instanties van <code>skos:Concept</code> om deze codelijst uit te drukken. Voor elk van de codes wordt een concept aangemaakt en voor elke code-waarde uit de oorspronkelijke codelijst krijgt het betreffende concept een eigenschap <code>skos:notation</code> met de exacte waarde uit de oorspronkelijke lijst. Hiermee kunnen dezelfde enumeratiewaardes uit de oorspronkelijke lijst gebruikt worden vanuit de linked data.
+              </p>
               <pre class='ex-turtle'>
-  ex:Ontwerp a ex:StatusPand ;
-  skos:notation "Code_1".
-  ex:Nieuw a ex:StatusPand ;
-  skos:notation "Code_2".
-  ex:Oud a ex:StatusPand ;
-  skos:notation "Code_3".
+#------------#
+# begrippen
+#------------#
+
+imgolf-beg:InUitvoering a skos:Concept ;
+  skos:prefLabel "In uitvoering"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "in uitvoering" ;               # code-waarde
+.
+
+imgolf-beg:InGebruik a skos:Concept ;
+  skos:prefLabel "In gebruik"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "in gebruik" ;                  # code-waarde
+.
+
+imgolf-beg:BuitenGebruik a skos:Concept ;
+  skos:prefLabel "Buiten gebruik"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "buiten gebruik" ;              # code-waarde
+.
+
+imgolf-collectie:GebruiksstatusValue a skos:Collection ;
+  skos:member
+    imgolf-beg:InUitvoering ,
+    imgolf-beg:InGebruik ,
+    imgolf-beg:BuitenGebruik .
+.
+
+#---------------#
+# terminologie
+#---------------#
+
+imgolf:Golfbaan a owl:Class .
+
+imgolf:gebruiksstatus a owl:ObjectProperty ;
+  rdfs:range skos:Concept .
+.
+
+#----------------#
+# gegevensregels
+#----------------#
+
+imgolf-sh:Golfbaan a sh:NodeShape ;
+  sh:targetClass imgolf:Golfbaan ;
+  sh:property [
+    sh:path imgolf:gebruiksstatus ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:node [
+      sh:property [
+        sh:path [ sh:inversePath skos:member ] ;
+        sh:hasValue imgolf-collectie:GebruiksstatusValue ;
+      ] ;
+    ] ;
+  ] ;
+.
               </pre>
-            </aside>
+            </section>
 
           </section>
 
-          <!-- Sectie 7.3.2.2.2 -->
+          <!-- Sectie 7.4.2.2.2 -->
           <section id='dso-regels-attributen'>
             <h4>Attributen</h4>
 
-            <!-- Sectie 7.3.2.2.2.1 -->
-            <section id='dso-regels-attributen-identificatie'>
-              <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
-              <p class='issue' data-number='22'>We hebben nog niet besloten hoe we een NEN3610ID gaan modelleren.</p>
+            <!-- Sectie 7.4.2.2.2.1 -->
+            <section id='dso-regels-attributen-algemeen'>
+              <h5>Attributen algemeen</h5>
+              <p>
+                TODO: aanpassen van naam naar rdfs:label property. Mogelijk gebruik van owl:AnnotationProperty ipv owl:Datatype property.
+              </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.2.2 -->
+            <!-- Sectie 7.4.2.2.2.2 -->
+            <section id='dso-regels-attributen-identificatie'>
+              <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
+              <p>
+                Geen afwijking ten opzichte van de standaard transformatieregels.
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.2.3 -->
             <section id='dso-regels-attributen-voidable'>
               <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
               <p>
-                In [[NEN3610]] wordt het gebruik van het stereotype &laquo;voidable&raquo; voorgeschreven wanneer een attribuut van een object geen waarde heeft in de dataset, maar het object in de werkelijkheid wel een waarde voor het attribuut kan hebben.<br>
-                In linked data heeft het niet opnemen van de <a>triple</a> die de waarde uitdrukt exact dezelfde betekenis als &laquo;voidable&raquo;. Zoals beschreven in <a href='#basisprincipes'>hoofdstuk 4</a> is een principe van linked data de <a>open-wereld-aanname</a>. Dat betekent dat je er niet vanuit kunt gaan dat als iets niet is gezegd, het niet waar is. Je kunt immers niet weten of de uitdrukking niet ergens in de wereld wel gedaan is, of misschien nog gedaan gaat worden.
-              </p>
-              <p><b>vergelijking met andere best practices</b><br>
-                In [[INSPIRERDF]] worden, om dezelfde redenen, voidable attributen zonder waarde niet opgenomen in de resulterende data.
+                TODO, in principe geen afwijking, maar, als het echt noodzakelijk is zou men een eigen object kunnen verzinnen die men met een vorm van reificatie indirect koppelt aan het object. Bijv. foaf:isPrimaryTopicOf/missendeEigenschapReden/[]
               </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.2.3 -->
+            <!-- Sectie 7.4.2.2.2.4 -->
             <section id='dso-regels-attributen-materieleHistorie'>
               <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+              <p>
+                Geen afwijking ten op zichte van de standaard transformatieregels.
+              </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.2.4 -->
+            <!-- Sectie 7.4.2.2.2.5 -->
             <section id='dso-regels-attributen-formeleHistorie'>
               <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+              <p>
+                Geen afwijking ten op zichte van de standaard transformatieregels.
+              </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.2.5 -->
+            <!-- Sectie 7.4.2.2.2.6 -->
             <section id='dso-regels-attributen-materieleLevensduur'>
               <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+              <p>
+                Geen afwijking ten op zichte van de standaard transformatieregels.
+              </p>
             </section>
 
-            <!-- Sectie 7.3.2.2.2.6 -->
+            <!-- Sectie 7.4.2.2.2.7 -->
             <section id='dso-regels-attributen-formeleLevensduur'>
               <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
+              <p>
+                Geen afwijking ten op zichte van de standaard transformatieregels.
+              </p>
             </section>
 
+          </section>
+
+          <!-- Sectie 7.4.2.2.3 -->
+          <section id='dso-regels-associaties'>
+            <h4>Associaties</h4>
+            Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
+            <!-- Sectie 7.4.2.2.3.1 -->
+            <section id='dso-regels-associaties-simpel'>
+              <h5>Simpele associaties</h5>
+              <p>
+                Geen afwijking ten opzichte van de standaard transformatieregels.
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.2 -->
+            <section id='dso-regels-associaties-aggr-comp'>
+              <h5>Aggregatie en compositie</h5>
+              <p>
+                Geen afwijking ten opzichte van de standaard transformatieregels.
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.3 -->
+            <section id='dso-regels-associaties-gen-spec'>
+              <h5>Generalisatie/Specialisatie</h5>
+              <p>
+                Geen afwijking ten opzichte van de standaard transformatieregels.
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.4 -->
+            <section id='dso-regels-associaties-associatieklassen'>
+              <h5>Associatieklassen</h5>
+              <p>
+                TODO: statement reificatie, foaf:document reificatie
+              </p>
+            </section>
+
+          </section>
+          <!-- Sectie 7.4.2.2.4 -->
+          <section id='dso-regels-attributen-kardinaliteit'>
+            <h4>Kardinaliteit</h4>
+            <p>
+              TODO: Kardinaliteit in OWL en Kardinaliteit in SHACL.
+            </p>
           </section>
 
         </section>
@@ -2101,7 +2156,7 @@ imgolf:Parcours a owl:Class ;
                   <h4>Associaties</h4>
                   Associaties worden vertaald naar coins:Connections of coins:ContainsRelation met bijbehorende structuur.
                   N.B. Dit is een stap die extra 'semantische duiding' toevoegt aan het model die in de BIM wereld veelal gewenst is.
-                  Deze tranformatie is moeilijk in een generieke regel te definieren.
+                  Deze tranformatie is moeilijk in een generieke regel te definiëren.
                   <pre class='ex-turtle'>
         IMGolf-otl:GolfbaanHeeftHole
               rdf:type owl:Class ;
