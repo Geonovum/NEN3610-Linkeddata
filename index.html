@@ -335,14 +335,14 @@
     <section id='basisprincipes-normalisatie'>
       <h2>Normalisatie</h2>
 	  
-      <aside class="note">
+      <!-- aside class="note">
         <h3>mv (20190523): Past dit hier?</h3>
         <p>Normalisatie wordt hier goed toegelicht maar volgens mij is er nauwelijks verband met Linked-data modelleering. Past hier niet, denk aan onze eerdere discussie over constructivisme. 
     De modellerings-principes verder uitwerken? Ook iets zeggen over het (al dan niet) semantisch verrijken van UML modellen tijdens de transformatie.</p>
         <p>
           pano (20190523): Ik begrijp het commentaar niet. In mijn optiek is normalisatie essentieel voor linked data. Waarom wordt in dit stuk volgens mij ook helder toegelicht. Als je dat anders ziet moeten we het misschien nog aanscherpen.
         </p>
-      </aside>
+      </aside -->
 	  
       <p>Zoals uitgelegd in de vorige paragraaf, is het in linked data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
       <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
@@ -471,10 +471,10 @@
       <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>
     </ul>
 	
-      <aside class="note">
+      <!-- aside class="note">
         <h3>mv (20190523): Waarom deze onderverdeling?</h3>
         <p>Ik begrijp de noodzaak van deze onderverdeling niet. Klassen en eigenschappen dekken de lading niet? Graag voorbeelden ter illustratie</p>
-      </aside>
+      </aside -->
 
     <!-- Sectie 6.1 -->
     <section id='nen3610ld-verwijzingen'>
@@ -748,10 +748,10 @@
         </tbody>
       </table>
 	  
-      <aside class="note">
+      <!-- aside class="note">
         <h3>mv (20190523): toevoegen</h3>
         <p>rdfs:comment, rdfs:seeAlso, skos:notation, owl:symetrictProperty, owl:annotationProperty, ...</p>
-      </aside>
+      </aside -->
 
 	  
       <p>Om de NEN3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN3610 ook "gelezen" worden in een bredere context.</p>
@@ -1228,13 +1228,13 @@ imgolf:Geen a imgolf:NatuurwaardeValue .
             <p>
               Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypeProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een relatief open owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.
             </p>
-            <aside class="note">
+            <!-- aside class="note">
               <h3>mv (20190523): Ander voorbeeld?</h3>
               <p>Hier past rdfs:label, kies een ander voorbeeld. Inleidende tekst klopt niet met OWL-voorbeeld.</p>
               <p>
                 pano (20190523): In een automatische transformatie kun je niet bepalen waar rdfs:label past. Dus zul je een naam property ook naar een naam property transformeren lijkt me. Maar, ik vind het prima om een ander voorbeeld te nemen. Ik heb de tekst ook aangepast.
               </p>
-            </aside>
+            </aside -->
             <pre class='ex-turtle'>
 imgolf:par a owl:DatatypeProperty .
 
@@ -1452,13 +1452,13 @@ imgolf:Golfbaan a owl:Class ;
               Aggregatie- en compositie-associaties worden gemodelleerd als <a href="#regels-associaties-simpel">simpele associaties</a>, gebruikmakend van de specifieke naam die de associatie in het oorspronkelijke model heeft.
             </p>
 
-            <aside class='note'>
+            <!-- aside class='note'>
               <h3>mv (20190523): Of een expliciete meronomie?</h3>
               <p>Gebruik van "niet-normale" relaties als hasPart maakt het model sprekender. Hebben we bewust deze keuze gemaakt?</p>
               <p>
                 pano (20190523): Voor mij was het een bewuste keuze, maar er valt over te discussieren. Ik ben van mening dat als de relatie benoemd is dat je die relatienaam moet gebruiken. Maar, ik kan me ook een model voorstellen waarin een compositierelatie niet is benoemd. Dan zouden we kunnen defaulten naar een ??:hasPart relatie. Een andere optie is het standaard opnemen van een rdfs:subProperty naar een ??:hasPart relatie, alleen ken ik geen breed gebruikte standaard hasPart relatie.
               </p>
-            </aside>
+            </aside -->
 
             <pre class='ex-turtle'>
 imgolf:parcoursDeel a owl:ObjectProperty .
@@ -2181,13 +2181,47 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
         <h2>OroX, Linked data Stedelijk Water: Specifieke transformatieregels</h2>
 
         <section id='transformatieregelsorox'>
-          <h3>Transformatieregels OroX: Van UML naar Ontologie</h3>
+          <h3>Transformatieregels OroX: Maak een ontologie</h3>
 
           Voor een goed begrip van de transformatieregels eerst een korte introductie van het GWSW-OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
           Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
           Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
           <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
+       
+       <aside class='note'>
+		  <h4>Modelleren ontologie volgens OroX</h4>
+		  
+		  Volgens Wikipedia is een ontologie "typisch een datastructuur die alle relevante entiteiten en hun onderlinge relaties en regels binnen een domein bevat".
+		  Het GWSW-OroX protocol ondersteunt de beschrijving van ontologiën, het is gericht op het modelleren van semantisch rijke datastructuren. Belangrijke begrippen daarbij zijn: 
+		  <ol>
+		  <li>Soortenboom (de taxonomie of klasse-indeling)
+		  <li>Samenstelling (de meronomie of deel-geheel indeling)
+		  <li>Proces (modellering van activiteiten)
+		  </ol>
+		  De belangrijkste superklassen zijn gwsw:FysiekObject, gwsw:Activiteit, gwsw:Ruimte, gwsw:Levenvorm.
+		  
+		  <p>Bij het ontwerp van een datastructuur spelen deze elementen de hoofdrol, ze vormen het ontwerpkader.</p>
+		  <p>Het model is object-georiënteerd, het hanteert overerving-principes en maakt zo expliciet mogelijk onderscheid in subklassen van de genoemde superklassen. 
+		  Dat is een heel andere benadering dan bijvoorbeeld het ontwerp van een relationeel model waarbij de nadruk ligt op het interpreteren van informatie met een hoofdrol voor het eerder behandelde normalisatie-proces. 
+		  </p>
+		  Een voorbeeld van de object-georiënteerde benadering met onderscheid in object en activiteit: 
+		  <br/>Als de datum van grasmaaien van een parcours wordt geregistreerd onderscheiden we twee concepten.</p>
+		  <table>
+		  <tr><td>Hole2</td>		<td>is een</td>				<td>Parcours</td></tr>
+		  <tr><td/>					<td>heeft naam</td> 			<td>"Hole 2"</td></tr>
+			<tr/>			
+		  <tr><td>Grasmaaien1</td> 	<td>is een</td>				<td>Activiteit</td></tr>
+			<tr><td/>				<td>heeft datum uitvoering</td>		<td>"20190531"</td></tr>
+			<tr><td/>				<td>heeft uitvoerder</td>			<td>"Grasmaaier"</td></tr>
+		  </table>	
+		  <br/>Vervolgens worden deze concepten als proces beschreven:
+		  <table>
+		  <tr><td>Grasmaaien1</td> 	<td>heeft als invoer</td> 	<td>Hole2</td><tr/>	
+		  </table>
+		  <br/>
+		  
+       </aside>
 
 		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
 		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
@@ -2655,12 +2689,10 @@ gwsw:isPartOf
 	owl:inverseOf                 gwsw:hasPart .
 
 :KoninklijkeHaagseGenCC	rdf:type imgolf:Linksbaan ;
-						rdfs:label "Koninklijke Haagse Golf en Country Club"@nl ;
-
-						gwsw:hasPart :DrivingRange;
-						gwsw:hasPart :Hole1;
-						gwsw:hasPart :Hole2.
-
+	rdfs:label 		"Koninklijke Haagse Golf en Country Club"@nl ;
+	gwsw:hasPart 	:DrivingRange;
+	gwsw:hasPart 	:Hole1;
+	gwsw:hasPart 	:Hole2.
             </pre>
           </section>
 
@@ -2668,7 +2700,7 @@ gwsw:isPartOf
           <section id='OroX regels-associaties-gen-spec'>
             <h5>Generalisatie/Specialisatie</h5>
             <p>
-              De GWSW-OroX transformatie vereist een soortenboom, zoveel mogelijk expliciet gemaakt met onderscheidende kenmerken.
+              De GWSW-OroX transformatie vereist een expliciete soortenboom, klassen worden ingedeeld door hun onderscheidende kenmerken.
 			  <br/>Bijvoorbeeld een imgolf:Tee is een subklasse van imgolf:Geo_object en onderscheid zich doordat het de functie "afslagplaats" heeft:
             </p>
             <pre class='ex-turtle'>
