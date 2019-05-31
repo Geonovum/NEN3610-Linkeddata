@@ -1034,13 +1034,6 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
             <p>
               Een klasse in een NEN3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse.
             </p>
-
-      <aside class="note">
-        <h3>mv (20190523): skos:definition in plaats rdfs:comment?</h3>
-        <p>Definities zouden een meer centrale rol moeten spelen?</p>
-        <p>pano (20190523):  Waarom is skos:definition beter dan rdfs:comment? rdfs:comment is bedoeld voor "A description of the subject resource." Dat is precies het doel hier. Gebruik van skos:definition zou ik niet in de standaard transformatie willen opnemen. Ik zou die property zelf namelijk nooit op klassen gebruiken, maar alleen op instanties van skos:Concept. Het is uiteraard mogelijk om dit in een specifieker transformatieprofiel wel op te nemen.</p>
-      </aside>
-
             <pre class='ex-turtle'>
 imgolf:Parcours a owl:Class ;
   rdfs:label "Parcours" ;
@@ -2187,18 +2180,8 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
       <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
         <h2>OroX, Linked data Stedelijk Water: Specifieke transformatieregels</h2>
 
-        <!-- Sectie 7.3.4.1 -->
-        <section id='metamodelorox'>
-          <h3>Metamodel NEN 3610 conform GWSW-OroX</h3>
-
-          <figure>
-            <img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="1000">
-            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in OroX profiel</figcaption>
-          </figure>
-        </section>
-
         <section id='transformatieregelsorox'>
-          <h3>Transformatieregels OroX</h3>
+          <h3>Transformatieregels OroX: Van UML naar Ontologie</h3>
 
           Voor een goed begrip van de transformatieregels eerst een korte introductie van het GWSW-OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
           Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
@@ -2272,7 +2255,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
   		</section>
         <section id='MetamodelOroX'>
 
-          <h3>Metamodel GWSW-OroX</h3>
+          <h3>Top-model GWSW-OroX</h3>
 
           De oorspronkelijke Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
@@ -2303,12 +2286,19 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           Soortenbomen in de GWSW Ontologie zijn gebaseerd op de onderscheidende kenmerken van concepten. Door "determineren", maken van voldoende keuzes, wordt een soort gevonden.
           Onderscheidende kenmerken definiëren de concepten die vervolgens onderling gerelateerd worden in onder andere de soortenboom en samenstellingsboom.
 
+          <h4>Metamodel NEN 3610 conform GWSW-OroX</h4>
+
+          <figure>
+            <img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="1000">
+            <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data in OroX profiel</figcaption>
+          </figure>
+
 		</section>
         <section id='UMLversusOroX'>
 		
           <h3>UML-concepten versus OroX-concepten</h3>
 		  
-          Een vergelijking tussen OroX en UML:
+          Een eerste vergelijking tussen OroX en UML:
 		  
           <br /><br /><b>Relaties</b>
           <table>
@@ -2346,7 +2336,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
             </tr>
             <tr>
               <td>Attributen</td>
-              <td>gwsw:hasAspect</td>
+              <td>gwsw:hasAspect, gecombineerd met gwsw:hasValue of gwsw:hasReference</td>
             </tr>
             <tr>
               <td>Methoden</td>
@@ -2377,28 +2367,28 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 		  Wordt conform GWSW-OroX als volgt gemodelleerd:
 		  
 		  <pre class='ex-turtle'>
-				gwsw:AfslagplaatsWit
+				imgolf:AfslagplaatsWit
 					rdf:type                      owl:Class ;
 					rdfs:label                    "Afslagplaats wit"@nl ;
-					rdfs:subClassOf               gwsw:Tee ;
+					rdfs:subClassOf               imgolf:Tee ;
 					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
 				.
-				gwsw:AfslagplaatsGeel
+				imgolf:AfslagplaatsGeel
 					rdf:type                      owl:Class ;
 					rdfs:label                    "Afslagplaats geel"@nl ;
-					rdfs:subClassOf               gwsw:Tee ;
+					rdfs:subClassOf               imgolf:Tee ;
 					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
 				.
-				gwsw:AfslagplaatsBlauw
+				imgolf:AfslagplaatsBlauw
 					rdf:type                      owl:Class ;
 					rdfs:label                    "Afslagplaats blauw"@nl ;
-					rdfs:subClassOf               gwsw:Tee ;
+					rdfs:subClassOf               imgolf:Tee ;
 					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
 				.
-				gwsw:AfslagplaatsRood
+				imgolf:AfslagplaatsRood
 					rdf:type                      owl:Class ;
 					rdfs:label                    "Afslagplaats rood"@nl ;
-					rdfs:subClassOf               gwsw:Tee ;
+					rdfs:subClassOf               imgolf:Tee ;
 					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
 				.
 		  </pre>
@@ -2416,32 +2406,328 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 		  Wordt in het GWSW-OroX als collectie gemodelleerd:
 		  
 		  <pre class='ex-turtle'>
-			gwsw:NatuurwaardeColl
+			imgolf:NatuurwaardeColl
 				rdf:type                      owl:Class ;
 				rdfs:label                    "Natuurwaarde (coll)"@nl ;
 				rdfs:subClassOf               gwsw:Verzameling ;
 				rdfs:subClassOf               
 				[
 					rdf:type                      owl:Class ;
-					owl:oneOf                     (gwsw:Hoog gwsw:Laag gwsw:Geen )
+					owl:oneOf                     (imgolf:Hoog imgolf:Laag imgolf:Geen )
 				] .
-			gwsw:Hoog
-				rdf:type                      gwsw:NatuurwaardeColl ;
+			imgolf:Hoog
+				rdf:type                      imgolf:NatuurwaardeColl ;
 				rdfs:label                    "Hoog"@nl .
-			gwsw:Laag
-				rdf:type                      gwsw:NatuurwaardeColl ;
+			imgolf:Laag
+				rdf:type                      imgolf:NatuurwaardeColl ;
 				rdfs:label                    "Laag"@nl .
-			gwsw:Geen
-				rdf:type                      gwsw:NatuurwaardeColl ;
+			imgolf:Geen
+				rdf:type                      imgolf:NatuurwaardeColl ;
 				rdfs:label                    "Geen"@nl .
 		  </pre>
 
         </section>
+		
+        <!-- Sectie 7.4.4.x -->
+        <section id='OroX regels-klassen'>
+          <h4>Klassen</h4>
+		
+          <!-- Sectie 7.4.4.x.x -->
+		  <section id='OroX regels-klassen-algemeen'>
+            <h5>Klassen algemeen</h5>
+            <p>
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard. Een klasse is een instantie van <code>owl:Class</code>.  
+			  <br/>In GWSW-OroX heeft elke klasse de annotatie-properties <code>rdfs:label</code>, <code>rdfs:comment</code>, <code>skos:definition</code>, <code>gwsw:hasDateStart</code>, <code>gwsw:hasDateChange</code>
+            </p>
+            <pre class='ex-turtle'>
+			imgolf:Parcours
+				rdf:type                      owl:Class ;
+				rdfs:label                    "Parcours"@nl ;
+				rdfs:subClassOf               imgolf:Geo_object ;
+				skos:definition               "Een van de speelvelden van een golfbaan"@nl ;
+				rdfs:comment                  "Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen" ;
+				gwsw:hasDateStart             "2017-11-16"^^xsd:date .            
+			</pre>
+            <p>
+              Een parcours als individual:
+            </p>
+            <pre class='ex-turtle'>
+			:Hole2 a imgolf:Parcours;
+				rdfs:label "Hole 2".
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-featureType'>
+            <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-dataType'>
+            <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie past een &laquo;dataType&raquo; vaak toe. Ook om restricties te definiëren, bijvoorbeeld het par-nummer ligt tussen 1 en 6:
+            </p>
+            <pre class='ex-turtle'>
+			imgolf:Dt_wsw:Par
+				rdfs:label                    "Par (datatype)"@en ;
+				rdf:type                      rdfs:Datatype ;
+				owl:equivalentClass           
+				[
+				owl:onDatatype                xsd:integer ;
+				rdfs:label                    "minMaxValue_Kenmerk" ;
+				owl:withRestrictions          ([xsd:minInclusive "1"^^xsd:integer][xsd:maxInclusive "6"^^xsd:integer])
+				] .
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-union'>
+            <h5>Klasse met stereotype &laquo;union&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie past geen owl:unionOf toe. In GWSW-OroX wordt dit altijd een verzameling instanties:
+            <pre class='ex-turtle'>
+imgolf:NatuurwaardeColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Natuurwaarde (coll)"@nl ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     (imgolf:Hoog imgolf:Laag imgolf:Geen )
+	] .
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-external'>
+            <h5>Klasse met stereotype &laquo;external&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-enumeration'>
+            <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie kent geen enumeraties (zie ook &laquo;union&raquo;), dit wordt altijd een verzameling instanties:
+            </p>
+            <pre class='ex-turtle'>
+imgolf:ToegangGolfbaanColl
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Toegang golfbaan (coll)"@nl ;
+	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
+	rdfs:subClassOf               
+	[
+	rdf:type                      owl:Class ;
+	rdfs:label                    "oneOf_Verzameling soorten" ;
+	owl:oneOf                     (imgolf:Etiquette imgolf:Toegang imgolf:Vereisten )
+	] .
+ </pre>
+          </section>
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-klassen-codelist'>
+            <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie kent geen &laquo;CodeList&raquo; (zie ook &laquo;union&raquo;), dit wordt een verzameling instanties.
+			  Als een code betekenisvol is, wordt deze ook gemodelleerd:
+            </p>
+            <pre class='ex-turtle'>
+imgolf:AfslagplaatsWit
+	rdf:type                      owl:Class ;
+	skos:notation                 "WIT"@nl .
+ </pre>
+          </section>
+        </section>
+
+        <!-- Sectie 7.4.4.x -->
+        <section id='OroX regels-attributen'>
+          <h4>Attributen</h4>
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-algemeen'>
+            <h5>Attributen algemeen</h5>
+            <p>
+              In de GWSW-OroX transformatie wordt attributen ook klassen, Attributen worden toegewezen met de algemene relaties gwsw:hasAspect en gwsw:hasValue of gwsw:hasReference.
+            </p>
+            <pre class='ex-turtle'>
+imgolf:Par
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Par"@en ;
+	rdfs:subClassOf               imgolf:Kenmerk .
+	
+:Hole3 a imgolf:Parcours;
+	rdfs:label "Hole 3";
+	gwsw:hasAspect 
+	[ 	rdf:type imgolf:Par ;
+		gwsw:hasValue 4 ;
+	] .
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-identificatie'>
+            <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-voidable'>
+            <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-materieleHistorie'>
+            <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-formeleHistorie'>
+            <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-materieleLevensduur'>
+            <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-attributen-formeleLevensduur'>
+            <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+        </section>
+
+        <!-- Sectie 7.4.4.x -->
+        <section id='OroX regels-associaties'>
+          <h4>Associaties</h4>
+          Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-associaties-simpel'>
+            <h5>Simpele associaties</h5>
+            <p>
+              De GWSW-OroX transformatie hanteert <code>owl:ObjectProperty</code>, <code>owl:DatatypeProperty</code>, <code>owl:AnnotationProperty</code>, <code>owl:FunctionalProperty</code>
+ 		  </p>
+            <pre class='ex-turtle'>
+gwsw:hasAspect
+	rdfs:label                    "has as aspect"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:hasValue
+	rdfs:label                    "has as value"@en ;
+	rdf:type                      owl:DatatypeProperty ;
+	rdf:type                      owl:FunctionalProperty .
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-associaties-aggr-comp'>
+            <h5>Aggregatie en compositie</h5>
+            <p>
+              De GWSW-OroX transformatie vereist expliciete deel-geheel relaties, zowel voor fysieke als ruimtelijk objecten.
+            </p>
+            <pre class='ex-turtle'>
+gwsw:hasPart
+	rdfs:label                    "has as part"@en ;
+	rdf:type                      owl:ObjectProperty .
+gwsw:isPartOf
+	rdfs:label                    "has as part (inverse)"@en ;
+	rdf:type                      owl:ObjectProperty ;
+	owl:inverseOf                 gwsw:hasPart .
+
+:KoninklijkeHaagseGenCC	rdf:type imgolf:Linksbaan ;
+						rdfs:label "Koninklijke Haagse Golf en Country Club"@nl ;
+
+						gwsw:hasPart :DrivingRange;
+						gwsw:hasPart :Hole1;
+						gwsw:hasPart :Hole2.
+
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-associaties-gen-spec'>
+            <h5>Generalisatie/Specialisatie</h5>
+            <p>
+              De GWSW-OroX transformatie vereist een soortenboom, zoveel mogelijk expliciet gemaakt met onderscheidende kenmerken.
+			  <br/>Bijvoorbeeld een imgolf:Tee is een subklasse van imgolf:Geo_object en onderscheid zich doordat het de functie "afslagplaats" heeft:
+            </p>
+            <pre class='ex-turtle'>
+imgolf:Tee
+	rdf:type                      owl:Class ;
+	rdfs:label                    "Tee"@nl ;
+	rdfs:subClassOf               imgolf:Geo_object ;
+	skos:definition               "De afslagplaats aan het begin van een hole"@nl ;
+	rdfs:comment                  "Ook wel tee-box genoemd" ;
+	rdfs:subClassOf 		
+[	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasAspect ;
+	owl:someValuesFrom            
+	[
+	owl:intersectionOf            ( gwsw:Functie
+	[
+	rdf:type                      owl:Restriction ;
+	owl:onProperty                gwsw:hasReference ;
+	owl:hasValue                  imgolf:Afslagplaats ] ) ]
+] .
+imgolf:Afslagplaats
+	rdf:type                      gwsw:Functie .
+            </pre>
+          </section>
+
+          <!-- Sectie 7.4.4.x.x -->
+          <section id='OroX regels-associaties-associatieklassen'>
+            <h5>Associatieklassen</h5>
+            <p>
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+            </p>
+          </section>
+
+        </section>
+
+        <section id='OroX regels-attributen-kardinaliteit'>
+          <h4>Kardinaliteit</h4>
+          <p>
+            De GWSW-OroX transformatie hanteert vaak cardinaliteits-regels om klassen te beschrijven, de cardinaliteitsvoorwaarden helpen bij het identificeren van de soort.
+			<br/>Bijvoorbeeld als "iets" een imgolf:Hindernis als deel heeft, is dat "iets" wellicht een imgolf:Parcours:
+          </p>
+            <pre class='ex-turtle'>
+imgolf:Parcours
+	rdfs:subClassOf
+	[
+	rdf:type                      owl:Restriction ;
+	rdfs:label                    "wsw:hasPart_Hindernis" ;
+	owl:minQualifiedCardinality   "1"^^xsd:nonNegativeInteger ;
+	owl:onProperty                gwsw:hasPart ;
+	owl:onClass                   imgolf:Hindernis
+	] .
+            </pre>
+		</section>
 
       </section>
 
+<!-- einde 7.4.4.x -->
     </section>
-
+	</section>
   </section>
 
   <!-- Hoofdstuk 8 -->
