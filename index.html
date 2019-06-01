@@ -2178,42 +2178,43 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 
       <!-- Sectie 7.3.4 -->
       <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
-        <h2>OroX, Linked data Stedelijk Water: Specifieke transformatieregels</h2>
+        <h2>GWSW-OroX, Linked Data Stedelijk Water: Specifieke transformatieregels</h2>
 
         <section id='transformatieregelsorox'>
           <h3>Transformatieregels OroX: Maak een ontologie</h3>
 
           Voor een goed begrip van de transformatieregels eerst een korte introductie van het GWSW-OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
           Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
-          Het GWSW onderscheidt zich daarmee door diepgang in de semantiek en reikwijdte in de toepassing (van systeem tot proces).
+          Het GWSW onderscheidt zich daarmee door diepgang in semantiek en reikwijdte in de toepassing (van systeem tot proces).
           <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
        
        <aside class='note'>
 		  <h4>Modelleren van een ontologie met OroX</h4>
 		  
-		  Volgens Wikipedia is een ontologie "typisch een datastructuur die alle relevante entiteiten en hun onderlinge relaties en regels binnen een domein bevat".
-		  Het GWSW-OroX protocol ondersteunt de beschrijving van ontologiën, ook is het gericht op het modelleren van semantisch rijke datastructuren. Belangrijke begrippen daarbij zijn: 
+		  Wikipedia vermeldt: "een ontologie is typisch een datastructuur die alle relevante entiteiten en hun onderlinge relaties en regels binnen een domein bevat".
+		  Het GWSW-OroX protocol ondersteunt de beschrijving van zulke ontologiën.
+		  <p>De datastructuur is object-georiënteerd waarbij relaties tussen objecten in een aantal structuren zijn ondergebracht:</p>
 		  <ol>
 		  <li>Soortenboom (de taxonomie of klasse-indeling)
 		  <li>Samenstelling (de meronomie of deel-geheel indeling)
-		  <li>Proces (modellering van activiteiten)
+		  <li>Proces (activiteiten-schema)
 		  </ol>
 		  Belangrijke superklassen zijn gwsw:FysiekObject, gwsw:Activiteit, gwsw:Ruimte, gwsw:Levenvorm.
 		  
 		  <p>Bij het ontwerp van een datastructuur spelen deze elementen de hoofdrol, ze vormen het ontwerpkader.</p>
-		  <p>Het model is object-georiënteerd, het hanteert overerving-principes en maakt zo expliciet mogelijk onderscheid in subklassen van de genoemde superklassen. 
-		  Dat is een heel andere benadering dan bijvoorbeeld het ontwerp van een relationeel model waarbij de nadruk ligt op het interpreteren van informatie met een hoofdrol voor het eerder behandelde normalisatie-proces. 
+		  <p>Met het principe van object-oriëntatie hanteert het model overerving-principes en maakt het zo expliciet mogelijk onderscheid in subklassen van de genoemde superklassen. 
+		  Dat is een heel andere benadering dan bijvoorbeeld het ontwerp van een relationeel model. Daarbij ligt de nadruk ligt op het interpreteren van informatie met een hoofdrol voor de eerder besproken normalisatie-techniek om opslagruimte te beperken en redundantie te voorkomen.
 		  </p>
-		  Een voorbeeld van de object-georiënteerde benadering met onderscheid in object en activiteit: 
-		  <br/>Als de datum van grasmaaien van een parcours wordt geregistreerd onderscheiden we twee concepten.</p>
+		  Een voorbeeld van de object-georiënteerde benadering met onderscheid in fysiek object en activiteit: 
+		  <p>Van elk parcours willen we het moment van grasmaaien kunnen achterhalen. We onderscheiden dan twee concepten.</p>
 		  <table>
 		  <tr><td>Hole2</td>		<td>is een</td>				<td>Parcours</td></tr>
 		  <tr><td/>					<td>heeft naam</td> 			<td>"Hole 2"</td></tr>
 			<tr/>			
-		  <tr><td>Grasmaaien1</td> 	<td>is een</td>				<td>Activiteit</td></tr>
+		  <tr><td>Grasmaaien1</td> 	<td>is een</td>				<td>ActiviteitGrasmaaien</td></tr>
 			<tr><td/>				<td>heeft datum uitvoering</td>		<td>"20190531"</td></tr>
-			<tr><td/>				<td>heeft uitvoerder</td>			<td>"Grasmaaier"</td></tr>
+			<tr><td/>				<td>heeft uitvoerder</td>			<td>Grasmaaier1</td></tr>
 		  </table>	
 		  <br/>Vervolgens worden deze concepten als proces beschreven:
 		  <table>
@@ -2223,11 +2224,55 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 		  
        </aside>
 
-		  <br /><br />De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
-		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.
+		<h4>Onderscheid de objecten</h4>
 		  
-		  <br/><br/>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
-		  Als in een dataset "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.
+		  <p>In de datastructuur worden alle entiteiten zo expliciet mogelijk beschreven. 
+		  Om die reden zullen objecttyperingen niet als domeinslijst opduiken.</p>
+		  
+		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
+		  
+		  <figure>
+            <img src="media/Enum parcours.jpg" height="200">
+            <figcaption>Domeinwaarden type parcours</figcaption>
+          </figure>
+		  
+		  Wordt conform GWSW-OroX als volgt gemodelleerd:
+		  
+		  <pre class='ex-turtle'>
+				imgolf:AfslagplaatsWit
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats wit"@nl ;
+					rdfs:subClassOf               imgolf:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				imgolf:AfslagplaatsGeel
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats geel"@nl ;
+					rdfs:subClassOf               imgolf:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				imgolf:AfslagplaatsBlauw
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats blauw"@nl ;
+					rdfs:subClassOf               imgolf:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+				imgolf:AfslagplaatsRood
+					rdf:type                      owl:Class ;
+					rdfs:label                    "Afslagplaats rood"@nl ;
+					rdfs:subClassOf               imgolf:Tee ;
+					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
+				.
+		  </pre>
+
+
+		  <h4>Onderscheidende kenmarken van objecten</h4>
+
+		  <p>De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
+		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.</p>
+		  
+		  <p>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
+		  Als in een dataset "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.<p>
 		  <br/>De definitie van Parcours in RDF wordt dan:
 		  
 		  <pre class='ex-turtle'>
@@ -2284,6 +2329,42 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 				[ 	rdf:type gwsw:Functie ;
 					gwsw:hasReference gwsw:VoorDummies ;
 				] .
+		  </pre>
+		  
+		  <h4>Collecties conform OroX</h4>
+
+		  <p>Vooral voor objecttypes is de expliciteit belangrijk. 
+		  Ook het GWSW-OroX hanteert collecties, maar dan in de vorm van individuals (instanties van klassen).
+		  Bijvoorbeeld de waarden van kenmerken, die kunnen als individuals verschijnen.</p>
+		  
+		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
+		  
+		  <figure>
+            <img src="media/Enum natuurwaarde.jpg" height="200">
+            <figcaption>Domeinwaarden natuurwaarde</figcaption>
+          </figure>
+		  
+		  Wordt in het GWSW-OroX als lijst van individuals gemodelleerd:
+		  
+		  <pre class='ex-turtle'>
+			imgolf:NatuurwaardeColl
+				rdf:type                      owl:Class ;
+				rdfs:label                    "Natuurwaarde (coll)"@nl ;
+				rdfs:subClassOf               gwsw:Verzameling ;
+				rdfs:subClassOf               
+				[
+					rdf:type                      owl:Class ;
+					owl:oneOf                     (imgolf:Hoog imgolf:Laag imgolf:Geen )
+				] .
+			imgolf:Hoog
+				rdf:type                      imgolf:NatuurwaardeColl ;
+				rdfs:label                    "Hoog"@nl .
+			imgolf:Laag
+				rdf:type                      imgolf:NatuurwaardeColl ;
+				rdfs:label                    "Laag"@nl .
+			imgolf:Geen
+				rdf:type                      imgolf:NatuurwaardeColl ;
+				rdfs:label                    "Geen"@nl .
 		  </pre>
 		  
   		</section>
@@ -2384,83 +2465,6 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
 		  
 		</section>
-        <section id='TransformatieVoorbeeldenOroX'>
-		
-		  <h3>Transformatie-voorbeelden OroX</h3>
-		  
-		  Voor een semantisch rijke datastructuur worden de begrippen zo expliciet mogelijk beschreven. 
-		  Om die reden zullen objecttyperingen niet als domeinslijst opduiken. 
-		  
-		  <br/><br/>De domeinwaardenlijst in het UML van NEN3610-IMGolf:
-		  
-		  <figure>
-            <img src="media/Enum parcours.jpg" height="200">
-            <figcaption>Domeinwaarden type parcours</figcaption>
-          </figure>
-		  
-		  Wordt conform GWSW-OroX als volgt gemodelleerd:
-		  
-		  <pre class='ex-turtle'>
-				imgolf:AfslagplaatsWit
-					rdf:type                      owl:Class ;
-					rdfs:label                    "Afslagplaats wit"@nl ;
-					rdfs:subClassOf               imgolf:Tee ;
-					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
-				.
-				imgolf:AfslagplaatsGeel
-					rdf:type                      owl:Class ;
-					rdfs:label                    "Afslagplaats geel"@nl ;
-					rdfs:subClassOf               imgolf:Tee ;
-					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
-				.
-				imgolf:AfslagplaatsBlauw
-					rdf:type                      owl:Class ;
-					rdfs:label                    "Afslagplaats blauw"@nl ;
-					rdfs:subClassOf               imgolf:Tee ;
-					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
-				.
-				imgolf:AfslagplaatsRood
-					rdf:type                      owl:Class ;
-					rdfs:label                    "Afslagplaats rood"@nl ;
-					rdfs:subClassOf               imgolf:Tee ;
-					gwsw:hasDateStart             "2018-04-19"^^xsd:date ;
-				.
-		  </pre>
-
-		  <br/>Vooral voor objecttypes is de expliciteit belangrijk. Ook het GWSW-OroX hanteert collecties. 
-		  Bijvoorbeeld voor kenmerken, die kunnen als individuals verschijnen.
-		  
-		  <br/><br/>De domeinwaardenlijst in het UML van NEN3610-IMGolf:
-		  
-		  <figure>
-            <img src="media/Enum natuurwaarde.jpg" height="200">
-            <figcaption>Domeinwaarden natuurwaarde</figcaption>
-          </figure>
-		  
-		  Wordt in het GWSW-OroX als collectie gemodelleerd:
-		  
-		  <pre class='ex-turtle'>
-			imgolf:NatuurwaardeColl
-				rdf:type                      owl:Class ;
-				rdfs:label                    "Natuurwaarde (coll)"@nl ;
-				rdfs:subClassOf               gwsw:Verzameling ;
-				rdfs:subClassOf               
-				[
-					rdf:type                      owl:Class ;
-					owl:oneOf                     (imgolf:Hoog imgolf:Laag imgolf:Geen )
-				] .
-			imgolf:Hoog
-				rdf:type                      imgolf:NatuurwaardeColl ;
-				rdfs:label                    "Hoog"@nl .
-			imgolf:Laag
-				rdf:type                      imgolf:NatuurwaardeColl ;
-				rdfs:label                    "Laag"@nl .
-			imgolf:Geen
-				rdf:type                      imgolf:NatuurwaardeColl ;
-				rdfs:label                    "Geen"@nl .
-		  </pre>
-
-        </section>
 		
         <!-- Sectie 7.4.4.x -->
         <section id='OroX regels-klassen'>
