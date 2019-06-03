@@ -292,7 +292,8 @@
   <!-- Hoofdstuk 5 -->
   <section id='basisprincipes' class="informative">
     <h1>Basisbeginselen van Linked data</h1>
-    <section id="intro">
+    <!-- Sectie 5.1 -->
+    <section id="basisprincipes-introductie">
       <h2>Introductie</h2>
       <p>We veronderstellen enige kennis van wat linked data nu eigenlijk is en wat we bijvoorbeeld bedoelen met de term <a>triples</a>. Als eerste introductie van linked data zijn dit goede bronnen: </p>
       <ul>
@@ -312,7 +313,7 @@
       <p>De hierboven beschreven uitgangspunten van linked data hebben verregaande consequenties die informatiemodelleren voor linked data fundamenteel anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw linked data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden. </p>
     </section>
     <!--De tekst hieronder moet kunnen leunen op de Linked Data 101 uitleg. -->
-    <!-- Sectie 5.1 -->
+    <!-- Sectie 5.2 -->
     <section id='basisprincipes-identificatie'>
       <h2>Identificatie</h2>
       <p>In linked data gebruiken we <a>IRIs</a> om dingen te identificeren. IRIs zijn een goed mechanisme om wereldwijd unieke sleutels aan <a>subjecten</a> toe te kennen en maken het mogelijk om links te leggen. Het is belangrijk om goed na te denken over de opbouw van IRIs als je deze aan je data gaat toekennen. Ze moeten in ieder geval uniek en persistent zijn; bovendien is het gewenst dat ze <em>dereferenceable</em> zijn, zodat je op het desbetreffende web adres bruikbare informatie over het onderwerp kunt vinden. Meer lezen hierover kun je in onderstaande bronnen: </p>
@@ -331,21 +332,19 @@
       </aside>
     </section>
 
-    <!-- Sectie 5.2 -->
+    <!-- Sectie 5.3 -->
+    <section id="basisprincipes-classificatie">
+      <h2>Classificatie</h2>
+      <p>Het opstellen van een ontologie wordt ook wel "ontology engineering" genoemd. Bij het opstellen van een ontologie maak je expliciet welke kennis uit een domein relevant is. Een basisbeginsel daarbij is dat daadwerkelijk het domein wordt beschreven, en niet zozeer de gegevens die daarover opgeslagen worden. Een belangrijk instrument is daarbij de <i>classificatie</i>. Classificatie gaat over het benoemen van groepen (de "klassen") van dingen die een aantal eigenschappen overeen komen. Zo hebben "dingen" uit de groep van "golfbanen" overeen dat deze uit "holes" bestaat. Dus blijkbaar is de relatie van belang tussen een “golfbaan” en een “hole”. Daarnaast geldt voor de groep van "bosbanen" dat er veel bomen op het golfbaanterrein staan. Dus blijkbaar is een eigenschap als "bomen op de golfbaan" van belang. Tenslotte weten we dat elke bosbaan ook een golfbaan is, en daarmee kunnen we stellen dat de klasse van bosbanen een subklasse is van de klasse van golfbanen. Voor elke klasse moet gelden dat er een eigenschap is waarmee we elk voorbeeld van deze klasse uniek kunnen onderscheiden van een andere klasse. In het geval van de klasse van "bosbanen" kunnen we dat op basis van de eigenschap "bomen op de golfbaan". Het opstellen van een ontologie omvat dus het beschrijven van de groepen die we relevant vinden om te onderscheiden, de eigenschappen en relaties die daarbij een rol spelen, en regels waarmee je bepaalt hoe je op basis van de eigenschappen en relaties kunt bepalen tot welke groep iets behoort.</p>
+      <p>Klassen, eigenschappen en relaties uit een ontologie lijken verdacht veel op klassen, attributen en associaties uit UML. Het verschil zit er in dat je in een ontologie over het algemeen verder gaat met het opdelen in klassen, en ook eigenschappen benoemd die wel nodig zijn om je domein te "begrijpen", maar niet per se nodig zijn om informatie over het domein te delen. Zo is het voor ons golfbanen voorbeeld voldoende om vast te leggen tot welk "type" een golfbaan behoort (zoals: bosbaan, polderbaan, etc), maar niet waarom dit nu zo is. Andersom maak je in UML soms modelleerkeuzes die specifiek betrekking hebben op de manier waarop je de gegevens wilt vastleggen.</p>
+    </section>
+
+    <!-- Sectie 5.4 -->
     <section id='basisprincipes-normalisatie'>
       <h2>Normalisatie</h2>
-	  
-      <!-- aside class="note">
-        <h3>mv (20190523): Past dit hier?</h3>
-        <p>Normalisatie wordt hier goed toegelicht maar volgens mij is er nauwelijks verband met Linked-data modelleering. Past hier niet, denk aan onze eerdere discussie over constructivisme. 
-    De modellerings-principes verder uitwerken? Ook iets zeggen over het (al dan niet) semantisch verrijken van UML modellen tijdens de transformatie.</p>
-        <p>
-          pano (20190523): Ik begrijp het commentaar niet. In mijn optiek is normalisatie essentieel voor linked data. Waarom wordt in dit stuk volgens mij ook helder toegelicht. Als je dat anders ziet moeten we het misschien nog aanscherpen.
-        </p>
-      </aside -->
-	  
+
       <p>Zoals uitgelegd in de vorige paragraaf, is het in linked data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een linked data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
-      <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Ofwel, een goed linked data model is een genormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
+      <p>Een goed linked data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Hoewel de term "normalisatie" vooral gebruikt wordt in relatie tot relationale databases, kun je het mechanisme van normalisatie wel goed gebruiken om te zien of een informatiemodel goed bruikbaar is om te vertalen naar een ontologie: een goed genormaliseerd informatiemodel zal tot minder uitdagingen leiden bij transformatie naar een ontologie, dan een gedenormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
             <figure>
                   <img src="media/Normalisatie1.png" >
                   <figcaption> Een model van object persoon in de eerste normaalvorm. Persoon en adres, in werkelijkheid twee verschillende dingen, staan hier in één klasse.</figcaption>
@@ -421,7 +420,7 @@
         <p><i>Type conformance means that if one Type conforms to another, then any instance of the first Type may be used as the value of a TypedElement whose type is declared to be the second Type. A Classifier is a Type, and conforms to itself and to all of its generalizations.</i>[[uml]]</p>
 
         <p> Dus enkel in het geval dat een UML superClass voldoet aan type conformance, is de superClass relatie naar de rdfs:subClassOf relatie te vertalen. Helaas is in de meeste UML modellen niet aangeduid of het daar waar de superClass relatie is toegepast, het daadwerkelijk ook om type conformance gaat. Het is dus aan degene die de transformatie uitvoert om dit te interpreteren.</p>
-        
+
         <p>  Dit verschijnsel hint op hoe OO en linked data verschillend naar informatie kijken. In OO declareer je een ding door te stellen `deze auto heeft 4 deuren': Het vaststellen van het bestaan van een entiteit is onlosmakelijk verbonden van de class die geïnstantieerd wordt. In de linked data wereld wordt een ding gedeclareerd door te stellen 'er is een ding , dat ding van het type auto en dat ding heeft 4 deuren': de (mogelijk meervoudige, of juist volledig afwezige) classificering van een entiteit volgt pas nadat het bestaan van de entiteit is vastgesteld. Linked data stelt ons in staat om op een later tijdstip vast te stellen dat 'dit ding is van het type speelgoed. </p>
       </section>
       <aside class="note">
@@ -470,7 +469,7 @@
       <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name <a>SKOS</a> gebruikt.</li>
       <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>
     </ul>
-	
+
       <!-- aside class="note">
         <h3>mv (20190523): Waarom deze onderverdeling?</h3>
         <p>Ik begrijp de noodzaak van deze onderverdeling niet. Klassen en eigenschappen dekken de lading niet? Graag voorbeelden ter illustratie</p>
@@ -747,13 +746,13 @@
           </tr>
         </tbody>
       </table>
-	  
+
       <!-- aside class="note">
         <h3>mv (20190523): toevoegen</h3>
         <p>rdfs:comment, rdfs:seeAlso, skos:notation, owl:symetrictProperty, owl:annotationProperty, ...</p>
       </aside -->
 
-	  
+
       <p>Om de NEN3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN3610 ook "gelezen" worden in een bredere context.</p>
       <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
       <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: <a href="https://schema.org/Place">schema:Place</a> en <a href="https://schema.org/AdministrativeArea">schema:AdministrativeArea</a>. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een rdfs:subClassOf schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een rdfs:subClassOf schema:AdministrativeArea.</p>
@@ -1515,7 +1514,7 @@ imgolf:Parcours a owl:Class ;
       <section id='specifieke-transformatie-inleiding'>
         <h2>Inleiding</h2>
         <p>
-          Zoals in <a href="#basisprincipes" >hoofdstuk 5</a> is uitgelegd, is het niet mogelijk om altijd een goed linked datamodel te verkrijgen uit een automatische vertaling van een UML-informatiemodel. Daarnaast zijn er in de praktijk verschillende metamodellen die gehanteerd worden bij het modelleren van linked data. 
+          Zoals in <a href="#basisprincipes" >hoofdstuk 5</a> is uitgelegd, is het niet mogelijk om altijd een goed linked datamodel te verkrijgen uit een automatische vertaling van een UML-informatiemodel. Daarnaast zijn er in de praktijk verschillende metamodellen die gehanteerd worden bij het modelleren van linked data.
         </p>
         <p>
           In dit hoofdstuk wordt voor drie metamodellen die in Nederland worden toegepast uiteengezet welke overwegingen er spelen bij het transformeren naar een RDF linked data model en welke specifieke transformatieregels er voor dat metamodel gehanteerd worden.
@@ -2188,10 +2187,10 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           Het GWSW onderscheidt zich daarmee door diepgang in semantiek en reikwijdte in de toepassing (van systeem tot proces).
           <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
-       
+
        <aside class='note'>
 		  <h4>Modelleren van een ontologie met OroX</h4>
-		  
+
 		  Wikipedia vermeldt: "een ontologie is typisch een datastructuur die alle relevante entiteiten en hun onderlinge relaties en regels binnen een domein bevat".
 		  Het GWSW-OroX protocol ondersteunt de beschrijving van zulke ontologiën.
 		  <p>De datastructuur is object-georiënteerd waarbij relaties tussen objecten in een aantal structuren zijn ondergebracht:</p>
@@ -2201,43 +2200,43 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 		  <li>Proces (activiteiten-schema)
 		  </ol>
 		  Belangrijke superklassen zijn gwsw:FysiekObject, gwsw:Activiteit, gwsw:Ruimte, gwsw:Levenvorm.
-		  
+
 		  <p>Bij het ontwerp van een datastructuur spelen deze elementen de hoofdrol, ze vormen het ontwerpkader.</p>
-		  <p>Met het principe van object-oriëntatie hanteert het model overerving-principes en maakt het zo expliciet mogelijk onderscheid in subklassen van de genoemde superklassen. 
+		  <p>Met het principe van object-oriëntatie hanteert het model overerving-principes en maakt het zo expliciet mogelijk onderscheid in subklassen van de genoemde superklassen.
 		  Dat is een heel andere benadering dan bijvoorbeeld het ontwerp van een relationeel model. Daarbij ligt de nadruk ligt op het interpreteren van informatie met een hoofdrol voor de eerder besproken normalisatie-techniek om opslagruimte te beperken en redundantie te voorkomen.
 		  </p>
-		  Een voorbeeld van de object-georiënteerde benadering met onderscheid in fysiek object en activiteit: 
+		  Een voorbeeld van de object-georiënteerde benadering met onderscheid in fysiek object en activiteit:
 		  <p>Van elk parcours willen we het moment van grasmaaien kunnen achterhalen. We onderscheiden dan twee concepten.</p>
 		  <table>
 		  <tr><td>Hole2</td>		<td>is een</td>				<td>Parcours</td></tr>
 		  <tr><td/>					<td>heeft naam</td> 			<td>"Hole 2"</td></tr>
-			<tr/>			
+			<tr/>
 		  <tr><td>Grasmaaien1</td> 	<td>is een</td>				<td>ActiviteitGrasmaaien</td></tr>
 			<tr><td/>				<td>heeft datum uitvoering</td>		<td>"20190531"</td></tr>
 			<tr><td/>				<td>heeft uitvoerder</td>			<td>Grasmaaier1</td></tr>
-		  </table>	
+		  </table>
 		  <br/>Vervolgens worden deze concepten als proces beschreven:
 		  <table>
-		  <tr><td>Grasmaaien1</td> 	<td>heeft als invoer</td> 	<td>Hole2</td><tr/>	
+		  <tr><td>Grasmaaien1</td> 	<td>heeft als invoer</td> 	<td>Hole2</td><tr/>
 		  </table>
 		  <br/>
-		  
+
        </aside>
 
 		<h4>Onderscheid de objecten</h4>
-		  
-		  <p>In de datastructuur worden alle entiteiten zo expliciet mogelijk beschreven. 
+
+		  <p>In de datastructuur worden alle entiteiten zo expliciet mogelijk beschreven.
 		  Om die reden zullen objecttyperingen niet als domeinslijst opduiken.</p>
-		  
+
 		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
-		  
+
 		  <figure>
             <img src="media/Enum parcours.jpg" height="200">
             <figcaption>Domeinwaarden type parcours</figcaption>
           </figure>
-		  
+
 		  Wordt conform GWSW-OroX als volgt gemodelleerd:
-		  
+
 		  <pre class='ex-turtle'>
 				imgolf:AfslagplaatsWit
 					rdf:type                      owl:Class ;
@@ -2267,13 +2266,13 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 
 		  <h4>Onderscheidende kenmerken van objecten</h4>
 
-		  <p>De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven. 
+		  <p>De OWL semantiek wordt uitgebreid toegepast in het GWSW-OroX. OWL helpt om de taxonomie (de klasse-indeling, soortenboom) zo expliciet mogelijk te beschrijven.
 		  Daarmee kan "determinerend" de soort (of klasse) worden afgeleid uit de eigenschappen.</p>
-		  
-		  <p>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats). 
+
+		  <p>Bijvoorbeeld een "Parcours" heeft aan de start altijd een "Tee" (afslagplaats).
 		  Als in een dataset "iets" een "Tee" bevat kan de RDF-Reasoner afleiden dat het "iets" mogelijk een "Parcours" is.<p>
 		  <br/>De definitie van Parcours in RDF wordt dan:
-		  
+
 		  <pre class='ex-turtle'>
 		  gwsw:Parcours				  rdfs:subClassOf
 		  [
@@ -2284,32 +2283,32 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 				owl:onClass                 gwsw:Tee
 		  ] .
 		  </pre>
-		  
-		  Een "Afslagplaats geel" is een soort "Tee" (afslagplaats) en heeft als functie "Afslaan voor dummies". Met OWL 2 kan dat als volgt worden uitgedrukt:  
+
+		  Een "Afslagplaats geel" is een soort "Tee" (afslagplaats) en heeft als functie "Afslaan voor dummies". Met OWL 2 kan dat als volgt worden uitgedrukt:
 		  <br/>De definitie van de "Afslagplaats geel":
-		  
+
 		  <pre class='ex-turtle'>
 			gwsw:AfslagplaatsGeel
 				rdf:type                      owl:Class ;
 				rdfs:label                    "Afslagplaats geel"@nl ;
 				rdfs:subClassOf               gwsw:Tee ;
 		  </pre>
-		  
+
 		  De definitie van de functie-instantie "Afslaan voor dummies":
-		  
+
 		  <pre class='ex-turtle'>
 			gwsw:VoorDummies
 				rdf:type                      gwsw:Functie ;
 				rdfs:label                    "Afslaan voor dummies"@nl .
 		  </pre>
-		  
+
 		  Vervolgens "Afslagplaats geel" beschijven als subklasse van de functie-restrictie
-		  
+
 		  <pre class='ex-turtle'>
-			gwsw:AfslagplaatsGeel			  rdfs:subClassOf               	
+			gwsw:AfslagplaatsGeel			  rdfs:subClassOf
 			[	rdf:type                      owl:Restriction ;
 				owl:onProperty                gwsw:hasAspect ;
-				owl:someValuesFrom            
+				owl:someValuesFrom
 				[
 				owl:intersectionOf            ( gwsw:Functie
 				[
@@ -2320,37 +2319,37 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 		  </pre>
 
 		  Afhankelijk van het gehanteerde OWL-expressieniveau kan een RDF-Reasoner uit onderstaande beschrijving afleiden dat bim:Iets mogelijk een "Afslagplaats geel" is:
-		  
+
 		  <pre class='ex-turtle'>
-		    bim:Iets 
+		    bim:Iets
 				rdf:type 					gwsw:Tee ;
-				gwsw:hasAspect 
+				gwsw:hasAspect
 				[ 	rdf:type gwsw:Functie ;
 					gwsw:hasReference gwsw:VoorDummies ;
 				] .
 		  </pre>
-		  
+
 		  <h4>Collecties conform OroX</h4>
 
-		  <p>Vooral voor objecttypes is de expliciteit belangrijk. 
+		  <p>Vooral voor objecttypes is de expliciteit belangrijk.
 		  Ook het GWSW-OroX hanteert collecties, maar dan in de vorm van individuals (instanties van klassen).
 		  Bijvoorbeeld de waarden van kenmerken, die kunnen als individuals verschijnen.</p>
-		  
+
 		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
-		  
+
 		  <figure>
             <img src="media/Enum natuurwaarde.jpg" height="200">
             <figcaption>Domeinwaarden natuurwaarde</figcaption>
           </figure>
-		  
+
 		  Wordt in het GWSW-OroX als lijst van individuals gemodelleerd:
-		  
+
 		  <pre class='ex-turtle'>
 			imgolf:NatuurwaardeColl
 				rdf:type                      owl:Class ;
 				rdfs:label                    "Natuurwaarde (coll)"@nl ;
 				rdfs:subClassOf               gwsw:Verzameling ;
-				rdfs:subClassOf               
+				rdfs:subClassOf
 				[
 					rdf:type                      owl:Class ;
 					owl:oneOf                     (imgolf:Hoog imgolf:Laag imgolf:Geen )
@@ -2365,7 +2364,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 				rdf:type                      imgolf:NatuurwaardeColl ;
 				rdfs:label                    "Geen"@nl .
 		  </pre>
-		  
+
   		</section>
         <section id='MetamodelOroX'>
 
@@ -2373,14 +2372,14 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 
           De oorspronkelijke Gellish-taal kent een groot aantal vooraf gedefinieerde relaties ("predicates").
           In het GWSW-OroX zijn deze relaties sterk samengevat maar nog wel voorgeschreven, het OroX kan gezien worden als een RDF-schema.
-		  
+
 		  In de volgende figuur staan schematisch de GWSW Relaties:
 
           <figure>
             <img src="media/Metamodel OroX.jpg" width="800">
             <figcaption>Metamodel GWSW-OroX Relaties</figcaption>
           </figure>
-		 		  
+
 		  De toepassing van predicates (per klasse) is in de GWSW-Ontologie vaak aan regels gebonden door middel van een Class Expression (CE).
 		  In de volgende tabel is dat aangegeven met “CE”.
 
@@ -2409,11 +2408,11 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 
 		</section>
         <section id='UMLversusOroX'>
-		
+
           <h3>UML-concepten versus OroX-concepten</h3>
-		  
+
           Een eerste vergelijking tussen OroX en UML:
-		  
+
           <br /><br /><b>Relaties</b>
           <table>
             <tr>
@@ -2462,18 +2461,18 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           <br /><br />Met dit raamwerk is een transformatie van UML naar OroX relatief eenvoudig te realiseen.
           Dat kan nagenoeg (of geheel) automatisch, zie voor het resultaat van deze transformatie de gepubliceerde IMGOLF <a>ontologie</a>
           op <a href="https://data.gwsw.nl/1.4/imgolf/index.html?menu_item=classes">data.gwsw.nl/1.4/imgolf</a>.
-		  
+
 		</section>
-		
+
         <!-- Sectie 7.4.4.x -->
         <section id='OroX regels-klassen'>
           <h4>Klassen</h4>
-		
+
           <!-- Sectie 7.4.4.x.x -->
 		  <section id='OroX regels-klassen-algemeen'>
             <h5>Klassen algemeen</h5>
             <p>
-              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard. Een klasse is een instantie van <code>owl:Class</code>.  
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard. Een klasse is een instantie van <code>owl:Class</code>.
 			  <br/>In GWSW-OroX heeft elke klasse de annotatie-properties <code>rdfs:label</code>, <code>rdfs:comment</code>, <code>skos:definition</code>, <code>gwsw:hasDateStart</code>, <code>gwsw:hasDateChange</code>
             </p>
             <pre class='ex-turtle'>
@@ -2483,7 +2482,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 				rdfs:subClassOf               imgolf:Geo_object ;
 				skos:definition               "Een van de speelvelden van een golfbaan"@nl ;
 				rdfs:comment                  "Ook wel 'Hole' genoemd. Hier wordt de term Parcours gebruikt om verwarring met de hole waar de bal ingeslagen moet worden, te voorkomen" ;
-				gwsw:hasDateStart             "2017-11-16"^^xsd:date .            
+				gwsw:hasDateStart             "2017-11-16"^^xsd:date .
 			</pre>
             <p>
               Een parcours als individual:
@@ -2498,7 +2497,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           <section id='OroX regels-klassen-featureType'>
             <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2512,7 +2511,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 			imgolf:Dt_wsw:Par
 				rdfs:label                    "Par (datatype)"@en ;
 				rdf:type                      rdfs:Datatype ;
-				owl:equivalentClass           
+				owl:equivalentClass
 				[
 				owl:onDatatype                xsd:integer ;
 				rdfs:label                    "minMaxValue_Kenmerk" ;
@@ -2530,7 +2529,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 imgolf:NatuurwaardeColl
 	rdf:type                      owl:Class ;
 	rdfs:label                    "Natuurwaarde (coll)"@nl ;
-	rdfs:subClassOf               
+	rdfs:subClassOf
 	[
 	rdf:type                      owl:Class ;
 	rdfs:label                    "oneOf_Verzameling soorten" ;
@@ -2543,7 +2542,7 @@ imgolf:NatuurwaardeColl
           <section id='OroX regels-klassen-external'>
             <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2558,7 +2557,7 @@ imgolf:ToegangGolfbaanColl
 	rdf:type                      owl:Class ;
 	rdfs:label                    "Toegang golfbaan (coll)"@nl ;
 	rdfs:subClassOf               gwsw:VerzamelingSoorten ;
-	rdfs:subClassOf               
+	rdfs:subClassOf
 	[
 	rdf:type                      owl:Class ;
 	rdfs:label                    "oneOf_Verzameling soorten" ;
@@ -2595,10 +2594,10 @@ imgolf:Par
 	rdf:type                      owl:Class ;
 	rdfs:label                    "Par"@en ;
 	rdfs:subClassOf               imgolf:Kenmerk .
-	
+
 :Hole3 a imgolf:Parcours;
 	rdfs:label "Hole 3";
-	gwsw:hasAspect 
+	gwsw:hasAspect
 	[ 	rdf:type imgolf:Par ;
 		gwsw:hasValue 4 ;
 	] .
@@ -2609,7 +2608,7 @@ imgolf:Par
           <section id='OroX regels-attributen-identificatie'>
             <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2617,7 +2616,7 @@ imgolf:Par
           <section id='OroX regels-attributen-voidable'>
             <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2625,7 +2624,7 @@ imgolf:Par
           <section id='OroX regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2633,7 +2632,7 @@ imgolf:Par
           <section id='OroX regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2641,7 +2640,7 @@ imgolf:Par
           <section id='OroX regels-attributen-materieleLevensduur'>
             <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2649,7 +2648,7 @@ imgolf:Par
           <section id='OroX regels-attributen-formeleLevensduur'>
             <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
@@ -2713,10 +2712,10 @@ imgolf:Tee
 	rdfs:subClassOf               imgolf:Geo_object ;
 	skos:definition               "De afslagplaats aan het begin van een hole"@nl ;
 	rdfs:comment                  "Ook wel tee-box genoemd" ;
-	rdfs:subClassOf 		
+	rdfs:subClassOf
 [	rdf:type                      owl:Restriction ;
 	owl:onProperty                gwsw:hasAspect ;
-	owl:someValuesFrom            
+	owl:someValuesFrom
 	[
 	owl:intersectionOf            ( gwsw:Functie
 	[
@@ -2733,7 +2732,7 @@ imgolf:Afslagplaats
           <section id='OroX regels-associaties-associatieklassen'>
             <h5>Associatieklassen</h5>
             <p>
-              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie. 
+              De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
             </p>
           </section>
 
