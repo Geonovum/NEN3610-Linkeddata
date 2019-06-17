@@ -170,6 +170,19 @@ var respecConfig = {
         "http://linkeddatabook.com"
       ],
       "isbn": "9781608454303/9781608454310 "
+    },
+    "OPM": {
+    id: "OPM",
+    title: "Ontology for Property Management",
+    href: "https://w3c-lbd-cg.github.io/opm/",
+    date: "2018-11-22"
+    },
+    "CDT": {
+    id: "CDT",
+    title: "Custom Datatypes - Towards a web of Linked Datatypes",
+    href: "https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html",
+    date: "2018-03-20"
     }
+
   }
 };

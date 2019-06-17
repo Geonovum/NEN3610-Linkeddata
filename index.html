@@ -2319,19 +2319,150 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
 
         </section>
       </section>
-      <!-- Sectie 7.3.3 -->
+      <!-- Sectie 7.4.3 -->
       <section id='Linked data in de bouwsector:transformatieregels om tot een juist model te komen'>
         <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
 
-            In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
-            zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
-            <br>
-            Er zijn nieuwere ontwikkelingen in de vorm van een ICDD iso normvoorstel en een Modelling&Linking Guide van TNO waarin gesteld wordt dat de modellering van een <a>OTL</a>
-            in principe zo dicht mogelijk bij de standaard Linked Data modellering zou moeten blijven. In specifieke gevallen kan er dan nog gekozen worden voor een complexere wijze van modelleren.
-            Bijvoorbeeld bij het modelleren van levenscyclus eigenschappen is het gewenst om verschillende waarden voor dezelfde eigenschap vast te kunnen leggen.
+            In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s.
+            Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het zogenaamde 'objectificeren' van relaties en kenmerken.
+            Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
+            <p>
+              Naast het COINS raamwerk is er ook een 'Nederlandse Technische Afspraak', de NTA 8035, waarin richtlijnen zijn vastgelegd voor
+              de toekomstvaste modellering en integratie (uitwisseling en/of deling) van digitale gegevens die betrekking hebben op ‘assets’ in de context
+              van de gebouwde omgeving zoals gebouwen, wegen en bruggen.
+            </br>
+              De afspraken in de NTA 8035 worden in twee internationale standaardisatietrajecten ingebracht, namelijk de ISO 21597 “Information Container for Data Delivery (ICDD)” en de
+              CEN TC442/WG4/TG3 “Semantic Modelling & Linking Standard (SMLS) for life-cycle information in the built environment”.
+            </p><p>
+              De NTA 8035 definieert drie ambitieniveaus van toenemende semantische complexiteit:
+              <ol>
+                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li>
+                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li>
+                <li>Verificatie (<a>SHACL</a>) of Afleiding (<a>OWL</a>) van gegevens uit bestaande gegevens</li>
+              </ol>
+              In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de DSO transformatieregels in dit document).
+              Voor complexe eigenschappen wordt de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[CDT]].
+            </p><p>
+              Behalve modelleringsregels bevat de NTA 8035 ook een top model met een zevental concepten en een aantal relaties daartussen:
+              <ol>
+                <li>Fysiek object</li>
+                <li>Informatie object</li>
+                <li>Activiteit</li>
+                <li>Toestand</li>
+                <li>Gebeurtenis</li>
+                <li>Ruimte</li>
+                <li>Tijdperiode</li>
+              </ol>
+                  <figure>
+                    <img src="media/nta8035-topmodel.png" height="400">
+                    <figcaption>Top Level concepten, relaties en beperkingen schematisch gecombineerd</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="media/nta8035-relaties.png" height="400">
+                    <figcaption>Top Level relaties</figcaption>
+                  </figure>
+            </p>
 
+        <section id='transformatieregelsnta8035'>
+          <h3>Transformatieregels NTA 8035</h3>
 
-        <!-- Sectie 7.3.3.1 -->
+          <section id='nta-regels-klassen'>
+            <h4>Klassen</h4>
+              <section id='nta-regels-klassen-featureType'>
+              <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
+              Klassen met stereotype featureType worden een subklasse van de betreffende topmodel klasse.
+              <pre class='ex-turtle'>
+  nen3610:GeoObject
+      rdfs:subClassOf bs:PhysicalObject .
+                </pre>
+                </section>
+                <section id='nta-regels-klassen-dataType'>
+                    <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
+                    Voor een stereotype &laquo;dataType&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                </section>
+                <section id='nta-regels-klassen-union'>
+                    <h5>Klasse met stereotype &laquo;union&raquo;</h5>
+                    Voor een union gelden in principe geen andere regels dan de standaard transformatie.
+                </section>
+                <section id='nta-regels-klassen-external'>
+                    <h5>Klasse met stereotype &laquo;external&raquo;</h5>
+                   Voor een stereotype &laquo;external&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                </section>
+                <section id='nta-regels-klassen-enumeration'>
+                    <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
+                    Voor een stereotype &laquo;enumeration&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                </section>
+
+                <section id='nta-regels-klassen-codelist'>
+                    <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
+                    Voor een stereotype &laquo;CodeList&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                </section>
+        </section>
+              <section id='nta-regels-attributen'>
+                <h4>Attributen</h4>
+                <a>Datatype</a> properties worden in principe hetzelfde vertaald als in de standaard transformatie.
+                Daar waar het attribuut een grootheid of eenheid beschrijft wordt de
+                <a href="https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html">CDT systematiek voor Custom Datatypes gevolgd.</a>
+
+                Voor de attribuut stereotypen zijn in de NTA geen specifieke transformatieregels voorgeschreven.
+               <!--<section id='otl-regels-attributen-identificatie'>
+                  <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
+                </section>
+                <section id='otl-regels-attributen-voidable'>
+                    <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
+                </section>
+                <section id='otl-regels-attributen-materieleHistorie'>
+                    <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+                  </section>
+                  <section id='otl-regels-attributen-formeleHistorie'>
+                    <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+                  </section>
+
+                  <section id='otl-regels-attributen-materieleLevensduur'>
+                    <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
+                  </section>
+
+                  <section id='otl-regels-attributen-formeleLevensduur'>
+                    <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
+                  </section>-->
+              </section>
+          <section id='nta-regels-associaties'>
+            <h4>Associaties</h4>
+            Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
+              <section id='nta-regels-associaties-simpel'>
+              <h5>Simpele associaties</h5>
+              <p>
+                De ObjectProperty moet een subProperty zijn van de betreffence ObjectProperty uit het topmodel.
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.2 -->
+            <section id='nta-regels-associaties-aggr-comp'>
+              <h5>Aggregatie en compositie</h5>
+              <p>
+                TODO: uitwerken
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.3 -->
+            <section id='nta-regels-associaties-gen-spec'>
+              <h5>Generalisatie/Specialisatie</h5>
+              <p>
+                TODO: uitwerken
+              </p>
+            </section>
+
+            <!-- Sectie 7.4.2.2.3.4 -->
+            <section id='nta-regels-associaties-associatieklassen'>
+              <h5>Associatieklassen</h5>
+              <p>
+                TODO: uitwerken
+              </p>
+            </section>
+            </section>
+        </section>
+
+        <!-- Sectie 7.4.3.1 -->
         <section id='metamodelcoins'>
           <h3>Metamodel COINS</h3>
 
@@ -2341,7 +2472,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           </figure>
         </section>
 
-        <!-- Sectie 7.3.3.2 -->
+        <!-- Sectie 7.4.3.2 -->
         <section id='transformatieregelscoins'>
           <h3>Transformatieregels COINS</h3>
 
