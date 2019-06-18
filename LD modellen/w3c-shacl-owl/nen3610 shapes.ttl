@@ -41,15 +41,15 @@ shape:GeoObject a sh:NodeShape;
 		sh:maxCount 1;
 	];
 	sh:property [
-		sh:name "foaf:page of foaf:isPrimaryTopicOf";
-		sh:path [ sh:alternativePath ( foaf:page foaf:isPrimaryTopicOf ) ] ;
-		sh:node shape:GeoObjectGegevensset;
+		sh:name "foaf:isPrimaryTopicOf";
+		sh:path foaf:isPrimaryTopicOf;
+		sh:node shape:GeoObjectRegistratie;
 		rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende versies van de beschrijving van dit geo-object";
 	];
 .
-# Materiele- en Formele historie zoals beschreven in NEN3610 gaan respectievelijk over de geldigheid van een set gegevens over een geo-object in de werkelijkheid en de vastlegging van die set gegevens in de registratie. Hiermee zijn het in beginsel geen eigenschappen van een GeoObject, maar een eigenschap van een GeoObjectGegevensset.
-shape:GeoObjectGegevensset a sh:NodeShape;
-	rdfs:label "Shape voor GeoObjectGegevensset";
+# Materiele- en Formele historie zoals beschreven in NEN3610 gaam over de registratie van een geo-object. Hiermee zijn het in beginsel geen eigenschappen van GeoObject, maar eigenschappen van een GeoObjectRegistratie.
+shape:GeoObjectRegistratie a sh:NodeShape;
+	rdfs:label "Shape voor GeoObjectRegistratie";
 	sh:property [
 		sh:name "nen3610:beginGeldigheid";
 		sh:path nen3610:beginGeldigheid;
