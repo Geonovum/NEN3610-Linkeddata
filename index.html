@@ -2324,8 +2324,8 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
         <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
 
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s.
-            Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het zogenaamde 'objectificeren' van relaties en kenmerken.
-            Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
+            Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het zogenaamde 'objectificeren' van eigenschappen en relaties.
+            Het COINS metamodel (CBIM) biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
             <p>
               Naast het COINS raamwerk is er ook een 'Nederlandse Technische Afspraak', de NTA 8035, waarin richtlijnen zijn vastgelegd voor
               de toekomstvaste modellering en integratie (uitwisseling en/of deling) van digitale gegevens die betrekking hebben op ‘assets’ in de context
@@ -2338,10 +2338,10 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
               <ol>
                 <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li>
                 <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li>
-                <li>Verificatie (<a>SHACL</a>) of Afleiding (<a>OWL</a>) van gegevens uit bestaande gegevens</li>
+                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li>
               </ol>
               In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de DSO transformatieregels in dit document).
-              Voor complexe eigenschappen wordt de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[CDT]].
+              Voor complexe eigenschappen wordt een uitgebreide variant van de de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[CDT]].
             </p><p>
               Behalve modelleringsregels bevat de NTA 8035 ook een top model met een zevental concepten en een aantal relaties daartussen:
               <ol>
@@ -2356,10 +2356,6 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
                   <figure>
                     <img src="media/nta8035-topmodel.png" height="400">
                     <figcaption>Top Level concepten, relaties en beperkingen schematisch gecombineerd</figcaption>
-                  </figure>
-                  <figure>
-                    <img src="media/nta8035-relaties.png" height="400">
-                    <figcaption>Top Level relaties</figcaption>
                   </figure>
             </p>
 
@@ -2378,32 +2374,33 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
                 </section>
                 <section id='nta-regels-klassen-dataType'>
                     <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
-                    Voor een stereotype &laquo;dataType&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                    Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
                 <section id='nta-regels-klassen-union'>
                     <h5>Klasse met stereotype &laquo;union&raquo;</h5>
-                    Voor een union gelden in principe geen andere regels dan de standaard transformatie.
+                    Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
                 <section id='nta-regels-klassen-external'>
                     <h5>Klasse met stereotype &laquo;external&raquo;</h5>
-                   Voor een stereotype &laquo;external&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                   Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
                 <section id='nta-regels-klassen-enumeration'>
                     <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
-                    Voor een stereotype &laquo;enumeration&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                    Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
 
                 <section id='nta-regels-klassen-codelist'>
                     <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
-                    Voor een stereotype &laquo;CodeList&raquo; gelden in principe geen andere regels dan de standaard transformatie.
+                    Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
         </section>
               <section id='nta-regels-attributen'>
                 <h4>Attributen</h4>
                 <a>Datatype</a> properties worden in principe hetzelfde vertaald als in de standaard transformatie.
-                Daar waar het attribuut een grootheid of eenheid beschrijft wordt de
-                <a href="https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html">CDT systematiek voor Custom Datatypes gevolgd.</a>
-
+                <p>
+                  Daar waar voor het attribuut een grootheid of eenheid relevant is wordt de
+                  <a href="https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html">CDT systematiek voor Custom Datatypes gevolgd.</a>
+                </p>
                 Voor de attribuut stereotypen zijn in de NTA geen specifieke transformatieregels voorgeschreven.
                <!--<section id='otl-regels-attributen-identificatie'>
                   <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
@@ -2431,24 +2428,42 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
             Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
               <section id='nta-regels-associaties-simpel'>
               <h5>Simpele associaties</h5>
-              <p>
-                De ObjectProperty moet een subProperty zijn van de betreffence ObjectProperty uit het topmodel.
-              </p>
+              Geen afwijking ten opzichte van de standaard transformatieregels.
             </section>
 
             <!-- Sectie 7.4.2.2.3.2 -->
             <section id='nta-regels-associaties-aggr-comp'>
               <h5>Aggregatie en compositie</h5>
               <p>
-                TODO: uitwerken
+                Voor alle associaties en specialisaties van compositie worden ook hun “inverse” gegeven.
               </p>
+              <figure>
+                    <img src="media/nta8035-relaties.png" height="400">
+                    <figcaption>Top Level relaties</figcaption>
+                  </figure>
+              <p>
+                Voor decompositie wordt de Dublin Core hasPart relatie gebruikt (en de inverse daarvan isPartOf)
+              </p>
+              <pre class='ex-turtle'>
+
+imgolf:Parcours rdfs:subClassOf bs:PhysicalObject .
+
+imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onClass imgolf:Parcours ;
+      owl:onProperty dct:hasPart ;
+  ] ;
+.
+            </pre>
+            Daar waar de decompositie afhankelijk is van een specifieke view (Bijvoorbeeld SE of Geo) wordt aangeraden om verschillende ontologieën te maken.
             </section>
 
             <!-- Sectie 7.4.2.2.3.3 -->
             <section id='nta-regels-associaties-gen-spec'>
               <h5>Generalisatie/Specialisatie</h5>
               <p>
-                TODO: uitwerken
+                Geen afwijking ten opzichte van de standaard transformatieregels.
               </p>
             </section>
 
@@ -2456,10 +2471,16 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
             <section id='nta-regels-associaties-associatieklassen'>
               <h5>Associatieklassen</h5>
               <p>
-                TODO: uitwerken
+                Geen afwijking ten opzichte van de standaard transformatieregels.
               </p>
             </section>
             </section>
+          <section id='nta-regels-attributen-kardinaliteit'>
+            <h4>Kardinaliteit</h4>
+            <p>
+              Geen afwijking ten opzichte van de standaard transformatieregels.
+            </p>
+          </section>
         </section>
 
         <!-- Sectie 7.4.3.1 -->
