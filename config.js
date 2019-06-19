@@ -182,6 +182,18 @@ var respecConfig = {
     title: "Custom Datatypes - Towards a web of Linked Datatypes",
     href: "https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html",
     date: "2018-03-20"
+    },
+    "iso-21597-1": {
+      id: "iso-21597-1",
+      title: "ISO/DIS 21597-1: Information container for data drop -- Exchange specificaton -- Part 1: Container",
+      href: "https://www.iso.org/standard/74389.html",
+      date: "2019"
+    },
+    "CEN-TC-442": {
+      id: "CEN/TC 442",
+      title: "CEN/TC 442 - 	Building Information Modelling (BIM)",
+      href: "https://standards.cen.eu/dyn/www/f?p=204:7:0::::FSP_ORG_ID:1991542&cs=16AAC0F2C377A541DCA571910561FC17F",
+      date: "2019"
     }
 
   }
