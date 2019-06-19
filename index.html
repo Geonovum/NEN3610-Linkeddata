@@ -1921,17 +1921,13 @@ imgolf:ParcoursDeel a owl:Class ;
               <h6>Toevoegingen</h6>
               <p>
                 Het DSO metamodel is gebaseerd op het <a href="##basismetamodel">basis doelmodel</a> en maakt onderscheid tussen terminologie (RDF, RDFS, OWL), formele semantiek (RDFS, OWL), gegevensregels (SHACL) en betekenis in de vorm van begrippen (SKOS).
-                Voor een klasse wordt altijd, in ieder geval, een instantie van <code>owl:Class</code> gemaakt conform de standaard transformatieregels, maar ook:
-                <ul>
-                  <li>
-                    minimaal een instantie van <code>sh:NodeShape</code> (SHACL) om gegevensregels en structuur van de klasse en gerelateerde eigenschappen aan te geven. De node shape is verbonden met de klasse via <code>sh:targetClass</code> property.
-                  </li>
-                  <li>
-                    en een instantie van <code>skos:Concept</code> (SKOS) om een begrip te beschrijven die de betekenis van de klasse uitdrukt. Deze wordt vanuit de instantie van <code>owl:Class</code> verbonden via de <code>dct:subject</code> property.
-                  </li>
-                </ul>
+                Voor een klasse wordt altijd, in ieder geval, een instantie van <code>owl:Class</code> en een <code>sh:NodeShapoe</code> gemaakt conform de standaard transformatieregels, maar ook een instantie van <code>skos:Concept</code> om een begrip te beschrijven die de betekenis van de klasse uitdrukt. Deze wordt vanuit de instantie van <code>owl:Class</code> verbonden via de <code>dct:subject</code> property.
               </p>
               <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
 imgolf:Parcours a owl:Class ;
   rdfs:label "Parcours" ;
   rdfs:comment """Een Parcours is een golfbaandeel dat van een tee via de fairway
@@ -1939,11 +1935,9 @@ imgolf:Parcours a owl:Class ;
   dct:subject imgolf-beg:Parcours ;
 .
 
-imgolf-sh:Parcours a sh:NodeShape ;
-  sh:targetClass imgolf:Parcours ;
-  sh:property
-   ...          # beschrijving van attributen en associaties met SHACL
-.
+#------------#
+# Begrippen
+#------------#
 
 imgolf-beg:Parcours a skos:Concept ;
   skos:prefLabel "Parcours"@nl ;
@@ -1954,7 +1948,7 @@ imgolf-beg:Parcours a skos:Concept ;
 
               </pre>
               <aside class='note'>
-                Het definiëren van een SHACL <code>sh:NodeShape</code> en een <code>skos:Concept</code> wordt voor alle instanties van owl:Class gedaan.
+                Het definiëren van een <code>skos:Concept</code> wordt voor alle instanties van owl:Class gedaan.
               </aside>
             </section>
 
@@ -2001,28 +1995,10 @@ ex:Plan a owl:Class .
               </p>
               <pre class='ex-turtle'>
 #---------------#
-# terminologie
+# Ontologie
 #---------------#
 
-imgolf:Golfbaan a owl:Class .
-
-imgolf:toegangsvereisten a owl:DatatypeProperty ;
-  rdfs:range xsd:string ;
-.
-
-imgolf:etiquette a owl:DatatypeProperty ;
-  rdfs:range xsd:string ;
-.
-
-imgolf:toegankelijkheid a owl:ObjectProperty ;
-  rdfs:range skos:Concept ;
-.
-
-#-------------------#
-# formele semantiek
-#-------------------#
-
-imgolf:Golfbaan
+imgolf:Golfbaan a owl:Class ;
   rdfs:subClassOf
     [
       a owl:Restriction ;
@@ -2040,6 +2016,18 @@ imgolf:Golfbaan
       owl:minCardinality 0 ;                    # Kardinaliteit 0..* omdat we ontologisch
                                                 # niet strict willen zijn
     ] ;
+.
+
+imgolf:toegangsvereisten a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:etiquette a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+.
+
+imgolf:toegankelijkheid a owl:ObjectProperty ;
+  rdfs:range skos:Concept ;
 .
 
 #----------------#
@@ -2069,7 +2057,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           sh:hasValue imgolf-collectie:Toegankelijkheid ;
         ] ;
       ] ;
-    ]
+    ] ;
 .
             </pre>
             <aside class='note'>
@@ -2081,7 +2069,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
             <section id='dso-regels-klassen-union'>
               <h5>Klasse met stereotype &laquo;union&raquo;</h5>
               <p>
-                  Voor unions van dingen wordt dezelfde modellering als de standaard transformatie gehanteerd. Wanneer de union niet een keuze tussen verschillende dingen representeert, wordt gekeken naar de beste manier om de specifieke klasse te modelleren. In alle gevallen wordt de union ook in SHACL uitgedrukt. SHACL levert meestal een veel beknoptere en duidelijkere modellering, zonder dat het semantische consequenties met zich meebrengt.
+                  Voor unions van dingen wordt dezelfde modellering als de standaard transformatie gehanteerd. Wanneer de union niet een keuze tussen verschillende dingen representeert, wordt gekeken naar de beste manier om de specifieke klasse te modelleren.
               </p>
               <p>
                 Neem het eerdere voorbeeld van een union van literal waardes uit de <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire RDF Guidelines</a> [[INSPIRERDF]].
@@ -2094,12 +2082,13 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
                 </figure>
               </p>
               <p>
-                In dit geval is het semantisch correcter om af te wijken van de standaardtransformatie. De modellering die in het Inspire voorbeeld wordt uitgevoerd is een beter en semantisch correcte modellering.
-              </p>
-              <p>
-                In onderstaande uitwerking beschrijven we ook de SHACL <code>sh:NodeShape</code> die correspondeert met het <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">Inspire voorbeeld</a>. Onze shape bevat een <code>sh:xone</code> conditie die uitdrukt dat exact één van de properties <code>:meanAgeByMonth</code>, <code>:meanAgeByWeek</code> of <code>:meanAgeByYear</code> aanwezig moet zijn.
+                In dit geval is het semantisch correcter om af te wijken van de standaardtransformatie. De modellering die in het Inspire voorbeeld wordt uitgevoerd is een beter en semantisch correcet modellering. In onderstaande uitwerking beschrijven we als aanvulling op dat <a href="http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/#ref_cr_type_union">voorbeeld</a> de SHACL <code>sh:NodeShape</code> die er mee correspondeert. Onze shape bevat een <code>sh:xone</code> conditie die uitdrukt dat exact één van de properties <code>:meanAgeByMonth</code>, <code>:meanAgeByWeek</code> of <code>:meanAgeByYear</code> aanwezig moet zijn.
               </p>
               <pre class='ex-turtle'>
+#----------------#
+# gegevensregels
+#----------------#
+
 bio-sh:BiomarkerThematicMetadata a sh:NodeShape ;
   sh:targetClass :BiomarkerThematicMetadata ;
   sh:xone (
@@ -2133,7 +2122,7 @@ bio-sh:BiomarkerThematicMetadata a sh:NodeShape ;
             <section id='dso-regels-klassen-external'>
               <h5>Klasse met stereotype &laquo;external&raquo;</h5>
               <p>
-                In de standaard transformatieregels wordt een klasse met stereotype &laquo;external&raquo; herkenbaar getransformeerd door de prefix EXTERNAL_ op te nemen in de naam van de klasse. In de specifieke DSO-transformatieregels worden deze klassen waar mogelijk vervangen door, of gerelateerd aan, bestaande ontologieën. Wanneer deze ontologieën niet bestaan wordt de klasse in eigen context gemodelleerd.
+                In de standaard transformatieregels wordt een klasse met stereotype &laquo;external&raquo; herkenbaar getransformeerd door de een van te voren afgesproken afwijkende namespace te gebruiken voor de URI van de klasse. In de specifieke DSO-transformatieregels worden deze klassen waar mogelijk vervangen door, of gerelateerd aan, bestaande ontologieën. Wanneer deze ontologieën niet bestaan wordt de klasse in eigen context gemodelleerd.
               </p>
               <p>
                 Wanneer we het voorbeeld uit IMGOLF nemen waar een golfbaan een relatie <code>BAGAdres</code> heeft met een klassse met stereotype &laquo;external&raquo; <code>AdresserbaarObject</code>, kunnen we als volgt direct de IRI van de bestaande klasse <code><a href="http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject">bag:AdresseerbaarObject</a></code> uit de BAG-ontologie gebruiken.
@@ -2166,15 +2155,124 @@ imgolf:bagAdres a owl:ObjectProperty ;
               <p>
                 TODO
               </p>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:Hindernis a owl:Class .
+
+imgolf:Waterpartij a owl:Class ;
+  rdfs:subClassOf imgolf:Hindernis ;
+.
+
+imgolf:Bunker a owl:Class ;
+  rdfs:subClassOf imgolf:Hindernis ;
+.
+              </pre>
               <h6>Enumeraties van concrete dingen</h6>
               <p>
                 TODO
               </p>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+
+              </pre>
               <h6>Enumeraties van conceptuele dingen</h6>
               <p>
                 TODO
               </p>
-              <h6>Enumeraties van literaire waardes</h6>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+imgolf:Golfbaan a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:natuurwaarde ;
+    owl:qualifiedCardinality 1 ;
+    owl:onClass [
+      owl:oneOf (
+        concept:HogeNatuurwaarde
+        concept:LageNatuurwaarde
+        concept:GeenNatuurwaarde
+      ) ;
+    ] ;
+  ] ;
+.
+
+imgolf:natuurwaarde a owl:ObjectProperty ;
+  rdfs:domain imgolf:Golfbaan ;
+  rdfs:range skos:Concept ;
+.
+
+#----------------#
+# gegevensregels
+#----------------#
+
+imgolf-sh:Golfbaan a sh:NodeShape ;
+  sh:targetClass imgolf:Golfbaan ;
+  sh:property [
+    sh:path imgolf:natuurwaarde ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:node imgolf-sh:NatuurwaardeValue ;
+  ] ;
+.
+
+imgolf-sh:NatuurwaardeValue a sh:NodeShape ;
+  sh:property [
+    sh:path [ sh:inversePath skos:member] ;
+    sh:hasValue collectie:NatuurwaardeValue ;
+  ] ;
+.
+
+#------------#
+# Begrippen
+#------------#
+
+concept:Natuurwaarde a skos:Concept ;
+  skos:inScheme schema:IMGolf ;
+  skos:topConceptOf schema:IMGolf ;
+  skos:prefLabel "natuurwaarde" ;
+  skos:narrower
+    concept:HogeNatuurwaarde ,
+    concept:LageNatuurwaarde ,
+    concept:GeenNatuurwaarde ;
+.
+
+concept:HogeNatuurwaarde a skos:Concept ;
+  skos:inScheme schema:IMGolf ;
+  skos:prefLabel "hoge natuurwaarde" ;
+  skos:notation "hoog" ;
+  skos:broader concept:Natuurwaarde ;
+.
+concept:LageNatuurwaarde a skos:Concept ;
+  skos:inScheme schema:IMGolf ;
+  skos:prefLabel "lage natuurwaarde" ;
+  skos:notation "laag" ;
+  skos:broader concept:Natuurwaarde ;
+.
+concept:GeenNatuurwaarde a skos:Concept ;
+  skos:inScheme schema:IMGolf ;
+  skos:prefLabel "geen natuurwaarde" ;
+  skos:notation "geen" ;
+  skos:broader concept:Natuurwaarde ;
+.
+
+collectie:NatuurwaardeValue a skos:Collection ;
+  rdfs:label "Waardelijst NatuurwaardeValue" ;
+  skos:inScheme schema:IMGolf ;
+  skos:member
+    concept:HogeNatuurwaarde ,
+    concept:LageNatuurwaarde ,
+    concept:GeenNatuurwaarde ;
+.
+              </pre>
+              <h6>Enumeraties van letterlijke waardes</h6>
               <p>
                 TODO
               </p>
@@ -2184,41 +2282,12 @@ imgolf:bagAdres a owl:ObjectProperty ;
             <section id='dso-regels-klassen-codelist'>
               <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
               <p>
-                Zoals opgemerkt eerder opgemerkt wordt een klasse met stereotype &laquo;CodeList&raquo; op dezelfde manier behandeld als een klass stereotype &laquo;enumeration&raquo;. Voor illustratiedoeleinden wordt hieronder alsnog een voorbeeld van de klasse met stereotype &laquo;CodeList&raquo; <code>GebruiksstatusValue</code> uit het IMGOLF uitgewerkt.<br>
+                Zoals eerder opgemerkt wordt een klasse met stereotype &laquo;CodeList&raquo; op dezelfde manier behandeld als een klass stereotype &laquo;enumeration&raquo;. Voor illustratiedoeleinden wordt hieronder alsnog een voorbeeld van de klasse met stereotype &laquo;CodeList&raquo; <code>GebruiksstatusValue</code> uit het IMGOLF uitgewerkt.<br>
                 Omdat de codelijst abstracte concepten modelleert, maken we gebruik van instanties van <code>skos:Concept</code> om deze codelijst uit te drukken. Voor elk van de codes wordt een concept aangemaakt en voor elke code-waarde uit de oorspronkelijke codelijst krijgt het betreffende concept een eigenschap <code>skos:notation</code> met de exacte waarde uit de oorspronkelijke lijst. Hiermee kunnen dezelfde enumeratiewaardes uit de oorspronkelijke lijst gebruikt worden vanuit de linked data.
               </p>
               <pre class='ex-turtle'>
-#------------#
-# begrippen
-#------------#
-
-imgolf-beg:InUitvoering a skos:Concept ;
-  skos:prefLabel "In uitvoering"@nl ;
-  skos:broader imgolf-beg:Gebruiksstatus ;
-  skos:notation "in uitvoering" ;               # code-waarde
-.
-
-imgolf-beg:InGebruik a skos:Concept ;
-  skos:prefLabel "In gebruik"@nl ;
-  skos:broader imgolf-beg:Gebruiksstatus ;
-  skos:notation "in gebruik" ;                  # code-waarde
-.
-
-imgolf-beg:BuitenGebruik a skos:Concept ;
-  skos:prefLabel "Buiten gebruik"@nl ;
-  skos:broader imgolf-beg:Gebruiksstatus ;
-  skos:notation "buiten gebruik" ;              # code-waarde
-.
-
-imgolf-collectie:GebruiksstatusValue a skos:Collection ;
-  skos:member
-    imgolf-beg:InUitvoering ,
-    imgolf-beg:InGebruik ,
-    imgolf-beg:BuitenGebruik .
-.
-
 #---------------#
-# terminologie
+# Ontologie
 #---------------#
 
 imgolf:Golfbaan a owl:Class .
@@ -2245,6 +2314,35 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
     ] ;
   ] ;
 .
+
+#------------#
+# Begrippen
+#------------#
+
+imgolf-beg:InUitvoering a skos:Concept ;
+  skos:prefLabel "In uitvoering"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "in uitvoering" ;               # code-waarde
+.
+
+imgolf-beg:InGebruik a skos:Concept ;
+  skos:prefLabel "In gebruik"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "in gebruik" ;                  # code-waarde
+.
+
+imgolf-beg:BuitenGebruik a skos:Concept ;
+  skos:prefLabel "Buiten gebruik"@nl ;
+  skos:broader imgolf-beg:Gebruiksstatus ;
+  skos:notation "buiten gebruik" ;              # code-waarde
+.
+
+imgolf-collectie:GebruiksstatusValue a skos:Collection ;
+  skos:member
+    imgolf-beg:InUitvoering ,
+    imgolf-beg:InGebruik ,
+    imgolf-beg:BuitenGebruik .
+.
               </pre>
             </section>
 
@@ -2258,8 +2356,68 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
             <section id='dso-regels-attributen-algemeen'>
               <h5>Attributen algemeen</h5>
               <p>
-                TODO: aanpassen van naam naar rdfs:label property. Mogelijk gebruik van owl:AnnotationProperty ipv owl:Datatype property.
+                Ten opzichte van de transformatieregels beschreven in <a href="#regels-attributen-algemeen"></a> zijn er enkele afwijkingen in de transformatie conform het DSO metamodel alsook een aantal toevoegingen.
               </p>
+              <h6>Afwijkingen</h6>
+              <p>
+                Daar waar een waarde voor <code>rdfs:label</code> gegeneerd is op basis van de eigenschapnaam, wordt de waarde aangepast naar een label in een correct Nederlands.
+              </p>
+              <p>
+                Daar waar het semantisch klopt kan in plaats van, of naast de standaard gemodelleerde instanties van <code>owl:Restriction</code> gebruik gemaakt worden van <code>rdfs:domain</code> en/of <code>rdfs:range</code>, om respectievelijk uit te drukken dat de eigenschap altijd voorkomt op instantie van een bepaalde klasse, of altijd verwijst naar een instantie van een bepaald klasse. Met name met het toepassen van <code>rdfs:domain</code> moet secuur gebeuren, om semantische onjuistheden te voorkomen.
+              </p>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:Parcours a owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty imgolf:nummer ;
+    owl:someValuesFrom xsd:integer ;
+  ] ;
+.
+
+imgolf:nummer a owl:DatatypeProperty ;
+  rdfs:range xsd:integer ;
+.
+              </pre>
+              <p>
+                In bovenstaand voorbeeld kiezen we ervoor om alleen de <code>rdfs:range</code> te specificeren op het attribuut <code>imgolf:nummer</code>, omdat een nummer typisch iets is wat aan verchillende typen dingen toegewezen kan worden.
+              </p>
+              <h6>Toevoegingen</h6>
+              <p>
+                Voor een eigenschap wordt altijd ook een instantie van <code>skos:Concept</code> gemodelleerd om een begrip te beschrijven die de betekenis van het concept achter de eigenschap uitdrukt. Deze wordt vanuit de instantie van de property verbonden via de <code>dct:subject</code> property.
+              </p>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:par a owl:DatatypeProperty ;
+  rdfs:label "par" ;
+  rdfs:comment "Een Parcours is een golfbaandeel dat van een tee via de fairway
+  (indien aanwezig) tot de bijbehorende green loopt" ;
+  dct:subject imgolf-beg:Par ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range xsd:string ;
+.
+
+#------------#
+# Begrippen
+#------------#
+
+imgolf-beg:Par a skos:Concept ;
+  rdfs:label "Par" ;
+  skos:prefLabel "Par" ;
+  skos:altLabel "Par staat voor Professional Average Result." ;
+  skos:inScheme schema:IMGolf ;
+  skos:definition "het aantal slagen waarin een gemiddelde professionele golfer
+   een hole zou moeten kunnen spelen." ;
+  skos:related concept:Parcours ;
+  dct:source <http://nl.wikipedia.org/wiki/Par_(golf)> ;
+.
+              </pre>
             </section>
 
             <!-- Sectie 7.4.2.2.2.2 -->
@@ -2321,6 +2479,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
               <h5>Simpele associaties</h5>
               <p>
                 Geen afwijking ten opzichte van de standaard transformatieregels.
+                TODO: anders dan die beschreven bij attributen over rdfs:domain en rdfs:range.
               </p>
             </section>
 
