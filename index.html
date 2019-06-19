@@ -1590,16 +1590,16 @@ imgolf-sh:Parcours a sh:NodeShape ;
 
 shape:GeoObject a sh:NodeShape ;
   sh:property [
-    sh:name "foaf:page of foaf:isPrimaryTopicOf";
-    sh:path [ sh:alternativePath ( foaf:page foaf:isPrimaryTopicOf ) ] ;
-    sh:node shape:GeoObjectGegevensset ;
+    sh:name "foaf:isPrimaryTopicOf";
+    sh:path foaf:isPrimaryTopicOf ;
+    sh:node shape:GeoObjectRegistratie ;
     rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende
      versies van de beschrijving van dit geo-object" ;
   ] ;
 .
 
-shape:GeoObjectGegevensset a sh:NodeShape ;
-  rdfs:label "Shape voor GeoObjectGegevensset" ;
+shape:GeoObjectRegistratie a sh:NodeShape ;
+  rdfs:label "Shape voor GeoObjectRegistratie" ;
   sh:property [
     sh:name "nen3610:beginGeldigheid" ;
     sh:path nen3610:beginGeldigheid ;
@@ -1634,7 +1634,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 .
             </pre>
             <p>
-              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met 1 of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> of <code>foaf:page</code> property, welke respectievelijk aanduiden dat de <a>non-information resource</a> het hoofdonderwerp danwel onderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
+              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met 1 of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> eigenschap die aanduidt dat de <a>non-information resource</a> het hoofdonderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
             </p>
             <aside class="note">
               Let op! Wanneer je in één dataset meerdere materieel geldige beschrijvingen van hetzelfde object in de werkelijkheidheid hebt is het noodzakelijk deze van elkaar te scheiden. Gezien de identificatie/IRI van het ding in de werkelijkheid niet veranderd, heb je een manier nodig om de bij elkaar horende set uitdrukkingen te scheiden van andere sets uitdrukkingen. Hiervoor kun je gebruik maken van (named) graphs.
@@ -1661,16 +1661,16 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 
 shape:GeoObject a sh:NodeShape ;
   sh:property [
-    sh:name "foaf:page of foaf:isPrimaryTopicOf";
-    sh:path [ sh:alternativePath ( foaf:page foaf:isPrimaryTopicOf ) ] ;
-    sh:node shape:GeoObjectGegevensset ;
+    sh:name "foaf:isPrimaryTopicOf";
+    sh:path foaf:isPrimaryTopicOf ;
+    sh:node shape:GeoObjectRegistratie ;
     rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende
-      versies van de beschrijving van dit geo-object" ;
+     versies van de beschrijving van dit geo-object" ;
   ] ;
 .
 
-shape:GeoObjectGegevensset a sh:NodeShape ;
-  rdfs:label "Shape voor GeoObjectGegevensset" ;
+shape:GeoObjectRegistratie a sh:NodeShape ;
+  rdfs:label "Shape voor GeoObjectRegistratie" ;
   sh:property [
     rdfs:label "tijdstip registratie" ;
     sh:name "prov:GeneratedAtTime" ;
@@ -1754,16 +1754,33 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
           <section id='regels-associaties-simpel'>
             <h5>Simpele associaties</h5>
             <p>
-              Een simpele associatie is een associatie tussen twee klassen, zonder extra eigenschappen. Een simpele associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt op vergelijkbare manier als bij attributen gekoppeld met de klasse waarop het voorkomt en de klasse waarnaar de associatie verwijst.
+              Een simpele associatie is een associatie tussen twee klassen, zonder extra eigenschappen. Een simpele associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt, op vergelijkbaar met attributen, gekoppeld met de klasse waarop het voorkomt en de klasse waarnaar de associatie verwijst.<br>
+              De SHACL shape is ook vergelijkbaar met die van attributen. Het verschil hier is dat er in plaats van <code>sh:datatype</code>, <code>sh:class</code> wordt gebruikt voor het aanduiden van de klasse waarnaar de associatie verwijst.
             </p>
             <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
 imgolf:hole a owl:ObjectProperty .
 
 imgolf:Golfbaan a owl:Class ;
   rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty imgolf:hole ;
-    owl:someValuesFrom imgolf:Parcours ;
+    owl:allValuesFrom imgolf:Parcours ;
+  ] ;
+.
+
+#-------------------#
+# Gegevensregels
+#-------------------#
+
+imgolf-sh:Golfbaan a sh:NodeShape ;
+  sh:targetClass imgolf:Golfbaan ;
+  sh:property [
+    sh:path imgolf:hole ;
+    sh:class imgolf:Parcours ;
   ] ;
 .
             </pre>
@@ -1785,6 +1802,10 @@ imgolf:Golfbaan a owl:Class ;
             </aside -->
 
             <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
 imgolf:parcoursDeel a owl:ObjectProperty .
 
 imgolf:ParcoursDeel a owl:Class .
@@ -1793,7 +1814,20 @@ imgolf:Parcours a owl:Class ;
   rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty imgolf:parcoursDeel ;
-    owl:someValuesFrom imgolf:ParcoursDeel ;
+    owl:allValuesFrom imgolf:ParcoursDeel ;
+  ] ;
+.
+
+#-------------------#
+# Gegevensregels
+#-------------------#
+
+imgolf-sh:Parcours a sh:NodeShape ;
+  sh:targetClass imgolf:ParcoursDeel ;
+  sh:property [
+    sh:path imgolf:parcoursDeel ;
+    sh:class imgolf:ParcoursDeel ;
+    sh:minCount 1 ;
   ] ;
 .
             </pre>
@@ -1803,9 +1837,14 @@ imgolf:Parcours a owl:Class ;
           <section id='regels-associaties-gen-spec'>
             <h5>Generalisatie/Specialisatie</h5>
             <p>
-              Generalitisatie- en specialisatie-associaties in een UML NEN3610 model tussen klassen worden in RDF modellen gemodelleerd als subtype-associatie, uitgedrukt met een <code>rdfs:subClassOf</code> relatie tussen de betrokken klassen.
+              Generalisatie- en specialisatie-associaties tussen klassen in een UML NEN3610 model worden in RDF modellen gemodelleerd als subtype-associatie, uitgedrukt met een <code>rdfs:subClassOf</code> relatie tussen de betrokken klassen.<br>
+              Omdat SHACL node shapes van een klasse ook gelden voor haar subklassen wordt er enkel een node shape gemaakt wanneer de subklasse eigenschappen heeft die de superklasse niet heeft.
             </p>
             <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
 imgolf:Parcours a owl:Class ;
   rdfs:subClassOf nen3610:GeoObject ;
 .
@@ -1825,7 +1864,8 @@ imgolf:Parcours a owl:Class ;
         <section id='regels-attributen-kardinaliteit'>
           <h4>Kardinaliteit</h4>
           <p>
-            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie geen uitspraken over gedaan.
+            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie in de ontologie geen uitspraken over gedaan.<br>
+            Met SHACL kunnen we wel de gesloten wereld beschrijven en kunnen we de kardinaliteit die het UML model uitdrukt prima aan. In SHACL gebruiken we daarvoor <code>sh:minCount</code> en <code>sh:maxCount</code> voor.
           </p>
         </section>
 
