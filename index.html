@@ -677,6 +677,8 @@
         In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de metadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
         <p><img src="media/gegevensregel-provenance.png"/></p>
         <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN3610.</p>
+        <p>De eigenschappen <code>prov:generatedAtTime</code> en <code>prov:invalidatedAtTime</code> komen daarbij overeen met de formele historie-eigenschappen tijdstipRegistratie en eindRegistratie.</p>
+        <p>In het model is niet expliciet de levensduur-eigenschappen opgenomen. Deze zijn af te leiden uit de afzonderlijke eigenschappen en uit de optionele relatie tussen GeoObjectRegistraties.</p>
       </section>
     </section>
 
