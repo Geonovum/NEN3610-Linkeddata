@@ -18,9 +18,9 @@
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix dc: <http://purl.org/dc/elements/1.1>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
@@ -74,6 +74,18 @@ shape:GeoObjectRegistratie a sh:NodeShape;
 		rdfs:label "eindregistratie";
 		sh:name "prov:InvalidatedAtTime";
 		sh:path prov:invalidatedAtTime;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "heeft vorige materieel geldige versie";
+		sh:name "nen3610:vorigeGeldigeVersie";
+		sh:path nen3610:vorigeGeldigeVersie;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "heeft vorige formeel geldige versie";
+		sh:name "nen3610:vorigeGeregistreerdeVersie";
+		sh:path nen3610:vorigeGeregistreerdeVersie;
 		sh:maxCount 1;
 	];
 .
