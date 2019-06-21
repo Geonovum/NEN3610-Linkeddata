@@ -377,7 +377,7 @@
     <p>Deze RDF representatie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN3610 tekst leidend.</p>
     <p>De NEN3610 representatie in RDF bestaat uit de volgende onderdelen:</p>
     <ul>
-      <li><i>Verwijzingen</i>: metadata van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
+      <li><i>Verwijzingen</i>: beschrijving van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
       <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name <a>SKOS</a> gebruikt.</li>
       <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>.
       <li><i>Gegevensregels</i>: regels met betrekking tot het gebruik van bovenstaande klassen en eigenschappen in een geo-Linked Data dataset, afgeleid uit de gegevensregels zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt <a>SHACL</a> gebruikt.</li>
@@ -674,7 +674,7 @@
       </section>
       <section id="provenance">
         <h3>Temporele kenmerken en versies</h3>
-        In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de metadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
+        In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de eigenschappen van de registratiemetadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
         <p><img src="media/gegevensregel-provenance.png"/></p>
         <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN3610.</p>
         <p>De eigenschappen <code>prov:generatedAtTime</code> en <code>prov:invalidatedAtTime</code> komen daarbij overeen met de formele historie-eigenschappen tijdstipRegistratie en eindRegistratie.</p>
@@ -741,6 +741,14 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
       </section>
 
+    </section>
+
+    <!-- Sectie 6.6 -->
+    <section id="metadata">
+      <h2>Metadata of datasets</h2>
+      <p>Hoofdstuk 10 van de NEN3610 behandelt metadata. Onder metadata wordt in deze norm verstaan: informatie die ruimtelijke datasets en datasetseries beschrijft die het mogelijk maakt om deze te zoeken, te evalueren en te gebruiken. Dit is een beperkte definitie omdat hij alleen betrekking heeft op datasets en datasetseries. Metadata moet voldoen aan het Nederlandse profiel op NEN-EN-ISO 19115 voor Geografie.</p>
+      <p>Voor een Linked Data model betekent dit dat voor metadata gebruik gemaakt moet worden van de [[geodcat-ap]] standaard, [[geodcat-ap]], de Linked Data invulling voor de [[iso-19115-1-2014]] standaard voor het beschrijven van metadata over geometrische datasets.</p>
+      <p>Concreet betekent dit dat elke dataset of datasetserie als <code>dcat:Dataset</code>-klasse kan worden beschreven, waarbij de metadata wordt geregistreerd via de eigenschappen van instanties van deze klasse.</p>
     </section>
 
   </section>
