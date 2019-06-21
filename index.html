@@ -735,18 +735,16 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
   <!-- Hoofdstuk 7 -->
   <section id='transformatie' class="informative">
-    <h1>Transformatie van een NEN3610 UML model naar Linked Data</h1>
-    <p> voeg toe: inleiding.
+    <h1>Transformatie van een NEN 3610-UML model naar Linked Data</h1>
 
-      methode;
-      basisregels voor automatische transformatie;
-      afwegingen voor handmatige transformatie </p>
     <!-- Sectie 7.1 -->
     <section id='transformatie-doel'>
       <h2>Doel van de transformatie en methode</h2>
 
-      <p class='issue' data-number='28'></p>
-
+    
+	<p>
+	De methode voor de toe te passen transformatie van een NEN 3610-UML bronmodel naar een Linked Data doelmodel (RDF/OWL/SHACL) bevat een aantal hoofdlijnen. De transformatieregels worden gespecificeerd conform informatie-elementen uit het metamodel van NEN 3610. Het volgt de basiselementen klassen, attributen en associaties en de daaraan gerelateerde stereotypen. Een groot deel van de transformatieregels zijn standaard op te stellen. Hier is ook al veel werk in verricht en onder andere te vinden in   INSPIRE RDF guidelines (referentie). We noemen dit ‘standaard transformatieregels’. Naast deze standaard transformatieregels zijn er nog ‘specifieke transformatieregels’. Deze zijn specifiek omdat ze extra aanvullingen en aanpassingen zijn om er zinvolle Linked Data modellen van te maken. Ze zijn ook specifiek omdat de verschillende modelleerstijlen van Omgevingswet-DSO, de Bouwsector en Stedelijkwater-GWSW-OroX, specifieke aanpassingen vereisen. Voor elk van deze stijlen worden de standaard transformatieregels aangevuld met specifieke regels. Het geheel van standaard – en specifieke transformatieregels geeft voor elke modelleerstijl een handvat om een NEN 3610-UML in het specifieke doelmodel om te zetten.
+	</p>
       <figure>
         <img src="media/UoD-requirement.png">
         <figcaption>UoD requirement</figcaption>
@@ -777,9 +775,11 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <!-- Sectie 7.2 -->
     <section id='transformatiebron'>
 
-      <h2>Bronmodel: NEN3610 metamodel</h2>
+      <h2>Bronmodel: NEN 3610 metamodel</h2>
       <p>Het bronmodel in de transformatie moet voldoen aan het metamodel achter NEN 3610.</p>
-      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
+      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.
+	  
+	  </p>
 
       <figure>
         <img src="media/metamodel_attributes.png" height="795">
