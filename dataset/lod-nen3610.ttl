@@ -1,0 +1,66 @@
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix http: <http://www.w3.org/2011/http#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>
+
+@prefix dataset: <http://geonovum.github.io/NEN3610-Linkeddata/dataset/>.
+@prefix service: <http://geonovum.github.io/NEN3610-Linkeddata/service/>.
+@prefix domain: <http://geonovum.github.io/NEN3610-Linkeddata/dataset/domain/>.
+
+dataset:nen3610 a void:Dataset;
+  dct:title "NEN3610";
+  dct:identifier "nen3610";
+  dcat:theme domain:vocabulary;
+  dcat:keyword "vocabulary";
+  void:triples 1000;
+  dct:description "The NEN3610 Linked Data vocabulary"@en;
+.
+
+dataset:bag a void:Dataset;
+  dct:title "BAG Basisregistratie adressen en gebouwen";
+  dct:identifier "bag";
+  dcat:theme domain:base-registry;
+  dcat:keyword "base-registry";
+  void:triples 1000000000;
+  dct:description "De basisregistratie adressen en gebouwen"@nl;
+  dcat:landingPage <https://bag.basisregistraties.overheid.nl>;
+  void:vocabulary <http://bag.basisregistraties.overheid.nl/def/bag#>;
+  void:subset [
+    void:target dataset:bag;
+    void:target dataset:nen3610;
+    void:triples 20;
+  ]
+.
+
+dataset:top10nl a void:Dataset;
+  dct:title "TOP10NL Basisregistratie topografie";
+  dct:identifier "top10nl";
+  dcat:theme domain:base-registry;
+  dcat:keyword "base-registry";
+  void:triples 1000000000;
+  dct:description "De basisregistratie topografie"@nl;
+  dcat:landingPage <https://brt.basisregistraties.overheid.nl>;
+  void:vocabulary <http://brt.basisregistraties.overheid.nl/def/top10nl#>;
+  void:subset [
+    void:target dataset:top10nl;
+    void:target dataset:nen3610;
+    void:triples 20;
+  ];
+.
+
+dataset:gwsw a void:Dataset;
+  dct:title "GWSW Gegevenswoordenboek Stedelijk Water";
+  dct:identifier "gwsw";
+  dct:description "Afgeleid uit Gellish, uitgedrukt in RDF, RDFS en OWL-2"@nl;
+  dcat:theme domain:vocabulary;
+  dcat:keyword "vocabulary";
+  void:triples 1000;
+  void:subset [
+    void:target dataset:gwsw;
+    void:target dataset:nen3610;
+    void:triples 20;
+  ]
+.
