@@ -41,6 +41,16 @@ shape:GeoObject a sh:NodeShape;
 		sh:maxCount 1;
 	];
 	sh:property [
+		sh:name "foaf:isPrimaryTopicOf";
+		sh:path foaf:isPrimaryTopicOf;
+		sh:node shape:GeoObjectRegistratie;
+		rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende versies van de beschrijving van dit geo-object";
+	];
+.
+# Materiele- en Formele historie zoals beschreven in NEN3610 gaam over de registratie van een geo-object. Hiermee zijn het in beginsel geen eigenschappen van GeoObject, maar eigenschappen van een GeoObjectRegistratie.
+shape:GeoObjectRegistratie a sh:NodeShape;
+	rdfs:label "Shape voor GeoObjectRegistratie";
+	sh:property [
 		sh:name "nen3610:beginGeldigheid";
 		sh:path nen3610:beginGeldigheid;
 		sh:datatype xsd:dateTime;
@@ -54,29 +64,20 @@ shape:GeoObject a sh:NodeShape;
 		sh:maxCount 1;
 	];
 	sh:property [
-		sh:name "foaf:isPrimaryTopicOf";
-		sh:path foaf:isPrimaryTopicOf;
-		sh:node shape:GeoObjectRegistratie;
-		rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende versies van de beschrijving van dit geo-object";
-	];
-.
-# Formele historie zoals beschreven in NEN3610 volgt de vastlegging in de registratie. Hiermee is het in beginsel geen eigenschap van een GeoObject, maar een eigenschap van een GeoObjectRegistratie.
-shape:GeoObjectRegistratie a sh:NodeShape;
-	rdfs:label "Shape voor GeoObjectRegistratie";
-	sh:property [
 		rdfs:label "tijdstip registratie";
 		sh:name "prov:GeneratedAtTime";
 		sh:path prov:generatedAtTime;
+		sh:minCount 1;
+		sh:maxCount 1;
 	];
 	sh:property [
 		rdfs:label "eindregistratie";
 		sh:name "prov:InvalidatedAtTime";
 		sh:path prov:invalidatedAtTime;
+		sh:maxCount 1;
 	];
 .
 
-# Discussiepunt: willen we hier de structurering van NEN3610 overnemen, of zou dit ook met 1 element kunnen?
-# of juist beide? Bijv. een samengesteld id als owl:AnnotationProperty.
 shape:NEN3610Identificatie a sh:NodeShape;
 	rdfs:label "Shape voor NEN3610 identificatie";
 	rdfs:comment "De combinatie van 'namespace' van een registratie, lokale identificatie en versie-informatie maken een object uniek identificeerbaar. Met de informatie van deze klasse kan daardoor met zekerheid worden verwezen naar het geïdentificeerde object." ;
@@ -108,6 +109,8 @@ shape:NEN3610Identificatie a sh:NodeShape;
 		sh:message "versie voldoet niet aan de eisen" ;
 	];
 	sh:property [
+		rdfs:label "Samengestelde NEN 3610 identificatiestring";
+		rdfs:comment "Deze eigenschap kan gebruikt worden voor het beschrijven van de samengestelde NEN 3610 identitificatiestring";
 		sh:name "rdf:value";
 		sh:path rdf:value;
 		sh:datatype xsd:string;
