@@ -291,7 +291,7 @@
 
   <!-- Hoofdstuk 5 -->
   <section id='basisprincipes' class="informative">
-    <h1>Basisbeginselen van Linked data</h1>
+    <h1>Basisbeginselen van Linked Data</h1>
     <!-- Sectie 5.1 -->
     <section id="basisprincipes-introductie">
       <h2>Introductie</h2>
@@ -367,7 +367,7 @@
     <!-- Sectie 5.5 -->
     <section id='basisprincipes-setorientatie'>
       <h2>Setoriëntatie in Linked Data en de relatie met de UML Class</h2>
-      <p>Linked data maakt gebruik van <a>RDF</a> als gegevensmodel. RDF is setgeoriënteerd, dat wil zeggen, gebaseerd op de verzamelingenleer. Een klasse in RDF (<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>) is een set van dingen met gedeelde eigenschappen. Klassen kunnen, vergelijkbaar met objectgeoriënteerde klassen, hierarchisch gerelateerd worden. Echter, een belangrijk verschil tussen RDF en het objectgeoriënteerde paradigma is dat alle klassen (sets) kunnen overlappen. Een ding kan tegelijkertijd tot meerdere klassen behoren. Dat wil zeggen dat het ding de eigenschappen van beide klassen draagt. Omdat RDF uit gaat van een open wereld, is het onmogelijk om alle instanties van een klasse van te voren te kennen.</p>
+      <p>Linked Data maakt gebruik van <a>RDF</a> als gegevensmodel. RDF is setgeoriënteerd, dat wil zeggen, gebaseerd op de verzamelingenleer. Een klasse in RDF (<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>) is een set van dingen met gedeelde eigenschappen. Klassen kunnen, vergelijkbaar met objectgeoriënteerde klassen, hierarchisch gerelateerd worden. Echter, een belangrijk verschil tussen RDF en het objectgeoriënteerde paradigma is dat alle klassen (sets) kunnen overlappen. Een ding kan tegelijkertijd tot meerdere klassen behoren. Dat wil zeggen dat het ding de eigenschappen van beide klassen draagt. Omdat RDF uit gaat van een open wereld, is het onmogelijk om alle instanties van een klasse van te voren te kennen.</p>
       <p>Deze openheid biedt extreme flexibiliteit, die nodig is om een internet van Linked Data te kunnen realiseren.</p>
       <p>
         <!--[Dit moet misschien naar het transformatie hoofdstuk] -->Hoewel sommige objectgeoriënteerde talen het concept van <a>multiple inheritance</a> ondersteunen, doet het merendeel dat niet. Een verschijnsel dat daardoor vaak voorkomt in informatiemodellen zijn typerende / classificerende lijsten. Een objectklasse heeft dan vaak een attribuut waarvan de naam begint met 'type' of 'soort', waarmee een extra typering van instanties kan worden gegeven. Omdat RDF setgeoriënteerd is, zijn dit soort attributen in Linked Data niet nodig; in plaats daarvan kan de instantie lid gemaakt worden van meerdere klassen. </p>
@@ -421,7 +421,7 @@
 
         <p> Dus enkel in het geval dat een UML superClass voldoet aan type conformance, is de superClass relatie naar de rdfs:subClassOf relatie te vertalen. Helaas is in de meeste UML modellen niet aangeduid of het daar waar de superClass relatie is toegepast, het daadwerkelijk ook om type conformance gaat. Het is dus aan degene die de transformatie uitvoert om dit te interpreteren.</p>
 
-        <p>  Dit verschijnsel hint op hoe OO en Linked Data verschillend naar informatie kijken. In OO declareer je een ding door te stellen `deze auto heeft 4 deuren': Het vaststellen van het bestaan van een entiteit is onlosmakelijk verbonden van de class die geïnstantieerd wordt. In de Linked Data wereld wordt een ding gedeclareerd door te stellen 'er is een ding , dat ding van het type auto en dat ding heeft 4 deuren': de (mogelijk meervoudige, of juist volledig afwezige) classificering van een entiteit volgt pas nadat het bestaan van de entiteit is vastgesteld. Linked data stelt ons in staat om op een later tijdstip vast te stellen dat 'dit ding is van het type speelgoed. </p>
+        <p>  Dit verschijnsel hint op hoe OO en Linked Data verschillend naar informatie kijken. In OO declareer je een ding door te stellen `deze auto heeft 4 deuren': Het vaststellen van het bestaan van een entiteit is onlosmakelijk verbonden van de class die geïnstantieerd wordt. In de Linked Data wereld wordt een ding gedeclareerd door te stellen 'er is een ding , dat ding van het type auto en dat ding heeft 4 deuren': de (mogelijk meervoudige, of juist volledig afwezige) classificering van een entiteit volgt pas nadat het bestaan van de entiteit is vastgesteld. Linked Data stelt ons in staat om op een later tijdstip vast te stellen dat 'dit ding is van het type speelgoed. </p>
       </section>
       <aside class="note">
         <h3>Consequenties voor NEN3610</h3>
@@ -451,7 +451,7 @@
     <!-- Sectie 5.7 -->
     <section id='basisprincipes-vocabulaires'>
       <h2>Hergebruik van bestaande vocabulaires en ontologieën</h2>
-      <p>Linked data maakt gebruik van bestaande, al dan niet gestandaardiseerde <a>vocabulaires</a> (zoals bv SKOS, FOAF, DCAT, etc.), omwille van de interoperabiliteit. Je kunt klassen en eigenschappen, die al in bestaande vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
+      <p>Linked Data maakt gebruik van bestaande, al dan niet gestandaardiseerde <a>vocabulaires</a> (zoals bv SKOS, FOAF, DCAT, etc.), omwille van de interoperabiliteit. Je kunt klassen en eigenschappen, die al in bestaande vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
       <aside class="note">
         <h3>Consequenties voor NEN3610</h3>
         <p>In NEN3610 kan een aanbeveling en praktische methode worden toegevoegd over het relateren van UML klassen en eigenschappen aan corresponderende klassen en eigenschappen in bestaande Linked Data vocabulaires.</p>
@@ -1864,7 +1864,7 @@ imgolf:Parcours a owl:Class ;
         <section id='regels-attributen-kardinaliteit'>
           <h4>Kardinaliteit</h4>
           <p>
-            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie in de ontologie geen uitspraken over gedaan.<br>
+            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked Data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie in de ontologie geen uitspraken over gedaan.<br>
             Met SHACL kunnen we wel de gesloten wereld beschrijven en kunnen we de kardinaliteit die het UML model uitdrukt prima aan. In SHACL gebruiken we daarvoor <code>sh:minCount</code> en <code>sh:maxCount</code> voor.
           </p>
         </section>
@@ -2611,8 +2611,8 @@ nen3610-sh:VoidValue a sh:NodeShape ;
         </section>
       </section>
       <!-- Sectie 7.3.3 -->
-      <section id='Linked data in de bouwsector:transformatieregels om tot een juist model te komen'>
-        <h2>Linked data in de bouwsector: Specifieke transformatieregels</h2>
+      <section id='Linked Data in de bouwsector:transformatieregels om tot een juist model te komen'>
+        <h2>Linked Data in de bouwsector: Specifieke transformatieregels</h2>
 
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s. Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het
             zogenaamde 'objectificeren' van relaties en kenmerken. Het COINS metamodel biedt hier een raamwerk voor en wordt hieronder verder toegelicht.
