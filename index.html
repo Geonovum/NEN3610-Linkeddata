@@ -1060,7 +1060,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
 :hole1 a imgolf:Parcours .
             </pre>
             <aside class='note'>
-              In een NEN3610 mdoel kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
+              In een NEN3610 model kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
             </aside>
           </section>
 
@@ -1535,7 +1535,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
               Deze attributen slaan niet alleen op het Parcours als ding in de werkelijkheid, maar op de beschrijving van het Parcours met de eigenschappen zoals <code>nummer</code>, <code>par</code> en <code>geometry</code>.
             </p>
             <p>
-              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. De SHACL gegevensregels behorende bij de NEN 3610 ontologie biedt hier een constructie voor. Daarin wordt gebruik gemaakt van van het <a href='http://xmlns.com/foaf/spec/'>FOAF vocabulaire</a> voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="http://linkeddatabook.com/editions/1.0/#htoc42">wordt toegepast</a>.
+              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. De SHACL gegevensregels behorende bij de NEN 3610 ontologie biedt hier een constructie voor. Daarin wordt gebruik gemaakt van het <a href='http://xmlns.com/foaf/spec/'>FOAF vocabulaire</a> voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="http://linkeddatabook.com/editions/1.0/#htoc42">wordt toegepast</a>.
             </p>
             <pre class='ex-turtle'>
 #---------------#
@@ -2464,7 +2464,7 @@ imgolf-beg:Par a skos:Concept ;
             <section id='dso-regels-attributen-voidable'>
               <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
               <p>
-                Wanneer het echt noodzakelijk is om informatie over het ontbreken van voidable informatie is het mogelijk om dit te koppelen aan de beschrijving (de information resource) van een object. Dit kan op vergelijkbare manier als bij <a href='#regels-attributen-materieleHistorie'></a>. Het is in dat geval aan te raden om hier een specifieke klasse voor te definiëren.
+                Wanneer het echt noodzakelijk is om informatie over het ontbreken van voidable informatie vast te leggen is het mogelijk om dit te koppelen aan de beschrijving (de information resource) van een object. Dit kan op vergelijkbare manier als bij <a href='#regels-attributen-materieleHistorie'></a>. Het is in dat geval aan te raden om hier een specifieke klasse voor te definiëren.
               </p>
               <pre class='ex-turtle'>
 #---------------#
