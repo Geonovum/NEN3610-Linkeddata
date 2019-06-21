@@ -257,12 +257,12 @@
       <p>Zoals uitgelegd in de vorige paragraaf, is het in Linked Data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een Linked Data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
       <p>Een goed Linked Data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Hoewel de term "normalisatie" vooral gebruikt wordt in relatie tot relationale databases, kun je het mechanisme van normalisatie wel goed gebruiken om te zien of een informatiemodel goed bruikbaar is om te vertalen naar een ontologie: een goed genormaliseerd informatiemodel zal tot minder uitdagingen leiden bij transformatie naar een ontologie, dan een gedenormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
             <figure>
-                  <img src="media/Normalisatie1.png" width="600">
+                  <img src="media/Normalisatie1.png" >
                   <figcaption> Een model van object persoon in de eerste normaalvorm. Persoon en adres, in werkelijkheid twee verschillende dingen, staan hier in één klasse.</figcaption>
                 </figure>
 
       <figure>
-                  <img src="media/normalisatie2.png" width="600">
+                  <img src="media/normalisatie2.png" >
                   <figcaption> Een model van objecten persoon en adres in de tweede normaalvorm. Persoon en adres zijn in deze vorm gescheiden.</figcaption>
                 </figure>
       <p>Normalisatie is dus uiterst belangrijk voor een goed Linked Data model. Maar het normaliseren van een informatiemodel is alleen mogelijk wanneer je de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed Linked Data model!</p>
@@ -278,17 +278,13 @@
     <!-- Sectie 5.5 -->
     <section id='basisprincipes-setorientatie'>
       <h2>Setoriëntatie in Linked Data en de relatie met de UML Class</h2>
+      <p>Linked Data maakt gebruik van <a>RDF</a> als gegevensmodel. RDF is setgeoriënteerd, dat wil zeggen, gebaseerd op de verzamelingenleer. Een klasse in RDF (<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>) is een set van dingen met gedeelde eigenschappen. Klassen kunnen, vergelijkbaar met objectgeoriënteerde klassen, hierarchisch gerelateerd worden. Echter, een belangrijk verschil tussen RDF en het objectgeoriënteerde paradigma is dat alle klassen (sets) kunnen overlappen. Een ding kan tegelijkertijd tot meerdere klassen behoren. Dat wil zeggen dat het ding de eigenschappen van beide klassen draagt. Omdat RDF uit gaat van een open wereld, is het onmogelijk om alle instanties van een klasse van te voren te kennen.</p>
+      <p>Deze openheid biedt extreme flexibiliteit, die nodig is om een internet van Linked Data te kunnen realiseren.</p>
       <p>
-        Linked Data maakt gebruik van <a>RDF</a> als gegevensmodel. RDF is setgeoriënteerd, dat wil zeggen, gebaseerd op de verzamelingenleer. Een klasse in RDF (<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>, <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>) is een set van dingen met gedeelde eigenschappen. Klassen kunnen, vergelijkbaar met objectgeoriënteerde klassen, hierarchisch gerelateerd worden. Echter, een belangrijk verschil tussen RDF en het objectgeoriënteerde paradigma is dat alle klassen (sets) kunnen overlappen. Een ding kan tegelijkertijd tot meerdere klassen behoren. Dat wil zeggen dat het ding de eigenschappen van beide klassen draagt. Hierbij is het goed om onderscheid te maken tussen meervoudige typering en <a>multiple inheritance</a>(meervoudige overerving).<br>
-        Bij meervoudige typering wordt een ding geklassificeerd tot meerdere klassen. Dit wordt in RDF vaak toegepast om een en hetzelfde ding te beschrijven vanuit meerdere perspectieven. Een ding kan bijvoorbeeld getypeerd worden tot de klasse van datasets (<code>void:Dataset</code>) en de klasse van entiteiten die een herkomst hebben (<code>prov:Entity</code>), omdat we deze aspecten op hetzelfde ding beschrijven.
-        Met <a>multiple inheritance</a> kan ook meervoudige typering bereikt worden. Het verschil is dat de typering niet direct aangebracht wordt, maar wordt afgeleid. Zo zou je een klasse <code>Renpaard</code> een subklasse kunnen laten zijn van de klassen <code>Paard</code> en <code>Wedrenner</code>. Hiermee kan worden afgeleid dat een instantie van de klasse <code>Renpaard</code> ook een instantie is van <code>Paard</code> en <code>Wedrenner</code> en eventuele superklassen van deze klassen.<br>
-        In principe is het altijd wel mogelijk om een intersectie van klassen te definiëren waarmee een meervoudig getypeerd ding enkelvoudig geklassificeerd kan worden, echter leidt dit veelal tot onnodige complexiteit.
-      </p>
-      <p>
-        Omdat RDF uit gaat van een open wereld, is het onmogelijk om alle instanties van een klasse van te voren te kennen. Er bestaat altijd de mogelijkheid dat er een nieuwe bewering over een ding gedaan wordt, waarmee een nieuwe klassificatie gemaakt kan worden. Deze openheid biedt extreme flexibiliteit, die nodig is om een internet van Linked Data te kunnen realiseren.
-      </p>
-      <p>
-        Hoewel sommige objectgeoriënteerde talen het concept van <a>multiple inheritance</a> ondersteunen, doet het merendeel dat niet. Meervoudige typering (zonder <a>multiple inheritance</a>) wordt helemaal niet ondersteund. Een verschijnsel dat daardoor veel voorkomt in informatiemodellen zijn typerende / classificerende lijsten. Een objectklasse heeft dan vaak een attribuut waarvan de naam begint met 'type' of 'soort', waarmee een extra typering van instanties kan worden gegeven. Omdat RDF setgeoriënteerd is, zijn dit soort attributen in Linked Data niet nodig; in plaats daarvan kan de instantie lid gemaakt worden van meerdere klassen.</p>
+        <!--[Dit moet misschien naar het transformatie hoofdstuk] -->Hoewel sommige objectgeoriënteerde talen het concept van <a>multiple inheritance</a> ondersteunen, doet het merendeel dat niet. Een verschijnsel dat daardoor vaak voorkomt in informatiemodellen zijn typerende / classificerende lijsten. Een objectklasse heeft dan vaak een attribuut waarvan de naam begint met 'type' of 'soort', waarmee een extra typering van instanties kan worden gegeven. Omdat RDF setgeoriënteerd is, zijn dit soort attributen in Linked Data niet nodig; in plaats daarvan kan de instantie lid gemaakt worden van meerdere klassen. </p>
+      <aside class='issue'>
+        pano (20190524): Multiple inheritance is 1 ding, maar je hebt ook vaak meervoudige typering zonder inheritance, wanneer je een ding vanuit verschillende perspectieven modelleert. Ik denk dat we daar ook iets over moeten zeggen.
+        JvG (20190524): adresseerd bovenstaande paragraaf dit voldoende? NB ik heb hier ook nog wat over gezegd in 5.4.5</aside>
     <section id='UML-OWL-Classes'>
       <h3>UML classes en OWL classes</h3>
       <p> Er bestaat een subtiel verschil tussen wat een <a>UML</a> class vertegenwoordigt en wat een <a>OWL</a> class vertegenwoordigt. Wat de de oorzaak van dit verschil precies is, vereist een theoretische verhandeling die we hier achterwege laten. Echter aan de hand van een voorbeeld moet het lukken om hier toch enig inzicht in te verschaffen, waardoor we tijdens het transformeren tussen UML en OWL, de juiste keuzes kunnen maken. </p>
@@ -299,7 +295,7 @@
         <h3>Wat is een Pand en wat is een Woonplaats</h3>
 
         <figure>
-          <img src="media/Overerving.png" width="600">
+          <img src="media/Overerving.png">
           <figcaption>Pand en Woonplaats zoals ze in IMBAG gemodelleerd zijn</figcaption>
         </figure>
 
@@ -671,12 +667,16 @@
 
       <!-- Sectie 6.4.1 -->
       <section id="nen3610id">
-        <h3>NEN3610ID</h3>
-        <p>Indien Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap `nen3610:identificatie` hebben die verwijst naar een object met de structuur van een NE3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
+        <h3>URI template en NEN3610ID</h3>
+        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap `nen3610:identificatie` hebben die verwijst naar een object met de structuur van een NE3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
+        <p><img src="gegevensregel-identificatie"/></p>
+        <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de `namespace`-eigenschap uit de NEN3610-identificatie al een URI-namespace is, kan als het sjabloon `{namespace}{lokaalID}{versie}` worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon `http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}`. De `rdf:value` mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon `{namespace}{lokaalID}{versie}`</p>
       </section>
       <section id="provenance">
         <h3>Temporele kenmerken en versies</h3>
-        In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de metadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de <a>PROV-O</a> vocabulaire 
+        In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de metadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
+        <p><img src="gegevensregel-provenance"/></p>
+        Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN3610. 
       </section>
     </section>
 
@@ -745,18 +745,20 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
   <!-- Hoofdstuk 7 -->
   <section id='transformatie' class="informative">
-    <h1>Transformatie van een NEN 3610-UML model naar Linked Data</h1>
+    <h1>Transformatie van een NEN3610 UML model naar Linked Data</h1>
+    <p> voeg toe: inleiding.
 
+      methode;
+      basisregels voor automatische transformatie;
+      afwegingen voor handmatige transformatie </p>
     <!-- Sectie 7.1 -->
     <section id='transformatie-doel'>
       <h2>Doel van de transformatie en methode</h2>
 
-    
-	<p>
-	De methode voor de toe te passen transformatie van een NEN 3610-UML bronmodel naar een Linked Data doelmodel (RDF/OWL/SHACL) bevat een aantal hoofdlijnen. De transformatieregels worden gespecificeerd conform informatie-elementen uit het metamodel van NEN 3610. Het volgt de basiselementen klassen, attributen en associaties en de daaraan gerelateerde stereotypen. Een groot deel van de transformatieregels zijn standaard op te stellen. Hier is ook al veel werk in verricht onder andere te vinden in INSPIRE RDF guidelines [[INSPIRERDF]]. We noemen dit ‘standaard transformatieregels’. Naast deze standaard transformatieregels zijn er nog ‘specifieke transformatieregels’. Deze zijn specifiek omdat ze extra aanvullingen en aanpassingen zijn om er zinvolle Linked Data modellen van te maken. Ze zijn ook specifiek omdat de verschillende modelleerstijlen van Omgevingswet-DSO, de Bouwsector en Stedelijkwater-GWSW-OroX, specifieke aanpassingen vereisen. Voor elk van deze stijlen worden de standaard transformatieregels aangevuld met specifieke regels. Het geheel van standaard – en specifieke transformatieregels geeft voor elke modelleerstijl een handvat om een NEN 3610-UML in het specifieke doelmodel om te zetten.
-	</p>
+      <p class='issue' data-number='28'></p>
+
       <figure>
-        <img src="media/UoD-requirement.png"width="600">
+        <img src="media/UoD-requirement.png">
         <figcaption>UoD requirement</figcaption>
       </figure>
 
@@ -769,14 +771,14 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </ul>
 
       <figure>
-        <img src="media/correct-en-juist.png" width="600">
+        <img src="media/correct-en-juist.png">
         <figcaption>Correct vs Juist model</figcaption>
       </figure>
 
       <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
-      <aside class="note">Na vaststelling van deze standaard kan, als een volgende stap, de automatische vertaler geïmplementeerd worden in bijvoorbeeld een XSLT stylesheet die GML data kan omzetten naar linked data.</aside>
+
       <figure>
-        <img src="media/transformatiedoel.png" width="600">
+        <img src="media/transformatiedoel.png">
         <figcaption>Transformatie van model en data</figcaption>
       </figure>
 
@@ -785,14 +787,12 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <!-- Sectie 7.2 -->
     <section id='transformatiebron'>
 
-      <h2>Bronmodel: NEN 3610 metamodel</h2>
+      <h2>Bronmodel: NEN3610 metamodel</h2>
       <p>Het bronmodel in de transformatie moet voldoen aan het metamodel achter NEN 3610.</p>
-      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.
-	  
-	  </p>
+      <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
 
       <figure>
-        <img src="media/metamodel_attributes.png" width="600">
+        <img src="media/metamodel_attributes.png" height="795">
         <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
       </figure>
 
@@ -862,7 +862,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <h3>Basis doelmodel: metamodel op basis van <a>W3C</a> standaarden</h3>
         <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
         <figure>
-          <img src="media/metamodel_linkeddata.png" width="600">
+          <img src="media/metamodel_linkeddata.png" heigh="569">
           <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
         </figure>
 
@@ -942,6 +942,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       <section id='standaardregels'>
         <h3>Standaard transformatieregels</h3>
 
+        <p class='issue' data-number='27'>Gebruik bij voorbaat IMGolf voorbeelden?</p>
+
         <p>transformatie regels van nen 3610 source element naar RDF Linked Data target element</p>
 
         <!-- Sectie 7.3.4.1 -->
@@ -979,7 +981,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
 :hole1 a imgolf:Parcours .
             </pre>
             <aside class='note'>
-              In een NEN3610 model kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
+              In een NEN3610 mdoel kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
             </aside>
           </section>
 
@@ -1098,7 +1100,7 @@ shape:NEN3610Identificatie a sh:NodeShape ;
             <p>
               Een <a>union</a> is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
               <figure>
-                <img src="media/regels-klassen-union-1.png" width="600">
+                <img src="media/regels-klassen-union-1.png" height="130">
                 <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
               </figure>
               In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
@@ -1281,7 +1283,7 @@ imgolf:Gebouw a owl:Class ;
             <p>
               Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
               <figure>
-                <img src="media/nen3610-enumeration.png" width="600">
+                <img src="media/nen3610-enumeration.png" height="350">
                 <figcaption>
                   Klasse met stereotype &laquo;enumeration&raquo;
                 </figcaption>
@@ -1454,7 +1456,7 @@ ex:id-NL.IMGOLF.1-v01 a nen3610:Identificatie ;
               Deze attributen slaan niet alleen op het Parcours als ding in de werkelijkheid, maar op de beschrijving van het Parcours met de eigenschappen zoals <code>nummer</code>, <code>par</code> en <code>geometry</code>.
             </p>
             <p>
-              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. De SHACL gegevensregels behorende bij de NEN 3610 ontologie biedt hier een constructie voor. Daarin wordt gebruik gemaakt van het <a href='http://xmlns.com/foaf/spec/'>FOAF vocabulaire</a> voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="http://linkeddatabook.com/editions/1.0/#htoc42">wordt toegepast</a>.
+              Hier komt het maken van onderscheid tussen de <a>non-information resource</a> (Parcours nummer 4) en de <a>information resource</a> (een (web)document met een beschrijving van Parcours nummer 4), zoals beschreven in <a href=#basisprincipes-identificatie>5.2</a> te pas. De SHACL gegevensregels behorende bij de NEN 3610 ontologie biedt hier een constructie voor. Daarin wordt gebruik gemaakt van van het <a href='http://xmlns.com/foaf/spec/'>FOAF vocabulaire</a> voor het modelleren van information resources, zoals dat ook in [[LINKED-DATA-EVOLVING-WEB]] <a href="http://linkeddatabook.com/editions/1.0/#htoc42">wordt toegepast</a>.
             </p>
             <pre class='ex-turtle'>
 #---------------#
@@ -1806,7 +1808,7 @@ imgolf:Parcours a owl:Class ;
       </section>
       <!-- Sectie 7.4.2 -->
       <section id='dso-regels'>
-        <h2>Omgevingswet-DSO: specifieke transformatieregels</h2>
+        <h2>DSO: specifieke transformatieregels</h2>
         <!-- Sectie 7.4.2.1 -->
         <section id='dso-regels-metamodel'>
           <h3>Metamodel DSO</h3>
@@ -2383,7 +2385,7 @@ imgolf-beg:Par a skos:Concept ;
             <section id='dso-regels-attributen-voidable'>
               <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
               <p>
-                Wanneer het echt noodzakelijk is om informatie over het ontbreken van voidable informatie vast te leggen is het mogelijk om dit te koppelen aan de beschrijving (de information resource) van een object. Dit kan op vergelijkbare manier als bij <a href='#regels-attributen-materieleHistorie'></a>. Het is in dat geval aan te raden om hier een specifieke klasse voor te definiëren.
+                Wanneer het echt noodzakelijk is om informatie over het ontbreken van voidable informatie is het mogelijk om dit te koppelen aan de beschrijving (de information resource) van een object. Dit kan op vergelijkbare manier als bij <a href='#regels-attributen-materieleHistorie'></a>. Het is in dat geval aan te raden om hier een specifieke klasse voor te definiëren.
               </p>
               <pre class='ex-turtle'>
 #---------------#
@@ -2531,7 +2533,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
       </section>
       <!-- Sectie 7.4.3 -->
       <section id='Linked Data in de bouwsector:transformatieregels om tot een juist model te komen'>
-        <h2>Bouwsector - Linked Data: Specifieke transformatieregels</h2>
+        <h2>Linked Data in de bouwsector: Specifieke transformatieregels</h2>
 
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s.
             Bij het modelleren hiervan is lange tijd automatisch uitgegaan van het zogenaamde 'objectificeren' van eigenschappen en relaties.
@@ -2549,11 +2551,11 @@ nen3610-sh:VoidValue a sh:NodeShape ;
             </p><p>
               De NTA 8035 definieert drie ambitieniveaus van toenemende semantische complexiteit:
               <ol>
-                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li> (LoC-1)
-                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li> (LoC-2)
-                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li> (Loc-3a en LoC-3b)
+                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li>
+                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li>
+                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li>
               </ol>
-              In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de standaard transformatieregels in dit document).
+              In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de DSO transformatieregels in dit document).
               Voor complexe eigenschappen wordt een uitgebreide variant van de de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[CDT]].
             </p><p>
               Behalve modelleringsregels bevat de NTA 8035 ook een top model met een zevental concepten en een aantal relaties daartussen:
@@ -2567,7 +2569,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                 <li>Tijdperiode</li>
               </ol>
                   <figure>
-                    <img src="media/nta8035-topmodel.png" width="600">
+                    <img src="media/nta8035-topmodel.png" height="400">
                     <figcaption>Top Level concepten, relaties en beperkingen schematisch gecombineerd</figcaption>
                   </figure>
             </p>
@@ -2575,8 +2577,6 @@ nen3610-sh:VoidValue a sh:NodeShape ;
         <section id='transformatieregelsnta8035'>
           <h3>Transformatieregels NTA 8035</h3>
 
-          De <a href='#standaardregels'></a> die in dit document beschreven staan zijn gebaseerd op <a>RDFS</a> (wat overeenkomt met LoC-2 uit de NTA) en <a>SHACL</a> (wat overeenkomt
-          met (LoC-3b uit de NTA). De onderstaande specfieke transformatieregels zijn van toepassing op de LoC-2 en LoC-3 niveau's uit de NTA.
           <section id='nta-regels-klassen'>
             <h4>Klassen</h4>
               <section id='nta-regels-klassen-featureType'>
@@ -2617,35 +2617,24 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                   <a href="https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html">CDT systematiek voor Custom Datatypes gevolgd.</a>
                 </p>
                 Voor de attribuut stereotypen zijn in de NTA geen specifieke transformatieregels voorgeschreven.
-
-               <section id='nta-regels-attributen-identificatie'>
+               <!--<section id='otl-regels-attributen-identificatie'>
                   <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
-                 Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
-                <section id='nta-regels-attributen-voidable'>
+                <section id='otl-regels-attributen-voidable'>
                     <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
-                  Niet beschreven in de NTA. In <a href="#dso-regels-attributen-voidable"></a> (DSO transformatieregels) wordt wel een manier beschreven om om te gaan met
-                  'attributen waarvan je weet dat je ze niet weet'. Van belang om daarbij op te merken is dat er een onderscheid gemaakt wordt tussen de
-                  <a>information resource</a> en de <a>non-information resource</a>. Waarbij er dus specifiek vastgelegd wordt dat je de waarde van het attribuut
-                  niet weet in de betreffende registratie.
-
                 </section>
-                <section id='nta-regels-attributen-materieleHistorie'>
+                <section id='otl-regels-attributen-materieleHistorie'>
                     <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
-                  Niet beschreven in de NTA. In <a href="#regels-attributen-materieleHistorie"></a> (standaard transformatieregels) wordt een manier beschreven om om te
-                  gaan met het vastleggen van materiele historie.
                   </section>
-                  <section id='nta-regels-attributen-formeleHistorie'>
+                  <section id='otl-regels-attributen-formeleHistorie'>
                     <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
-                    Niet beschreven in de NTA. In <a href="#regels-attributen-formeleHistorie"></a> (standaard transformatieregels) wordt een manier beschreven om om te
-                  gaan met het vastleggen van formele historie.
                   </section>
 
-                  <!--<section id='nta-regels-attributen-materieleLevensduur'>
+                  <section id='otl-regels-attributen-materieleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
                   </section>
 
-                  <section id='nta-regels-attributen-formeleLevensduur'>
+                  <section id='otl-regels-attributen-formeleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
                   </section>-->
               </section>
@@ -2664,7 +2653,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                 Voor alle associaties en specialisaties van compositie worden ook hun “inverse” gegeven.
               </p>
               <figure>
-                    <img src="media/nta8035-relaties.png" width="600">
+                    <img src="media/nta8035-relaties.png" height="400">
                     <figcaption>Top Level relaties</figcaption>
                   </figure>
               <p>
@@ -2714,7 +2703,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           <h3>Metamodel COINS</h3>
 
           <figure>
-            <img src="http://www.coinsweb.nl/wiki2/images/e/ed/UML-schema_1280x888.jpg" width="600">
+            <img src="http://www.coinsweb.nl/wiki2/images/e/ed/UML-schema_1280x888.jpg" height="569">
             <figcaption>Metamodel van COINS</figcaption>
           </figure>
         </section>
@@ -2888,7 +2877,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 
       <!-- Sectie 7.3.4 -->
       <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
-        <h2>Stedelijk Water - GWSW-OroX: Specifieke transformatieregels</h2>
+        <h2>GWSW-OroX, Linked Data Stedelijk Water: Specifieke transformatieregels</h2>
 
         <section id='transformatieregelsorox'>
           <h3>Transformatieregels OroX: Maak een ontologie</h3>
@@ -3480,8 +3469,7 @@ imgolf:Parcours
 
     <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform <a>UML</a> van een golfbaan, IMGolf, kunnen we een Linked Data model opstellen.</p>
-    <p>Elk van de drie stijlen leidt daarbij tot een eigen interpretatie van het IMGolf model. De drie stijlen gebruiken elk een eigen notatiewijze voor modelconstructies. De diagrammen hebben wat dat betreft een eigen legenda. In <a href="#dataset2model"></a> worden de modellen wel uitgedrukt in één metamodel en is er één gezamelijk diagramtype waarin de modellen gevisualiseerd worden.
-	</p>
+    <p>Elk van de drie stijlen leidt daarbij tot een eigen interpretatie van het IMGolf model</p>
 
     <!-- Sectie 8.1 -->
     <section>
@@ -3489,7 +3477,7 @@ imgolf:Parcours
       <p>Het Linked Data model conform DSO volgt de <a>W3C</a> standaarden RDF, RDFS, OWL en SHACL. Voor de visualisatie wordt aangesloten op de <a href="http://bp4mc2.org/20181107/#grafische-representatie">Nederlandse best practice.</a></p>
 
       <figure>
-        <img src="media/imgolf-dso.png" width="600">
+        <img src="media/imgolf-dso.png" heigh="569">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in DSO profiel</figcaption>
       </figure>
 
@@ -3503,8 +3491,10 @@ imgolf:Parcours
       Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke <a>UoD</a> (zie hst. <a href="#transformatie">Transformatie</a>).
       <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
 
+      <br /><br /><img src="" width="50%">
+
       <figure>
-        <img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="600">
+        <img src="UML%20modellen/IMGolfGWSWroundtrip.png" heigh="569">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
       </figure>
 
@@ -3515,7 +3505,7 @@ imgolf:Parcours
       <h2>Model van data Golfbaan confom: COINS</h2>
 
       <figure>
-        <img src="media/imgolf-coinsViz.png" width="600">
+        <img src="media/imgolf-coinsViz.png" heigh="569">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
       </figure>
 
@@ -3573,6 +3563,7 @@ imgolf:Parcours
       <p>Vanzelfsprekend kan alleen maar die dingen gegenereerd worden die ook in de brondata zitten. Uitleg of afwijkende namen zijn niet mogelijk, en ook kunnen cardinaliteiten of subklassificaties niet met zekerheid worden afgeleid.</p>
       <p>Een gegenereerde IMGolf model zal afwijken van een met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
       <p>Ook is het niet mogelijk om deze aanpak te gebruiken voor de <a>UML</a> / <a>GML</a> data, aangezien dit geen Linked Data is en dus niet generiek in te lezen is (hier zou dus eerst een basale vertaling van GML naar Linked Data gemaakt moeten worden.</p>
+      <p class='issue' title='XSL maken voor GML omzetting naar Linked Data'>Een dergelijke omzetting zou een mooi beginpunt kunnen zijn van een generieke aanpak</p>
     </section>
 
     <!-- Sectie 9.2 -->
@@ -3592,7 +3583,7 @@ imgolf:Parcours
         <li>M2 betreft het niveau met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
         <li>M3 betreft het niveau met het metametamodel. Als metamatamodel hebben we gekozen voor het model dat afkomstig is van het mechanisme uit de vorige sectie, <a>SHACL</a>.</li>
       </ul>
-      <img src="media/mof.png" width="800">
+      <img src="media/mof.png" />
       <p>Van de golfbaan hebben we zowel vier verschijningsvormen op het niveau van M0 (de concrete data) als van M1 (het model):</p>
       <ul>
         <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de <a>GML</a> representatie (M0) conform NEN3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i> (M1)</li>
@@ -3890,7 +3881,7 @@ imgolf:Parcours
         <h3>Gegenereerd COINS model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het COINS voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-coins-model.png" width="600" class="scalable">
+          <img src="LD modellen/visualisaties/golfbaan-coins-model.png"/>
           <figcaption>afgeleid Model van Golfbaan vanuit het COINS uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -3898,7 +3889,7 @@ imgolf:Parcours
         <h3>Gegenereerd GWSW-OROX model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het GWSW-OROX voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png" width="600" class="scalable">
+          <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png"/>
           <figcaption>afgeleid Model van Golfbaan vanuit het OroX uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -3906,7 +3897,7 @@ imgolf:Parcours
         <h3>Gegenereerd W3C model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het W3c RDF/OWL voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-w3c-shacl-model.png" width="600" class="scalable">
+          <img src="LD modellen/visualisaties/golfbaan-w3c-shacl-model.png"/>
           <figcaption>afgeleid Model van Golfbaan vanuit de DSO dataset</figcaption>
         </figure>
       </section>
@@ -3914,6 +3905,7 @@ imgolf:Parcours
   </section>
   <section class="appendix informative" id="glossary">
     <h2>Glossary</h2>
+    <p class="issue" data-number="50">Graag review door de werkgroepleden van de definities.</p>
     <p><dfn data-lt="werkelijkheid|beschouwingsgebied|universe of discourse|UoD">Beschouwingsgebied</dfn>: beeld van de echte of hypothetische wereld dat binnen de context van een domein alles van belang omvat [[NEN3610]].</p>
     <p><dfn data-lt="unique name assumption|UNA">Unique Name Assumption (UNA)</dfn>: de aanname dat een ding maar één naam (id) heeft en dat verschillende namen dus  verwijzen naar verschillende dingen in de werkelijkheid [[UNA]].</p>
     <p><dfn data-lt="">Reïficatie</dfn>: een manier om metadata aan een <a>triple</a> te hangen [[REIFICATION]].</p>
