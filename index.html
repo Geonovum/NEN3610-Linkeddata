@@ -2539,11 +2539,11 @@ nen3610-sh:VoidValue a sh:NodeShape ;
             </p><p>
               De NTA 8035 definieert drie ambitieniveaus van toenemende semantische complexiteit:
               <ol>
-                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li>
-                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li>
-                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li>
+                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li> (LoC-1)
+                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li> (LoC-2)
+                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li> (Loc-3a en LoC-3b)
               </ol>
-              In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de DSO transformatieregels in dit document).
+              In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de standaard transformatieregels in dit document).
               Voor complexe eigenschappen wordt een uitgebreide variant van de de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[CDT]].
             </p><p>
               Behalve modelleringsregels bevat de NTA 8035 ook een top model met een zevental concepten en een aantal relaties daartussen:
@@ -2565,7 +2565,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
         <section id='transformatieregelsnta8035'>
           <h3>Transformatieregels NTA 8035</h3>
 
-          De standaard transformatieregels die in dit document beschreven staan zijn gebaseerd op <a>RDFS</a> (wat overeenkomt met LoC-2 uit de NTA) en <a>SHACL</a> (wat overeenkomt
+          De <a href='#standaardregels'></a> die in dit document beschreven staan zijn gebaseerd op <a>RDFS</a> (wat overeenkomt met LoC-2 uit de NTA) en <a>SHACL</a> (wat overeenkomt
           met (LoC-3b uit de NTA). De onderstaande specfieke transformatieregels zijn van toepassing op de LoC-2 en LoC-3 niveau's uit de NTA.
           <section id='nta-regels-klassen'>
             <h4>Klassen</h4>
@@ -2607,24 +2607,35 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                   <a href="https://ci.mines-stetienne.fr/lindt/v2/custom_datatypes.html">CDT systematiek voor Custom Datatypes gevolgd.</a>
                 </p>
                 Voor de attribuut stereotypen zijn in de NTA geen specifieke transformatieregels voorgeschreven.
-               <!--<section id='otl-regels-attributen-identificatie'>
+
+               <section id='nta-regels-attributen-identificatie'>
                   <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
+                 Geen afwijking ten opzichte van de standaard transformatieregels.
                 </section>
-                <section id='otl-regels-attributen-voidable'>
+                <section id='nta-regels-attributen-voidable'>
                     <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
+                  Niet beschreven in de NTA. In <a href="#dso-regels-attributen-voidable"></a> (DSO transformatieregels) wordt wel een manier beschreven om om te gaan met
+                  'attributen waarvan je weet dat je ze niet weet'. Van belang om daarbij op te merken is dat er een onderscheid gemaakt wordt tussen de
+                  <a>information resource</a> en de <a>non-information resource</a>. Waarbij er dus specifiek vastgelegd wordt dat je de waarde van het attribuut
+                  niet weet in de betreffende registratie.
+
                 </section>
-                <section id='otl-regels-attributen-materieleHistorie'>
+                <section id='nta-regels-attributen-materieleHistorie'>
                     <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
+                  Niet beschreven in de NTA. In <a href="#regels-attributen-materieleHistorie"></a> (standaard transformatieregels) wordt een manier beschreven om om te
+                  gaan met het vastleggen van materiele historie.
                   </section>
-                  <section id='otl-regels-attributen-formeleHistorie'>
+                  <section id='nta-regels-attributen-formeleHistorie'>
                     <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
+                    Niet beschreven in de NTA. In <a href="#regels-attributen-formeleHistorie"></a> (standaard transformatieregels) wordt een manier beschreven om om te
+                  gaan met het vastleggen van formele historie.
                   </section>
 
-                  <section id='otl-regels-attributen-materieleLevensduur'>
+                  <!--<section id='nta-regels-attributen-materieleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
                   </section>
 
-                  <section id='otl-regels-attributen-formeleLevensduur'>
+                  <section id='nta-regels-attributen-formeleLevensduur'>
                     <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
                   </section>-->
               </section>
