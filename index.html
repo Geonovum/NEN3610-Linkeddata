@@ -257,12 +257,12 @@
       <p>Zoals uitgelegd in de vorige paragraaf, is het in Linked Data belangrijk om in onze modellering van de klassen waartoe de subjecten uit triples kunnen behoren, heel precies te zijn en zo dicht mogelijk bij de werkelijkheid te blijven. Voordat je begint met het transformeren van een informatiemodel naar een Linked Data model is het daarom belangrijk om stil te staan bij het oorspronkelijke doel en de uitgedrukte betekenis van het informatiemodel. Is het een conceptueel of logisch datamodel? Een technisch objectmodel? Een technisch berichtmodel? De meeste informatiemodellen zijn in meer of mindere mate <a>gedenormaliseerd</a>. Dit is omdat de informatiemodellen vanuit een bepaald oogpunt zijn opgesteld en vaak een technisch insteek hebben. Bijvoorbeeld een berichtmodel voor geoptimaliseerde communicatie, waarbij selectief aangebrachte redundantie voordelig kan zijn.</p>
       <p>Een goed Linked Data model is juist een model dat een representatie biedt die zo dicht mogelijk bij de te beschrijven werkelijkheid ligt. Hoewel de term "normalisatie" vooral gebruikt wordt in relatie tot relationale databases, kun je het mechanisme van normalisatie wel goed gebruiken om te zien of een informatiemodel goed bruikbaar is om te vertalen naar een ontologie: een goed genormaliseerd informatiemodel zal tot minder uitdagingen leiden bij transformatie naar een ontologie, dan een gedenormaliseerd model. Zie de afbeeldingen hieronder om een idee te krijgen van hoe normaalvormen de structuur en bereikbaarheid van informatie beïnvloeden.</p>
             <figure>
-                  <img src="media/Normalisatie1.png" >
+                  <img src="media/Normalisatie1.png" width="600">
                   <figcaption> Een model van object persoon in de eerste normaalvorm. Persoon en adres, in werkelijkheid twee verschillende dingen, staan hier in één klasse.</figcaption>
                 </figure>
 
       <figure>
-                  <img src="media/normalisatie2.png" >
+                  <img src="media/normalisatie2.png" width="600">
                   <figcaption> Een model van objecten persoon en adres in de tweede normaalvorm. Persoon en adres zijn in deze vorm gescheiden.</figcaption>
                 </figure>
       <p>Normalisatie is dus uiterst belangrijk voor een goed Linked Data model. Maar het normaliseren van een informatiemodel is alleen mogelijk wanneer je de betekenis van de data - de semantiek - begrijpt. Hieruit volgt dat het meestal niet mogelijk is om een automatische vertaling te doen van een informatiemodel naar een goed Linked Data model!</p>
@@ -295,7 +295,7 @@
         <h3>Wat is een Pand en wat is een Woonplaats</h3>
 
         <figure>
-          <img src="media/Overerving.png">
+          <img src="media/Overerving.png" width="600">
           <figcaption>Pand en Woonplaats zoals ze in IMBAG gemodelleerd zijn</figcaption>
         </figure>
 
@@ -748,7 +748,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       <p class='issue' data-number='28'></p>
 
       <figure>
-        <img src="media/UoD-requirement.png">
+        <img src="media/UoD-requirement.png"width="600">
         <figcaption>UoD requirement</figcaption>
       </figure>
 
@@ -761,14 +761,14 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </ul>
 
       <figure>
-        <img src="media/correct-en-juist.png">
+        <img src="media/correct-en-juist.png" width="600">
         <figcaption>Correct vs Juist model</figcaption>
       </figure>
 
       <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
       <aside class="note">Na vaststelling van deze standaard kan, als een volgende stap, de automatische vertaler geïmplementeerd worden in bijvoorbeeld een XSLT stylesheet die GML data kan omzetten naar linked data.</aside>
       <figure>
-        <img src="media/transformatiedoel.png">
+        <img src="media/transformatiedoel.png" width="600">
         <figcaption>Transformatie van model en data</figcaption>
       </figure>
 
@@ -782,7 +782,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       <p>Het NEN 3610 - metamodel omschrijft de metaklassen die gebruikt worden om een informatiemodel op te bouwen. Elke metaklasse is een type informatie-element. De instanties van de metaklassen zijn de benoemde informatie-elementen in een informatiemodel. In het informatiemodel zijn ze te herkennen aan de UML conventies die voor dat element gelden of het specifiek benoemde stereotype (in geel aangegeven). Bij elke metaklasse is opgenomen wat hun eigenschappen zijn. Het metamodel van NEN 3610 volgt het General Feature Model (GFM) van ISO 19109 [[iso-19109-2015]]. Het in het onderstaande UML beschreven metamodel is daar een aanpassing op voor toepassing binnen de context van NEN 3610.</p>
 
       <figure>
-        <img src="media/metamodel_attributes.png" height="795">
+        <img src="media/metamodel_attributes.png" width="600">
         <figcaption>Metamodel van NEN 3610. Aanpassing op General Feature Model van ISO 19109. In geel de als stereotype opgenomen metaklassen.</figcaption>
       </figure>
 
@@ -852,7 +852,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <h3>Basis doelmodel: metamodel op basis van <a>W3C</a> standaarden</h3>
         <p class="issue">Dit metamodel nog uitbreiden met specifieke OWL en RDFS elementen (zoals owl:Restriction, rdfs:range en rdfs:domain), obv het voorstel om ook OWL specifieke elementen op te nemen</p>
         <figure>
-          <img src="media/metamodel_linkeddata.png" heigh="569">
+          <img src="media/metamodel_linkeddata.png" width="600">
           <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
         </figure>
 
@@ -1088,7 +1088,7 @@ shape:NEN3610Identificatie a sh:NodeShape ;
             <p>
               Een <a>union</a> is een gestructureerd datatype zonder identiteit waarvan precies één van de eigenschappen aanwezig is in elke instantie.
               <figure>
-                <img src="media/regels-klassen-union-1.png" height="130">
+                <img src="media/regels-klassen-union-1.png" width="600">
                 <figcaption>Klasse met stereotype &laquo;union&raquo; - een union van objecten</figcaption>
               </figure>
               In dit voorbeeld moet een perceel altijd een eigenaar hebben, maar kan deze eigenaar een natuurlijk persoon of een niet-natuurlijk persoon zijn.
@@ -1271,7 +1271,7 @@ imgolf:Gebouw a owl:Class ;
             <p>
               Een enumeratie is een klasse die een lijst van waarden weergeeft. Deze kan worden gebruikt op plaatsen waar voor een bepaalde waarde uit een beperkt aantal vooraf bekende mogelijkheiden behoort te worden gekozen.
               <figure>
-                <img src="media/nen3610-enumeration.png" height="350">
+                <img src="media/nen3610-enumeration.png" width="600">
                 <figcaption>
                   Klasse met stereotype &laquo;enumeration&raquo;
                 </figcaption>
@@ -2557,7 +2557,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                 <li>Tijdperiode</li>
               </ol>
                   <figure>
-                    <img src="media/nta8035-topmodel.png" height="400">
+                    <img src="media/nta8035-topmodel.png" width="600">
                     <figcaption>Top Level concepten, relaties en beperkingen schematisch gecombineerd</figcaption>
                   </figure>
             </p>
@@ -2641,7 +2641,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                 Voor alle associaties en specialisaties van compositie worden ook hun “inverse” gegeven.
               </p>
               <figure>
-                    <img src="media/nta8035-relaties.png" height="400">
+                    <img src="media/nta8035-relaties.png" width="600">
                     <figcaption>Top Level relaties</figcaption>
                   </figure>
               <p>
@@ -2691,7 +2691,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           <h3>Metamodel COINS</h3>
 
           <figure>
-            <img src="http://www.coinsweb.nl/wiki2/images/e/ed/UML-schema_1280x888.jpg" height="569">
+            <img src="http://www.coinsweb.nl/wiki2/images/e/ed/UML-schema_1280x888.jpg" width="600">
             <figcaption>Metamodel van COINS</figcaption>
           </figure>
         </section>
@@ -3465,7 +3465,7 @@ imgolf:Parcours
       <p>Het Linked Data model conform DSO volgt de <a>W3C</a> standaarden RDF, RDFS, OWL en SHACL. Voor de visualisatie wordt aangesloten op de <a href="http://bp4mc2.org/20181107/#grafische-representatie">Nederlandse best practice.</a></p>
 
       <figure>
-        <img src="media/imgolf-dso.png" heigh="569">
+        <img src="media/imgolf-dso.png" width="600">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in DSO profiel</figcaption>
       </figure>
 
@@ -3479,10 +3479,8 @@ imgolf:Parcours
       Zonder handmatige ingreep in de transformatie ziet zo'n UML er natuurlijk anders uit, maar het beschrijft mogelijk wel het gezamenlijke <a>UoD</a> (zie hst. <a href="#transformatie">Transformatie</a>).
       <br /><br />Als proef is IMGOLF gemodelleerd in OroX conform de beschreven uitgangspunten voor het GWSW. Vervolgens is deze ontologie automatisch omgezet in een <a href="UML%20modellen/IMGolfGWSWroundtrip.png">OroX-presentatie in UML</a> .
 
-      <br /><br /><img src="" width="50%">
-
       <figure>
-        <img src="UML%20modellen/IMGolfGWSWroundtrip.png" heigh="569">
+        <img src="UML%20modellen/IMGolfGWSWroundtrip.png" width="600">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in GWSW.orox profiel</figcaption>
       </figure>
 
@@ -3493,7 +3491,7 @@ imgolf:Parcours
       <h2>Model van data Golfbaan confom: COINS</h2>
 
       <figure>
-        <img src="media/imgolf-coinsViz.png" heigh="569">
+        <img src="media/imgolf-coinsViz.png" width="600">
         <figcaption>Model van Golfbaan uitgedrukt als Linked Data in COINS profiel</figcaption>
       </figure>
 
@@ -3570,7 +3568,7 @@ imgolf:Parcours
         <li>M2 betreft het niveau met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
         <li>M3 betreft het niveau met het metametamodel. Als metamatamodel hebben we gekozen voor het model dat afkomstig is van het mechanisme uit de vorige sectie, <a>SHACL</a>.</li>
       </ul>
-      <img src="media/mof.png" />
+      <img src="media/mof.png" width="800">
       <p>Van de golfbaan hebben we zowel vier verschijningsvormen op het niveau van M0 (de concrete data) als van M1 (het model):</p>
       <ul>
         <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de <a>GML</a> representatie (M0) conform NEN3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i> (M1)</li>
@@ -3868,7 +3866,7 @@ imgolf:Parcours
         <h3>Gegenereerd COINS model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het COINS voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-coins-model.png"/>
+          <img src="LD modellen/visualisaties/golfbaan-coins-model.png" width="600">
           <figcaption>afgeleid Model van Golfbaan vanuit het COINS uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -3876,7 +3874,7 @@ imgolf:Parcours
         <h3>Gegenereerd GWSW-OROX model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het GWSW-OROX voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png"/>
+          <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png" width="600">
           <figcaption>afgeleid Model van Golfbaan vanuit het OroX uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -3884,7 +3882,7 @@ imgolf:Parcours
         <h3>Gegenereerd W3C model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het W3c RDF/OWL voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-w3c-shacl-model.png"/>
+          <img src="LD modellen/visualisaties/golfbaan-w3c-shacl-model.png" width="600">
           <figcaption>afgeleid Model van Golfbaan vanuit de DSO dataset</figcaption>
         </figure>
       </section>
