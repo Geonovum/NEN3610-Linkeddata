@@ -449,8 +449,16 @@ concept:GeoObjectRegistratie a skos:Conceptss;
 
 concept:VorigGeldigeVersie a skos:Concept;
 	skos:inScheme schema:NEN3610;
-	rdfs:label "Vorige geldige versie"@nl;s
+	rdfs:label "Vorige geldige versie"@nl;
 	skos:prefLabel "Vorige geldige versie"@nl;
 	skos:definition "De vorige materieel geldige versie van de registratie van een geo-object"@nl;
+	skos:related concept:GeoObjectRegistratie;
+.
+
+concept:VorigGeregistreerdeVersie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Vorige geregistreerde versie"@nl;
+	skos:prefLabel "Vorige geregistreerde versie"@nl;
+	skos:definition "De vorige formeel geldige versie van de registratie van een geo-object"@nl;
 	skos:related concept:GeoObjectRegistratie;
 .

@@ -13,6 +13,7 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix schema: <http://schema.org/>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
 
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
@@ -36,6 +37,11 @@ schema:AdministrativeArea a rdfs:Class;
 	rdfs:label "AdministrativeArea"@en;
 	rdfs:comment "A geographical region, typically under the jurisdiction of a particular government."@en;
 	rdfs:subClassOf schema:Place;
+.
+
+prov:wasRevisionOf
+	a owl:AnnotationProperty, owl:ObjectProperty ;
+	rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en ;
 .
 
 # Klasse-model
@@ -173,7 +179,15 @@ nen3610:eindGeldigheid a owl:DatatypeProperty;
 	dcterms:subject concept:EindGeldigheid;
 .
 nen3610:vorigeGeldigeVersie a owl:ObjectProperty;
-	rdfs:label "vorige geldige versie"@nl ;
-	rdfs:label "previous valid version"@en ;
+	rdfs:label "vorige geldige versie"@nl;
+	rdfs:label "previous valid version"@en;
 	dcterms:subject concept:VorigGeldigeVersie;
+.
+nen3610:vorigeGeregistreerdeVersie a owl:ObjectProperty;
+	rdfs:label "vorige geregistreerde versie"@nl;
+	rdfs:label "previous registered version"@en;
+	rdfs:comment "Dit is een specialisatie van prov:wasRevisionOf, die specifiek de vorige versie van een objectregistratie in een lijn van versies aanduidt."@nl;
+	rdfs:comment "This is a specialisation of prov:wasRevisionOf, which specifically points to a previous version of a object registration in a lineage."@en;
+	rdfs:subPropertyOf prov:wasRevisionOf;
+	dcterms:subject concept:VorigGeregistreerdeVersie;
 .
