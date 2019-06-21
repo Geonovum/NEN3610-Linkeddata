@@ -172,3 +172,8 @@ nen3610:eindGeldigheid a owl:DatatypeProperty;
 	rdfs:label "validTo"@en;
 	dcterms:subject concept:EindGeldigheid;
 .
+nen3610:vorigeGeldigeVersie a owl:ObjectProperty;
+	rdfs:label "vorige geldige versie"@nl ;
+	rdfs:label "previous valid version"@en ;
+	dcterms:subject concept:VorigGeldigeVersie;
+.

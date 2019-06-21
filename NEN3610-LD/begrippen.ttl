@@ -442,3 +442,15 @@ concept:PlanologischGebied a skos:Concept;
 	dcterms:source referentie:NEN3610-2011-7.3.13;
 	skos:broader concept:GeoObject;
 .
+
+concept:GeoObjectRegistratie a skos:Conceptss;
+ # TODO
+.
+
+concept:VorigGeldigeVersie a skos:Concept;
+	skos:inScheme schema:NEN3610;
+	rdfs:label "Vorige geldige versie"@nl;s
+	skos:prefLabel "Vorige geldige versie"@nl;
+	skos:definition "De vorige materieel geldige versie van de registratie van een geo-object"@nl;
+	skos:related concept:GeoObjectRegistratie;
+.
