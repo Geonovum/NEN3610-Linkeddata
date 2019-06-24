@@ -21,6 +21,9 @@ owl:DatatypeProperty a rdfs:Class;
 owl:ObjectProperty a rdfs:Class;
 	rdfs:subClassOf rdf:Property
 .
+owl:Restriction a rdfs:Class;
+	rdfs:subClassOf owl:Class
+.
 
 # Classificatie van onderdelen
 
@@ -36,7 +39,7 @@ metamodel:Shapes a skos:Concept;
 metamodel:Reference a skos:Concept;
 	rdfs:label "Referenties"@nl;
 .
-metamodel:Inference a skos:Concept;
+metamodel:Ontology a skos:Concept;
 	rdfs:label "OWL Ontologie - Afleidingsregels"@nl;
 .
 
@@ -180,6 +183,11 @@ metamodel:ObjectProperty a sh:NodeShape;
 	sh:targetClass owl:ObjectProperty;
 	dct:subject metamodel:Vocabulary;
 .
+metamodel:List a sh:NodeShape;
+	rdfs:label "Lijst"@nl;
+	sh:name "rdf:List";
+	sh:targetClass rdf:List;
+.
 
 #Metamodel, onderdeel shapes
 metamodel:NodeShape a sh:NodeShape;
@@ -199,6 +207,12 @@ metamodel:NodeShape a sh:NodeShape;
 		sh:name "sh:property";
 		sh:path sh:property;
 		sh:class sh:PropertyShape;
+	];
+	sh:property [
+		rdfs:label "optie"@n;
+		sh:name "sh:or";
+		sh:path sh:or;
+		sh:node metamodel:NodeShapeList;
 	];
 .
 metamodel:PropertyShape a sh:NodeShape;
@@ -244,6 +258,26 @@ metamodel:PropertyShape a sh:NodeShape;
 		sh:path sh:maxCount;
 		sh:maxCount 1;
 	];
+	sh:property [
+		rdfs:label "waarden"@nl;
+		sh:name "sh:in";
+		sh:path sh:in;
+		sh:class rdf:List;
+	];
+	sh:property [
+		rdfs:label "optie"@n;
+		sh:name "sh:or";
+		sh:path sh:or;
+		sh:node metamodel:PropertyShapeList;
+	];
+.
+metamodel:PropertyShapeList a sh:NodeShape;
+	rdfs:label "Lijst van propertyshapes"@nl;
+	sh:name "list of sh:PropertyShape";
+.
+metamodel:NodeShapeList a sh:NodeShape;
+	rdfs:label "Lijst van nodeshapes"@nl;
+	sh:name "list of sh:NodeShape";
 .
 metamodel:Datatype a sh:NodeShape;
 	sh:targetClass rdfs:Datatype;
@@ -263,4 +297,86 @@ metamodel:BibliographicResource a sh:NodeShape;
 		sh:name "dct:title";
 		sh:datatype xsd:string;
 	];
+.
+
+
+#OWL Ontologie, afleidingsregels
+metamodel:ClassConstructors a sh:NodeShape;
+	rdfs:label "Class constructors";
+	sh:name "owl:Class (ontology)";
+	dct:subject metamodel:Ontology;
+	sh:property [
+		rdfs:label "Class in de context van een OWL ontology"@nl;
+		sh:name "isa";
+		sh:path rdf:type;
+		sh:hasValue owl:Class;
+	];
+	sh:property [
+		rdfs:label "vereniging van"@nl;
+		sh:name "owl:unionOf";
+		sh:path owl:unionOf;
+		sh:node metamodel:ClassList;
+	];
+	sh:property [
+		rdfs:label "één van"@nl;
+		sh:name "owl:oneOf";
+		sh:path owl:oneOf;
+		sh:class rdf:List;
+	]
+.
+metamodel:ClassList a sh:NodeShape;
+	rdfs:label "Lijst van classes"@nl;
+	sh:name "list of owl:Class";
+.
+metamodel:PropertyDefinition a sh:NodeShape;
+	rdfs:label "Property definitie"@nl;
+	sh:name "rdf:Property (ontology)";
+	dct:subject metamodel:Ontology;
+	sh:property [
+		rdfs:label "Property in de context van een OWL ontology"@nl;
+		sh:name "isa";
+		sh:path rdf:type;
+		sh:hasValue rdf:Property;
+	];
+	sh:property [
+		rdfs:label "domein"@nl;
+		sh:name "rdfs:domain";
+		sh:path rdfs:domain;
+		sh:class rdfs:Class;
+	];
+	sh:property [
+		rdfs:label "bereik"@nl;
+		sh:name "rdfs:range";
+		sh:path rdfs:range;
+		sh:class rdfs:Class;
+	]
+.
+metamodel:RDFSClass a sh:NodeShape;
+	rdfs:label "RDFS Class";
+	sh:name "rdfs:Class";
+	sh:targetClass rdfs:Class;
+.
+metamodel:Restriction a sh:NodeShape;
+	rdfs:label "OWL Restrictie-afleiding"@nl;
+	sh:name "owl:Restriction";
+	sh:targetClass owl:Restriction;
+	dct:subject metamodel:Ontology;
+	sh:property [
+		rdfs:label "waarden afkomstig uit"@nl;
+		sh:name "owl:allValuesFrom";
+		sh:path owl:allValuesFrom;
+		sh:class owl:Class;
+	];
+	sh:property [
+		rdfs:label "minimum cardinaliteit"@nl;
+		sh:name "owl:minCardinality";
+		sh:path owl:minCardinality;
+		sh:datatype xsd:integer;
+	];
+	sh:property [
+		rdfs:label "maximum cardinaliteit"@nl;
+		sh:name "owl:maxCardinality";
+		sh:path owl:maxCardinality;
+		sh:datatype xsd:integer;
+	]
 .
