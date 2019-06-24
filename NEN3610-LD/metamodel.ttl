@@ -1,0 +1,266 @@
+# NEN3610 Metamodel in Linked Data, dwz: het model van het model
+#
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+@prefix metamodel: <http://definities.geostandaarden.nl/def/metamodel/>.
+
+# imports
+owl:DatatypeProperty a rdfs:Class;
+	rdfs:subClassOf rdf:Property
+.
+owl:ObjectProperty a rdfs:Class;
+	rdfs:subClassOf rdf:Property
+.
+
+# Classificatie van onderdelen
+
+metamodel:Concepts a skos:Concept;
+	rdfs:label "SKOS Begrippen"@nl;
+.
+metamodel:Vocabulary a skos:Concept;
+	rdfs:label "OWL Vocabulaire"@nl;
+.
+metamodel:Shapes a skos:Concept;
+	rdfs:label "SHACL Shapes - Gegevensregels"@nl;
+.
+metamodel:Reference a skos:Concept;
+	rdfs:label "Referenties"@nl;
+.
+metamodel:Inference a skos:Concept;
+	rdfs:label "OWL Ontologie - Afleidingsregels"@nl;
+.
+
+# Metamodel, onderdeel begrippen
+metamodel:Concept a sh:NodeShape;
+	rdfs:label "Concept"@nl;
+	sh:name "skos:Concept";
+	sh:targetClass skos:Concept;
+	dct:subject metamodel:Concepts;
+	sh:property [
+		rdfs:label "term"@nl;
+		sh:path skos:prefLabel;
+		sh:name "skos:prefLabel";
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "definitie"@nl;
+		sh:path skos:definition;
+		sh:name "skos:definition";
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "onderdeel van begrippenkader"@nl;
+		sh:name "skos:inScheme";
+		sh:path skos:inScheme;
+		sh:class skos:ConceptScheme;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "kent grondslag"@nl;
+		sh:name "dct:source";
+		sh:path dct:source;
+		sh:class dct:BibliographicResource;
+	];
+.
+metamodel:Collection a sh:NodeShape;
+	rdfs:label "Collectie"@nl;
+	sh:name "skos:Collection";
+	sh:targetClass skos:Collection;
+	dct:subject metamodel:Concepts;
+	sh:property [
+		rdfs:label "bevat"@nl;
+		sh:name "skos:member";
+		sh:path skos:member;
+		sh:class skos:Concept;
+	];
+.
+metamodel:ConceptScheme a sh:NodeShape;
+	rdfs:label "Begrippenkader"@nl;
+	sh:name "skos:ConceptScheme";
+	sh:targetClass skos:ConceptScheme;
+	dct:subject metamodel:Concepts;
+	sh:property [
+		rdfs:label "naam"@nl;
+		sh:name "skos:prefLabel";
+		sh:path skos:prefLabel;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+.
+
+# Metamodel, onderdeel vocabulaire
+metamodel:Ontology a sh:NodeShape;
+	rdfs:label "Vocabulaire"@nl;
+	sh:name "owl:Ontology";
+	sh:targetClass owl:Ontology;
+	dct:subject metamodel:Vocabulary;
+	sh:property [
+		rdfs:label "naam"@nl;
+		sh:name "dct:title";
+		sh:path dct:title;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+.
+metamodel:Class a sh:NodeShape;
+	rdfs:label "Klasse"@nl;
+	sh:name "owl:Class";
+	sh:targetClass owl:Class;
+	dct:subject metamodel:Vocabulary;
+	sh:property [
+		rdfs:label "onderdeel van"@nl;
+		sh:name "rdfs:isDefinedBy";
+		sh:path rdfs:isDefinedBy;
+		sh:class owl:Ontology;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "heeft als onderwerp"@nl;
+		sh:name "dct:subject";
+		sh:path dct:subject;
+		sh:class skos:Concept;
+	];
+	sh:property [
+		rdfs:label "naam"@nl;
+		sh:name "rdfs:label";
+		sh:path rdfs:label;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+.
+metamodel:Property a sh:NodeShape;
+	rdfs:label "Eigenschap"@nl;
+	sh:name "rdf:Property";
+	sh:targetClass rdf:Property;
+	dct:subject metamodel:Vocabulary;
+	sh:property [
+		rdfs:label "onderdeel van"@nl;
+		sh:name "rdfs:isDefinedBy";
+		sh:path rdfs:isDefinedBy;
+		sh:class owl:Ontology;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "naam"@nl;
+		sh:name "rdfs:label";
+		sh:path rdfs:label;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+.
+metamodel:DatatypeProperty a sh:NodeShape;
+	rdfs:label "Waarde-eigenschap"@nl;
+	sh:name "owl:DatatypeProperty";
+	sh:targetClass owl:DatatypeProperty;
+	dct:subject metamodel:Vocabulary;
+.
+metamodel:ObjectProperty a sh:NodeShape;
+	rdfs:label "Relatie-eigenschap"@nl;
+	sh:name "owl:ObjectProperty";
+	sh:targetClass owl:ObjectProperty;
+	dct:subject metamodel:Vocabulary;
+.
+
+#Metamodel, onderdeel shapes
+metamodel:NodeShape a sh:NodeShape;
+	rdfs:label "Gegevensstructuur"@nl;
+	sh:name "sh:NodeShape";
+	sh:targetClass sh:NodeShape;
+	dct:subject metamodel:Shapes;
+	sh:property [
+		rdfs:label "met betrekking tot"@nl;
+		sh:name "sh:targetClass";
+		sh:path sh:targetClass;
+		sh:class owl:Class;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "bevat"@nl;
+		sh:name "sh:property";
+		sh:path sh:property;
+		sh:class sh:PropertyShape;
+	];
+.
+metamodel:PropertyShape a sh:NodeShape;
+	rdfs:label "Gegevensconstraint"@nl;
+	sh:name "sh:PropertyShape";
+	sh:targetClass sh:PropertyShape;
+	dct:subject metamodel:Shapes;
+	sh:property [
+		rdfs:label "met betrekking tot"@nl;
+		sh:name "sh:path";
+		sh:path sh:path;
+		sh:maxCount 1;
+		sh:node metamodel:Property
+	];
+	sh:property [
+		rdfs:label "datatype"@nl;
+		sh:name "sh:datatype";
+		sh:path sh:datatype;
+		sh:class rdfs:Datatype;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "relatie met"@nl;
+		sh:name "sh:class";
+		sh:path sh:class;
+		sh:class owl:Class;
+	];
+	sh:property [
+		rdfs:label "relatie heeft vorm"@nl;
+		sh:name "sh:node";
+		sh:path sh:node;
+		sh:class sh:NodeShape;
+	];
+	sh:property [
+		rdfs:label "minimum cardinaliteit"@nl;
+		sh:name "sh:minCount";
+		sh:path sh:minCount;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "maximum cardinaliteit"@nl;
+		sh:name "sh:maxCount";
+		sh:path sh:maxCount;
+		sh:maxCount 1;
+	];
+.
+metamodel:Datatype a sh:NodeShape;
+	sh:targetClass rdfs:Datatype;
+	sh:name "rdfs:Datatype";
+	dct:subject metamodel:Shapes;
+.
+
+#Referentiemodel
+metamodel:BibliographicResource a sh:NodeShape;
+	rdfs:label "Brondocument"@nl;
+	sh:name "dct:BibliographicResource";
+	sh:targetClass dct:BibliographicResource;
+	dct:subject metamodel:Reference;
+	sh:property [
+		rdfs:label "titel"@nl;
+		sh:path dct:title;
+		sh:name "dct:title";
+		sh:datatype xsd:string;
+	];
+.
