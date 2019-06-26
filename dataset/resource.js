@@ -1,4 +1,4 @@
-const endpoint = window.location.toString().replace('.html','.json');
+const endpoint = window.location.toString() + '.json';
 const resourceName = endpoint.match(/[^\/]+\.json$/g).toString().replace('.json','');
 const resourceIri = dwslib.DataFactory.namedNode('http://geonovum.github.io/NEN3610-Linkeddata/dataset/' + resourceName);
 const rows = [
