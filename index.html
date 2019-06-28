@@ -177,7 +177,7 @@
 	    <p><b>url:</b> <a href=http://bp4mc2.org/>http://bp4mc2.org/</a> </p>
       <p><b>type document:</b> publicatie</p>
       <p><b>organisatie:</b> Platform implementatie Linked Open Data (PiLOD)</p>
-      <p><b>scope:</b> best practices voor het toepassen van standaard Linked Data vocabulaires voor het beschrijven van een gegevenscatalogus. De scope is breder in de zin dat BP4mc2 ook betrekking heeft op datasets, datakwaliteit en gegevenscatalogi, waarbij NEN3610 vooral focust op gegevensmodellen. BP4mc2 gaat niet specifiek in op geometrische vraagstukken.</p>
+      <p><b>scope:</b> best practices voor het toepassen van standaard Linked Data vocabulaires voor het beschrijven van een gegevenscatalogus. De scope is breder in de zin dat BP4mc2 ook betrekking heeft op datasets, datakwaliteit en gegevenscatalogi, waarbij NEN 3610 vooral focust op gegevensmodellen. BP4mc2 gaat niet specifiek in op geometrische vraagstukken.</p>
       <p><b>omschrijving:</b> Publicatie over het proces om data op het web te presenteren. Linked Data is daarbij de methode. Inzicht wordt gegeven in de relatie tussen betekenis van gebeurtenissen in de werkelijkheid en hoe die vertaald worden in begrippen en semantiek middels de grammatica van <a>SKOS</a> en <a>OWL</a>. De uri als sleutel voor objecten in een informatiesysteem en de rol van registers worden benadrukt. De publicatie geeft een uiteenzetting van theorie en praktijk over Linked Data, de methode, begrippen en manier van denken en werkwijze. Er is een verschil en een relatie tussen een datamodel (gegevens) en een model (begrippen) van de werkelijkheid. UML wordt daarbij gepositioneerd als methode voor het datamodel en SKOS-OWL voor het begrippenmodel. De architectuur van een Linked Data implementatie wordt toegelicht.<br>
       </p>
       <p><b>relevantie:</b> De achtergrond en filosofie van Linked Data wordt beschreven in de context van een informatievoorziening middels web-standaarden. Begrippen worden uitgelegd en de relatie tussen data, begrippen en de werkelijkheid wordt beschouwd. Een model van data is iets anders dan een model van begrippen. UML en SKOS-OWL worden daarbij aan elkaar gerelateerd.</p>
@@ -238,8 +238,8 @@
       <p>Het is daarnaast ook belangrijk om precies te zijn over het <a>subject</a> dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een Linked Data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in Linked Data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een <a>triple</a>, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in Linked Data onderscheid gemaakt tussen <a>information resources</a> en <a>non-information resources</a>. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiële historie, zou je dit in Linked Data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
       <p>Er is nog een ander belangrijk verschil tussen UML en OWL. Dit heeft te maken met de Unique Naming Assumption (<a>UNA</a>) in UML. Daarmee wordt namelijk gesteld dat een unieke ID naar een unieke entiteit verwijst en dat een unieke entiteit door 1 unieke ID wordt aangeduid. Dit betekent dat 2 objecten met 2 verschillende ID's nooit naar hetzelfde kunnen, dan wel mogen, verwijzen. In Linked Data is dit laatste wél mogelijk. Het idee is namelijk dat meerdere mensen iets over het zelfde ding kunnen zeggen, en dan kun je er vanuit gaan dat ze daar ook een andere ID voor hebben gebruikt. Door de <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a> relatie kan in Linked Data aangegeven worden dat twee verschillende ID's naar het zelfde ding verwijzen.</p>
       <aside class="note">
-        <h3>Consequenties voor NEN3610</h3>
-        <p>In NEN3610:2011 zijn regels opgenomen voor identificatie. Deze regels moeten worden aangepast voor het toepassen van IRIs als identificatie, aangevuld met een regel en/of aanbevelingen voor het toepassen van meerdere unieke IDs voor hetzelfde ding in de werkelijkheid. Ook is het gewenst om het belang uit te leggen van het precies modelleren van het subject, zonder daarbij bijvoorbeeld het ding in de werkelijkheid en het object in de registratie samen te voegen in één klasse. </p>
+        <h3>Consequenties voor NEN 3610</h3>
+        <p>In NEN 3610:2011 zijn regels opgenomen voor identificatie. Deze regels moeten worden aangepast voor het toepassen van IRIs als identificatie, aangevuld met een regel en/of aanbevelingen voor het toepassen van meerdere unieke IDs voor hetzelfde ding in de werkelijkheid. Ook is het gewenst om het belang uit te leggen van het precies modelleren van het subject, zonder daarbij bijvoorbeeld het ding in de werkelijkheid en het object in de registratie samen te voegen in één klasse. </p>
       </aside>
     </section>
 
@@ -270,8 +270,8 @@
       <p>Een praktische richtlijn die hieruit volgt, is dat je wanneer je een klasse modelleert, je alleen die eigenschappen aan een klasse toevoegt die direct tot deze dingen behoren, ofwel essentiele eigenschappen zijn. </p>
       <p>Nauw verwant is het punt dat gegevens over gegevens van een entiteit vaak op hetzelfde niveau als de gegevens over de entiteit worden geplaatst. Een veel voorkomend voorbeeld daarvan is geldigheid van gegevens. Echter, eigenschappen die bijvoorbeeld gaan over het registreren van informatie over de instantie in het systeem (door wie? wanneer? etc.) horen in een goed Linked Data model niet bij de entiteit zelf (de <a>non-information resource</a>), maar bij de <a>information resource</a>. </p>
       <aside class="note">
-        <h3>Consequenties voor NEN3610</h3>
-        <p>In NEN3610:2011 staan regels voor het opnemen van materiele en formele historie en materiele en formele levensduur. Deze regels moeten worden heroverwogen in het kader van de in Linked Data gewenste scheiding tussen information resource en non-information resource. </p>
+        <h3>Consequenties voor NEN 3610</h3>
+        <p>In NEN 3610:2011 staan regels voor het opnemen van materiele en formele historie en materiele en formele levensduur. Deze regels moeten worden heroverwogen in het kader van de in Linked Data gewenste scheiding tussen information resource en non-information resource. </p>
       </aside>
     </section>
 
@@ -339,9 +339,9 @@
         <p>  Dit verschijnsel hint op hoe OO en Linked Data verschillend naar informatie kijken. In OO declareer je een ding door te stellen 'deze auto heeft 4 deuren': Het vaststellen van het bestaan van een entiteit is onlosmakelijk verbonden van de class die geïnstantieerd wordt. In de Linked Data wereld wordt een ding gedeclareerd door te stellen 'er is een ding , dat ding van het type auto en dat ding heeft 4 deuren': de (mogelijk meervoudige, of juist volledig afwezige) classificering van een entiteit volgt pas nadat het bestaan van de entiteit is vastgesteld. Linked Data stelt ons in staat om op een later tijdstip vast te stellen dat 'dit ding is van het type speelgoed. </p>
       </section>
       <aside class="note">
-        <h3>Consequenties voor NEN3610</h3>
-        <p>Er moet opnieuw gekeken worden naar de regels en aanbevelingen in NEN3610:2011 over het hanteren van superklassen. In de basis hanteert NEN3610 de superClass relatie voor type conformance. Echter wordt in NEN3610 sectormodellen regelmatig het modelleerpatroon gevolgd dat we in IMBAG tegenkwamen: het hanteren van een abstracte superklasse die de kenmerken van alle objecten in een registratie bevat, die overerft worden door alle subklassen. Hier moet wellicht een regel of aanbeveling over worden opgenomen in NEN3610, die dit bijvoorbeeld ontraadt voor conceptuele informatiemodellen. </p>
-        <p>NEN361:2011 zegt niets over meervoudige overerving (waarbij een klasse meerdere superClass relaties heeft). Het zou nuttig zijn om hier wel iets over op te nemen, waarbij kan worden aangegeven dat dit in Linked Data geen probleem is. </p>
+        <h3>Consequenties voor NEN 3610</h3>
+        <p>Er moet opnieuw gekeken worden naar de regels en aanbevelingen in NEN 3610:2011 over het hanteren van superklassen. In de basis hanteert NEN 3610 de superClass relatie voor type conformance. Echter wordt in NEN 3610 sectormodellen regelmatig het modelleerpatroon gevolgd dat we in IMBAG tegenkwamen: het hanteren van een abstracte superklasse die de kenmerken van alle objecten in een registratie bevat, die overerft worden door alle subklassen. Hier moet wellicht een regel of aanbeveling over worden opgenomen in NEN3610, die dit bijvoorbeeld ontraadt voor conceptuele informatiemodellen. </p>
+        <p>NEN 3610:2011 zegt niets over meervoudige overerving (waarbij een klasse meerdere superClass relaties heeft). Het zou nuttig zijn om hier wel iets over op te nemen, waarbij kan worden aangegeven dat dit in Linked Data geen probleem is. </p>
       </aside>
     </section>
     <!-- Sectie 5.6 -->
@@ -358,8 +358,8 @@
         <p>Voor de use case van IMGolf was het blijkbaar niet nodig om hier zelfstandige klassen van te maken: van beide categorieën worden dezelfde eigenschappen vastgelegd en meer detailniveau was niet nodig. In een ander informatiemodel, dat bijvoorbeeld de informatie modelleert voor beheerders van golfbanen, kunnen Waterpartij en Bunker heel goed zelfstandige klassen zijn, gemodelleerd als subklasse van Hindernis, met eigenschappen die nodig zijn voor het beheer van waterpartijen en bunkers. Denk bijvoorbeeld aan het soort zand dat gebruikt is in de bunker. Het kan ook goed zijn dat de beheerder de volumes van deze objecten nodig heeft en dus een 3D geometrie beheert in plaats van de vlakgeometrie uit IMGolf. Soorten zand kunnen bovendien weer zelfstandige objecten zijn in een derde context...</p>
       </aside>
       <aside class="note">
-        <h3>Consequenties voor NEN3610</h3>
-        <p>Ter overweging voor NEN3610 is het opnemen van een aanbeveling over referentiedata. Referentiedata zijn links naar andere datasets. Als referentiedata refereert naar entiteiten, modelleer dan die entiteiten. Rationale: Wanneer deze entiteiten ook als Linked Data beschikbaar komen, is integratie van de gegevens eenvoudig.</p>
+        <h3>Consequenties voor NEN 3610</h3>
+        <p>Ter overweging voor NEN 3610 is het opnemen van een aanbeveling over referentiedata. Referentiedata zijn links naar andere datasets. Als referentiedata refereert naar entiteiten, modelleer dan die entiteiten. Rationale: Wanneer deze entiteiten ook als Linked Data beschikbaar komen, is integratie van de gegevens eenvoudig.</p>
         <p>Gebruik bijvoorbeeld <a>blank nodes</a> of interne URI's (URN's of UUID), om de data voorlopig te representeren als het externe data betreft. Als het interne data betreft, munt dan http <a>IRIs</a>. Als referentiedata refereert naar concepten die enkel nodig zijn voor categorisering, gebruik dan SKOS. </p>
       </aside>
     </section>
@@ -368,30 +368,30 @@
       <h2>Hergebruik van bestaande vocabulaires en ontologieën</h2>
       <p>Linked Data maakt gebruik van bestaande, al dan niet gestandaardiseerde <a>vocabulaires</a> (zoals bv SKOS, FOAF, DCAT, etc.), omwille van de interoperabiliteit. Je kunt klassen en eigenschappen, die al in bestaande vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
       <aside class="note">
-        <h3>Consequenties voor NEN3610</h3>
-        <p>In NEN3610 kan een aanbeveling en praktische methode worden toegevoegd over het relateren van UML klassen en eigenschappen aan corresponderende klassen en eigenschappen in bestaande Linked Data vocabulaires.</p>
+        <h3>Consequenties voor NEN 3610</h3>
+        <p>In NEN 3610 kan een aanbeveling en praktische methode worden toegevoegd over het relateren van UML klassen en eigenschappen aan corresponderende klassen en eigenschappen in bestaande Linked Data vocabulaires.</p>
       </aside>
     </section>
   </section>
 
   <!-- Hoofdstuk 6 -->
   <section id='nen3610ld'>
-    <h1>De NEN3610 ontologie</h1>
+    <h1>De NEN 3610 ontologie</h1>
     <p>NEN 3610 beschrijft algemene regels voor het opstellen van een <a>UML</a> informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze regels, constructies en het semantisch model uitgedrukt in <a>RDF</a>.</p>
-    <p>Deze RDF representatie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN3610 tekst leidend.</p>
-    <p>De NEN3610 representatie in RDF bestaat uit de volgende onderdelen:</p>
+    <p>Deze RDF representatie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN 3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN 3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN 3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN 3610 tekst leidend.</p>
+    <p>De NEN 3610 representatie in RDF bestaat uit de volgende onderdelen:</p>
     <ul>
-      <li><i>Verwijzingen</i>: beschrijving van de normatieve en bibliografische verwijzingen die in de NEN3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
-      <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name <a>SKOS</a> gebruikt.</li>
-      <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>
-      <li><i>Gegevensregels</i>: regels met betrekking tot het gebruik van bovenstaande klassen en eigenschappen in een geo-Linked Data dataset, afgeleid uit de gegevensregels zoals beschreven in de NEN3610 standaard, hoofdstuk 7. Als vocabulaire wordt <a>SHACL</a> gebruikt.</li>
+      <li><i>Verwijzingen</i>: beschrijving van de normatieve en bibliografische verwijzingen die in de NEN 3610 standaard worden gebruikt. Als vocabulaire wordt met name Dublin Core gebruikt.</li>
+      <li><i>Begrippen</i>: termen en definities zoals beschreven in de NEN 3610 standaard, met name uit hoofdstuk 3 en 7. Als vocabulaire wordt met name <a>SKOS</a> gebruikt.</li>
+      <li><i>Klassen en eigenschappen</i>: de klassen en eigenschappen zoals beschreven in de NEN 3610 standaard, hoofdstuk 7. Als vocabulaire wordt met name <a>RDFS</a> en <a>OWL</a> gebruikt.</li>
+      <li><i>Gegevensregels</i>: regels met betrekking tot het gebruik van bovenstaande klassen en eigenschappen in een geo-Linked Data dataset, afgeleid uit de gegevensregels zoals beschreven in de NEN 3610 standaard, hoofdstuk 7. Als vocabulaire wordt <a>SHACL</a> gebruikt.</li>
     </ul>
 
     <!-- Sectie 6.1 -->
     <section id='nen3610ld-verwijzingen'>
       <h2>Verwijzingen</h2>
-      <p>Hoofdstuk twee van de NEN3610 standaard geeft de normatieve verwijzingen naar andere standaarden. Daarnaast kent de standaard nog bibliografische verwijzingen en verwijzen we vanuit het Linked Data model terug naar de NEN3610 standaard zelf.</p>
-      <p>Elk van deze verwijzingen zijn opgenomen in het NEN3610 Linked Data model. Bij het terugverwijzen naar de standaard, verwijzen we precies naar de sectie in de standaard. Alleen die onderdelen die we ook daadwerkelijk gebruiken als bron zijn opgenomen.</p>
+      <p>Hoofdstuk twee van de NEN 3610 standaard geeft de normatieve verwijzingen naar andere standaarden. Daarnaast kent de standaard nog bibliografische verwijzingen en verwijzen we vanuit het Linked Data model terug naar de NEN 3610 standaard zelf.</p>
+      <p>Elk van deze verwijzingen zijn opgenomen in het NEN 3610 Linked Data model. Bij het terugverwijzen naar de standaard, verwijzen we precies naar de sectie in de standaard. Alleen die onderdelen die we ook daadwerkelijk gebruiken als bron zijn opgenomen.</p>
       <p>Alle URI's voor verwijzingen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/document/</code></p>
       <p>Een volledig overzicht is te vinden op: <a href="http://definities.geostandaarden.nl/nen3610/doc/referenties/nen3610">http://definities.geostandaarden.nl/nen3610/doc/referenties/nen3610</a>. Een volledige <a>turtle</a> download is <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/referenties.ttl">hier</a> te vinden.</p>
       <!--
@@ -457,7 +457,7 @@
           </tr>
           <tr>
             <td>dcterms:isPartOf</td>
-            <td>Voor verwijzingen naar secties, nemen we ook een relatie op tussen de sectie en zijn bovenliggende sectie (zo is sectie 7.1 onderdeel van hoofdstuk 7, en hoofdstuk 7 weer onderdeel van de standaard NEN3610:2011 als geheel)</td>
+            <td>Voor verwijzingen naar secties, nemen we ook een relatie op tussen de sectie en zijn bovenliggende sectie (zo is sectie 7.1 onderdeel van hoofdstuk 7, en hoofdstuk 7 weer onderdeel van de standaard NEN 3610:2011 als geheel)</td>
           </tr>
         </tbody>
       </table>
@@ -466,8 +466,8 @@
     <!-- Sectie 6.2 -->
     <section id='nen3610ld-begrippen'>
       <h2>Begrippen</h2>
-      <p>Hoofdstuk drie van de NEN3610 standaard geeft de termen en definities die gelden voor toepassen van de NEN3610 standaard. Elke term en definitie is in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
-      <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>Hoofdstuk drie van de NEN 3610 standaard geeft de termen en definities die gelden voor toepassen van de NEN 3610 standaard. Elke term en definitie is in het NEN 3610 Linked Data model opgenomen als skos:Concept.</p>
+      <p>Hoofdstuk zeven van de NEN 3610 standaard beschrijft de basismodellen, in het bijzonder wordt in sectie 7.3 het semantisch model beschreven. Dit model geeft aanvullende terminologie en definities. Ook deze zijn in het NEN 3610 Linked Data model opgenomen als skos:Concept.</p>
       <p>De URI voor het begrippenkader zelf begint met <code>http://definities.geostandaarden.nl/nen3610/id/conceptscheme/</code>.</p>
       <p>Alle URI's voor begrippen beginnen met <code>http://definities.geostandaarden.nl/nen3610/id/concept/</code>.</p>
       <p>Een volledige beschrijving is te vinden op: <a href="http://definities.geostandaarden.nl/nen3610/doc/conceptscheme/NEN3610?term=">http://definities.geostandaarden.nl/nen3610/id/conceptscheme/NEN3610</a>. Een volledige <a>turtle</a> download is <a href="https://geonovum.github.io/NEN3610-Linkeddata/NEN3610-LD/begrippen.ttl">hier</a> te vinden.</p>
@@ -510,7 +510,7 @@
           </tr>
           <tr>
             <td>skos:ConceptScheme</td>
-            <td>Elke begrip is onderdeel van het NEN3610 begrippenkader. Dit begrippenkader is van het type skos:ConceptScheme.</td>
+            <td>Elke begrip is onderdeel van het NEN 3610 begrippenkader. Dit begrippenkader is van het type skos:ConceptScheme.</td>
           </tr>
           <tr>
             <td>skos:Concept</td>
@@ -534,7 +534,7 @@
           </tr>
           <tr>
             <td>skos:inScheme</td>
-            <td>Geeft aan tot welk begrippenkader het begrip behoort. In ons geval altijd het NEN3610 begrippenkader.</td>
+            <td>Geeft aan tot welk begrippenkader het begrip behoort. In ons geval altijd het NEN 3610 begrippenkader.</td>
           </tr>
           <tr>
             <td>skos:definition</td>
@@ -563,9 +563,9 @@
     <!-- Sectie 6.3 -->
     <section id='nen3610ld-ontologie'>
       <h2>Klassen en eigenschappen</h2>
-      <p>Hoofdstuk zeven van de NEN3610 standaard beschrijft de basismodellen. Het geeft de klassen en eigenschappen die gebruikt kunnen worden in informatiemodellen die gebaseerd zijn op de NEN3610 standaard.</p>
-      <p>Voor het realiseren van Linked Data modellen die op de NEN3610 standaard zijn gebaseerd, is dit het meest belangrijke onderdeel. Voor Linked Data geldt dat zoveel mogelijk gebruik wordt gemaakt van algemeen gebruikte <a>vocabulaires</a> en <a>ontologieën</a>. Met dit onderdeel van het NEN3610 Linked Data model, wordt een dergelijke ontologie gepubliceerd.</p>
-      <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze ontologie.</p>
+      <p>Hoofdstuk zeven van de NEN 3610 standaard beschrijft de basismodellen. Het geeft de klassen en eigenschappen die gebruikt kunnen worden in informatiemodellen die gebaseerd zijn op de NEN 3610 standaard.</p>
+      <p>Voor het realiseren van Linked Data modellen die op de NEN 3610 standaard zijn gebaseerd, is dit het meest belangrijke onderdeel. Voor Linked Data geldt dat zoveel mogelijk gebruik wordt gemaakt van algemeen gebruikte <a>vocabulaires</a> en <a>ontologieën</a>. Met dit onderdeel van het NEN 3610 Linked Data model, wordt een dergelijke ontologie gepubliceerd.</p>
+      <p>Modelleurs van Linked Data modellen die gebaseerd zijn op NEN 3610 MOETEN gebruik maken van deze klassen en eigenschappen, door rechtstreeks deze klassen en eigenschappen te gebruiken, of door aan te geven dat een eigen klasse of eigenschap een subklasse c.q. subeigenschap is van een klasse c.q. eigenschap uit deze ontologie.</p>
       <p>De URI voor zowel klassen als eigenschappen begint met <code>http://definities.geostandaarden.nl/def/nen3610#</code>.</p>
       <p>Daarbij geldt dat de verwijzing naar een klasse altijd begint met een hoofdletter (UpperCamelCase) en de verwijzing naar een eigenschap altijd begint met een kleine letter (lowerCamelCase)</p>
       <p>Een volledige beschrijving is te vinden op: <a href="http://definities.geostandaarden.nl/def/nen3610">http://definities.geostandaarden.nl/def/nen3610</a></p>
@@ -618,19 +618,19 @@
           </tr>
           <tr>
             <td>owl:Ontology</td>
-            <td>Alle klassen en eigenschappen zijn onderdeel van een <a>ontologie</a>, in ons geval de NEN3610 Vocabulaire</td>
+            <td>Alle klassen en eigenschappen zijn onderdeel van een <a>ontologie</a>, in ons geval de NEN 3610 Vocabulaire</td>
           </tr>
           <tr>
             <td>owl:Class</td>
-            <td>Alle klassen uit de NEN3610 standaard zijn getypeerd als owl:Class</td>
+            <td>Alle klassen uit de NEN 3610 standaard zijn getypeerd als owl:Class</td>
           </tr>
           <tr>
             <td>owl:DatatypeProperty</td>
-            <td>Alle attribuut-eigenschappen uit de NEN3610 standaard zijn getypeerd als owl:DatatypeProperty</td>
+            <td>Alle attribuut-eigenschappen uit de NEN 3610 standaard zijn getypeerd als owl:DatatypeProperty</td>
           </tr>
           <tr>
             <td>owl:ObjectProperty</td>
-            <td>Alle associatie-eigenschappen (associaties tussen twee klassen) uit de NEN3610 standaard zijn getypeerd als owl:ObjectProperty</td>
+            <td>Alle associatie-eigenschappen (associaties tussen twee klassen) uit de NEN 3610 standaard zijn getypeerd als owl:ObjectProperty</td>
           </tr>
           <tr>
             <td>rdf:type</td>
@@ -646,7 +646,7 @@
           </tr>
           <tr>
             <td>dcterms:subject</td>
-            <td>Geeft de relatie tussen een klasse uit het basismodel, en een begrip uit het NEN3610 begrippenkader. Zo wordt de definitie van een klasse opgenomen bij het begrip, en volstaat daarmee een verwijzing naar het begrip voor de definitie van de klasse</td>
+            <td>Geeft de relatie tussen een klasse uit het basismodel, en een begrip uit het NEN 3610 begrippenkader. Zo wordt de definitie van een klasse opgenomen bij het begrip, en volstaat daarmee een verwijzing naar het begrip voor de definitie van de klasse</td>
           </tr>
           <tr>
             <td>skos:definition</td>
@@ -659,28 +659,28 @@
         </tbody>
       </table>
 
-      <p>Om de NEN3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN3610 ook "gelezen" worden in een bredere context.</p>
-      <p>Voor de verbinding van de NEN3610 klassen met de internationale standaarden, verbinden we het NEN3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
-      <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: <a href="https://schema.org/Place">schema:Place</a> en <a href="https://schema.org/AdministrativeArea">schema:AdministrativeArea</a>. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een rdfs:subClassOf schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een rdfs:subClassOf schema:AdministrativeArea.</p>
+      <p>Om de NEN 3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN 3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN 3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN 3610 ook "gelezen" worden in een bredere context.</p>
+      <p>Voor de verbinding van de NEN 3610 klassen met de internationale standaarden, verbinden we het NEN 3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
+      <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: <a href="https://schema.org/Place">schema:Place</a> en <a href="https://schema.org/AdministrativeArea">schema:AdministrativeArea</a>. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN 3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een rdfs:subClassOf schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een rdfs:subClassOf schema:AdministrativeArea.</p>
     </section>
 
     <!-- Sectie 6.4 -->
     <section id="nen3610-gegevensregels">
       <h2>RDF Gegevensregels</h2>
-      <p>Bij het opstellen van een Linked Data model op basis van NEN3610 dient de opsteller zich te houden aan de gegevensregels in deze sectie. Deze gegevensregels zijn afgeleid van de gegevensregels uit sectie 7.2 van de NEN3610 standaard. De gegevensregels zijn toegesplitst op de RDF structuur van de standaard, die vanwege de aard van Linked Data op punten anders is dan de UML standaard.</p>
+      <p>Bij het opstellen van een Linked Data model op basis van NEN 3610 dient de opsteller zich te houden aan de gegevensregels in deze sectie. Deze gegevensregels zijn afgeleid van de gegevensregels uit sectie 7.2 van de NEN 3610 standaard. De gegevensregels zijn toegesplitst op de RDF structuur van de standaard, die vanwege de aard van Linked Data op punten anders is dan de UML standaard.</p>
 
       <!-- Sectie 6.4.1 -->
       <section id="nen3610id">
         <h3>URI template en NEN3610ID</h3>
         <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NE3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
         <p><img src="media/gegevensregel-identificatie.png"/></p>
-        <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de <code>namespace</code>-eigenschap uit de NEN3610-identificatie al een URI-namespace is, kan als het sjabloon <code>{namespace}{lokaalID}{versie}</code> worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon <code>http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}</code>. De <code>rdf:value</code> mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon <code>{namespace}{lokaalID}{versie}</code></p>
+        <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de <code>namespace</code>-eigenschap uit de NEN 3610-identificatie al een URI-namespace is, kan als het sjabloon <code>{namespace}{lokaalID}{versie}</code> worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon <code>http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}</code>. De <code>rdf:value</code> mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon <code>{namespace}{lokaalID}{versie}</code></p>
       </section>
       <section id="provenance">
         <h3>Temporele kenmerken en versies</h3>
-        In het NEN3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de eigenschappen van de registratiemetadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
+        In het NEN 3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de eigenschappen van de registratiemetadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
         <p><img src="media/gegevensregel-provenance.png"/></p>
-        <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN3610.</p>
+        <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN 3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN 3610.</p>
         <p>De eigenschappen <code>prov:generatedAtTime</code> en <code>prov:invalidatedAtTime</code> komen daarbij overeen met de formele historie-eigenschappen tijdstipRegistratie en eindRegistratie.</p>
         <p>In het model is niet expliciet de levensduur-eigenschappen opgenomen. Deze zijn af te leiden uit de afzonderlijke eigenschappen en uit de optionele relatie tussen GeoObjectRegistraties.</p>
       </section>
@@ -688,14 +688,14 @@
 
     <!-- Sectie 6.5 -->
     <section id="nen3610-ld-gebruik">
-      <h2>Gebruik van het NEN3610 Linked Data model</h2>
-      <p>Partijen die Linked Data datasets publiceren die gebaseerd zijn op de NEN3610 standaard MOETEN daarbij de volgende regels in acht nemen:</p>
+      <h2>Gebruik van het NEN 3610 Linked Data model</h2>
+      <p>Partijen die Linked Data datasets publiceren die gebaseerd zijn op de NEN 3610 standaard MOETEN daarbij de volgende regels in acht nemen:</p>
 
       <!-- Sectie 6.5.1 -->
       <section id="nen3610-ld-gebruik-begrippen">
-        <h3>Maak gebruik van de NEN3610 begrippen</h3>
-        <p>Indien een eigen begrippenkader wordt gehanteerd, MOET daarbij verwezen worden naar de NEN3610 begrippen waar dit van toepassing is. Daarbij MOET gebruik worden gemaakt van de juiste eigenschappen uit de <a>SKOS</a> vocabulaire.</p>
-        <p>Onderstaand voorbeeld geeft aan hoe een begrip uit IM-Golf op de juiste wijze verwijst naar een NEN3610 begrip</p>
+        <h3>Maak gebruik van de NEN 3610 begrippen</h3>
+        <p>Indien een eigen begrippenkader wordt gehanteerd, MOET daarbij verwezen worden naar de NEN 3610 begrippen waar dit van toepassing is. Daarbij MOET gebruik worden gemaakt van de juiste eigenschappen uit de <a>SKOS</a> vocabulaire.</p>
+        <p>Onderstaand voorbeeld geeft aan hoe een begrip uit IM-Golf op de juiste wijze verwijst naar een NEN 3610 begrip</p>
         <pre class='ex-turtle'>
 @prefix nen3610-begrip: &lt;http://definities.geostandaarden.nl/nen3610/id/concept/>.
 @prefix imgolf-begrip: &lt;http://definities.geostandaarden.nl/imgolf/id/concept/>.
@@ -710,10 +710,10 @@ imgolf-begrip:Golfbaan a skos:Concept;
 
       <!-- Sectie 6.5.2 -->
       <section id="nen3610-ld-gebruik-vocabulaire">
-        <h3>Maak gebruik van de NEN3610 vocabulaire</h3>
-        <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN3610 vocabulaire, voor zover van toepassing.</p>
-        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN3610 eigenschappen.</p>
-        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN3610 vocabulaire.</p>
+        <h3>Maak gebruik van de NEN 3610 vocabulaire</h3>
+        <p>De klassen en eigenschappen die gebruikt worden in de Linked Dataset MOETEN direct of indirect verwijzen naar de klassen en eigenschappen van de NEN 3610 vocabulaire, voor zover van toepassing.</p>
+        <p>Voor klassen zal meestal gelden dat een subklasse is gedefinieerd, voor eigenschappen ligt meer voor de hand om rechtstreeks gebruik te maken van de NEN 3610 eigenschappen.</p>
+        <p>Onderstaand voorbeeld geeft aan hoe een voorkomen en een klasse uit IM-Golf op de juiste wijze verwijst naar de NEN 3610 vocabulaire.</p>
         <p>In dit voorbeeld is ook de relatie gelegd tussen de klasse <code>imgolf:Golfbaan</code> en het begrip "Golfbaan". Een goede gewoonte is om hiervoor <code>dct:subject</code> te gebruiken.</p>
         <p>Tenslotte laat dit voorbeeld ook zien hoe je vanuit eigen data rechtstreeks kunt verwijzen naar data van een ander. Een goede gewoonte is om hiervoor de URI uit de data van de andere te gebruiken als deze beschikbaar is.</p>
         <pre class='ex-turtle'>
@@ -750,7 +750,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <!-- Sectie 6.6 -->
     <section id="metadata">
       <h2>Metadata van datasets</h2>
-      <p>Hoofdstuk 10 van de NEN3610 behandelt metadata. Onder metadata wordt in deze norm verstaan: informatie die ruimtelijke datasets en datasetseries beschrijft die het mogelijk maakt om deze te zoeken, te evalueren en te gebruiken. Dit is een beperkte definitie omdat hij alleen betrekking heeft op datasets en datasetseries. Metadata moet voldoen aan het Nederlandse profiel op NEN-EN-ISO 19115 voor Geografie.</p>
+      <p>Hoofdstuk 10 van de NEN 3610 behandelt metadata. Onder metadata wordt in deze norm verstaan: informatie die ruimtelijke datasets en datasetseries beschrijft die het mogelijk maakt om deze te zoeken, te evalueren en te gebruiken. Dit is een beperkte definitie omdat hij alleen betrekking heeft op datasets en datasetseries. Metadata moet voldoen aan het Nederlandse profiel op NEN-EN-ISO 19115 voor Geografie.</p>
       <p>Voor een Linked Data model betekent dit dat voor metadata gebruik gemaakt moet worden van de [[geodcat-ap]] standaard, de Linked Data invulling voor de [[iso-19115-1-2014]] standaard voor het beschrijven van metadata over geometrische datasets.</p>
       <p>Concreet betekent dit dat elke dataset of datasetserie als <code>dcat:Dataset</code>-klasse kan worden beschreven, waarbij de metadata wordt geregistreerd via de eigenschappen van instanties van deze klasse.</p>
     </section>
@@ -963,7 +963,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <section id='regels-klassen-algemeen'>
             <h5>Klassen algemeen</h5>
             <p>
-              Een klasse in een NEN3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse. Voor elke klasse wordt ook een instantie van <code>sh:NodeShape</code> geïntroduceerd als aanknopingspunt voor de gegevensregels uitgedrukt in SHACL.
+              Een klasse in een NEN 3610 UML model wordt als instantie van <code>owl:Class</code> gemodelleerd. Daarnaast wordt de naam van de klassen als <code>rdfs:label</code> eigenschap opgenomen bij de klasse. Voor elke klasse wordt ook een instantie van <code>sh:NodeShape</code> geïntroduceerd als aanknopingspunt voor de gegevensregels uitgedrukt in SHACL.
             </p>
             <pre class='ex-turtle'>
 #-------------------#
@@ -991,7 +991,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
 :hole1 a imgolf:Parcours .
             </pre>
             <aside class='note'>
-              In een NEN3610 model kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
+              In een NEN 3610 model kunnen zowel abstracte als concrete klassen voorkomen. In UML kun je daarvan afleiden dat je geen instanties mag hebben van abstracte klassen, maar alleen van concrete klassen. In RDF wordt geen onderscheid gemaakt tussen het abstract of concreet zijn van klassen. In RDF worden klassen beschouwd als sets van dingen. Als je een set kunt beschrijven, dan kunnen er ook dingen zijn die tot die set behoren.
             </aside>
           </section>
 
@@ -999,8 +999,8 @@ imgolf-sh:Parcours a sh:NodeShape ;
           <section id='regels-klassen-featureType'>
             <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
-              Een NEN3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In Linked Data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in Linked Data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN3610 klassen.
-              De NEN3610 klassen zijn subklassen van <code>nen3610:GeoObject</code> welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire (<code>gsp:Feature</code>). Hiermee kunnen alle instanties van de NEN3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
+              Een NEN 3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In Linked Data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in Linked Data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN 3610 klassen.
+              De NEN 3610 klassen zijn subklassen van <code>nen3610:GeoObject</code> welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire (<code>gsp:Feature</code>). Hiermee kunnen alle instanties van de NEN 3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
             </p>
             <pre class='ex-turtle'>
 imgolf:Golfbaan a owl:Class ;
@@ -1019,7 +1019,7 @@ nen3610:GeoObject rdfs:subClassOf gsp:Feature .
           <section id='regels-klassen-dataType'>
             <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
             <p>
-              Een NEN3610 UML klasse met stereotype &laquo;dataType&raquo; wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap schrijft.
+              Een NEN 3610 UML klasse met stereotype &laquo;dataType&raquo; wordt toegepast wanneer er sprake is van een samenstelling van attributen die een eigenschap schrijft.
             </p>
             <p>
               Het is niet mogelijk om voor deze <a>datatypen</a> een standaard transformatieregel te beschrijven die in alle gevallen de semantisch correcte betekenis van het datatype uitdrukt. Dit is afhankelijk van wat het samenstel van attributen uitdrukt. Daarom wordt een klasse met stereotype &laquo;dataType&raquo; standaard getransformeerd naar een normale klasse met eigenschappen.
@@ -1367,7 +1367,7 @@ imgolf-sh:Golfbaan a sh:NodeShape ;
           <section id='regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
-              Een attribuut in een NEN3610 UML model wordt vertaald naar een <code>owl:DatatypeProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.<br>
+              Een attribuut in een NEN 3610 UML model wordt vertaald naar een <code>owl:DatatypeProperty</code> wanneer het verwijst naar een letterlijk datatype. Hierbij wordt gebruik gemaakt van een owl:Restriction om de klasse waarop het attribuut voorkomt te koppelen en het bereik van de waarde te bechrijven.<br>
               In de bijbehorende gegevensregel wordt het attribuut aan de klasse gekoppeld via <code>sh:property</code> en <code>sh:path</code> en wordt het datatype beschreven met <code>sh:datatype</code>.
             </p>
             <aside class="note">
@@ -1418,7 +1418,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
             <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
             <p>
               Er is geen transformatie nodig voor attributen met dit stereotype. Voorkomens van deze identificaties kunnen direct gebruik maken van de identificatie constructen in het <a href="https://definities.geostandaarden.nl/def/nen3610#">NEN3610 vocabulaire</a>.
-              Op basis van het NEN3610 vocabulaire kan een identificatie-instantie er zo uit zien:
+              Op basis van het NEN 3610 vocabulaire kan een identificatie-instantie er zo uit zien:
             </p>
             <pre class='ex-turtle'>
 ex:NL.IMGOLF.1-v01 a imgolf:Golfbaan ;
@@ -1642,7 +1642,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document, prov:Entity ;        # De 
 .
             </pre>
             <p>
-              Door ook hier de set uitdrukkingen te representeren als <a>information resource</a> kunnen we uitdrukkingen doen over de formele historie van deze information resource. Dit maakt het mogelijk om verschillende information resources over dezelfde <a>non-information resource</a> naast elkaar te kunnen laten bestaan. Bij Linked Data publicatie kan hiermee de gewenste versie gepubliceerd worden. De NEN3610 ontologie biedt ook hier een standaar shape contructie voor. Hier wordt gebruik gemaakt van de <a href='http://www.w3.org/ns/prov#'>PROV ontologie</a> om de registratiemetadata uit te drukken.
+              Door ook hier de set uitdrukkingen te representeren als <a>information resource</a> kunnen we uitdrukkingen doen over de formele historie van deze information resource. Dit maakt het mogelijk om verschillende information resources over dezelfde <a>non-information resource</a> naast elkaar te kunnen laten bestaan. Bij Linked Data publicatie kan hiermee de gewenste versie gepubliceerd worden. De NEN 3610 ontologie biedt ook hier een standaard shape contructie voor. Hier wordt gebruik gemaakt van de <a href='http://www.w3.org/ns/prov#'>PROV ontologie</a> om de registratiemetadata uit te drukken.
             </p>
             <p><b>vergelijking met andere best practices</b><br>
               Geen.
@@ -1656,7 +1656,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document, prov:Entity ;        # De 
               Een attribuut met stereotype &laquo;materieleLevensduur&raquo; drukt het complete tijdsinterval van geldigheid van het object in de werkelijkheid uit [[NEN3610]]. In een Linked Data context is het duidelijker om te zeggen: "Een attribuut met stereotype &laquo;materieleLevensduur&raquo; is een attribuut voor het vastleggen van de tijdsinterval van werkelijk voorkomen van geldige uitdrukkingen over een object in de werkelijkheid".
             </p>
             <p>
-              Net als materiële historie, zegt materiële levensduur iets over een set uitdrukkingen over een (geo-)object. Echter, het is in een linked data context niet correct om de eigenschap <code>beginTijd</code> uit [[NEN3610]] op het niveau van de information resource te plaatsen, gezien het daar geen intrinsieke eigenschap van is. Immers, dezelfde waarde voor de eigenschap zal dan worden herhaald op elke versie van de gegevensset over het object. Om deze reden is in de NEN3610 ontologie een nieuwe eigenschap geïntroduceerd: <code>nen3610:vorigeGeldigeVersie</code>. Met deze eigenschap kan een opeenvolging van versies van materieel geldende beschrijvingen van een object uitgedrukt worden. Hiermee kan, in combinatie met de eigenschappen voor materiele historie, bepaald worden wat de materiële levensduur van een object is.
+              Net als materiële historie, zegt materiële levensduur iets over een set uitdrukkingen over een (geo-)object. Echter, het is in een linked data context niet correct om de eigenschap <code>beginTijd</code> uit [[NEN3610]] op het niveau van de information resource te plaatsen, gezien het daar geen intrinsieke eigenschap van is. Immers, dezelfde waarde voor de eigenschap zal dan worden herhaald op elke versie van de gegevensset over het object. Om deze reden is in de NEN 3610 ontologie een nieuwe eigenschap geïntroduceerd: <code>nen3610:vorigeGeldigeVersie</code>. Met deze eigenschap kan een opeenvolging van versies van materieel geldende beschrijvingen van een object uitgedrukt worden. Hiermee kan, in combinatie met de eigenschappen voor materiele historie, bepaald worden wat de materiële levensduur van een object is.
             </p>
             <pre class='ex-turtle'>
 #-------------------------#
@@ -1802,7 +1802,7 @@ ex-doc:201801011/parcours-NL.IMGOLF.4 a foaf:Document, prov:Entity ;
           <section id='regels-associaties-simpel'>
             <h5>Simpele associaties</h5>
             <p>
-              Een simpele associatie is een associatie tussen twee klassen, zonder extra eigenschappen. Een simpele associatie in een NEN3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt, op vergelijkbaar met attributen, gekoppeld met de klasse waarop het voorkomt en de klasse waarnaar de associatie verwijst.<br>
+              Een simpele associatie is een associatie tussen twee klassen, zonder extra eigenschappen. Een simpele associatie in een NEN 3610 UML model wordt gemodelleerd als <code>owl:ObjectProperty</code> in een RDF model en wordt, op vergelijkbaar met attributen, gekoppeld met de klasse waarop het voorkomt en de klasse waarnaar de associatie verwijst.<br>
               De SHACL shape is ook vergelijkbaar met die van attributen. Het verschil hier is dat er in plaats van <code>sh:datatype</code>, <code>sh:class</code> wordt gebruikt voor het aanduiden van de klasse waarnaar de associatie verwijst.
             </p>
             <pre class='ex-turtle'>
@@ -1876,7 +1876,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
           <section id='regels-associaties-gen-spec'>
             <h5>Generalisatie/Specialisatie</h5>
             <p>
-              Generalisatie- en specialisatie-associaties tussen klassen in een UML NEN3610 model worden in RDF modellen gemodelleerd als subtype-associatie, uitgedrukt met een <code>rdfs:subClassOf</code> relatie tussen de betrokken klassen.<br>
+              Generalisatie- en specialisatie-associaties tussen klassen in een UML NEN 3610 model worden in RDF modellen gemodelleerd als subtype-associatie, uitgedrukt met een <code>rdfs:subClassOf</code> relatie tussen de betrokken klassen.<br>
               Omdat SHACL node shapes van een klasse ook gelden voor haar subklassen wordt er enkel een node shape gemaakt wanneer de subklasse eigenschappen heeft die de superklasse niet heeft.
             </p>
             <pre class='ex-turtle'>
@@ -1903,7 +1903,7 @@ imgolf:Parcours a owl:Class ;
         <section id='regels-attributen-kardinaliteit'>
           <h4>Kardinaliteit</h4>
           <p>
-            Kardinaliteit in een NEN3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked Data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie in de ontologie geen uitspraken over gedaan.<br>
+            Kardinaliteit in een NEN 3610 UML model geven aan hoeveel waardes een attribuut kan hebben, of hoe vaak een associatie op een instantie van een klasse kan voorkomen. RDF Linked Data gaat echter uit van de open world assumption. In OWL kun je wel kardinaliteit van eigenschappen uitdrukken om bepaalde (sub)sets van een werkelijkheid te beschrijven, maar niet om een aantal voorkomens van een eigenschap te beperken. Gezien het lastig is om, zonder uitleg van de maker van een UML model, te bepalen wat de betekenis is van de gemodelleerde kardinaliteiten worden er bij de standaard transformatie in de ontologie geen uitspraken over gedaan.<br>
             Met SHACL kunnen we wel de gesloten wereld beschrijven en kunnen we de kardinaliteit die het UML model uitdrukt prima aan. In SHACL gebruiken we daarvoor <code>sh:minCount</code> en <code>sh:maxCount</code> voor.
           </p>
         </section>
@@ -2003,7 +2003,7 @@ imgolf-beg:Parcours a skos:Concept ;
             <section id='dso-regels-klassen-dataType'>
               <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
               <p>
-                Zoals opgemerkt in <a href='#regels-klassen-dataType'></a> is het bij het transformeren van een Een NEN3610 UML klasse met stereotype &laquo;dataType&raquo; belangrijk om te goed te kijken naar wat het samenstel van attributen van de klasse uitdrukt.
+                Zoals opgemerkt in <a href='#regels-klassen-dataType'></a> is het bij het transformeren van een NEN 3610 UML klasse met stereotype &laquo;dataType&raquo; belangrijk om te goed te kijken naar wat het samenstel van attributen van de klasse uitdrukt.
               </p>
               <p>
                 Neem bijvoorbeeld dit datatype uit IMRO2012 die een relatie van het ene plan naar een ander plan beschrijft.
@@ -2563,9 +2563,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
   ] ;
 .
               </pre>
-              <aside class='issue'>
-                pano (20190620): Moeten we iets dergelijks opnemen in de ontologie? Of laten we het over aan de implementatie?
-              </aside>
+              
             </section>
 
             <!-- Sectie 7.4.2.2.2.4 -->
@@ -2887,7 +2885,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 
           <ol>
             <li>Importeren van het kernmodel van COINS2: http://www.coinsweb.nl/cbim-2.0.rdf# </li>
-            <li>Het NEN3610 model zelf transformeren naar een <a>OTL</a> </li>
+            <li>Het NEN 3610 model zelf transformeren naar een <a>OTL</a> </li>
             <li>Het IMGolf 'standaard' model transformeren naar een <a>OTL</a> </li>
           </ol>
 
@@ -3746,7 +3744,7 @@ imgolf:Parcours
       <img src="media/mof.png" width="800">
       <p>Van de golfbaan hebben we zowel vier verschijningsvormen op het niveau van M0 (de concrete data) als van M1 (het model):</p>
       <ul>
-        <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de <a>GML</a> representatie (M0) conform NEN3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i> (M1)</li>
+        <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de <a>GML</a> representatie (M0) conform NEN 3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i> (M1)</li>
         <li><i>Voorbeeld golfbaan.ttl</i> betreft een DSO representatie (M0) conform SHACL/OWL/RDFS zoals gemodelleerd in <i>IM Golf.ttl</i> (M1)</li>
         <li><i>data-imgolf.ttl</i> betreft een COINS uitwisselingsbestand (M0) zoals gemodelleerd in <i>IMGolf-coins.ttl</i> (M1)</li>
         <li><i>IMGolf_Voorbeeld_Golfbaan.ttl</i> betreft een GWSW uitwisselingsbestand (M0) zoals gemodelleerd in <i>IMGolf.orox.ttl</i> (M1)</li>
@@ -3760,13 +3758,13 @@ imgolf:Parcours
       <section id='huidige gebruik'>
         <h3>Huidige stijlen in gebruik</h3>
 
-        <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN3610 informatie als Linked Data:</p>
+        <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN 3610 informatie als Linked Data:</p>
         <ul>
           <li><a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF</a>: OroX-protocol voor het Gegevenswoordenboek Stedelijk Water</li>
           <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
           <li>DSO: beschrijving t.b.v. het DSO op basis van de <a>W3C</a> specificaties <a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a></li>
         </ul>
-        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor 1 source (een UML model of XML/GML bestand conform NEN3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor 1 source (een UML model of XML/GML bestand conform NEN 3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
 
         <p> Voor een deel zijn deze verschillen verklaarbaar doordat er bij elke stijl een verschillende focus is op beoogde doelen of use cases die bediend moeten worden. Deze verschillen uiten zich onder andere in het gebruik van verschillende Linked Data <a>vocabulaires</a> RDF, RDFS, SKOS, OWL en SHACL. Voor elke stijl wordt in onderstaande matrixen de use cases en de gerelateerde vocabulaires aangegeven.</p>
 
@@ -3940,9 +3938,9 @@ imgolf:Parcours
       </section>
 
       <section id='gebruikvoornen3610'>
-        <h3>NEN3610 use cases en requirements</h3>
+        <h3>NEN 3610 use cases en requirements</h3>
 
-        <p>Op basis van de NEN3610 use cases, is ook vast te stellen welke vocabulaires het beste gebruikt kunnen worden voor een basis NEN3610-stijl.</p>
+        <p>Op basis van de NEN 3610 use cases, is ook vast te stellen welke vocabulaires het beste gebruikt kunnen worden voor een basis NEN 3610-stijl.</p>
 
         <table>
           <tbody>
