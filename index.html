@@ -3714,13 +3714,10 @@ imgolf:Parcours
             <li>Een blank node propertyshape kun je zien als een complexe eigenschap bij een klasse</li>
           </ul>
         </li>
+        <li>Een minimale cardinaliteit (<code>sh:minCount</code>) wordt vastgesteld door te tellen hoevaak een bepaalde eigenschap voorkomt. Is er minimaal één exemplaar van een specifieke klasse die een eigenschap <i>niet</i> heeft, dan is de minimum cardinaliteit 0.</li>
+        <li>Een maximale cardinaliteit (<code>sh:maxCount</code>) wordt vastgesteld door te tellen hoevaak een bepaalde eigenschap voorkomt bij een specifieke klasse. Het totaal antal wordt de maximum cardinaliteit (dit getal is feitelijk alleen zinvol voor inzicht in de huidige dataset. Meestal zal een maximale waarde van meer dan 1 betekenen dat er feitelijk geen maximum is.</li>
+        <li>Indien een exemplaar van een klasse ook altijd een exemplaar is van een andere klasse, dan wordt dit weergegeven middels de "implementeert" relatie (door een propertyshape waarbij veronderstelt wordt dat <code>rdf:type</code> altijd beide klassen omvat).</li>
       </ol>
-      <p>Bovenstaande zou nog verder uitgebreid kunnen worden. Te denken valt bijvoorbeeld aan:</p>
-      <ul>
-        <li>Achterhalen van minimale cardinaliteit (bv: "1" indien in de data een eigenschap ALTIJD voorkomt)</li>
-        <li>Achterhalen van maximale cardinaliteit (bv: "1" indien in de data een eigenschap NOOIT MEER DAN 1x voorkomt, of "2 indien in de data een eigenschap ALTIJD 2 KEER voorkomt)</li>
-        <li>Specialisaties achterhalen (bv: indien bepaalde eigenschappen in meerdere klassen voorkomen, dan kun je een superklasse veronderstellen met de gedeelde eigenschappen)</li>
-      </ul>
       <p>Vanzelfsprekend kan alleen maar die dingen gegenereerd worden die ook in de brondata zitten. Uitleg of afwijkende namen zijn niet mogelijk, en ook kunnen cardinaliteiten of subklassificaties niet met zekerheid worden afgeleid.</p>
       <p>Een gegenereerde IMGolf model zal afwijken van een met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
       <p>Ook is het niet mogelijk om deze aanpak te gebruiken voor de <a>UML</a> / <a>GML</a> data, aangezien dit geen Linked Data is en dus niet generiek in te lezen is (hier zou dus eerst een basale vertaling van GML naar Linked Data gemaakt moeten worden.</p>
