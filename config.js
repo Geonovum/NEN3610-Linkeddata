@@ -1,7 +1,7 @@
 var respecConfig = {
   specStatus: "GN-CV",
   specType: "ST",
-  publishDate: "2019-07-12",
+  publishDate: "2019-07-15",
   editors: [{
     name: "Paul Janssen",
     company: "Geonovum",
