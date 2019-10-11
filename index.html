@@ -4,7 +4,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="content-type">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel='shortcut icon' type='image/x-icon' href='https://tools.geostandaarden.nl/respec/media/logos/Geonovum.ico' />
+  <link rel='shortcut icon' type='image/x-icon' href='https://tools.geostandaarden.nl/respec/style/logos/Geonovum.ico' />
   <link rel="stylesheet" type="text/css" href="localstyle.css" />
   <title>NEN 3610 Linked Data Profiel</title>
   <script class="remove" src="config.js"></script>
@@ -30,7 +30,7 @@
 -->
 
   <section id='sotd'>
-    <p> - Dit document is in bewerking - </p>
+    
   </section>
 
   <section id="abstract" data-include="samenvatting.html"></section>
@@ -39,24 +39,30 @@
   <section id='inleiding' class="informative">
     <h1>Inleiding</h1>
 
-    <p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee niet voorbereid om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
+    <p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
 
     <p>NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
-      In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als Linked Data betrokken zijn samen te brengen rond het onderdwerp NEN 3610 toegepast in Linked Data. Het doel daarvan is te komen tot een gezamelijke werkwijze die zorgt voor interoperabiliteit tussen linked geo-data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.</p>
+      In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als Linked Data betrokken zijn samen te brengen rond het onderwerp NEN 3610 toegepast in Linked Data. Het doel daarvan is te komen tot een gezamelijke werkwijze die zorgt voor interoperabiliteit tussen Linked geo-Data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.</p>
 
-    <p>Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, te implementeren in Linked Data. De relatie tussen het bronmodel, het NEN 3610 informatiemodel, en het doel, het <a>vocabulaire</a> en de <a>ontologie</a>, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-linked-data codering maar specifiek die van uit een NEN 3610 bronmodel.</p>
+    <p>Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, te implementeren in Linked Data. De relatie tussen het bronmodel, het NEN 3610 informatiemodel, en het doel, het <a>vocabulaire</a> en de <a>ontologie</a>, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-Linked Data codering maar specifiek die van uit een NEN 3610 bronmodel.</p>
 
     <P>Als resultaat worden de volgende producten ontwikkeld:</p>
-    <p>1) De NEN 3610 ontologie. De standaard NEN 3610 vertaald naar een LD implementatie.</p>
-    <p>Hiermee wordt het vocabulaire gerealiseerd dat als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data toe te passen.</p>
-    <P>Het hiermee gecreërde vocabulaire wordt de kandidaat standaard voor de ontologie van NEN 3610.</p>
-
-    <p>2) Transformatieregels of coderingsregels voor een vertaling van een NEN 3610-UML informatiemodel naar een Linked Data omgeving.</p>
-    <p>De transformatieregels zijn een handreiking voor het omzetten van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is naar de verschillende Linked Data vocabulaires die hiervoor van toepassing zijn: <a>RDF</a>, <a>RDFS</a>, <a>SKOS</a>, <a>OWL</a> en <a>SHACL</a>. </p>
-
+    <ol>
+      <li>
+        <p>De NEN 3610 ontologie. De standaard NEN 3610 vertaald naar een LD implementatie.</p>
+        <p>Hiermee wordt het vocabulaire gerealiseerd dat als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data toe te passen.</p>
+        <P>Het hiermee gecreërde vocabulaire wordt de kandidaat standaard voor de ontologie van NEN 3610.</p>
+      </li>
+      <li>
+        <p>Transformatieregels of coderingsregels voor een vertaling van een NEN 3610-UML informatiemodel naar een Linked Data omgeving.</p>
+        <p>De transformatieregels zijn een handreiking voor het omzetten van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is naar de verschillende Linked Data vocabulaires die hiervoor van toepassing zijn: <a>RDF</a>, <a>RDFS</a>, <a>SKOS</a>, <a>OWL</a> en <a>SHACL</a>. </p>
+      </li>
+    </ol>
     <p>Bij het maken van een informatiemodel staat de use case altijd centraal als kader waaraan een model moet voldoen. Dit geldt ook voor de transformatie van een NEN 3610 model naar Linked Data. De Linked Data toepassing kan een ander doel hebben dan met het NEN 3610 model beoogd is. Er zijn wat dat betreft ook verschillende alternatieve oplosingen voor de transformatie mogelijk. Waar dat zo is geven we dat in dit document aan.</p>
 
     <p>Het project is een open samenwerking tussen de geïnteresseerde partijen. Doormiddel van kennisdeling en aansluiting bij internationale ontwikkelingen wordt er toe gewerkt naar een nationaal en internationaal afgestemd resultaat.</p>
+
+    <p>Dit document beschrijft het NEN 3610 Linked Data profiel. Het betreft een standaard, als aanvulling op de bestaande NEN 3610 standaard. Het normatieve deel van deze standaard is beschreven in hoofdstuk zes. De overige hoofdstukken zijn informatief en bieden best practices in het gebruik van de standaard.</p>
 
     <p><b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel Linked Data ingezet wordt door middel van een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Hoofdstuk drie schetst de gebruikstoepassing die met de toepassing van NEN 3610 en NEN 3610 modellen in een Linked Data omgeving bedient wordt en beschrijft de reden waarom een NEN 3610-LD profiel relevant is. Er zijn ook internationaal initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk vier gegeven.</p>
 
@@ -71,28 +77,29 @@
     <p><a href="dataset/lod-nen3610.svg"><img src="dataset/lod-nen3610.png" alt="Click for interactive SVG"/></a></p>
     <p>De intentie is om -als spin-off van de ontwikkeling van deze standaard- een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.</p>
     <p>De meest actuele versie van de Nederlandse LOD Cloud is <a href="dataset/lod-nen3610.html">hier</a> te vinden. De bron voor deze LOD cloud is ook als Linked Data opvraagbaar: <a href="dataset/lod-nen3610.ttl">lod-nen3610.ttl</a></p>
-    <p>Voor het beschrijven van een dataset wordt gebruik gemaakt van [[geodcat-ap]], de Linked Data invulling voor de [[iso-19115-1-2014]] standaard voor het beschrijven van metadata over geometrische datasets</a>
+    <p>Voor het beschrijven van een dataset wordt gebruik gemaakt van [[geodcat-ap]], de Linked Data invulling van de [[iso-19115-1-2014]] standaard voor het beschrijven van metadata over geometrische datasets.</a>
   </section>
 
   <!-- Hoofdstuk 3 -->
   <section id="usecases" class="informative">
     <h1>Use case voor een NEN 3610 Linked Data profiel</h1>
 
+    <p>De use case die we willen beantwoorden is:</p>
 
-    <p><b>De use case die we willen beantwoorden is:</b></p>
+    <blockquote>Creëren van interoperabiliteit tussen het stelsel van NEN 3610 informatiemodellen en de toepassing daarvan in Linked Data.</blockquote>
 
-    <p> Creëren van interoperabiliteit tussen het stelsel van NEN 3610 informatiemodellen en de toepassing daarvan in Linked Data.</p>
+    <p>Meer praktisch geformuleerd is dit te realiseren door:</p>
 
-    Meer praktisch geformuleerd is dit te realiseren door:
+    <blockquote>Informatiemodellen en data publicatie conform NEN 3610 vertalen naar kennismodellen en data publicatie conform Linked Data.</blockquote>
 
-    <p> Informatiemodellen en data publicatie conform NEN 3610 vertalen naar kennismodellen en data publicatie conform Linked Data.</p>
+    <p>Resultaat hiervan is:</p>
+    <ol>
+      <li>ontwikkelen van een standaard toepassing van NEN 3610 in Linked Data: NEN 3610-LD Profiel.</li>
+      <li>een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.</li>
+    </ol>
 
-    <p> Resultaat hiervan is: </p>
-    <p>1) ontwikkelen van een standaard toepassing van NEN 3610 in Linked Data: NEN 3610-LD Profiel.</p>
-    <p>2) een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.</p>
-
-    <P><b>Achtergrond:</b></p>
-    <p>Tot nu toe worden veel informatie standaarden in <a>UML</a> uitgedrukt. Het <a>Object Oriëntatie</a> paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de <a>werkelijkheid</a>. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moet worden gekoppeld. Begrippenkaders worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.</p>
+    <p><b>Achtergrond:</b></p>
+    <p>Tot nu toe worden veel informatie standaarden in <a>UML</a> uitgedrukt. Het <a>Object Oriëntatie</a> paradigma heeft zich over de afgelopen decennia ontwikkeld als raamwerk voor het ontwikkelen van modellen van de <a>werkelijkheid</a>. Het model gericht werken, of model driven approach (MDA) zorgt ervoor dat vanuit het UML afgeleide producten waaronder implementatieschema’s en software code gegenereerd kan worden. Voor het geo-informatiedomein heeft dit geleid tot standaardisatie in methodiek middels NEN 3610 en voor specifieke geo-informatie domeinen tot standaardisatie van semantiek. De use case is hierbij vooral gericht op informatie uitwisseling: data transport. In de implementatie daarvan staan applicaties centraal die data kunnen genereren, importeren, beheren en exporteren. In veel toepassingsdomeinen is deze standaardisatie gerealiseerd. De afgelopen jaren zijn steeds meer use-cases ontstaan waarbij informatie uit verschillende domeinen aan elkaar moet worden gekoppeld. Informatiemodellen worden daarmee integraler van opzet. Hier ligt een uitdaging: tijdens de ontwikkeling van modellen voor specifieke informatie domeinen worden impliciete aannames gemaakt die wel werken binnen een domein maar data integratie tussen domeinen kan compliceren. Deze aannames hebben invloed op de specifieke betekenis van de data: wat het wél vertegenwoordigd, maar vooral ook wat de data níet vertegenwoordigd. Deze aannames maken de datadefinities niet zozeer fout, maar het feit dat deze aannames impliciet zijn zorgt vaak voor problemen.</p>
 
     <p>Met (onder andere) deze uitdaging in gedachten, heeft het <a>W3C</a> een aantal 'recommendations' (standaarden) opgesteld omtrent Linked Data. Deze standaarden specificeren methoden om de aannames rond data definities meer expliciet te maken en daardoor op een machine leesbare manier meer betekenis aan de data te geven, specifiek met het oog op integratie van data uit verschillende bronnen. De implementatie context is daarbij het web. Hiermee wordt dus een beweging van applicatie gericht werken naar web gericht werken ondersteund.</p>
 
@@ -112,7 +119,7 @@
   <section id='inventarisatie' class="informative">
     <h1>Review beschikbare standaarden, handleidingen</h1>
 
-    <p>Er zijn een aantal standaarden en handleidingen die relevant zijn voor de implementatie van geo in LD. Het gaat hierbij specifiek om standaarden die gericht zijn op de relatie tussen modellering van geo-informatie en implementatie daarvan in LD. Van elke standaard wordt kort het toepassingsgebied, een samenvatting en de relevantie voor het NEN 3610 - LD profiel beschreven </p>
+    <p>Er zijn een aantal standaarden en handleidingen die relevant zijn voor de implementatie van geo in Linked Data. Het gaat hierbij specifiek om standaarden die gericht zijn op de relatie tussen modellering van geo-informatie en implementatie daarvan in Linked Data. Van elke standaard wordt kort het toepassingsgebied, een samenvatting en de relevantie voor het NEN 3610 - LD profiel beschreven.</p>
 
     <p>De volgende standaarden en handreikingen worden behandeld:</p>
     <ul>
@@ -147,7 +154,7 @@
       <p><b>url:</b> <a href=http://inspire-eu-rdf.github.io/inspire-rdf-guidelines/>http://inspire-eu-rdf.github.io/inspire-rdf-guidelines</a> </p>
       <p><b>type document:</b> richtlijn, best practice</p>
       <p><b>organisatie:</b> ARE3NA project "INSPIRE Re3ference Platform Phase 2"</p>
-      <p><b>scope:</b> Beschrijving van UML-RDF coderingsregels voor representatie van INSPIRE datasets in RDF. Voor INSPIRE is RDF een mogelijk optionele implementatie omgeving die naast het aanbebolen <a>GML</a> een rol kan spelen. Dit onderzoek naar optionele RDF codering komt voort uit de ondersteuning van het algemene e-government programma en de open data community.</p>
+      <p><b>scope:</b> Beschrijving van UML-RDF coderingsregels voor representatie van INSPIRE datasets in RDF. Voor INSPIRE is RDF een mogelijk optionele implementatie omgeving die naast het aanbevolen <a>GML</a> een rol kan spelen. Dit onderzoek naar optionele RDF codering komt voort uit de ondersteuning van het algemene e-government programma en de open data community.</p>
       <p><b>omschrijving:</b> Het document beschrijft UML-RDF coderingsregels. De coderingsregels conformeren aan ISO 19118:2011 Geographic information - Encoding. Coderingsregels voor <a>feature types</a>, attributen en associaties zijn opgenomen. Over <a>UML</a> als input in de coderingsregels wordt gezegd dat het door INSPIRE gebruikte UML profiel (in principe ISO 19109) geen extensie nodig is om zinvol te kunnen coderen naar RDF. De output is een combinatie van RDF Schema en OWL. Voor de RDF serialisatie wordt <a>Turtle</a> aanbevolen. <a>RDF/XML</a> serialisatie is ook opgenomen. Van alle UML constructies, van package, feature type, attributen, associaties, complexe <a>datatypen</a> etc. worden de RDF/Turtle en RDF/XML serialisatie gegeven. Men gaat daarbij niet altijd uit van een standaard mapping maar merkt op dat het voor komt dat men naar de bedoeling van specifieke UML constructies moet kijken hoe die in RDF moeten komen. Bijvoorbeeld een datatype dat een versimpelde vorm van een feature type voorstelt moet in RDF een feature type worden. Men noemt dit de Permission REC/OWL/type/mapping/dataTypeAsSpatialObjectTypeRepresentation. Interessant is ook dat er een transformatietabel is van ISO 19107 geometrietypen naar GML ontologieklassen van GeoSPARQL (<a href=http://www.opengis.net/ont/gml>http://www.opengis.net/ont/gml</a>). Bijvoorbeeld GM_Surface naar gmlowl:Surface.</p>
       <p><b>relevantie:</b> Zeer relevant voor dit onderzoek. Er worden explicite uitgangspunten gedefinieerd die als basis gelden voor de UML - RDF coderingsregels. Er wordt een format gebruikt om de regels in te specificeren dat mogelijk hergebruikt kan worden. Het document is geschikt voor de automatische conversie maar heeft ook afwegingen om daar van af te wijken. Voor het beschrijven van de automatische transformatie van de NEN 3610 UML naar  RDF wordt dit document als referentie gebruikt.</p>
       <p><b>inhoudelijke opmerkingen:</b> Alleen <a>RDFS</a> en <a>OWL</a> worden als <a>vocabulaire</a> gebruikt. Mogelijk is de codering vooral van uit het UML-GML perspectief ingestoken en mist het de RDF optimalisatie. Voor de NEN 3610 - UML RDF transformatie wordt dat toegevoegd.
@@ -234,9 +241,9 @@
         <li><a href="https://www.w3.org/TR/ld-bp/#HTTP-URIS">Good URIs for Linked Data</a> (Engels)</li>
         <li><a href="https://www.w3.org/TR/cooluris/">Cool URIs for the Semantic Web</a> (Engels)</li>
       </ul>
-      <aside class="note">Een IRI is gewoon een URI, maar beter internationaal bruikbaar omdat je in een IRI ook tekens uit niet-latijns schrift kan gebruiken.</aside>
+      <aside class="note">Een IRI is gewoon een URI, maar beter internationaal bruikbaar omdat je in een IRI ook tekens uit niet-latijns schrift kan gebruiken. En een URI is som ook gewoon een URL, dwz: als de identificatie ook een locatie op het web is (meestal begint zo'n URI dan met <code>http</code>, zoals in de adresbalk van je browser).</aside>
       <p>Het is daarnaast ook belangrijk om precies te zijn over het <a>subject</a> dat een IRI identificeert. Een verschil met administratieve systemen is dat het subject van een Linked Data bewering verwijst naar een ding uit het <a>beschouwingsgebied</a>. Het is in Linked Data belangrijk om heel precies te zijn over wat het onderwerp, het 'subject' van een <a>triple</a>, precies is. Een triple over een persoon heeft een ander onderwerp dan een triple over een document dat gaat over die persoon. In administratieve systemen zijn we niet gewend om zo precies te zijn: we impliceren dat een bestand met persoonsgegevens over een specifieke persoon gaat, zonder dat we direct de persoon identificeren.Vaak wordt in Linked Data onderscheid gemaakt tussen <a>information resources</a> en <a>non-information resources</a>. Een document of een database record over een persoon (de information resource) is iets anders dan de persoon zelf (de non-information resource). Als het bijvoorbeeld belangrijk is om onderscheid te maken tussen formele en materiële historie, zou je dit in Linked Data doen door deze twee vormen van historie aan twee verschillende subjecten te hangen: de geboortedatum aan de persoon, en de ontstaansdatum van de informatie aan het record of document.</p>
-      <p>Er is nog een ander belangrijk verschil tussen UML en OWL. Dit heeft te maken met de Unique Naming Assumption (<a>UNA</a>) in UML. Daarmee wordt namelijk gesteld dat een unieke ID naar een unieke entiteit verwijst en dat een unieke entiteit door 1 unieke ID wordt aangeduid. Dit betekent dat 2 objecten met 2 verschillende ID's nooit naar hetzelfde kunnen, dan wel mogen, verwijzen. In Linked Data is dit laatste wél mogelijk. Het idee is namelijk dat meerdere mensen iets over het zelfde ding kunnen zeggen, en dan kun je er vanuit gaan dat ze daar ook een andere ID voor hebben gebruikt. Door de <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a> relatie kan in Linked Data aangegeven worden dat twee verschillende ID's naar het zelfde ding verwijzen.</p>
+      <p>Er is nog een ander belangrijk verschil tussen UML en OWL. Dit heeft te maken met de Unique Naming Assumption (<a>UNA</a>) in UML. Daarmee wordt namelijk gesteld dat een unieke ID naar een unieke entiteit verwijst en dat een unieke entiteit door één unieke ID wordt aangeduid. Dit betekent dat 2 objecten met 2 verschillende ID's nooit naar hetzelfde kunnen, dan wel mogen, verwijzen. In Linked Data is dit laatste wél mogelijk. Het idee is namelijk dat meerdere mensen iets over het zelfde ding kunnen zeggen, en dan kun je er vanuit gaan dat ze daar ook een andere ID voor hebben gebruikt. Door de <a href="http://www.w3.org/2002/07/owl#sameAs">owl:sameAs</a> relatie kan in Linked Data aangegeven worden dat twee verschillende ID's naar het zelfde ding verwijzen.</p>
       <aside class="note">
         <h3>Consequenties voor NEN 3610</h3>
         <p>In NEN 3610:2011 zijn regels opgenomen voor identificatie. Deze regels moeten worden aangepast voor het toepassen van IRIs als identificatie, aangevuld met een regel en/of aanbevelingen voor het toepassen van meerdere unieke IDs voor hetzelfde ding in de werkelijkheid. Ook is het gewenst om het belang uit te leggen van het precies modelleren van het subject, zonder daarbij bijvoorbeeld het ding in de werkelijkheid en het object in de registratie samen te voegen in één klasse. </p>
@@ -246,7 +253,7 @@
     <!-- Sectie 5.3 -->
     <section id="basisprincipes-classificatie">
       <h2>Classificatie</h2>
-      <p>Het opstellen van een ontologie wordt ook wel "ontology engineering" genoemd. Bij het opstellen van een ontologie maak je expliciet welke kennis uit een domein relevant is. Een basisbeginsel daarbij is dat daadwerkelijk het domein wordt beschreven, en niet zozeer de gegevens die daarover opgeslagen worden. Een belangrijk instrument is daarbij de <i>classificatie</i>. Classificatie gaat over het benoemen van groepen (de "klassen") van dingen die een aantal eigenschappen overeen komen. Zo hebben "dingen" uit de groep van "golfbanen" overeen dat deze uit "holes" bestaat. Dus blijkbaar is de relatie van belang tussen een “golfbaan” en een “hole”. Daarnaast geldt voor de groep van "bosbanen" dat er veel bomen op het golfbaanterrein staan. Dus blijkbaar is een eigenschap als "bomen op de golfbaan" van belang. Tenslotte weten we dat elke bosbaan ook een golfbaan is, en daarmee kunnen we stellen dat de klasse van bosbanen een subklasse is van de klasse van golfbanen. Voor elke klasse moet gelden dat er een eigenschap is waarmee we elk voorbeeld van deze klasse uniek kunnen onderscheiden van een andere klasse. In het geval van de klasse van "bosbanen" kunnen we dat op basis van de eigenschap "bomen op de golfbaan". Het opstellen van een ontologie omvat dus het beschrijven van de groepen die we relevant vinden om te onderscheiden, de eigenschappen en relaties die daarbij een rol spelen, en regels waarmee je bepaalt hoe je op basis van de eigenschappen en relaties kunt bepalen tot welke groep iets behoort.</p>
+      <p>Het opstellen van een ontologie wordt ook wel "ontology engineering" genoemd. Bij het opstellen van een ontologie maak je expliciet welke kennis uit een domein relevant is. Een basisbeginsel daarbij is dat daadwerkelijk het domein wordt beschreven, en niet zozeer de gegevens die daarover opgeslagen worden. Een belangrijk instrument is daarbij de <i>classificatie</i>. Classificatie gaat over het benoemen van groepen (de "klassen") van dingen die een aantal eigenschappen gemeen hebben. Zo hebben "dingen" uit de groep van "golfbanen" gemeen dat deze uit "holes" bestaat. Dus blijkbaar is de relatie van belang tussen een “golfbaan” en een “hole”. Daarnaast geldt voor de groep van "bosbanen" dat er veel bomen op het golfbaanterrein staan. Dus blijkbaar is een eigenschap als "bomen op de golfbaan" van belang. Tenslotte weten we dat elke bosbaan ook een golfbaan is, en daarmee kunnen we stellen dat de klasse van bosbanen een subklasse is van de klasse van golfbanen. Voor elke klasse moet gelden dat er een eigenschap is waarmee we elk exemplaar van deze klasse uniek kunnen onderscheiden van de exemplaren uit een andere klasse. In het geval van de klasse van "bosbanen" kunnen we dat op basis van de eigenschap "bomen op de golfbaan". Het opstellen van een ontologie omvat dus het beschrijven van de groepen die we relevant vinden om te onderscheiden, de eigenschappen en relaties die daarbij een rol spelen, en regels waarmee je bepaalt hoe je op basis van de eigenschappen en relaties kunt bepalen tot welke groep iets behoort.</p>
       <p>Klassen, eigenschappen en relaties uit een ontologie lijken verdacht veel op klassen, attributen en associaties uit UML. Het verschil zit er in dat je in een ontologie over het algemeen verder gaat met het opdelen in klassen, en ook eigenschappen benoemd die wel nodig zijn om je domein te "begrijpen", maar niet per se nodig zijn om informatie over het domein te delen. Zo is het voor ons golfbanen voorbeeld voldoende om vast te leggen tot welk "type" een golfbaan behoort (zoals: bosbaan, polderbaan, etc), maar niet waarom dit nu zo is. Andersom maak je in UML soms modelleerkeuzes die specifiek betrekking hebben op de manier waarop je de gegevens wilt vastleggen.</p>
     </section>
 
@@ -348,7 +355,7 @@
     <section id='basisprincipes-referentiedata'>
       <h2>Referentiedata</h2>
       <!-- 1 zin uitleg wat we met referentiedata bedoelen toevoegen -->
-      <p>Referentiedata komt in informatiemodellen doorgaans voor als een enumeratie of codelijst, maar soms ook in de vorm van attributen of complexe <a>datatypen</a>. Referentiedata is een goede indicator van linkbare data, want het is een manier om verschillende datasets aan elkaar te koppelen of een bepaalde categorisering aan te brengen over verschillende datasets. Belangrijk om je te realiseren is dat wat voor de één referentiedata is die best in een codelijstje kan, voor de ander de data zelf is. Ofwel, referentiedata = link naar andere data.</p>
+      <p>Referentiedata komt in informatiemodellen doorgaans voor als een enumeratie of codelijst, maar soms ook in de vorm van attributen of complexe <a>datatypen</a>. Referentiedata is een goede indicator van data die met elkaar kan worden verbonden, want het is een manier om verschillende datasets aan elkaar te koppelen of een bepaalde categorisering aan te brengen over verschillende datasets. Belangrijk om je te realiseren is dat wat voor de één referentiedata is die best in een codelijstje kan, voor de ander de data zelf is. Ofwel, referentiedata = link naar andere data.</p>
       <aside class="example">
         <p>In het informatiemodel Golfbaan (IMGolf) bestaat een enumeratie die het type hindernis omschrijft, met twee waarden: </p>
         <ul>
@@ -376,7 +383,7 @@
 
   <!-- Hoofdstuk 6 -->
   <section id='nen3610ld'>
-    <h1>De NEN 3610 ontologie</h1>
+    <h1>De NEN 3610 representatie in Linked Data</h1>
     <p>NEN 3610 beschrijft algemene regels voor het opstellen van een <a>UML</a> informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze regels, constructies en het semantisch model uitgedrukt in <a>RDF</a>.</p>
     <p>Deze RDF representatie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN 3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN 3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN 3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN 3610 tekst leidend.</p>
     <p>De NEN 3610 representatie in RDF bestaat uit de volgende onderdelen:</p>
@@ -425,11 +432,6 @@
             <td>http://purl.org/dc/terms/</td>
             <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (terms)</a></td>
           </tr>
-          <tr>
-            <td>dctypes</td>
-            <td>http://purl.org/dc/dcmitype/</td>
-            <td><a href="http://www.dublincore.org/documents/dcmi-terms">Dublin Core (types)</a></td>
-          </tr>
         </tbody>
       </table>
       <p>We maken gebruik van de volgende eigenschappen en klassen uit deze vocabulaires:</p>
@@ -440,8 +442,8 @@
             <th>Gebruik</th>
           </tr>
           <tr>
-            <td>dctypes:Text</td>
-            <td>Elke verwijzing is een voorkomen van de klasse dctypes:Text, een voornamelijk tekstueel document.</td>
+            <td>dcterms:BibliographicResource</td>
+            <td>Elke verwijzing is een voorkomen van de klasse dcterms:BibliographicResource, een boek, een artikel of een andere brondocument.</td>
           </tr>
           <tr>
             <td>rdf:type</td>
@@ -672,7 +674,7 @@
       <!-- Sectie 6.4.1 -->
       <section id="nen3610id">
         <h3>URI template en NEN3610ID</h3>
-        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NE3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
+        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NEN3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
         <p><img src="media/gegevensregel-identificatie.png"/></p>
         <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de <code>namespace</code>-eigenschap uit de NEN 3610-identificatie al een URI-namespace is, kan als het sjabloon <code>{namespace}{lokaalID}{versie}</code> worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon <code>http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}</code>. De <code>rdf:value</code> mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon <code>{namespace}{lokaalID}{versie}</code></p>
       </section>
@@ -767,14 +769,14 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
 
 
 	<p>
-	De methode voor de toe te passen transformatie van een NEN 3610-UML bronmodel naar een Linked Data doelmodel (RDF/OWL/SHACL) bevat een aantal hoofdlijnen. De transformatieregels worden gespecificeerd conform informatie-elementen uit het metamodel van NEN 3610. Het volgt de basiselementen klassen, attributen en associaties en de daaraan gerelateerde stereotypen. Een groot deel van de transformatieregels zijn standaard op te stellen. Hier is ook al veel werk in verricht onder andere te vinden in INSPIRE RDF guidelines [[INSPIRERDF]]. We noemen dit ‘standaard transformatieregels’. Naast deze standaard transformatieregels zijn er nog ‘specifieke transformatieregels’. Deze zijn specifiek omdat ze extra aanvullingen en aanpassingen zijn om er zinvolle Linked Data modellen van te maken. Ze zijn ook specifiek omdat de verschillende modelleerstijlen van Omgevingswet-DSO, de Bouwsector en Stedelijkwater-GWSW-OroX, specifieke aanpassingen vereisen. Voor elk van deze stijlen worden de standaard transformatieregels aangevuld met specifieke regels. Het geheel van standaard – en specifieke transformatieregels geeft voor elke modelleerstijl een handvat om een NEN 3610-UML in het specifieke doelmodel om te zetten.
+	De methode voor de toe te passen transformatie van een NEN 3610-UML bronmodel naar een Linked Data doelmodel (RDF/OWL/SHACL) bevat een aantal hoofdlijnen. De transformatieregels worden gespecificeerd conform informatie-elementen uit het metamodel van NEN 3610. Het volgt de basiselementen klassen, attributen en associaties en de daaraan gerelateerde stereotypen. Een groot deel van de transformatieregels zijn standaard op te stellen. Hier is ook al veel werk in verricht onder andere te vinden in INSPIRE RDF guidelines [[INSPIRERDF]]. We noemen dit ‘standaard transformatieregels’. Naast deze standaard transformatieregels zijn er nog ‘specifieke transformatieregels’. Deze zijn specifiek omdat ze extra aanvullingen en aanpassingen zijn om er zinvolle Linked Data modellen van te maken. Ze zijn ook specifiek omdat de verschillende modelleerstijlen van Omgevingswet-DSO, de Bouwsector en Stedelijkwater-GWSW-OroX, specifieke aanpassingen vereisen. Voor elk van deze stijlen worden de standaard transformatieregels aangevuld met specifieke regels. Het geheel van standaard – en specifieke transformatieregels geeft voor elke modelleerstijl een handvat om een NEN 3610-UML model om te zetten naar het specifieke NEN 3610-Linked Data doelmodel.
 	</p>
       <figure>
         <img src="media/UoD-requirement.png"width="600">
         <figcaption>UoD requirement</figcaption>
       </figure>
 
-      <p>Bovenstaand figuur geeft ons transformatiedoel weer. Zowel een <a>UML</a> model als een <a>RDF</a> model representeren een bepaalde <a>universe of discourse</a> (Uod), het deel van de wereld dat we wensen te beschrijven met ons model. Waarbij het model een vereenvoudigde weergave is van deze werkelijkheid. Ons transformatiedoel is geslaagd als het RDF model dat ontstaat vanuit de transformatie van het UML model een model is van dezelfde UoD als die van het originele UML model.</p>
+      <p>Bovenstaand figuur geeft ons transformatiedoel weer. Zowel een <a>UML</a> model als een <a>RDF</a> model representeren een bepaalde <a>universe of discourse</a> (UoD), het deel van de wereld dat we wensen te beschrijven met ons model. Waarbij het model een vereenvoudigde weergave is van deze werkelijkheid. Ons transformatiedoel is geslaagd als het RDF model dat ontstaat vanuit de transformatie van het UML model een model is van dezelfde UoD als die van het originele UML model.</p>
       <p>We verwachten daarbij dat we dit transformatiedoel niet volledig geautomatiseerd kunnen behalen. Daartoe verschillen de uitgangspunten van UML en RDF te veel, zoals beschreven in <a href="#basisprincipes">hoofdstuk 5</a>. We wensen een <i>correct</i> model automatisch te kunnen vertalen, waarna we handmatig tot een <i>juist</i> model kunnen komen:</p>
 
       <ul>
@@ -788,7 +790,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </figure>
 
       <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
-      <aside class="note">Na vaststelling van deze standaard kan, als een volgende stap, de automatische vertaler geïmplementeerd worden in bijvoorbeeld een XSLT stylesheet die GML data kan omzetten naar linked data.</aside>
+      <aside class="note">Na vaststelling van deze standaard kan, als een volgende stap, de automatische vertaler geïmplementeerd worden in bijvoorbeeld een XSLT stylesheet die GML data kan omzetten naar Linked Data.</aside>
       <figure>
         <img src="media/transformatiedoel.png" width="600">
         <figcaption>Transformatie van model en data</figcaption>
@@ -814,7 +816,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <h3>Toelichting op metamodel NEN 3610</h3>
 
         <p>Voor NEN 3610 is <code>Objecttype</code> een abstracte metaklasse. Alle objecttypen (of objectklassen) in NEN 3610 zijn <a>feature type</a>. Een <code>FeatureType</code> is een <code>Objecttype</code> dat geassocieerd is met een locatie. In NEN 3610 vallen die onder het semantische objecttype <code>GeoObject</code>. Een <code>GeoObject</code> heeft dus als stereotype <code>&laquo;FeatureType&raquo;</code>. Dit is identiek aan de ISO191xx set van standaarden. Een <code>FeatureType</code> heeft 0 of 1 <a>supertypen</a>; 0 of meer eigenschappen (<code>EigenschapType</code>); 0 of meer beperkingen (<code>Constraint</code>). Eigenschappen zijn attributen (<code>AttribuutType</code>) of relaties naar andere objecttypen. Een relatie wordt gerealiseerd door een ‘uitgaande’ associatie met optioneel een naam maar verplicht de rol (<code>Associatierol</code>) van het ‘target objecttype’.</p>
-        <p>Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een <code>DataType</code> is een <code>PrimitiefDatatype</code> (integer, characterstring boolean, gm_surface enz), een <code>Waardelijst</code>, een <code>Union</code> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit 1 of meer attributen. Een <code>Union</code> faciliteert een keuze van 1 attribuut uit een lijst van twee of meer. Een <code>Enumeratie</code> is een niet uitbreidbare <code>Waardelijst</code> in de namespace van het model. Een <code>CodeList</code> is een externe lijst waarvan de waarden buiten het model worden beheerd.
+        <p>Attributen hebben een waardetype dat door een <a>datatype</a> wordt beschreven. Een <code>DataType</code> is een <code>PrimitiefDatatype</code> (integer, characterstring boolean, gm_surface enz), een <code>Waardelijst</code>, een <code>Union</code> of gewoon een datatype. In het laatste geval is het een complex datatype dat is samengesteld uit één of meer attributen. Een <code>Union</code> faciliteert een keuze van één attribuut uit een lijst van twee of meer. Een <code>Enumeratie</code> is een niet uitbreidbare <code>Waardelijst</code> in de namespace van het model. Een <code>CodeList</code> is een externe lijst waarvan de waarden buiten het model worden beheerd.
         </p>
       </section>
     </section>
@@ -851,13 +853,13 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <li>Het Linked Data principe maakt het mogelijk om de vier genoemde onderdelen (terminologie, ontologie, betekenis en gegevensregels) van elkaar te onderscheiden en afzonderlijk te beheren. Dit maakt het mogelijk om specifieke aanpassingen te doen, mocht de opzet in het UML model anders geïnterpreteerd moeten worden dan uit een automatische vertaling mogelijk is. We verwachten dat dit met name zal spelen bij de formele ontologie.</li>
         </ul>
         <p>Specifieke aandacht is nodig voor de vertaling van het UML enerzijds naar <a>RDFS</a> en <a>OWL</a> formele ontologie, en anderzijds naar SHACL gegevensregels.</p>
-        <p>In beginsel berust de vertaling naar de formele ontologie en naar de SHACL gegevensregels op dezelfde UML onderdelen. Zo worden UML cardinaliteiten enerzijds vertaalt naar owl:Restrictions, en anderszijds naar sh:PropertyShapes. Je zou kunnen stellen dan 1 van de twee voldoende is. Echter, waar in UML het onderscheid tussen formele ontologie en gegevensregels vaak impliciet is, bestaan hier in Linked Data expliciet verschillende vocabulaires voor.</p>
+        <p>In beginsel berust de vertaling naar de formele ontologie en naar de SHACL gegevensregels op dezelfde UML onderdelen. Zo worden UML cardinaliteiten enerzijds vertaalt naar owl:Restrictions, en anderszijds naar sh:PropertyShapes. Je zou kunnen stellen dan één van de twee voldoende is. Echter, waar in UML het onderscheid tussen formele ontologie en gegevensregels vaak impliciet is, bestaan hier in Linked Data expliciet verschillende vocabulaires voor.</p>
         <p>Door beide varianten te realiseren, bestaat de mogelijkheid voor de afnemer om een keuze te maken welke variant het beste past bij het originele UML model en de specifieke use case.</p>
         <p>Hieronder benoemen we enkele verschillen en overeenkomsten tussen UML, SHACL en OWL:</p>
         <ul>
           <li>Zowel UML als SHACL gaan uit van een <a>closed-world assumption</a>, waarbij het model <i>beperkt</i> wat mogelijk is. Dit in tegenstelling tot OWL dat uitgaat van een <a>open-world assumption</a>, waarbij het model <i>afleidt</i> wat mogelijk is.</li>
-          <li>Zowel <code>owl:maxCardinality 1</code> als <code>sh:maxCount 1</code> komen overeen met de x..1 cardinaliteit in UML. Er bestaat echter ook een verschil. Mocht bijvoorbeeld bij een eigenschap "is-getrouwd-met" gelden dat een persoon maar met 1 ander persoon getrouwd mag zijn, en in de database treffen we de waarden "Piet is getrouwd met Marie" en "Klaas is getrouwd met Marie", dan veronderstelt de owl restrictie dat Piet en Klaas dezelfde personen zijn, terwijl de SHACL restrictie aangeeft dat de dataset niet voldoet aan de betreffende gegevensregel.</li>
-          <li>Eenzelfde verschil speelt rondom het gebruik van <code>rdfs:range</code> en <code>rdfs:domain</code>. Indien bijvoorbeeld een property <code>ex:naam</code> wordt geïntroduceerd met <code>rdfs:range</code> <code>ex:Persoon</code>, dan betekent dit dat als een <a>subject</a> een <code>ex:naam</code> heeft, het een persoon is (zelfs als een dergelijke naam is gegeven aan iets dat eigenlijk een schip is). In geval van SHACL zou een PropertyShape gespecifieerd worden die stelt dat de eigenschap code>ex:naam</code> alleen maar gebruikt mag worden bij de klasse <code>Persoon</code>.</li>
+          <li>Zowel <code>owl:maxCardinality 1</code> als <code>sh:maxCount 1</code> komen overeen met de x..1 cardinaliteit in UML. Er bestaat echter ook een verschil. Mocht bijvoorbeeld bij een eigenschap "is-getrouwd-met" gelden dat een persoon maar met één ander persoon getrouwd mag zijn, en in de database treffen we de waarden "Piet is getrouwd met Marie" en "Klaas is getrouwd met Marie", dan veronderstelt de owl restrictie dat Piet en Klaas dezelfde personen zijn, terwijl de SHACL restrictie aangeeft dat de dataset niet voldoet aan de betreffende gegevensregel.</li>
+          <li>Eenzelfde verschil speelt rondom het gebruik van <code>rdfs:range</code> en <code>rdfs:domain</code>. Indien bijvoorbeeld een property <code>ex:naam</code> wordt geïntroduceerd met <code>rdfs:range</code> <code>ex:Persoon</code>, dan betekent dit dat als een <a>subject</a> een <code>ex:naam</code> heeft, het een persoon is (zelfs als een dergelijke naam is gegeven aan iets dat eigenlijk een schip is). In geval van SHACL zou een PropertyShape gespecifieerd worden die stelt dat de eigenschap <code>ex:naam</code> alleen maar gebruikt mag worden bij de klasse <code>Persoon</code>.</li>
           <li>OWL is ontworpen voor classificatie-doeleinden (afleidingen), terwijl SHACL ontworpen is voor data-validatie. Zie <a href="http://spinrdf.org/shacl-and-owl.html">shacl and owl</a> voor een uitgebreide vergelijking.</li>
           <li>Het gebruik van SHACL maakt het mogelijk om Linked Data structuren te valideren (zie bijvoorbeeld de <a href="http://shacl.org/playground">SHACL playground validator.</a></li>
           <li>Het gebruik van OWL maakt het mogelijk de kennis in de formele ontologie te gebruiken om nieuwe informatie af te leiden uit bestaande data. Zie <a href="https://www.cs.vu.nl/~guus/public/owl-restrictions/">owl restrictions</a> voor een goede introductie.</li>
@@ -937,7 +939,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           <li>SHACL wordt gebruikt om de gegevensregels te beschrijven die voor de data gelden. In UML termen gaat het daarbij over welke attributen horen bij welke klassen, het <a>datatype</a> van attributen, wat de cardinaliteiten zijn van attributen en relaties en tussen welke klassen relaties mogen liggen.</li>
           <li>SKOS wordt gebruikt om de betekenis te beschrijven. In UML termen gaat het daarbij om het beschrijven van de betekenis van klassen, relaties en attributen.</li>
           <li>PROV wordt gebruikt om de versiehistorie (provenance, herkomst) van de data te beschrijven</li>
-          <li>Dublin Core terms en FOAF worden gebruikt voor enkele specifieke relaties die niet met 1 van eerdergenoemde vocabulaires is in te vullen.</li>
+          <li>Dublin Core terms en FOAF worden gebruikt voor enkele specifieke relaties die niet met één van eerdergenoemde vocabulaires is in te vullen.</li>
         </ul>
 
         <p>Met het gebruik van SKOS is het in het Linked Data <a>metamodel</a> mogelijk geworden om een rijkere structuur aan te brengen als het gaat om de betekenis van concepten. Hierdoor wordt feitelijk een invulling gegeven aan de standaard ISO 19126 Feature Concepts Dictionaries [[iso-19126-2009]].</p>
@@ -999,7 +1001,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
           <section id='regels-klassen-featureType'>
             <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
-              Een NEN 3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In Linked Data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in Linked Data een klasse met het stereotype featureType ook een klasse die een sub-type is van een van de NEN 3610 klassen.
+              Een NEN 3610 UML klasse met stereotype featureType wordt gebruikt om een geo-object te representeren. In Linked Data wordt eenzelfde object ook als instantie van een geo-object gezien. Daarom wordt in Linked Data een klasse met het stereotype featureType ook een klasse die een sub-type is van één van de NEN 3610 klassen.
               De NEN 3610 klassen zijn subklassen van <code>nen3610:GeoObject</code> welke zelf een subklasse is van de klasse Feature uit het GeoSPARQL vocabulaire (<code>gsp:Feature</code>). Hiermee kunnen alle instanties van de NEN 3610 klassen ook beschouwd en beschreven worden met het breed toegepaste GeoSPARQL vocabulaire.
             </p>
             <pre class='ex-turtle'>
@@ -1565,7 +1567,7 @@ ex-doc:20180101/parcours-NL.IMGOLF.4 a foaf:Document ;        # De information r
 .
             </pre>
             <p>
-              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met 1 of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> eigenschap die aanduidt dat de <a>non-information resource</a> het hoofdonderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
+              Voor het modelleren van een <a>information resource</a> gebruiken we de <code>foaf:Document</code> klasse. Voor het verbinden van de <a>non-information resource</a> met één of meerdere information resources gebruiken we de <code>foaf:isPrimaryTopicOf</code> eigenschap die aanduidt dat de <a>non-information resource</a> het hoofdonderwerp is van de <a>information resource</a>. Hiermee kunnen we op een standaard manier contextuele metadata, zoals materiële historie uitdrukken.
             </p>
             <aside class="note">
               Let op! Wanneer je in één dataset meerdere materieel geldige beschrijvingen van hetzelfde object in de werkelijkheidheid hebt is het noodzakelijk deze van elkaar te scheiden. Gezien de identificatie/IRI van het ding in de werkelijkheid niet veranderd, heb je een manier nodig om de bij elkaar horende set uitdrukkingen te scheiden van andere sets uitdrukkingen. Hiervoor kun je gebruik maken van (named) graphs.
@@ -2563,7 +2565,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
   ] ;
 .
               </pre>
-              
+
             </section>
 
             <!-- Sectie 7.4.2.2.2.4 -->
@@ -3712,13 +3714,10 @@ imgolf:Parcours
             <li>Een blank node propertyshape kun je zien als een complexe eigenschap bij een klasse</li>
           </ul>
         </li>
+        <li>Een minimale cardinaliteit (<code>sh:minCount</code>) wordt vastgesteld door te tellen hoevaak een bepaalde eigenschap voorkomt. Is er minimaal één exemplaar van een specifieke klasse die een eigenschap <i>niet</i> heeft, dan is de minimum cardinaliteit 0.</li>
+        <li>Een maximale cardinaliteit (<code>sh:maxCount</code>) wordt vastgesteld door te tellen hoevaak een bepaalde eigenschap voorkomt bij een specifieke klasse. Het totaal antal wordt de maximum cardinaliteit (dit getal is feitelijk alleen zinvol voor inzicht in de huidige dataset. Meestal zal een maximale waarde van meer dan 1 betekenen dat er feitelijk geen maximum is.</li>
+        <li>Indien een exemplaar van een klasse ook altijd een exemplaar is van een andere klasse, dan wordt dit weergegeven middels de "implementeert" relatie (door een propertyshape waarbij veronderstelt wordt dat <code>rdf:type</code> altijd beide klassen omvat).</li>
       </ol>
-      <p>Bovenstaande zou nog verder uitgebreid kunnen worden. Te denken valt bijvoorbeeld aan:</p>
-      <ul>
-        <li>Achterhalen van minimale cardinaliteit (bv: "1" indien in de data een eigenschap ALTIJD voorkomt)</li>
-        <li>Achterhalen van maximale cardinaliteit (bv: "1" indien in de data een eigenschap NOOIT MEER DAN 1x voorkomt, of "2 indien in de data een eigenschap ALTIJD 2 KEER voorkomt)</li>
-        <li>Specialisaties achterhalen (bv: indien bepaalde eigenschappen in meerdere klassen voorkomen, dan kun je een superklasse veronderstellen met de gedeelde eigenschappen)</li>
-      </ul>
       <p>Vanzelfsprekend kan alleen maar die dingen gegenereerd worden die ook in de brondata zitten. Uitleg of afwijkende namen zijn niet mogelijk, en ook kunnen cardinaliteiten of subklassificaties niet met zekerheid worden afgeleid.</p>
       <p>Een gegenereerde IMGolf model zal afwijken van een met de hand opgestelde IMGolf model. Het verschil geeft mooi aan wat je als modelleur nog toevoegd als uitleg.</p>
       <p>Ook is het niet mogelijk om deze aanpak te gebruiken voor de <a>UML</a> / <a>GML</a> data, aangezien dit geen Linked Data is en dus niet generiek in te lezen is (hier zou dus eerst een basale vertaling van GML naar Linked Data gemaakt moeten worden.</p>
@@ -3764,7 +3763,7 @@ imgolf:Parcours
           <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
           <li>DSO: beschrijving t.b.v. het DSO op basis van de <a>W3C</a> specificaties <a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a></li>
         </ul>
-        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor 1 source (een UML model of XML/GML bestand conform NEN 3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor één source (een UML model of XML/GML bestand conform NEN 3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
 
         <p> Voor een deel zijn deze verschillen verklaarbaar doordat er bij elke stijl een verschillende focus is op beoogde doelen of use cases die bediend moeten worden. Deze verschillen uiten zich onder andere in het gebruik van verschillende Linked Data <a>vocabulaires</a> RDF, RDFS, SKOS, OWL en SHACL. Voor elke stijl wordt in onderstaande matrixen de use cases en de gerelateerde vocabulaires aangegeven.</p>
 
@@ -3894,8 +3893,8 @@ imgolf:Parcours
               <td>begrippenkader (vocabulaire, thesaurus)</td>
               <td></td>
               <td></td>
-              <td>&#x2713;</td>
               <td></td>
+              <td>&#x2713;</td>
               <td></td>
             </tr>
             <tr>
@@ -3910,7 +3909,7 @@ imgolf:Parcours
               <td>web van data (publicatie)</td>
               <td>&#x2713;</td>
               <td>&#x2713;</td>
-              <td></td>
+              <td>&#x2713;</td>
               <td></td>
               <td></td>
             </tr>

@@ -9,78 +9,77 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix dc: <http://purl.org/dc/elements/1.1>.
 @prefix dcterms: <http://purl.org/dc/terms/>.
-@prefix dctypes: <http://purl.org/dc/dcmitype/>.
 
 @prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
 
 #
 # Normatieve verwijzingen (sectie 2 NEN3610-2011)
 #
-referentie:NEN-EN-ISO19101-2005 a dctypes:Text;
+referentie:NEN-EN-ISO19101-2005 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19101:2005@nl";
 	dc:title "NEN-EN-ISO 19101:2005 Geographic information - Reference model"@en;
 .
-referentie:NEN-EN-ISO19107-2005 a dctypes:Text;
+referentie:NEN-EN-ISO19107-2005 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19107:2005@nl";
 	dc:title "NEN-EN-ISO 19107:2005 Geographic information - Spatial schema"@en;
 .
-referentie:NEN-EN-ISO19109-2006 a dctypes:Text;
+referentie:NEN-EN-ISO19109-2006 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19109:2006@nl";
 	dc:title "NEN-EN-ISO 19109:2006 Geographic information - Rules for application schema"@en;
 .
-referentie:NEN-EN-ISO19111-2007 a dctypes:Text;
+referentie:NEN-EN-ISO19111-2007 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19111:2007@nl";
 	dc:title "NEN-EN-ISO 19111:2007 Geographic information - Spatial referencing by coordinates"@en;
 .
-referentie:NEN-EN-ISO19112-2005 a dctypes:Text;
+referentie:NEN-EN-ISO19112-2005 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19112:2005@nl";
 	dc:title "NEN-EN-ISO 19112:2005 Geographic information - Spatial referencing by geographic identifiers"@en;
 .
-referentie:NEN-EN-ISO19115-2005 a dctypes:Text;
+referentie:NEN-EN-ISO19115-2005 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19115:2005@nl";
 	dc:title "NEN-EN-ISO 19115:2005 Geographic information - Metadata"@en;
 .
-referentie:NEN-EN-ISO19117-2006 a dctypes:Text;
+referentie:NEN-EN-ISO19117-2006 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19117:2006@nl";
 	dc:title "NEN-EN-ISO 19117:2006 Geographic information - Portrayal"@en;
 .
-referentie:NEN-EN-ISO19118-2006 a dctypes:Text;
+referentie:NEN-EN-ISO19118-2006 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO 19118:2006@nl";
 	dc:title "NEN-EN-ISO 19118:2006 Geographic information - Encoding"@en;
 .
-referentie:NEN-EN-ISO19125-2-2006 a dctypes:Text;
+referentie:NEN-EN-ISO19125-2-2006 a dcterms:BibliographicResource;
 	rdfs:label "NEN-EN-ISO19125-2-2006"@nl;
 	dc:title "NEN-EN-ISO19125-2-2006 Geographic information - Simple feature access - Part 2: SQL option"@en;
 .
-referentie:NEN-ISO-IEC19757-3-2006 a dctypes:Text;
+referentie:NEN-ISO-IEC19757-3-2006 a dcterms:BibliographicResource;
 	rdfs:label "NEN-ISO/IEC 19757-3:2006@nl";
 	dc:title "NEN-ISO/IEC 19757-3:2006 Information technology – Document Schema Definition Languages (DSDL) – Part 3: Rule-based validation – Schematron"@en;
 .
-referentie:NEN-ISO-IEC11404-2008 a dctypes:Text;
+referentie:NEN-ISO-IEC11404-2008 a dcterms:BibliographicResource;
 	rdfs:label "NEN-ISO/IEC 11404:2008"@nl;
 	dc:title "NEN-ISO/IEC 11404:2008 Information technology - General - Purpose Datatypes (GPD)"@en;
 .
-referentie:ISO-TS19103-2005 a dctypes:Text;
+referentie:ISO-TS19103-2005 a dcterms:BibliographicResource;
 	rdfs:label "ISO/TS 19103:2005"@nl;
 	dc:title "ISO/TS 19103:2005 Geographic information - Conceptual schema language"@en;
 .
-referentie:OGC-SEIS-1.1.0 a dctypes:Text;
+referentie:OGC-SEIS-1.1.0 a dcterms:BibliographicResource;
 	rdfs:label "OGC Symbology Encoding Implemention Specification, v1.1.0"@nl;
 	dc:title "OpenGIS Symbology Encoding Implementation Specification, version 1.1.0, OGC"@en;
 .
-referentie:INSPIRE-D2-5-3.2 a dctypes:Text;
+referentie:INSPIRE-D2-5-3.2 a dcterms:BibliographicResource;
 	rdfs:label "INSPIRE D2.5, v3.2"@nl;
 	dc:title "INSPIRE D2.5: Generic Conceptual Model, Version 3.2"@en;
 .
-referentie:GML-NL-Profiel a dctypes:Text;
+referentie:GML-NL-Profiel a dcterms:BibliographicResource;
 	rdfs:label "Nederlands profiel op GML"@nl;
 	dc:title "Nederlands profiel op GML: Core GML Profile for the Netherlands (in ontwikkeling), Geonovum, Amersfoort"@nl;
 .
-referentie:ISO19115-NL a dctypes:Text;
+referentie:ISO19115-NL a dcterms:BibliographicResource;
 	rdfs:label "Nederlands profiel op ISO19115"@nl;
 	dc:title "Nederlands profiel op NEN-EN-ISO 19115 voor geografie. Geonovum, Amersfoort"@nl;
 .
-referentie:IM-Metingen a dctypes:Text;
+referentie:IM-Metingen a dcterms:BibliographicResource;
 	rdfs:label "IM-Metingen"@nl;
 	dc:title "Informatiemodel – Metingen (IM-Metingen). SIKB, Gouda.";
 .
@@ -88,195 +87,195 @@ referentie:IM-Metingen a dctypes:Text;
 #
 # NEN3610-2011 standaard zelf
 #
-referentie:NEN3610-2011 a dctypes:Text;
+referentie:NEN3610-2011 a dcterms:BibliographicResource;
 	rdfs:label "NEN 3610:2011"@nl;
 	dc:title "NEN 3610:2011 Basismodel Geo-informatie"@nl;
 .
 
-referentie:NEN3610-2011-3 a dctypes:Text;
+referentie:NEN3610-2011-3 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011;
 .
-referentie:NEN3610-2011-3.1 a dctypes:Text;
+referentie:NEN3610-2011-3.1 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.1 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.2 a dctypes:Text;
+referentie:NEN3610-2011-3.2 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.2 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.3 a dctypes:Text;
+referentie:NEN3610-2011-3.3 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.3 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.4 a dctypes:Text;
+referentie:NEN3610-2011-3.4 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.4 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.5 a dctypes:Text;
+referentie:NEN3610-2011-3.5 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.5 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.6 a dctypes:Text;
+referentie:NEN3610-2011-3.6 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.6 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.7 a dctypes:Text;
+referentie:NEN3610-2011-3.7 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.7 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.8 a dctypes:Text;
+referentie:NEN3610-2011-3.8 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.8 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.9 a dctypes:Text;
+referentie:NEN3610-2011-3.9 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.9 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.10 a dctypes:Text;
+referentie:NEN3610-2011-3.10 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.10 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.11 a dctypes:Text;
+referentie:NEN3610-2011-3.11 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.11 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.12 a dctypes:Text;
+referentie:NEN3610-2011-3.12 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.12 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.13 a dctypes:Text;
+referentie:NEN3610-2011-3.13 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.13 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.14 a dctypes:Text;
+referentie:NEN3610-2011-3.14 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.14 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.15 a dctypes:Text;
+referentie:NEN3610-2011-3.15 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.15 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.16 a dctypes:Text;
+referentie:NEN3610-2011-3.16 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.16 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.17 a dctypes:Text;
+referentie:NEN3610-2011-3.17 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.17 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.18 a dctypes:Text;
+referentie:NEN3610-2011-3.18 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.18 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.19 a dctypes:Text;
+referentie:NEN3610-2011-3.19 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.19 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.20 a dctypes:Text;
+referentie:NEN3610-2011-3.20 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.20 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.21 a dctypes:Text;
+referentie:NEN3610-2011-3.21 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.21 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.22 a dctypes:Text;
+referentie:NEN3610-2011-3.22 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.22 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.23 a dctypes:Text;
+referentie:NEN3610-2011-3.23 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.23 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
-referentie:NEN3610-2011-3.24 a dctypes:Text;
+referentie:NEN3610-2011-3.24 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 3.24 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-3;
 .
 
-referentie:NEN3610-2011-7 a dctypes:Text;
+referentie:NEN3610-2011-7 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011;
 .
 
-referentie:NEN3610-2011-7.2 a dctypes:Text;
+referentie:NEN3610-2011-7.2 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7;
 .
-referentie:NEN3610-2011-7.2.3 a dctypes:Text;
+referentie:NEN3610-2011-7.2.3 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2.3 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2;
 .
-referentie:NEN3610-2011-7.2.5 a dctypes:Text;
+referentie:NEN3610-2011-7.2.5 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2.5 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2;
 .
-referentie:NEN3610-2011-7.2.5.1 a dctypes:Text;
+referentie:NEN3610-2011-7.2.5.1 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2.5.1 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2.5;
 .
-referentie:NEN3610-2011-7.2.5.2 a dctypes:Text;
+referentie:NEN3610-2011-7.2.5.2 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2.5.2 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2.5;
 .
-referentie:NEN3610-2011-7.2.6 a dctypes:Text;
+referentie:NEN3610-2011-7.2.6 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.2.6 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.2;
 .
 
-referentie:NEN3610-2011-7.3 a dctypes:Text;
+referentie:NEN3610-2011-7.3 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7;
 .
-referentie:NEN3610-2011-7.3.1 a dctypes:Text;
+referentie:NEN3610-2011-7.3.1 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.1 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.2 a dctypes:Text;
+referentie:NEN3610-2011-7.3.2 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.2 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.3 a dctypes:Text;
+referentie:NEN3610-2011-7.3.3 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.3 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.4 a dctypes:Text;
+referentie:NEN3610-2011-7.3.4 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.4 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.5 a dctypes:Text;
+referentie:NEN3610-2011-7.3.5 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.5 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.6 a dctypes:Text;
+referentie:NEN3610-2011-7.3.6 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.6 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.7 a dctypes:Text;
+referentie:NEN3610-2011-7.3.7 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.7 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.8 a dctypes:Text;
+referentie:NEN3610-2011-7.3.8 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.8 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.9 a dctypes:Text;
+referentie:NEN3610-2011-7.3.9 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.9 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.10 a dctypes:Text;
+referentie:NEN3610-2011-7.3.10 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.10 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.11 a dctypes:Text;
+referentie:NEN3610-2011-7.3.11 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.11 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.12 a dctypes:Text;
+referentie:NEN3610-2011-7.3.12 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.12 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
-referentie:NEN3610-2011-7.3.13 a dctypes:Text;
+referentie:NEN3610-2011-7.3.13 a dcterms:BibliographicResource;
 	rdfs:label "Sectie 7.3.13 NEN3610:2011"@nl;
 	dcterms:isPartOf referentie:NEN3610-2011-7.3;
 .
