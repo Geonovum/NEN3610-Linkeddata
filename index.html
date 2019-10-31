@@ -45,12 +45,11 @@
 
     <p>Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, te implementeren in Linked Data. De relatie tussen het bronmodel, het NEN 3610 informatiemodel, en het doel, het <a>vocabulaire</a> en de <a>ontologie</a>, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-Linked Data codering maar specifiek die van uit een NEN 3610 bronmodel.</p>
 
-    <P>Als resultaat worden de volgende producten ontwikkeld:</p>
+    <P>Als resultaat zijn de volgende producten ontwikkeld:</p>
     <ol>
       <li>
         <p>De NEN 3610 ontologie. De standaard NEN 3610 vertaald naar een LD implementatie.</p>
-        <p>Hiermee wordt het vocabulaire gerealiseerd dat als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data toe te passen.</p>
-        <P>Het hiermee gecreërde vocabulaire wordt de kandidaat standaard voor de ontologie van NEN 3610.</p>
+        <p>Hiermee wordt de ontologie gerealiseerd die als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data uit te drukken.</p>
       </li>
       <li>
         <p>Transformatieregels of coderingsregels voor een vertaling van een NEN 3610-UML informatiemodel naar een Linked Data omgeving.</p>
@@ -63,7 +62,7 @@
 
     <p>Dit document beschrijft het NEN 3610 Linked Data profiel. Het betreft een standaard, als aanvulling op de bestaande NEN 3610 standaard. Het normatieve deel van deze standaard is beschreven in hoofdstuk zes. De overige hoofdstukken zijn informatief en bieden best practices in het gebruik van de standaard.</p>
 
-    <p><b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel Linked Data ingezet wordt door middel van een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Hoofdstuk drie schetst de gebruikstoepassing die met de toepassing van NEN 3610 en NEN 3610 modellen in een Linked Data omgeving bedient wordt en beschrijft de reden waarom een NEN 3610-LD profiel relevant is. Er zijn ook internationaal initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk vier gegeven.</p>
+    <p><b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel Linked Data ingezet wordt door middel van een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Hoofdstuk drie schetst de gebruikstoepassing die met de toepassing van NEN 3610 en NEN 3610 modellen in een Linked Data omgeving bediend wordt en beschrijft de reden waarom een NEN 3610-LD profiel relevant is. Er zijn ook internationale initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk vier gegeven.</p>
 
     <p>De <a>object-oriëntatie</a> van NEN 3610 en de ontologische kennismodellen van Linked Data kennen verschillende paradigma's. De basisbeginselen van Linked Data en een referentie naar verdere documentatie geeft in hoofdstuk 5 een inleiding en overzicht over de impact van deze verschillen. Hoofdstuk 6 bevat het NEN 3610-LD profiel en beschrijft het NEN 3610 vocabulaire in de relevante Linked Data vocabulaires. Dit profiel wordt vervolgens in hoofdstuk 7 toegepast en aangevuld met transformatieregels om een NEN 3610-UML informatiemodel te tranformeren naar Linked Data. Hoofdstuk 8 bevat een verdieping hiervan middels de beschrijving van de methode die gevolgd is om de transformatieregels op te stellen. Op het niveau van meta- en <a>metametamodellen</a> worden de bron- en doelomgeving beschreven en aan elkaar gerelateerd. In het laatste hoofdstuk wordt aan de hand van een NEN 3610 voorbeeldmodel, het UML-Golfbaan, de transformatie toegepast en gepubliceerd als ontologie en vocabulaire.</p>
 
@@ -85,16 +84,16 @@
 
     <p>De use case die we willen beantwoorden is:</p>
 
-    <blockquote>Creëren van interoperabiliteit tussen het stelsel van NEN 3610 informatiemodellen en de toepassing daarvan in Linked Data.</blockquote>
+    <blockquote>Creëren van interoperabiliteit tussen NEN 3610 informatiemodellen opgesteld in UML enerzijds en de toepassing van diezelfde modellen in Linked Data.</blockquote>
 
     <p>Meer praktisch geformuleerd is dit te realiseren door:</p>
 
     <blockquote>Informatiemodellen en data publicatie conform NEN 3610 vertalen naar kennismodellen en data publicatie conform Linked Data.</blockquote>
 
-    <p>Resultaat hiervan is:</p>
+    <p>Hiervoor biedt NEN3610LD twee producten:</p>
     <ol>
-      <li>ontwikkelen van een standaard toepassing van NEN 3610 in Linked Data: NEN 3610-LD Profiel.</li>
-      <li>een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.</li>
+      <li>1. Specificatie van het metamodel NEN 3610 als Linked Data ontologie: NEN3610-LD Ontologie.</li>
+      <li>2. Een handreiking voor het transformeren van een UML-NEN 3610 informatiemodel naar Linked Data: NEN 3610-LD Transformatieregels.</li>
     </ol>
 
     <p><b>Achtergrond:</b></p>
@@ -3044,7 +3043,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           <h3>Transformatieregels OroX: Maak een ontologie</h3>
 
           Voor een goed begrip van de transformatieregels eerst een korte introductie van het GWSW-OroX. <br />Het GWSW-OroX protocol is ontwikkeld voor de beschrijving van het GegevensWoordenboek Stedelijk Water (GWSW).
-          Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
+          Oorspronkelijk was het GWSW (een ontwikkeling van Stichting RIONED) geschreven in de Gellish taal, een semantische rijke modelleringstaal in het zogenaamde ORO (Object-Relatie-Object) formaat.
           Het GWSW onderscheidt zich daarmee door diepgang in semantiek en reikwijdte in de toepassing (van systeem tot proces).
           <br /><br />Met de komst van het OroX protocol is het GWSW uitgedrukt in RDF, RDFS en OWL 2 (zie <a href="https://apps.gwsw.nl/doc/GWSW%20Ontologie%20in%20RDF.pdf">GWSW Ontologie in RDF (pdf)</a>).
           Het protocol beschrijft zowel het GWSW model (de "TBox", zie <a href="https://data.gwsw.nl">data.gwsw.nl</a>) als de daarop gebaseerde datasets (de "ABox", zie <a href="https://apps.gwsw.nl">apps.gwsw.nl</a>).
@@ -3864,7 +3863,7 @@ imgolf:Parcours
             </tr>
           </tbody>
         </table>
-        <p>OroX is ontwikkeld in een periode dat de SHACL vocabulaire nog niet beschikbaar was. Dit verklaart het gebruik van OWL voor validatie.</p>
+        <p>Het OroX gebruikt de class expressions in OWL-2 om klassen zo expliciet mogelijk te beschrijving. Validatie van datasets vindt plaats met SPARQL-queries, tijdens de ontwikkeling van het OroX was de SHACL vocabulaire nog niet beschikbaar.</p>
 
         <table>
           <tbody>
