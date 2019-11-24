@@ -2180,7 +2180,7 @@ bio-sh:BiomarkerThematicMetadata a sh:NodeShape ;
             <section id='dso-regels-klassen-external'>
               <h5>Klasse met stereotype &laquo;external&raquo;</h5>
               <p>
-                In de standaard transformatieregels wordt een klasse met stereotype &laquo;external&raquo; herkenbaar getransformeerd door de een van te voren afgesproken afwijkende namespace te gebruiken voor de URI van de klasse. In de specifieke DSO-transformatieregels worden deze klassen waar mogelijk vervangen door, of gerelateerd aan, bestaande ontologieën. Wanneer deze ontologieën niet bestaan wordt de klasse in eigen context gemodelleerd.
+                In de standaard transformatieregels wordt een klasse met stereotype &laquo;external&raquo; herkenbaar getransformeerd door de een van te voren afgesproken afwijkende namespace te gebruiken voor de IRI van de klasse. In de specifieke DSO-transformatieregels worden deze klassen waar mogelijk vervangen door, of gerelateerd aan, bestaande ontologieën. Wanneer deze ontologieën niet bestaan wordt de klasse in eigen context gemodelleerd.
               </p>
               <p>
                 Wanneer we het voorbeeld uit IMGOLF nemen waar een golfbaan een relatie <code>BAGAdres</code> heeft met een klassse met stereotype &laquo;external&raquo; <code>AdresserbaarObject</code>, kunnen we als volgt direct de IRI van de bestaande klasse <code><a href="http://bag.basisregistraties.overheid.nl/def/bag#AdresseerbaarObject">bag:AdresseerbaarObject</a></code> uit de BAG-ontologie gebruiken.
@@ -2262,14 +2262,35 @@ imgolf:Bunker a owl:Class ;
               </aside>
               <h6>Enumeraties van concrete dingen</h6>
               <p>
-                TODO: Bijvoorbeeld een lijst met landen.
+                Wanneer een enumeratie bestaat uit dingen uit een werkelijkheid is het van belang om dit ook als een set dingen te modelleren.
+                De rationale is dat het mogelijk is dat dezelfde dingen elders ook beschreven zijn. In dat geval is het mogelijk om de dingen semantisch aan elkaar te koppelen en kunnen we de kracht van linked data benutten om onze gegevens te verrijken. In linked data betekent dit het modelleren als instanties van een specifieke klasse.
+              </p>
+              <p>
+                Een voorbeeld van een dergelijke enumeratie is een enumeratie van landen. Een land is een concreet iets in de institutionele werkelijkheid. Het is ook iets waar vanuit verschillende bronnen informatie over is vastgelegd. Daarom is het van belang om een land als ding te modelleren.                 
               </p>
               <pre class='ex-turtle'>
 #---------------#
 # Ontologie
 #---------------#
+ex:Land a owl:Class .
 
+#---------------#
+# Gegevens
+#---------------#
 
+land:528 a ex:Land ;
+  rdfs:label "Nederland"@nl ;
+  ex:iso-3166-1-alpha-2-code "NL" ;
+  owl:sameAs <http://dbpedia.org/resource/Netherlands> ;
+.
+
+land:276 a ex:Land ;
+  rdfs:label "Duitsland"@nl ;
+  ex:iso-3166-1-alpha-2-code "DE" ;
+  owl:sameAs <http://dbpedia.org/resource/Germany> ;
+.
+...
+...
               </pre>
               <h6>Enumeraties van conceptuele dingen</h6>
               <p>
@@ -2450,7 +2471,7 @@ imgolf-collectie:GebruiksstatusValue a skos:Collection ;
               </p>
               <h6>Afwijkingen</h6>
               <p>
-                Daar waar een waarde voor <code>rdfs:label</code> gegeneerd is op basis van de eigenschapnaam, wordt de waarde aangepast naar een label in een correct Nederlands.
+                Daar waar een waarde voor <code>rdfs:label</code> gegeneerd is op basis van de eigenschapnaam, wordt de waarde aangepast naar een label in correct Nederlands.
               </p>
               <p>
                 Daar waar het semantisch klopt kan in plaats van, of naast de standaard gemodelleerde instanties van <code>owl:Restriction</code> gebruik gemaakt worden van <code>rdfs:domain</code> en/of <code>rdfs:range</code>, om respectievelijk uit te drukken dat de eigenschap altijd voorkomt op instantie van een bepaalde klasse, of altijd verwijst naar een instantie van een bepaald klasse. Met name met het toepassen van <code>rdfs:domain</code> moet secuur gebeuren, om semantische onjuistheden te voorkomen.
@@ -2657,20 +2678,79 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                   Wanneer het noodzakelijk is om over een groepje uitdrukkingen eigenschappen vast te leggen kan gebruik gemaakt worden van <code>foaf:Document</code> reification, zoals in <a href='#regels-attributen-materieleHistorie'></a>
                 </aside>
               </p>
-              <!-- TODO voorbeeld <pre class='ex-turtle'>
 #---------------#
 # Ontologie
 #---------------#
 
-rdf:Statement
+ex:beginDatum a owl:DatatypeProperty ;
+  rfds:range xsd:date ;
+.
+
+ex:eindDatum a owl:DatatypeProperty ;
+  rfds:range xsd:date ;
+.
+
+ex:gehuwdMet a owl:ObjectProperty ;
+  rdfs:domain ex:Persoon ;
+  rdfs:range ex:Persoon ;
+.
+
+ex:Huwelijk a owl:Class ;
+  rdfs:subClassOf rdf:Statement ;
+.
 
 #----------------#
 # Gegevensregels
 #----------------#
 
-sh:targetClass sh
+ex-sh:Huwelijk a sh:NodeShape ;
+  sh:targetClass ex:Huwelijk ;
+  sh:property 
+    [
+      sh:path rdf:subject ;
+      sh:class ex:Persoon ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ,
+    [
+      sh:path rdf:predicate ;
+      sh:hasValue ex:gehuwdMet ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ,
+    [
+      sh:path rdf:object ;
+      sh:class ex:Persoon ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ,
+    [
+      sh:path ex:beginDatum ;
+      sh:datatype xsd:date ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+    ] ,
+    [
+      sh:path ex:eindDatum ;
+      sh:datatype xsd:date ;
+      sh:maxCount 1 ;
+    ] ;
+.
 
-              </pre> -->
+#----------------#
+# Gegevens
+#----------------#
+:persoon1 a ex:Persoon ;
+  ex:gehuwdMet :persoon2 ;
+.
+
+:huwelijk-p1-p2 a ex:Huwelijk ;
+  rdf:subject :persoon1 ;
+  rdf:predicate ex:gehuwdMet ;
+  rdf:object :persoon 2 ;
+  ex:beginDatum "2018-04-20"^^xsd:date ;
+.
+              </pre>
             </section>
 
           </section>
@@ -2681,18 +2761,40 @@ sh:targetClass sh
               Zoals al opgemerkt in <a href='reges-attributen-kardinaliteit'></a> betekent kardinaliteit in OWL iets anders dan kardinaliteit in UML. De "open-wereld" kardinaliteit in OWL is existentieel, in de zin dat de kardinaliteit die beschreven is over een eigenschap in relatie tot een klasse, in alle gevallen (binnen en buiten een registratie) zo is. In UML beschrijft de kardinaliteit hoe een gegevensobject in een specifieke situatie moet zijn, bijv. in een registratie, of in een servicebericht. Dit zegt niks over de existentiële eigenschappen van een object in de werkelijkheid en beschrijft een "gesloten wereld". Kardinaliteit beschreven in SHACL komt exact overeen met de betekenis in UML.<br>
               Bij de DSO wordt in ieder geval altijd de kardinaliteit in SHACL beschreven. Waar gewenst en mogelijk wordt de existentiële kardinaliteit met OWL beschreven.
             </p>
-            <!-- TODO voorbeeld <pre class='ex-turtle'>
+            <p>
+              In het IMGolf model is is gespecificeerd dat Parcours een hindernisrelatie heeft met kardinaliteit 0 of 1. Dit kan prima gelden voor de golfbanen die beschreven worden met IMGolf. 
+              <figure>
+                <img src="media/imgolf-kardinaliteit.png" height="350">
+                <figcaption>
+                  Kardinaliteit van de hindernisrelatie tussen Parcours en Hindernis
+                </figcaption>
+              </figure>
+              Er bestaan echter ook golfbanen met parcoursen met meer dan 1 hindernis, bijvoorbeeld met bunkers én een waterpartij. Dit geeft aan dat de kardinaliteit in het IMGolf een gegevensregel is voor een administratie van specifieke IMGolf golfbanen, geen ontologische/existentiële regel. Wanneer we de kardinaliteit van de relaties ook als kardinaliteit in OWL zouden beschrijven, zou omze IMGolf ontolgie niet meer semantisch verenigbaar zijn met andere golfbaan-ontologieën en daarmee gegevens over ander golfbanen. In dit geval modelleren we deze kardinaliteit als specifieke gegevensregel met SHACL. In OWL specificeren we hier geen kardinaliteit, omdat er semantisch geen restrictie op deze relatie ligt.
+            </p>
+            <pre class='ex-turtle'>
 #---------------#
 # Ontologie
 #---------------#
 
+imgolf:hindernis a owl:ObjectProperty ;
+  rdfs:domain imgolf:Parcours ;
+  rdfs:range imgolf:Hindernis ;
+.
+
+imgolf:Parcours a owl:Class .
 
 #----------------#
 # Gegevensregels
 #----------------#
-
-
-            </pre> -->
+imgolf-sh:Parcours a sh:NodeShape ;
+  sh:targetClass imgolf:Parcours ;
+  sh:property [
+    sh:path imgolf:hindernis ;
+    sh:class ex:Hindernis ;
+    sh:maxCount 1 ;
+  ] ;
+.
+            </pre>
           </section>
 
         </section>
