@@ -38,7 +38,9 @@
   <section id='inleiding' class="informative">
     <h1>Inleiding</h1>
 
-    <p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
+    <p>Dit document is een combinatie van een technische rapport, een handleiding en een standaard. Vanwege het onderzoekskarakter van het onderwerp is er voor gekozen om deze drie typen documenten bij elkaar te houden. Bij niet normatieve onderdelen is dit aangegeven.
+	
+	Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
 
     <p>NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
       In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als Linked Data betrokken zijn samen te brengen rond het onderwerp NEN 3610 toegepast in Linked Data. Het doel daarvan is te komen tot een gezamenlijke werkwijze die zorgt voor interoperabiliteit tussen Linked geo-Data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.</p>
@@ -49,11 +51,11 @@
     <ol>
       <li>
         <p>De NEN 3610 ontologie. De standaard NEN 3610 vertaald naar een LD implementatie.</p>
-        <p>Hiermee wordt de ontologie gerealiseerd die als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data uit te drukken.</p>
+        <p>Hiermee wordt de ontologie gerealiseerd die als basis gebruikt wordt om een NEN 3610 informatiemodel in Linked Data uit te drukken. (zie hfst. 6 <a href="#nen3610ld">NEN 3610 representatie in Linked Data</a>)</p>
       </li>
       <li>
         <p>Transformatieregels of coderingsregels voor een vertaling van een NEN 3610-UML informatiemodel naar een Linked Data omgeving.</p>
-        <p>De transformatieregels zijn een handreiking voor het omzetten van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is naar de verschillende Linked Data vocabulaires die hiervoor van toepassing zijn: <a>RDF</a>, <a>RDFS</a>, <a>SKOS</a>, <a>OWL</a> en <a>SHACL</a>. </p>
+        <p>De transformatieregels zijn een handreiking voor het omzetten van een NEN 3610-UML bronmodel naar een Linked Data doelmodel. De vertaling is naar de verschillende Linked Data vocabulaires die hiervoor van toepassing zijn: <a>RDF</a>, <a>RDFS</a>, <a>SKOS</a>, <a>OWL</a> en <a>SHACL</a>. (zie hfst. 7 <a href="#transformatie">NEN 3610 representatie in Linked Data</a>)</p> </p>
       </li>
     </ol>
     <p>Bij het maken van een informatiemodel staat de use case altijd centraal als kader waaraan een model moet voldoen. Dit geldt ook voor de transformatie van een NEN 3610 model naar Linked Data. De Linked Data toepassing kan een ander doel hebben dan met het NEN 3610 model beoogd is. Er zijn wat dat betreft ook verschillende alternatieve oplossingen voor de transformatie mogelijk. Waar dat zo is geven we dat in dit document aan.</p>
@@ -64,7 +66,8 @@
 
     <p><b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel Linked Data ingezet wordt door middel van een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Hoofdstuk drie schetst de gebruikstoepassing die met de toepassing van NEN 3610 en NEN 3610 modellen in een Linked Data omgeving bediend wordt en beschrijft de reden waarom een NEN 3610-LD profiel relevant is. Er zijn ook internationale initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk vier gegeven.</p>
 
-    <p>De <a>object-oriëntatie</a> van NEN 3610 en de ontologische kennismodellen van Linked Data kennen verschillende paradigma's. De basisbeginselen van Linked Data en een referentie naar verdere documentatie geeft in hoofdstuk 5 een inleiding en overzicht over de impact van deze verschillen. Hoofdstuk 6 bevat het NEN 3610-LD profiel en beschrijft het NEN 3610 vocabulaire in de relevante Linked Data vocabulaires. Dit profiel wordt vervolgens in hoofdstuk 7 toegepast en aangevuld met transformatieregels om een NEN 3610-UML informatiemodel te tranformeren naar Linked Data. Hoofdstuk 8 bevat een verdieping hiervan middels de beschrijving van de methode die gevolgd is om de transformatieregels op te stellen. Op het niveau van meta- en <a>metametamodellen</a> worden de bron- en doelomgeving beschreven en aan elkaar gerelateerd. In het laatste hoofdstuk wordt aan de hand van een NEN 3610 voorbeeldmodel, het UML-Golfbaan, de transformatie toegepast en gepubliceerd als ontologie en vocabulaire.</p>
+    <p>De <a>object-oriëntatie</a> van NEN 3610 en de ontologische kennismodellen van Linked Data kennen verschillende paradigma's. De basisbeginselen van Linked Data en een referentie naar verdere documentatie geeft in hoofdstuk 5 een inleiding en overzicht over de impact van deze verschillen. Hoofdstuk 6 is normatief en bevat het NEN 3610-LD profiel en beschrijft het NEN 3610 vocabulaire in de relevante Linked Data vocabulaires. Dit profiel wordt vervolgens in hoofdstuk 7 toegepast en aangevuld met transformatieregels om een NEN 3610-UML informatiemodel te tranformeren naar Linked Data. Hoofdstuk 7 is daarmee het inhoudelijke hoofdstuk dat de transformatieregels besschrijft. In dat hoofdstuk wordt ook geconstateerd dat er in Nederland drie verschillende Linked Data stijlen voor locatie informatie van toepassing zijn.
+	Hoofdstuk 8 bevat een toepassing hiervan op het niveau van een NEN 3610 voorbeeldmodel IMGolf dat naar drie verschillende Linked Data modellen wordt getransformeerd. In het laatste hoofdstuk wordt aan de hand van het NEN 3610 voorbeeldmodel een dataset gecreeerd en na de transformatie toegepast en gepubliceerd als ontologie en vocabulaire conform de drie stijlen. Deze drie Linked Data stijlen kunnen hiermee worden vergeleken</p>
 
   </section>
 
@@ -403,7 +406,7 @@
 
   <!-- Hoofdstuk 6 -->
   <section id='nen3610ld'>
-    <h1>De NEN 3610 representatie in Linked Data</h1>
+    <h1>De NEN 3610 representatie in Linked Data</h1> (normatief)
     <p>NEN 3610 beschrijft algemene regels voor het opstellen van een <a>UML</a> informatiemodel, standaard modelleerconstructies en een semantisch model. In dit hoofdstuk worden deze regels, constructies en het semantisch model uitgedrukt in <a>RDF</a>.</p>
     <p>Deze RDF representatie wordt expliciet <b>niet</b> gepositioneerd als nieuwe standaard. Het betreft de RDF representatie van de bestaande NEN 3610 standaard [[NEN3610]], waarbij zoveel mogelijk gebruik wordt gemaakt van standaard RDF vocabulaires. Dit hoofdstuk is normatief: de genoemde URI's zijn de normatief te gebruiken URI's voor NEN 3610 elementen. De inhoud van de ontologie zelf is geen onderdeel van dit hoofdstuk en ook niet normatief: de inhoud is een één-op-één kopie van de tekst uit de NEN 3610 standaard zelf. Mochten daarbij kopieerfouten zijn gemaakt, dan is de NEN 3610 tekst leidend.</p>
     <p>De NEN 3610 representatie in RDF bestaat uit de volgende onderdelen:</p>
