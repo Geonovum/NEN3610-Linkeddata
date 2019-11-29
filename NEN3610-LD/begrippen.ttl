@@ -333,6 +333,7 @@ concept:ConcreetObject a skos:Concept;
 	skos:definition "Geo-objecten die fysiek (tastbaar, zichtbaar) begrensd in de werkelijkheid aanwezig zijn"@nl;
 	dcterms:source referentie:NEN3610-2011-7.3.1;
 	skos:broader concept:GeoObject;
+	skos:editorialNote "Het begrip 'concreet object' wordt genoemd in sectie 7.3.1 als een meer generieke benaming van 8 geo-objecttypen. In het semantisch model (het plaatje) komt dit begrip niet voor. Het begrip is dan ook wel opgenomen als onderdeel van de NEN 3610 begrippen, maar zal in deze versie van NEN 3610 niet als OWL class worden gedefinieerd";
 .
 concept:Weg a skos:Concept;
 	skos:inScheme schema:NEN3610;

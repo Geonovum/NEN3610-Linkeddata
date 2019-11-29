@@ -44,7 +44,11 @@ prov:wasRevisionOf
 	rdfs:comment "A revision is a derivation that revises an entity into a revised version."@en ;
 .
 
+#
 # Klasse-model
+#
+
+# Root object
 nen3610:GeoObject a owl:Class;
 	rdfs:label "Geo-object"@nl;
 	rdfs:label "Geo-object"@en;
@@ -52,6 +56,9 @@ nen3610:GeoObject a owl:Class;
 	rdfs:subClassOf geosparql:Feature;
 	rdfs:seeAlso schema:Place;
 .
+
+# Groep van concrete objecten
+# Merk op dat nen3610:ConcreetObject niet is gedefinieerd, aangezien deze ook niet in de huidige NEN 3610 standaar is opgenomen. In een volgende versie van NEN 3610 lijkt het goed om te kijken of een volledige upper ontology kan worden opgenomen, dan dan vervolgens in OWL kan worden uitgedrukt.
 nen3610:Weg a owl:Class;
 	rdfs:label "Weg"@nl;
 	rdfs:label "Street"@en;
@@ -105,6 +112,8 @@ nen3610:Inrichtingselement a owl:Class;
 	dcterms:subject concept:Inrichtingselement;
 	rdfs:subClassOf schema:Place;
 .
+
+# Overige objecten
 nen3610:RegistratiefGebied a owl:Class;
 	rdfs:label "Registratief gebied"@nl;
 	rdfs:label "Administrative area"@en;
@@ -131,6 +140,8 @@ nen3610:PlanologischGebied a owl:Class;
 	dcterms:subject concept:PlanologischGebied;
 	rdfs:subClassOf schema:Place;
 .
+
+# Identificatie, als klasse
 nen3610:Identificatie a owl:Class;
 	rdfs:label "Identificatie"@nl;
 	rdfs:label "Identification"@en;
