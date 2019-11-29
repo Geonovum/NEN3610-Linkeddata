@@ -12,7 +12,7 @@ var respecConfig = {
     name: "Linda van den Brink",
     company: "Geonovum",
     companyURL: "https://www.geonovum.nl"
-  }, 
+  },
   {
     name: "Marco Brattinga",
     company: "Ordina",
@@ -32,20 +32,20 @@ var respecConfig = {
     name: "Pano Maria",
     company: "Skemu",
     companyURL: "https://skemu.com"
-  }, 
+  },
   {
     name: "Hans Schevers",
-    company: "Building Bits", 
+    company: "Building Bits",
     companyURL: "http://www.buildingbits.nl"
-  },  
+  },
   {
     name: "Ronald van Lanen",
-    company: "Royal HaskoningDHV", 
+    company: "Royal HaskoningDHV",
     companyURL: "https://www.royalhaskoningdhv.com"
   },
   {
     name: "Joep van Genuchten",
-    company: "Alliander", 
+    company: "Alliander",
     companyURL: "https://www.alliander.com/nl"
   }
 ],
@@ -195,6 +195,11 @@ var respecConfig = {
       href: "https://standards.cen.eu/dyn/www/f?p=204:7:0::::FSP_ORG_ID:1991542&cs=16AAC0F2C377A541DCA571910561FC17F",
       date: "2019"
     }
-
+    "semic-core": {
+      id: "SEMIC:Core",
+      title: "e-Government Core Vocabularies",
+      href: "https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/core-vocabularies#Who%20is%20using%20Core%20Vocabularies",
+      date: "2019"
+    }
   }
 };

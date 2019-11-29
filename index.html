@@ -29,7 +29,7 @@
 -->
 
   <section id='sotd'>
-    
+
   </section>
 
   <section id="abstract" data-include="samenvatting.html"></section>
@@ -39,7 +39,7 @@
     <h1>Inleiding</h1>
 
     <p>Dit document is een combinatie van een technische rapport, een handboek en een standaard. Vanwege het onderzoekskarakter van het onderwerp is er voor gekozen om deze drie typen documenten bij elkaar te houden. Bij de niet normatieve onderdelen is dit aangegeven.</p>
-	
+
 	<p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
 
     <p>NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
@@ -215,14 +215,14 @@
       <p><b>type document:</b> Nederlandse Technische Afspraak</p>
       <p><b>organisatie: </b>NEN NC 381184 werkgroep</p>
       <p><b>scope:</b> Afsprakenstelsel (Conceptueel Meta Model en Conceptueel Top Model) vanuit het perspectief van partijen uit de Gebouwde Omgeving in Nederland.</p>
-      <p><b>omschrijving: </b>Het doel van deze Nederlandse Technische Afspraak (NTA) is om afspraken vast te leggen voor de toekomstvaste semantische modellering en integratie 
+      <p><b>omschrijving: </b>Het doel van deze Nederlandse Technische Afspraak (NTA) is om afspraken vast te leggen voor de toekomstvaste semantische modellering en integratie
         (uitwisseling of deling) van digitale gegevens (Engels: “data”) op basis van W3C “Linked Data/Semantic Web (LD/SW)” standaarden. </p>
-        <p>Het gaat hierbij niet alleen om standaard gegevensformaten en benaderingsmethoden maar vooral ook om gegevensstructuren (Engels: “data models”) die betekenis (“semantiek”) 
+        <p>Het gaat hierbij niet alleen om standaard gegevensformaten en benaderingsmethoden maar vooral ook om gegevensstructuren (Engels: “data models”) die betekenis (“semantiek”)
           geven aan de gegevens.</p>
-        <p>Het zijn afspraken opgesteld vanuit het perspectief van partijen uit de “gebouwde omgeving” (gebouwen en infrastructuren) in Nederland en waar partijen op voort kunnen borduren 
+        <p>Het zijn afspraken opgesteld vanuit het perspectief van partijen uit de “gebouwde omgeving” (gebouwen en infrastructuren) in Nederland en waar partijen op voort kunnen borduren
           m.b.t. hun eigen ontwikkelingen met waarborging op interoperabiliteit tussen deze partijen bij toepassing.</p>
       </p>
-      <p><b>relevantie:</b> De modellen die conform NTA8035 gemodelleerd worden raken ook de modellen die in onder het NEN3610 stelsel vallen, zoals IMGeo en IMBor. Het is dus van belang dat het 
+      <p><b>relevantie:</b> De modellen die conform NTA8035 gemodelleerd worden raken ook de modellen die in onder het NEN3610 stelsel vallen, zoals IMGeo en IMBor. Het is dus van belang dat het
       NEN3610-LD profiel interoperabel is met de NTA8035.</p>
     </section>
 
@@ -627,11 +627,6 @@
             <td>http://www.w3.org/2002/07/owl#</td>
             <td><a href="https://www.w3.org/TR/owl-primer">Web Ontology Language</a></td>
           </tr>
-          <tr>
-            <td>geosparql</td>
-            <td>http://www.opengis.net/ont/geosparql#</td>
-            <td><a href="http://www.opengeospatial.org/standards/geosparql">Geographic Query Language for RDF Data</a></td>
-          </tr>
         </tbody>
       </table>
       <p>We maken gebruik van de volgende eigenschappen en klassen uit deze <a>vocabulaires</a>:</p>
@@ -684,9 +679,28 @@
         </tbody>
       </table>
 
-      <p>Om de NEN 3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN 3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN 3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN 3610 ook "gelezen" worden in een bredere context.</p>
+      <p>Om de NEN 3610 klassen een zo breed mogelijk toepassingsgebied te geven, verbinden we de NEN 3610 klassen met andere standaarden. Uitgangspunt daarbij is dat de NEN 3610 klassen specifieker zijn dan de standaarden waarmee we verbinden. Op deze wijze kan een model uitgedrukt in NEN 3610 ook "gelezen" worden in een bredere context:</p>
+      <table>
+        <tbody>
+          <tr>
+            <th>Prefix</th>
+            <th>Namespace</th>
+            <th>Vocabulaire</th>
+          </tr>
+            <td>geosparql</td>
+            <td>http://www.opengis.net/ont/geosparql#</td>
+            <td><a href="http://www.opengeospatial.org/standards/geosparql">Geographic Query Language for RDF Data</a></td>
+          </tr>
+          <tr>
+            <td>schema></td>
+            <td>http://schema.org/</td>
+            <td><a href="https://schema.org">Schema.org</a></td>
+          </tr>
+        </tbody>
+      </table>
       <p>Voor de verbinding van de NEN 3610 klassen met de internationale standaarden, verbinden we het NEN 3610 model met de <a>OGC</a> GeoSparql Linked Data vocabulaire. We geven daarbij aan dat een nen3610:GeoObject een subklasse is van de geosparql:Feature klasse.</p>
       <p>Voor de aansluiting met search engines, verbinden we het NEN3610 model met schema.org. Daarbij zijn twee classes relevant: <a href="https://schema.org/Place">schema:Place</a> en <a href="https://schema.org/AdministrativeArea">schema:AdministrativeArea</a>. Niet elk nen3610:GeoObject is echter een schema:Place. Zo kan een trein wel gezien worden als een nen3610:GeoObject, maar niet als een schema:Place. Alle huidige NEN 3610 specialisaties van nen3610:GeoObject kunnen echter wel gezien worden als een rdfs:subClassOf schema:Place, waarbij een nen3610:RegistratiefGebied gezien kan worden als een rdfs:subClassOf schema:AdministrativeArea.</p>
+      <p>De aansluiting met de Europese Core Vocabularies [[semic-core]], in het bijzonder de Core Location Vocabulary verloopt niet rechtstreeks met een NEN 3610 klasse, maar indirect via geosparql. De Core Location Vocabulary gaat over adressen en geometrieën, terwijl NEN 3610 gaat over geo-objecten: dingen met een geometrie. Doordat we een geo-object hebben gedefinieerd als een speciaal soort <code>geosparql:Feature</code>, en een dergelijk feature een geometrie kent (<code>geosparql:Geometry</code>), is daarmee de aansluiting gemaakt.
     </section>
 
     <!-- Sectie 6.4 -->
@@ -2272,7 +2286,7 @@ imgolf:Bunker a owl:Class ;
                 De rationale is dat het mogelijk is dat dezelfde dingen elders ook beschreven zijn. In dat geval is het mogelijk om de dingen semantisch aan elkaar te koppelen en kunnen we de kracht van linked data benutten om onze gegevens te verrijken. In linked data betekent dit het modelleren als instanties van een specifieke klasse.
               </p>
               <p>
-                Een voorbeeld van een dergelijke enumeratie is een enumeratie van landen. Een land is een concreet iets in de institutionele werkelijkheid. Het is ook iets waar vanuit verschillende bronnen informatie over is vastgelegd. Daarom is het van belang om een land als ding te modelleren.                 
+                Een voorbeeld van een dergelijke enumeratie is een enumeratie van landen. Een land is een concreet iets in de institutionele werkelijkheid. Het is ook iets waar vanuit verschillende bronnen informatie over is vastgelegd. Daarom is het van belang om een land als ding te modelleren.
               </p>
               <pre class='ex-turtle'>
 #---------------#
@@ -2711,7 +2725,7 @@ ex:Huwelijk a owl:Class ;
 
 ex-sh:Huwelijk a sh:NodeShape ;
   sh:targetClass ex:Huwelijk ;
-  sh:property 
+  sh:property
     [
       sh:path rdf:subject ;
       sh:class ex:Persoon ;
@@ -2768,7 +2782,7 @@ ex-sh:Huwelijk a sh:NodeShape ;
               Bij de DSO wordt in ieder geval altijd de kardinaliteit in SHACL beschreven. Waar gewenst en mogelijk wordt de existentiële kardinaliteit met OWL beschreven.
             </p>
             <p>
-              In het IMGolf model is is gespecificeerd dat Parcours een hindernisrelatie heeft met kardinaliteit 0 of 1. Dit kan prima gelden voor de golfbanen die beschreven worden met IMGolf. 
+              In het IMGolf model is is gespecificeerd dat Parcours een hindernisrelatie heeft met kardinaliteit 0 of 1. Dit kan prima gelden voor de golfbanen die beschreven worden met IMGolf.
               <figure>
                 <img src="media/imgolf-kardinaliteit.png" height="350">
                 <figcaption>
@@ -2820,7 +2834,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
               <section id='metamodelnta'>
               <h3>Conceptueel Top Model NTA8035</h3>
 
-              <p>De NTA8035 bestaat uit een subset van concepten en relaties uit de nog in ontwikkeling zijnde nieuwe versie van de NEN2660. 
+              <p>De NTA8035 bestaat uit een subset van concepten en relaties uit de nog in ontwikkeling zijnde nieuwe versie van de NEN2660.
               Waarbij in de NTA gekozen is voor taalbinding naar SKOS/RDFS/OWL. Daarmee wordt er invulling gegeven aan het Conceptueel Metamodel van de NEN2660.</p>
 
               <p>De afspraken in de NTA8035 worden in twee internationale standaardisatietrajecten ingebracht, namelijk de ISO 21597 “Information Container for Data Delivery (ICDD)” [[iso-21597-1]] en de
@@ -3760,16 +3774,16 @@ imgolf:Parcours
     <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform <a>UML</a> van een golfbaan, IMGolf, kunnen we een Linked Data model opstellen.</p>
     <p>Elk van de drie stijlen leidt daarbij tot een eigen interpretatie van het IMGolf model. De drie stijlen gebruiken elk een eigen notatiewijze voor modelconstructies. De diagrammen hebben wat dat betreft een eigen legenda. In <a href="#dataset2model"></a> worden de modellen wel uitgedrukt in één metamodel en is er één gezamenlijk diagramtype waarin de modellen gevisualiseerd worden.
-	
+
 	Het bronmodel in de UML naar LD transformatie is IMGolf. Onderstaand het UML klassediagram hiervan.
-	
+
 	 <figure>
         <img src="media/IMGolf.png" width="600">
         <figcaption>Model van Golfbaan (IMGolf) uitgedrukt in NEN 3610-UML</figcaption>
      </figure>
-	
-	
-	
+
+
+
 	</p>
 
     <!-- Sectie 8.1 -->
