@@ -1071,11 +1071,14 @@ nen3610:GeoObject rdfs:subClassOf gsp:Feature .
                 <figcaption>Klasse met stereotype &laquo;dataType&raquo;</figcaption>
               </figure>
             </p>
+            <p>Indien van het getransformeerde model zowel de ontologie (owl:Class) als gegevensregels (sh:NodeShape) worden gebruikt, dan kan de owl:Class achterwege blijven indien het datatype puur als gegevensregel is beoogd</p>
+            <p>Daarnaast zal in de concrete data mogelijk geen identificatie (URI) nodig of beschikbaar zijn, aangezien in het originele model slechts sprake was van een datatype. In dat geval zou hiervoor een blank node gebruikt kunnen worden, of een gegenereerde URN (bijvoorbeeld: <code>urn:uuid:{uuid}</code>)</p>
             <pre class='ex-turtle'>
 #-------------------#
 # Ontologie
 #-------------------#
 
+# Het datatype als klasse
 nen3610:Identificatie a owl:Class .
 
 nen3610:namespace a owl:DatatypeProperty ;
@@ -1097,8 +1100,16 @@ nen3610:versie a owl:DatatypeProperty ;
 # Gegevensregels
 #-------------------#
 
+# Een attribuuttype met als datatype de NEN3610Identificatie
+sh:property [
+  sh:name "nen3610:identificatie";
+  sh:path nen3610:identificatie;
+  sh:node shape:NEN3610Identificatie;
+];
+
+# Het datatype als nodeshape
 shape:NEN3610Identificatie a sh:NodeShape ;
-  rdfs:label "Shape voor NEN3610 identificatie" ;
+  rdfs:label "Shape voor NEN3610 Identificatie" ;
   rdfs:comment "De combinatie van 'namespace' van een registratie, lokale identificatie
    en versie-informatie maken een object uniek identificeerbaar. Met de informatie van
    deze klasse kan daardoor met zekerheid worden verwezen naar het geïdentificeerde object." ;
