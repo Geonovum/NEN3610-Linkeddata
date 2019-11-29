@@ -194,7 +194,7 @@ var respecConfig = {
       title: "CEN/TC 442 - 	Building Information Modelling (BIM)",
       href: "https://standards.cen.eu/dyn/www/f?p=204:7:0::::FSP_ORG_ID:1991542&cs=16AAC0F2C377A541DCA571910561FC17F",
       date: "2019"
-    }
+    },
     "semic-core": {
       id: "SEMIC:Core",
       title: "e-Government Core Vocabularies",
