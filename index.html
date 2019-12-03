@@ -38,14 +38,14 @@
   <section id='inleiding' class="informative">
     <h1>Inleiding</h1>
 
-    p>Dit document is een combinatie van een technisch rapport, een handboek en een standaard. Vanwege het onderzoekskarakter van het onderwerp is er voor gekozen om deze drie typen documenten in één rapport, de standaard NEN 3610 - Linked Data, bij elkaar te houden. Het technische rapport beschrijft de samenhang en verschillen tussen de UML - Object-oriëntatie en Linked Data. In het handboek gedeelte worden de UML - RDF transformatieregels beschreven en in het normatieve gedeelte is de NEN 3610 - Ontologie opgenomen. Bij elk hoofdstuk is aangegeven of het normatief dan wel niet normatief is.</p>
+    <p>Dit document is een combinatie van een technisch rapport, een handboek en een standaard. Vanwege het onderzoekskarakter van het onderwerp is er voor gekozen om deze drie typen documenten in één rapport, de standaard NEN 3610 - Linked Data, bij elkaar te houden. Het technische rapport beschrijft de samenhang en verschillen tussen de UML - Object-oriëntatie en Linked Data. In het handboek gedeelte worden de UML - RDF transformatieregels beschreven en in het normatieve gedeelte is de NEN 3610 - Ontologie opgenomen. Bij elk hoofdstuk is aangegeven of het normatief dan wel niet normatief is.</p>
 
-	<p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
+    <p>Steeds meer wordt Linked Data gebruikt als uitwissel- en publicatiemechanisme voor geo-informatie. NEN 3610 is de standaard voor het uitwisselen van geo-informatie, gebruikt <a>Unified Modeling Language</a> (UML) als formele taal voor het vastleggen van semantiek en beveelt <a>Geography Markup Language</a> (GML) aan als technisch uitwisselingsformat. NEN 3610 is hiermee nog niet geschikt om semantiek, gegevensdeling en uitwisseling middels Linked Data te realiseren.</p>
 
     <p>NEN 3610 geeft ook aan dat indien een sector kiest voor een ander formaat dan GML en er nog geen codering van NEN 3610 naar dat technisch formaat bestaat, de sector gevraagd wordt deze codering te beschrijven.<br>
       In dit document wordt hier een begin mee gemaakt. Geonovum heeft het initiatief genomen om partijen die actief bij de toepassing van geo-informatie als Linked Data betrokken zijn samen te brengen rond het onderwerp NEN 3610 toegepast in Linked Data. Het doel daarvan is te komen tot een gezamenlijke werkwijze die zorgt voor interoperabiliteit tussen Linked geo-Data en een een gecontroleerde relatie met het stelsel van NEN 3610 - informatiemodellen.</p>
 
-    <p>Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, te implementeren in Linked Data. De relatie tussen het bronmodel, het NEN 3610 informatiemodel, en het doel, het <a>vocabulaire</a> en de <a>ontologie</a>, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-Linked Data codering maar specifiek die van uit een NEN 3610 bronmodel.</p>
+    <p>Het onderwerp is beperkt tot het ontwikkelen van de methode om een NEN 3610 model te transformeren, te implementeren in Linked Data. De relatie tussen het bronmodel, het NEN 3610 informatiemodel, en het doel, het <a>begrippenkader</a> en de <a>ontologie</a>, staat daarbij voorop. Het gaat dus niet zozeer om een algemene geo-Linked Data codering maar specifiek die van uit een NEN 3610 bronmodel.</p>
 
     <P>Als resultaat zijn de volgende producten ontwikkeld:</p>
     <ol>
@@ -70,7 +70,7 @@
     <p><b>Leeswijzer:</b> Het document begint met een beeld van hoe operationeel Linked Data ingezet wordt door middel van een inventarisatie van linked geo-datasets die er in Nederland beschikbaar zijn. Hoofdstuk drie schetst de gebruikstoepassing die met de toepassing van NEN 3610 en NEN 3610 modellen in een Linked Data omgeving bediend wordt en beschrijft de reden waarom een NEN 3610-LD profiel relevant is. Er zijn ook internationale initiatieven en standaarden die op het onderwerp codering van geo-informatie in RDF in gaan. Een kort overzicht daarvan en hoe die relateren aan dit onderwerp wordt in hoofdstuk vier gegeven.</p>
 
     <p>De <a>object-oriëntatie</a> van NEN 3610 en de ontologische kennismodellen van Linked Data kennen verschillende paradigma's. De basisbeginselen van Linked Data en een referentie naar verdere documentatie geeft in hoofdstuk 5 een inleiding en overzicht over de impact van deze verschillen. Hoofdstuk 6 is normatief en bevat het NEN 3610-LD profiel en beschrijft het NEN 3610 vocabulaire in de relevante Linked Data vocabulaires. Dit profiel wordt vervolgens in hoofdstuk 7 toegepast en aangevuld met transformatieregels om een NEN 3610-UML informatiemodel te tranformeren naar Linked Data. Hoofdstuk 7 is daarmee het inhoudelijke hoofdstuk dat de transformatieregels besschrijft. In dat hoofdstuk wordt ook geconstateerd dat er in Nederland drie verschillende Linked Data stijlen voor locatie informatie van toepassing zijn.
-	Hoofdstuk 8 bevat een toepassing hiervan op het niveau van een NEN 3610 voorbeeldmodel IMGolf dat naar drie verschillende Linked Data modellen wordt getransformeerd. In het laatste hoofdstuk wordt aan de hand van het NEN 3610 voorbeeldmodel een dataset gecreeerd en na de transformatie toegepast en gepubliceerd als ontologie en vocabulaire conform de drie stijlen. Deze drie Linked Data stijlen kunnen hiermee worden vergeleken</p>
+	Hoofdstuk 8 bevat een toepassing hiervan op het niveau van een NEN 3610 voorbeeldmodel IMGolf dat naar drie verschillende Linked Data modellen wordt getransformeerd. In het laatste hoofdstuk wordt aan de hand van het NEN 3610 voorbeeldmodel een dataset gecreeerd en na de transformatie toegepast en gepubliceerd als ontologie en begrippenkader conform de drie stijlen. Deze drie Linked Data stijlen kunnen hiermee worden vergeleken</p>
 
   </section>
 
@@ -245,6 +245,7 @@
         <li><a href="https://youtu.be/4x_xzT5eF5Q">Uitleg in video</a> (Door Manu Sporny, Engels)</li>
         <li><a href="http://www.pilod.nl/wiki/Boek/Verhelst">Uitleg om te lezen</a> (Door Lieke Verhelst, Nederlands)</li>
       </ul>
+      <aside class="note">In dit document gebruiken we de term <a>vocabulaire</a> wanneer we het in algemene zin hebben over een verzameling van termen waarmee je je uitdrukt. De term <a>begrippenkader</a> gebruiken we voor een model van begrippen die (tekstueel) gedefinieerd zijn en  onderlinge relaties hebben, zoals bijvoorbeeld in een thesaurus. Met de term <a>ontologie</a> bedoelen we een machine-leesbaar kennismodel met een set regels, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Zowel vocabulaires als ontologieën zijn in ons taalgebruik dus 'vocabulaires'.</aside>
       <p>Voor het begrijpen van de rest van dit document is het belangrijk om te weten dat het gedachtegoed van Linked Data fundamenteel verschilt van het gedachtegoed van de administratieve systemen die we kennen zoals in relationele databases en <a>object-oriëntatie</a>. In Linked Data doen we beweringen over specifieke dingen uit de werkelijkheid of, om precies te zijn, uit het <a>beschouwingsgebied</a> ofwel 'universe of discourse'. De dingen waar we beweringen over doen hebben een identificerende URI (meer hierover in <a href="#basisprincipes-identificatie"></a>). Elke 'triple' is een bewering die invulling geeft aan één specifieke eigenschap van een onderwerp, het <a>subject</a>. </p>
       <p>Naast een subject bestaat elke bewering of triple uit een eigenschap en een waarde. De waarde kan ook weer een onderwerp op zich zijn met een eigen unieke sleutel (URI) en eigenschappen. Het bijzondere van Linked Data is dat dat andere onderwerp heel ergens anders opgeslagen kan zijn: het hoeft niet in dezelfde database te zitten. Dit betekent ook dat iedereen beweringen kan doen over elkaars onderwerpen: <a href="https://www.w3.org/TR/rdf-concepts/#section-anyone">Anyone can say anything about anything (AAA)</a>. Hieruit volgt weer dat je niet 'alles' kunt weten</a> over een onderwerp (er kunnen immers beweringen bestaan die je niet gevonden hebt): dit heet het <a href="http://wiki.opensemanticframework.org/index.php/Overview_of_the_Open_World_Assumption">open wereld principe</a>. </p>
       <p>Data modelleren in <a>OWL</a> lijkt op het eerste gezicht best veel op <a>UML</a>. Je hebt klassen, eigenschappen, en relaties. Er is echter een fundamenteel verschil. Met OWL beschrijf je de regels van hoe de wereld in elkaar zit en ga je vervolgens met die regels data achteraf classificeren. Je bent dus eigenlijk geen data aan het modelleren, maar kennis aan het beschrijven die kan worden toegepast op data. In de object-georienteerde / relationele wereld kan data niet bestaan zonder expliciet een instantie te zijn van een klasse en is je data van tevoren gecategoriseerd. Als je in een UML model bijvoorbeeld de klasse fiets modelleert als een object met precies twee wielen, heeft dit als resultaat dat een instantie van een fiets met één of drie wielen wordt afgekeurd: deze voldoet niet aan de definitie van fiets. Over andere objecten met wielen zegt dit niets, tenzij het UML model daar ook klassen voor definieert. In Linked Data zou het resultaat echter zijn dat elk ding dat twee wielen heeft, behoort tot de klasse fiets. Dus ook een motorfiets, een step, of een tweewielige kruiwagen. Een ding met één of drie wielen is geen 'incorrecte instantie' maar blijkbaar een ding dat tot een andere, onbekende klasse behoort.</p>
@@ -402,7 +403,7 @@
     </section>
     <!-- Sectie 5.7 -->
     <section id='basisprincipes-vocabulaires'>
-      <h2>Hergebruik van bestaande vocabulaires en ontologieën</h2>
+      <h2>Hergebruik van bestaande vocabulaires</h2>
       <p>Linked Data maakt gebruik van bestaande, al dan niet gestandaardiseerde <a>vocabulaires</a> (zoals bv SKOS, FOAF, DCAT, etc.), omwille van de interoperabiliteit. Je kunt klassen en eigenschappen, die al in bestaande vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
       <aside class="note">
         <h3>Consequenties voor NEN 3610</h3>
@@ -979,7 +980,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
           </tbody>
         </table>
 
-        <p class=MsoNormal>Deze <a>vocabulaires</a> worden op de volgende wijze ingezet:</p>
+        <p>Deze <a>vocabulaires</a> worden op de volgende wijze ingezet:</p>
         <ul>
           <li>RDF, RDFS en OWL worden gebruikt om de terminologie te beschrijven waarin de data wordt uitgedrukt. In <a>UML</a> termen worden hiermee de klassen, relaties en attributen beschrijven die geïnstantieerd worden als concrete data.</li>
           <li>RDFS en OWL worden ook gebruikt om de formele semantiek van de data te specificeren, voor zover deze uit het UML model zijn is te leiden.</li>
@@ -2868,7 +2869,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
                 <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li> (Loc-3a en LoC-3b)
               </ol>
               In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de standaard transformatieregels in dit document).
-              Voor complexe eigenschappen wordt een uitgebreide variant van de de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[QUDT]].
+              Voor complexe eigenschappen wordt een uitgebreide variant van de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[QUDT]].
             </p><p>
               Behalve modelleringsregels bevat de NTA 8035 ook een top model met een zevental concepten en een aantal relaties daartussen:
               <ol>
@@ -3792,7 +3793,7 @@ imgolf:Parcours
   <!-- Hoofdstuk 8 -->
   <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
 
-    <h1>Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire</h1>
+    <h1>Voorbeeld: UML-Golfbaan naar vocabulaire</h1>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform <a>UML</a> van een golfbaan, IMGolf, kunnen we een Linked Data model opstellen.</p>
     <p>Elk van de drie stijlen leidt daarbij tot een eigen interpretatie van het IMGolf model. In dit hoofdstuk is voor elk van de drie stijlen het IMGolf UML getransformeerd naar een ontologie. In het tot standkomen van dit document was dit de eerste initiele transformatie die elke stijl toepaste op IMGolf. Deze transfoprmatie leidt tot begrip over het verschil in de verschillende stijlen. Dit begrip is gebruikt om in hoofdstuk 7 de stijl specifieke transformatieregels op te stellen. De drie stijlen gebruiken elk een eigen notatiewijze voor modelconstructies. De diagrammen hebben wat dat betreft een eigen legenda. In <a href="#dataset2model"></a> worden de modellen wel uitgedrukt in één metamodel en is er één gezamenlijk diagramtype waarin de modellen gevisualiseerd worden.
 
@@ -4247,7 +4248,8 @@ imgolf:Parcours
     <p><dfn data-lt="SHACL">SHACL</dfn>: Shapes Constraints Language [[shacl]], een taal om RDF data te valideren tegen een set regels.</p>
     <p><dfn data-lt="PROV-O">PROV-O</dfn>: The PROV Ontology [[prov-o]], een taal om versie- en herkomstinformatie te beschrijven.</p>
     <p><dfn data-lt="ontologie|ontologieën">Ontologie</dfn>: een kennismodel van een specifiek kennisdomein in de werkelijkheid [[ONTOLOGY]]. Bevat een set regels, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Met behulp van zo'n model kunnen computers begrijpen wat de data betekent en redeneren over data. </p>
-    <p><dfn data-lt="Vocabulaire|vocabulaire|Vocabulaires|vocabulaires">Vocabulaire</dfn>: Een model van begrippen, dat beschrijft welke concepten er in het domein dat je wilt modelleren een rol spelen, en wat ze betekenen [[vocab]]. De begrippen zijn (tekstueel) gedefinieerd en hebben onderlinge relaties, zoals bijvoorbeeld in een thesaurus. De term vocabulaire wordt ook wel gebruikt in bredere zin of als synoniem van de term ontologie.</p>
+    <p><dfn data-lt="Vocabulaire|vocabulaire|Vocabulaires|vocabulaires">Vocabulaire</dfn>: Een verzameling van termen waarmee je je uitdrukt. De term vocabulaire wordt ook wel gebruikt in bredere zin of als synoniem van de term ontologie (maar dit laatste niet binnen dit document).</p>
+    <p><dfn data-lt="Begrippenkader|begrippenkader">Begrippenkader</dfn>: Een model van begrippen, dat beschrijft welke concepten er in het domein dat je wilt modelleren een rol spelen, en wat ze betekenen [[vocab]]. De begrippen zijn (tekstueel) gedefinieerd en hebben onderlinge relaties, zoals bijvoorbeeld in een thesaurus. </p>
     <p><dfn data-lt="feature type|feature types">Feature type</dfn>: Objecttype gebruikt voor het representeren van geo-informatie [[NEN3610]].</p>
     <p><dfn data-lt="turtle|ttl|Turtle">Turtle (ttl)</dfn>: <a>RDF</a> serialisatieformaat. Zie [[turtle]]</p>
     <p><dfn>RDF/XML</dfn>: <a>RDF</a> serialisatieformaat gebaseerd op XML. </p>
