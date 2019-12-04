@@ -1983,6 +1983,26 @@ imgolf:Parcours a owl:Class ;
               </aside>
             </p>
           </section>
+
+          <section id='regels-overig-constraint'>
+            <h5>Constraint</h5>
+            <p>
+              Een constraint is een beperking die één of meerdere modelelementen betreft. Een constraint wordt in natuurlijke taal omschreven en is daarom niet te vertalen naar een element in het doelmetamodel.
+            </p>
+            <p>
+              Bij de transformatie wordt de tekst van de constraint als extra toelichting bij de betreffende modelelementen opgenomen in de ontologie in de vorm van een <code>rdfs:comment</code>
+            </p>
+            <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:Parcours a owl:Class ;
+  rdfs:label "ParcoursDeel" ;
+  rdfs:comment "{HoleInGreen}" ;
+.
+            </pre>
+          </section>
         </section>
 
       </section>
@@ -2853,6 +2873,35 @@ imgolf-sh:Parcours a sh:NodeShape ;
   ] ;
 .
             </pre>
+          </section>
+
+          <section id='regels-overig'>
+            <h4>Overig</h4>
+            <section id='regels-overig-package'>
+              <h5>Package</h5>
+              <p>
+                TODO
+              </p>
+            </section>
+  
+            <section id='regels-overig-constraint'>
+              <h5>Constraint</h5>
+              <p>
+                TODO
+              </p>
+              <pre class='ex-turtle'>
+  #---------------#
+  # Ontologie
+  #---------------#
+  
+  imgolf:Parcours a owl:Class ;
+    rdfs:label "ParcoursDeel" ;
+    rdfs:comment "{HoleInGreen}" ;
+  .
+
+  TODO
+              </pre>
+            </section>
           </section>
 
         </section>
