@@ -1987,19 +1987,26 @@ imgolf:Parcours a owl:Class ;
           <section id='regels-overig-constraint'>
             <h5>Constraint</h5>
             <p>
-              Een constraint is een beperking die één of meerdere modelelementen betreft. Een constraint wordt in natuurlijke taal omschreven en is daarom niet te vertalen naar een element in het doelmetamodel.
+              Een constraint is een beperking die één of meerdere modelelementen betreft. Een constraint wordt vaak in natuurlijke taal omschreven en is daarom niet te vertalen naar een element in het doelmetamodel.
             </p>
             <p>
               Bij de transformatie wordt de tekst van de constraint als extra toelichting bij de betreffende modelelementen opgenomen in de ontologie in de vorm van een <code>rdfs:comment</code>
+              <figure>
+                <img src="media/imgolf-constraint.png">
+                <figcaption>Klasse met constraint</figcaption>
+              </figure>
+              In bovenstaand voorbeeld is er voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Dit leidt tot de volgende transformatie in de ontologie.
             </p>
             <pre class='ex-turtle'>
 #---------------#
 # Ontologie
 #---------------#
 
-imgolf:Parcours a owl:Class ;
+imgolf:ParcoursDeel a owl:Class ;
   rdfs:label "ParcoursDeel" ;
-  rdfs:comment "{HoleInGreen}" ;
+  rdfs:comment """{HoleInGreen}:
+  /*hole bevindt zich binnen de geometrie van de green */
+  Inside(hole.geometrie,this->geometrie)""" ;
 .
             </pre>
           </section>
