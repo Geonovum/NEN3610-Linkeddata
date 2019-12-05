@@ -1974,13 +1974,33 @@ imgolf:Parcours a owl:Class ;
           <section id='regels-overig-package'>
             <h5>Package</h5>
             <p>
-              In sommige UML modellen wordt gebruik gemaakt van een package om modelelementen te groeperen. In sommige gevallen kan de groepering gezien worden als één informatiemodel, maar dat is niet altijd het geval.
+              In sommige UML modellen wordt gebruik gemaakt van een package om modelelementen te groeperen. Soms kan de groepering gezien worden als één informatiemodel, maar dat is niet altijd het geval.
             </p>
             <p>
-              In de standaardtransformatie worden alle packages getransformeerd naar instanties van <code>owl:Ontology</code>.
+              In de standaardtransformatie worden alle packages getransformeerd naar instanties van <code>owl:Ontology</code>. Alle modelelementen die onderdeel zijn van deze package krijgen een relatie <code>rdfs:isDefinedBy</code> naar de instantie van de bijbehorende insantie van <code>owl:Ontology</code>.
               <aside class='note'>
                 Het is aan te raden om handmatig te controleren of de opdeling in packages leidt tot de juiste ontologieën.
               </aside>
+              <pre class='ex-turtle'>
+  #---------------#
+  # Ontologie
+  #---------------#
+
+  &lt;http://definities.geostandaarden.nl/def/imgolf> a owl:Ontology ;
+    rdfs:label "IMGolf" ;
+    rdfs:comment "Package: IMGolf" ;
+  .
+
+  imgolf:Parcours a owl:Class ;
+    rdfs:label "Parcours" ;
+    rdfs:isDefinedBy &lt;http://definities.geostandaarden.nl/def/imgolf> ;
+  .
+
+  imgolf:natuurwaarde a owl:DatatypeProperty ;
+    rdfs:label "natuurwaarde" ;
+    rdfs:isDefinedBy &lt;http://definities.geostandaarden.nl/def/imgolf> ;
+  .
+              </pre>
             </p>
           </section>
 
@@ -1995,7 +2015,7 @@ imgolf:Parcours a owl:Class ;
                 <img src="media/imgolf-constraint.png">
                 <figcaption>Klasse met constraint</figcaption>
               </figure>
-              In bovenstaand voorbeeld is er voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Dit leidt tot de volgende transformatie in de ontologie.
+              In bovenstaand voorbeeld is er voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Dit leidt tot de volgende transformatie naar de ontologie.
             </p>
             <pre class='ex-turtle'>
 #---------------#
