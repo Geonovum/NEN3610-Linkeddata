@@ -3929,6 +3929,7 @@ imgolf:Parcours
     <section id='Linked Data modelstijlen'>
       <h2>Linked Data modelstijlen</h2>
 
+      <!-- Sectie 9.3.1 -->
       <section id='huidige gebruik'>
         <h3>Huidige stijlen in gebruik</h3>
 
@@ -3938,7 +3939,7 @@ imgolf:Parcours
           <li><a href="http://www.coinsweb.nl">COINS</a>: uitwisselingsstandaard voor BIM informatie</li>
           <li>DSO: beschrijving t.b.v. het DSO op basis van de <a>W3C</a> specificaties <a href="http://www.w3.org/TR/shacl">SHACL</a>/<a href="http://www.w3.org/TR/owl2-overview">OWL</a>/<a href="http://www.w3.org/TR/rdf-schema">RDFS</a></li>
         </ul>
-        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor één source (een UML model of XML/GML bestand conform NEN 3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren (bijvoorbeeld met een owl:sameAs constructie), aangezien in al deze gevallen sprake is van Linked Data</p>
+        <p>Concreet betekent dit, dat er feitelijk drie mogelijke targets zijn (<a>RDF</a> bestanden) voor één source (een UML model of XML/GML bestand conform NEN 3610). In totaal betreft dit vier verschijningsvormen van dezelfde informatie. Wel geldt dat de drie Linked Data representaties makkelijker met elkaar zijn te vergelijken en aan elkaar zijn te relateren, aangezien in al deze gevallen sprake is van Linked Data. Dit betekent dat vanuit het ene model verwezen kan worden naar het andere model, bijvoorbeeld met een eigenschap `rdfs:seeAlso`, of met een eigen gedefinieerde eigenschap: `ex:vergelijkbaarMetModelUitAnderModel`.</p>
 
         <p> Voor een deel zijn deze verschillen verklaarbaar doordat er bij elke stijl een verschillende focus is op beoogde doelen of use cases die bediend moeten worden. Deze verschillen uiten zich onder andere in het gebruik van verschillende Linked Data <a>vocabulaires</a> RDF, RDFS, SKOS, OWL en SHACL. Voor elke stijl wordt in onderstaande matrixen de use cases en de gerelateerde vocabulaires aangegeven.</p>
 
