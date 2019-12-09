@@ -138,13 +138,13 @@ var respecConfig = {
       publisher: "Wikipedia",
       date: "2019-02-22"
     },
-    OSLO-EA-RDF: {
+    "OSLO-EA-RDF": {
       id: "OSLO-EA-RDF",
       title: "OSLO - Enterprise Architect RDF Conversion Tool",
       href: "https://github.com/Informatievlaanderen/OSLO-EA-to-RDF",
       publisher: "Informatie Vlaanderen",
       date: "2019-03-25"
-    }
+    },
     UNA: {
       id: "UNA",
       title: "Unique name assumption",
