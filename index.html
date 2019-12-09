@@ -337,6 +337,7 @@
         <li>De ontologie is zowel bruikbaar op niveau 2 en 3. Bovendien wordt in de uitwisseling van concrete data expliciet gerefereerd aan deze ontologie, en verwijst de ontologie terug naar het model van begrippen.</li>
         <li>Om expliciet een opslagstructuur of uitwisselingsstructuur te beschrijven, wordt gebruik gemaakt van SHACL structuurspecificaties, waarbij ook weer wordt verwezen naar de ontologie.</li>
       </ul>
+      <p>In dit document wordt voor de transformatie uitgegaan van een UML model op niveau 2/3. Dit sluit aan op het uitgangspunt dat nu veel van dergelijke modellen aanwezig zijn, en het relevant is om daarvan ook een variant te hebben, uitgedrukt in Linked Data. Vanuit een modelleringsaanpak zou het echter beter zijn om te beginnen met een model op niveau 1, en vervolgens dit model verder uit te werken op de lagere niveaus, waarbij zowel een UML informatiemodel als een Linked Data ontologie onstaat vanuit een gedeeld begrippenkader op niveau 1.</p>
     </section>
 
     <!-- Sectie 5.6 -->
@@ -841,6 +842,9 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <!-- Sectie 7.1 -->
     <section id='transformatie-doel'>
       <h2>Doel van de transformatie en methode</h2>
+
+      <p>Het doel van de transformatie voor NEN 3610 gaat er vanuit dat er op dit moment een grote hoeveelheden NEN 3610 UML modellen bestaan, waarvoor het nuttig zou zijn om van deze modellen ook een Linked Data variant te hebben. Indien een dergelijk Linked Data model zou bestaan, zou het mogelijk kunnen zijn om bestaande data conform deze modellen (bijvoorbeeld concrete data over een BAG pand, WOZ object of IMKL netwerk) te transformeren naar hun Linked Data representant.</p>
+      <p>In de transformatie wordt daarbij dan ook uitgegaan van een UML informatiemodel. Vanuit een modelleringsaanpak zou het echter beter zijn om te beginnen met een gemeenschappelijk model van begrippen, en vervolgens dit model verder uit te werken naar zowel een UML informatiemodel als een Linked Data ontologie. Dit is echter niet het doel geweest van de transformatiestappen die in dit hoofdstuk zijn beschreven.</p>
 
     <section id='correct-versus-juist'>
       <h3>Correct versus juist: handmatige vertaling is deels noodzakelijk</h3>
