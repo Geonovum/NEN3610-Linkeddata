@@ -95,6 +95,14 @@ var respecConfig = {
       publisher: "Geonovum",
       date: "2017-06-14"
     },
+    MIM11: {
+      id: "mim11",
+      title: "MIM - Metamodel Informatie Modellering",
+      href: "https://docs.geostandaarden.nl/mim/wv-st-mim11-20191029/",
+      status: "Werkversie",
+      publisher: "Geonovum",
+      date: "2019-10-29"
+    },
     REIFICATION: {
       id: "reif",
       title: "Reification (computer science)",
@@ -130,6 +138,13 @@ var respecConfig = {
       publisher: "Wikipedia",
       date: "2019-02-22"
     },
+    OSLO-EA-RDF: {
+      id: "OSLO-EA-RDF",
+      title: "OSLO - Enterprise Architect RDF Conversion Tool",
+      href: "https://github.com/Informatievlaanderen/OSLO-EA-to-RDF",
+      publisher: "Informatie Vlaanderen",
+      date: "2019-03-25"
+    }
     UNA: {
       id: "UNA",
       title: "Unique name assumption",

@@ -816,6 +816,8 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
     <section id='transformatie-doel'>
       <h2>Doel van de transformatie en methode</h2>
 
+    <section id='correct-versus-juist'>
+      <h3>Correct versus juist: handmatige vertaling is deels noodzakelijk</h3>
 
 	<p>
 	De methode voor de toe te passen transformatie van een NEN 3610-UML bronmodel naar een Linked Data doelmodel (RDF/OWL/SHACL) bevat een aantal hoofdlijnen. De transformatieregels worden gespecificeerd conform informatie-elementen uit het metamodel van NEN 3610. Het volgt de basiselementen klassen, attributen en associaties en de daaraan gerelateerde stereotypen. Een groot deel van de transformatieregels zijn standaard op te stellen. Hier is ook al veel werk in verricht onder andere te vinden in INSPIRE RDF guidelines [[INSPIRERDF]]. We noemen dit ‘standaard transformatieregels’. Naast deze standaard transformatieregels zijn er nog ‘specifieke transformatieregels’. Deze zijn specifiek omdat ze extra aanvullingen en aanpassingen zijn om er zinvolle Linked Data modellen van te maken. Ze zijn ook specifiek omdat de verschillende modelleerstijlen van Omgevingswet-DSO, de Bouwsector en Stedelijkwater-GWSW-OroX, specifieke aanpassingen vereisen. Voor elk van deze stijlen worden de standaard transformatieregels aangevuld met specifieke regels. Het geheel van standaard – en specifieke transformatieregels geeft voor elke modelleerstijl een handvat om een NEN 3610-UML model om te zetten naar het specifieke NEN 3610-Linked Data doelmodel.
@@ -837,6 +839,9 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
         <img src="media/correct-en-juist.png" width="600">
         <figcaption>Correct vs Juist model</figcaption>
       </figure>
+    </section>
+    <section id='data-transformatie'>
+      <h3>Geautomatiseerde data-transformatie</h3>
 
       <p>Op basis van een dergelijk correct en juist model, zal het dan uiteindelijk mogelijk zijn om concrete geometrische data die gebaseerd is op het <a>UML</a> model, om te zetten naar RDF. Deze vertaling zou geautomatiseerd kunnen worden, waarbij zowel het originele UML model, het RDF metamodel en het correct en juiste RDF model, dat afgeleid is van het originele UML model, als input dienen.</p>
       <aside class="note">Na vaststelling van deze standaard kan, als een volgende stap, de automatische vertaler geïmplementeerd worden in bijvoorbeeld een XSLT stylesheet die GML data kan omzetten naar Linked Data.</aside>
@@ -846,6 +851,13 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       </figure>
 
     </section>
+    <section id='roundtrip'>
+      <h3>Geen roundtrip</h3>
+      <p>Het doel van de transformatieregels is om hetzelfde UoD te beschrijven. Hiervoor is van belang dat de betreffende informatie hierover wordt overgenomen. Omdat UML en RDF andere uitgangspunten kennen, zal daarbij aan beide kanten informatie noodzakelijk zijn die niet per sé noodzakelijk is aan de andere kant. Hoewel deze informatie opgenomen zou kunnen worden (bijvoorbeeld als onderdeel van een UML profiel of als aanvullende eigenschappen aan de RDF resources), is dit voor de NEN 3610 vertaling niet uitgevoerd. Een roundtrip of volledige transformatie van alle informatie is dan ook niet uitgewerkt. Alleen die informatie wordt getransformeerd die noodzakelijk is om te komen tot een correct en juist model, waarbij voor dat laatste bovendien handmatige stappen noodzakelijk zijn, zoals beschreven in de voorgaande secties.</p>
+      <p>Het Metamodel Informatie Modellering [MIM11] heeft wel tot doel om een volledige transformatie en roundtrip te verzorgen. De uitwerking hiervan heeft gelijk opgelopen met de uitwerking van de NEN 3610 opzet. Het verschil is dat het MIM uitgaat van een eigen metamodel, uitgedrukt in een UML profiel en een RDF ontologie. Hierdoor is het wel mogelijk om een MIM model volledig uit te drukken in UML en in RDF, inclusief een roundtrip transformatie.</p>
+      <p>Een vergelijkbaar initiatief heeft plaatsgevonden in Vlaanderen. Hier is geen eigen metamodel ontwikkeld, maar wordt de vertaling direct vanuit Enterprise Architect opgezet [OSLO-EA-RDF].</p>
+    </section>
+  </section>
 
     <!-- Sectie 7.2 -->
     <section id='transformatiebron'>
@@ -2913,7 +2925,7 @@ imgolf-sh:Parcours a sh:NodeShape ;
               </p>
               Zoals aangegeven in <a href='#regels-overig-package'></a> moet handmatig bekeken worden of de onderverdeling in ontologieën een logische is. Dit kan betekenen dat meerdere instanties van <code>owl:Ontology</code> gecombineerd moeten worden tot één, of dat er handmatig een instantie van <code>owl:Ontology</code> moet worden toegevoegd.
             </section>
-  
+
             <section id='dso-regels-overig-constraint'>
               <h5>Constraint</h5>
               <p>
