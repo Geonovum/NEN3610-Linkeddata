@@ -255,6 +255,7 @@
         <li>Een <em>ontologie</em>, die een kennisdomein beschrijft in termen van klassen en eigenschappen die relevant zijn binnen dit kennisdomein, aangevuld met <em>regels</em>, die gebruikt kunnen worden om extra kennis af te leiden uit gelinkte data. Met behulp van een ontologie kunnen computers begrijpen wat de data betekent en redeneren over data. Een ontologie kun je uitdrukken met <a>RDFS</a> [[rdf-schema]] en <a>OWL</a> [[owl2-primer]].</li>
         <li>Een specificatie van de <em>structuur</em> die de gegevens in een Linked Data dataset hebben, bijvoorbeeld eigenschappen die altijd aanwezig zijn voor een specifieke klasse, <a>datatypen</a>, cardinaliteiten, enzovoort. Dit kun je uitdrukken met <a>SHACL</a> [[shacl]].</li>
       </ul>
+      <p>Het bijzonder aan Linked Data is dat het niet nodig is om een uitwisselingsmodel te beschrijven. Alle Linked Data, ongeacht het model, kan uitgewisseld worden met een aantal gestandaardiseerde uitwisselingsformaten. De bekenste formaten zijn Turtle, RDF/XML en JSON-LD</p>
       <p>De hierboven beschreven uitgangspunten van Linked Data hebben verregaande consequenties die informatiemodelleren voor Linked Data fundamenteel anders maken dan informatiemodelleren voor een gesloten administratief ecosysteem. Wil je dat jouw Linked Data bruikbaar is voor anderen, dan zijn er verschillende aspecten waar je rekening mee moet houden. </p>
     </section>
     <!--De tekst hieronder moet kunnen leunen op de Linked Data 101 uitleg. -->
@@ -314,6 +315,31 @@
     </section>
 
     <!-- Sectie 5.5 -->
+    <section id='modeltypen'>
+      <h2>Verschillende type informatiemodellen</h2>
+      <p>Een informatiemodel beschrijft de werkelijkheid. In de praktijk blijken hier niveaus in te bestaan, variërend van een zo getrouw mogelijke beschrijving van die werkelijkheid tot een specificatie van de wijze van vastlegging van die werkelijkheid in een database of uitwisselformaat. Veelal worden vier niveaus onderscheiden:</p>
+      <ul>
+        <li>Niveau 1: een <b>model van begrippen</b> waarin de werkelijkheid wordt beschreven door middel van de daarin gehanteerde begrippen en de relaties tot elkaar</li>
+        <li>Niveau 2: een <b>conceptueel informatiemodel</b> waarin de werkelijkheid wordt beschreven door middel van de informatie die voor dit domein relevant is, onafhankelijk van de het ontwerp en de implementatie in systemen</li>
+        <li>Niveau 3: een <b>logisch informatie- of gegevensmodel</b> waarin de werkelijkheid wordt beschreven door middel van de representatie van de informatie in de systemen en de uitwisseling tussen systemen en gebruikers</li>
+        <li>Niveau 4: een <b>fysiek of technisch gegevens- of datamodel</b> waarin de werkelijkheid wordt beschreven door middel van de structuur en eigenschappen van de technologie die wordt gebruikt bij de opslag of uitwisseling</li>
+      </ul>
+      <p>Een UML model wordt over het algemeen gebruikt voor het opstellen van modellen op niveau 2 en 3. Vaak is daarbij niveau 1 impliciet, bijvoorbeeld door geven van een definitie aan een modelelement op niveau 2, waarmee feitelijk een definitie wordt gegeven aan een begrip op niveau 1. UML wordt zelden toegepast op niveau 4, tenzij sprake is van een specifiek profiel (bijvoorbeeld een DDL-profiel voor een relationele database), of het toepassen van MDA (Model Driven Architecture) voor het automatisch genereren van een model op niveau 4 vanuit een model op niveau 3.</p>
+      <p>Linked Data kan worden toegepast op elk van de niveaus. Bovendien geldt daarbij dat voor elk van de niveaus gebruik wordt gemaakt van dezelfde expressievorm: triples. Hierdoor is het mogelijk om direct vanuit het ene niveau te verwijzen naar het andere niveau</p>
+      <p>Bovendien geldt dat Linked Data een geuniformeerd fysiek datamodel kent. Hierdoor is het niet nodig om voor elk afzonderlijk model op niveau 3 een eigen fysiek datamodel te ontwikkelen of te genereren. Elk Linked Data model is een model dat bestaat uit triples, en uitgewisseld of opgeslagen kan worden op basis van standaarden. De meest bekende standaarden zijn Turtle, RDF/XML en JSON-LD.</p>
+      <p>Modellen op niveau 1 worden over het algemeen in Linked Data uitgedrukt op basis van SKOS. Ook geldt dat een goede ontologie in Linked Data zowel bruikbaar is als conceptueel informatiemodel EN als logisch informatiemodel. Dit is mogelijk, omdat een ontologie in Linked Data niet zozeer een structuur beschrijft die opgeslagen dan wel uitgewisseld wordt, maar vooral beschrijft wat de betekenis is van de termen die worden gebruikt bij deze uitwisseling of opslag.</p>
+      <p>Om in Linked Data vervolgens te specificeren op welke manier een ontologie wordt gebruikt in een uitwisseling, kan specifiek voor één uitwisseling een SHACL structuurspecificatie worden opgesteld.</p>
+      <p>Ten aanzien van de vier hierboven genoemde niveaus kan dan ook worden geconstateerd:</p>
+      <ul>
+        <li>Deze vier niveau's zijn ook in Linked Data aanwezig, maar wel op een iets andere wijze ingevuld.</li>
+        <li>Het model van begrippen wordt expliciet onderscheiden van de overige modellen.</li>
+        <li>Het fysieke of technische datamodel is geuniformeerd: deze is wereldwijd gestandaardiseerd.</li>
+        <li>De ontologie is zowel bruikbaar op niveau 2 en 3. Bovendien wordt in de uitwisseling van concrete data expliciet gerefereerd aan deze ontologie, en verwijst de ontologie terug naar het model van begrippen.</li>
+        <li>Om expliciet een opslagstructuur of uitwisselingsstructuur te beschrijven, wordt gebruik gemaakt van SHACL structuurspecificaties, waarbij ook weer wordt verwezen naar de ontologie.</li>
+      </ul>
+    </section>
+
+    <!-- Sectie 5.6 -->
     <section id='basisprincipes-setorientatie'>
       <h2>Setoriëntatie in Linked Data en de relatie met de UML Class</h2>
       <p>
@@ -382,7 +408,7 @@
         <p>NEN 3610:2011 zegt niets over meervoudige overerving (waarbij een klasse meerdere superClass relaties heeft). Het zou nuttig zijn om hier wel iets over op te nemen, waarbij kan worden aangegeven dat dit in Linked Data geen probleem is. </p>
       </aside>
     </section>
-    <!-- Sectie 5.6 -->
+    <!-- Sectie 5.7 -->
     <section id='basisprincipes-referentiedata'>
       <h2>Referentiedata</h2>
       <!-- 1 zin uitleg wat we met referentiedata bedoelen toevoegen -->
@@ -401,7 +427,7 @@
         <p>Gebruik bijvoorbeeld <a>blank nodes</a> of interne URI's (URN's of UUID), om de data voorlopig te representeren als het externe data betreft. Als het interne data betreft, munt dan http <a>IRIs</a>. Als referentiedata refereert naar concepten die enkel nodig zijn voor categorisering, gebruik dan SKOS. </p>
       </aside>
     </section>
-    <!-- Sectie 5.7 -->
+    <!-- Sectie 5.8 -->
     <section id='basisprincipes-vocabulaires'>
       <h2>Hergebruik van bestaande vocabulaires</h2>
       <p>Linked Data maakt gebruik van bestaande, al dan niet gestandaardiseerde <a>vocabulaires</a> (zoals bv SKOS, FOAF, DCAT, etc.), omwille van de interoperabiliteit. Je kunt klassen en eigenschappen, die al in bestaande vocabulaires gedefinieerd zijn, vrijelijk met elkaar en met je eigen vocabulaire combineren, en je data wordt meer interoperabel hoe meer je dit doet: iedereen kan immers begrijpen wat je bedoelt als je bekende vocabulaires gebruikt.</p>
