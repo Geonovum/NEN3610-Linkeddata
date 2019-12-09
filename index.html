@@ -1970,6 +1970,70 @@ imgolf:Parcours a owl:Class ;
           </p>
         </section>
 
+        <section id='regels-overig'>
+          <h4>Overig</h4>
+          <section id='regels-overig-package'>
+            <h5>Package</h5>
+            <p>
+              In sommige UML modellen wordt gebruik gemaakt van een package om modelelementen te groeperen. Soms kan de groepering gezien worden als één informatiemodel, maar dat is niet altijd het geval.
+            </p>
+            <p>
+              In de standaardtransformatie worden alle packages getransformeerd naar instanties van <code>owl:Ontology</code>. Alle modelelementen die onderdeel zijn van deze package krijgen een relatie <code>rdfs:isDefinedBy</code> naar de instantie van de bijbehorende insantie van <code>owl:Ontology</code>.
+              <aside class='note'>
+                Het is aan te raden om handmatig te controleren of de opdeling in packages leidt tot de juiste ontologieën.
+              </aside>
+              <pre class='ex-turtle'>
+  #---------------#
+  # Ontologie
+  #---------------#
+
+  &lt;http://definities.geostandaarden.nl/def/imgolf> a owl:Ontology ;
+    rdfs:label "IMGolf" ;
+    rdfs:comment "Package: IMGolf" ;
+  .
+
+  imgolf:Parcours a owl:Class ;
+    rdfs:label "Parcours" ;
+    rdfs:isDefinedBy &lt;http://definities.geostandaarden.nl/def/imgolf> ;
+  .
+
+  imgolf:natuurwaarde a owl:DatatypeProperty ;
+    rdfs:label "natuurwaarde" ;
+    rdfs:isDefinedBy &lt;http://definities.geostandaarden.nl/def/imgolf> ;
+  .
+              </pre>
+            </p>
+          </section>
+
+          <section id='regels-overig-constraint'>
+            <h5>Constraint</h5>
+            <p>
+              Een constraint is een beperking die één of meerdere modelelementen betreft. Een constraint wordt vaak in natuurlijke taal omschreven en is daarom niet te vertalen naar een element in het doelmetamodel.
+            </p>
+            <p>
+              Bij de transformatie wordt de tekst van de constraint als extra toelichting bij de betreffende modelelementen opgenomen in de ontologie in de vorm van een <code>rdfs:comment</code>.
+              <figure>
+                <img src="media/imgolf-constraint.png">
+                <figcaption>Klasse met constraint</figcaption>
+              </figure>
+              In bovenstaand voorbeeld is er voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Dit leidt tot de volgende transformatie naar de ontologie.
+            </p>
+            <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:ParcoursDeel a owl:Class ;
+  rdfs:label "ParcoursDeel" ;
+  rdfs:subClassOf nen3610:GeoObject ;
+  rdfs:comment """{HoleInGreen}:
+  /*hole bevindt zich binnen de geometrie van de green */
+  Inside(hole.geometrie,this->geometrie)""" ;
+.
+            </pre>
+          </section>
+        </section>
+
       </section>
 
     </section>
@@ -2721,6 +2785,7 @@ nen3610-sh:VoidValue a sh:NodeShape ;
                   Wanneer het noodzakelijk is om over een groepje uitdrukkingen eigenschappen vast te leggen kan gebruik gemaakt worden van <code>foaf:Document</code> reification, zoals in <a href='#regels-attributen-materieleHistorie'></a>
                 </aside>
               </p>
+              <pre class='ex-turtle'>
 #---------------#
 # Ontologie
 #---------------#
@@ -2838,6 +2903,72 @@ imgolf-sh:Parcours a sh:NodeShape ;
   ] ;
 .
             </pre>
+          </section>
+
+          <section id='dso-regels-overig'>
+            <h4>Overig</h4>
+            <section id='dso-regels-overig-package'>
+              <h5>Package</h5>
+              <p>
+              </p>
+              Zoals aangegeven in <a href='#regels-overig-package'></a> moet handmatig bekeken worden of de onderverdeling in ontologieën een logische is. Dit kan betekenen dat meerdere instanties van <code>owl:Ontology</code> gecombineerd moeten worden tot één, of dat er handmatig een instantie van <code>owl:Ontology</code> moet worden toegevoegd.
+            </section>
+  
+            <section id='dso-regels-overig-constraint'>
+              <h5>Constraint</h5>
+              <p>
+                Van elke constraint moet worden bekeken of deze om te zetten is naar modelconstructies die de constraint kunnen uitdrukken.
+              </p>
+              <p>
+                In het voorbeeld in <a href='#regels-overig-constraint'></a> wordt voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Omdat dit om een ruimtelijke relatie gaat en omdat de klasse <code>imgolf:ParcoursDeel</code> een sub-klasse is van <code>nen3610:GeoObject</code> die zelf weer een sub-klasse is van <code>gsp:Feature</code>, kunnen we gebruikmaken van de ruimtelijke relaties gedefinieerd voor <code>gsp:Feature</code>. In dit geval kunnen we aangeven dat de eigenschap <code>imgolf:hole</code> een sub-property van <code>gsp:sfContains</code> is. Hiermee geven we aan dat wanneer deze relatie gebruikt wordt tussen een green en een hole, het ook betekent dat de hole binnen de green valt. Deze relatie kunnen we vervolgens afdwingen met behulp van een SHACL property shape.
+              </p>
+              <pre class='ex-turtle'>
+#---------------#
+# Ontologie
+#---------------#
+
+imgolf:ParcoursDeel a owl:Class ;
+  rdfs:label "ParcoursDeel" ;
+  rdfs:subClassOf nen3610:GeoObject ;
+  rdfs:comment """{HoleInGreen}:
+  /*hole bevindt zich binnen de geometrie van de green */
+  Inside(hole.geometrie,this->geometrie)""" ;
+.
+
+imgolf:Green a owl:Class ;
+  rdfs:label "Green" ;
+  rdfs:subClassOf imgolf:ParcoursDeel ;
+.
+
+imgolf:hole a owl:ObjectProperty ;
+  rdfs:subPropertyOf gsp:sfContains ;
+  rdfs:domain imgolf:Green ;
+  rdfs:range imgolf:Hole ;
+.
+
+#---------------#
+# Gegevensregels
+#---------------#
+
+imgolf-sh:Green a sh:NodeShape ;
+  sh:targetClass imgolf:Green ;
+  sh:property [
+    sh:message "hole bevindt zich binnen de geometrie van de green" ;
+    sh:path gsp:sfContains ;
+    sh:class imgolf:Hole ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+  sh:property [
+    sh:message "green moet exact één hole hebben" ;
+    sh:path imgolf:hole ;
+    sh:class imgolf:Hole ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
+.
+              </pre>
+            </section>
           </section>
 
         </section>
