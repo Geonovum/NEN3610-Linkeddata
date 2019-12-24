@@ -15,7 +15,7 @@
 @prefix schema: <http://schema.org/>.
 @prefix prov: <http://www.w3.org/ns/prov#>.
 
-@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
+@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/begrip/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
 
 # Ontology

@@ -22,7 +22,7 @@
 @prefix geo: <http://www.opengis.net/ont/geosparql#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 
-@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/concept/>.
+@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/begrip/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
 @prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
 @prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
