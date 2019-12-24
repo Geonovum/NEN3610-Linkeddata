@@ -28,7 +28,7 @@ concept:Applicatieschema a skos:Concept;
 	skos:prefLabel "Applicatieschema"@nl;
 	skos:definition "Informatiemodel dat gegevens beschrijft die worden gebruikt door een of meer applicaties"@nl;
 	skos:scopeNote "Dit Basismodel geo-informatie is met UML beschreven in een applicatieschema"@nl;
-	dcterms:source referentie:NEN-3610-2011-3.1;
+	dcterms:source referentie:NEN3610-2011-3.1;
 	dcterms:source referentie:NEN-EN-ISO19101-2005;
 .
 concept:Attribuut a skos:Concept;
@@ -37,7 +37,7 @@ concept:Attribuut a skos:Concept;
 	rdfs:label "Feature attribute"@en;
 	skos:definition "Kenmerk van een geo-object"@nl;
 	skos:related concept:GeoObject;
-	dcterms:source referentie:NEN-3610-2011-3.2;
+	dcterms:source referentie:NEN3610-2011-3.2;
 	dcterms:source referentie:NEN-EN-ISO19101-2005;
 .
 concept:Attribuutwaarde a skos:Concept;
@@ -46,14 +46,14 @@ concept:Attribuutwaarde a skos:Concept;
 	rdfs:label "Value"@en;
 	skos:definition "Waarde die een attribuut aanneemt"@nl;
 	skos:related concept:Attribuut;
-	dcterms:source referentie:NEN-3610-2011-3.3;
+	dcterms:source referentie:NEN3610-2011-3.3;
 .
 concept:Coordinaat a skos:Concept;
 	skos:inScheme schema:nen3610;
 	rdfs:label "Coördinaat"@nl;
 	rdfs:label "Coordinate"@en;
 	skos:definition "Getal in een sequentie van n getallen om de positie van een punt in een n-dimensionale ruimte te bepalen"@nl;
-	dcterms:source referentie:NEN-3610-2011-3.4;
+	dcterms:source referentie:NEN3610-2011-3.4;
 	dcterms:source referentie:NEN-EN-ISO19101-2005;
 .
 concept:Coordinaatreferentiesysteem a skos:Concept;
@@ -63,7 +63,7 @@ concept:Coordinaatreferentiesysteem a skos:Concept;
 	skos:definition "Coördinaatsysteem dat aan een object is gerelateerd door een datum."@nl;
 	skos:broader concept:Coordinaatsysteem;
 	skos:related concept:Datum;
-	dcterms:source referentie:NEN-3610-2011-3.5;
+	dcterms:source referentie:NEN3610-2011-3.5;
 	dcterms:source referentie:NEN-EN-ISO19111-2007;
 .
 concept:Coordinaatsysteem a skos:Concept;
@@ -71,7 +71,7 @@ concept:Coordinaatsysteem a skos:Concept;
 	rdfs:label "Coördinaatsysteem"@nl;
 	rdfs:label "Coordinate system"@en;
 	skos:definition "Set van wiskundige regels voor het toekennen van coördinaten aan punten"@nl;
-	dcterms:source referentie:NEN-3610-2011-3.6;
+	dcterms:source referentie:NEN3610-2011-3.6;
 	dcterms:source referentie:NEN-EN-ISO19111-2007;
 .
 concept:Datum a skos:Concept;
@@ -80,7 +80,7 @@ concept:Datum a skos:Concept;
 	rdfs:label "Datum"@en;
 	skos:definition "parameter of set van parameters voor het definiëren van het nulpunt, de schaal en de oriëntatie van een coördinaatsysteem"@nl;
 	skos:related concept:Coordinaatsysteem;
-	dcterms:source referentie:NEN-3610-2011-3.7;
+	dcterms:source referentie:NEN3610-2011-3.7;
 	dcterms:source referentie:NEN-EN-ISO19111-2007;
 .
 concept:GeografischeIdentificatie a skos:Concept;
@@ -89,7 +89,7 @@ concept:GeografischeIdentificatie a skos:Concept;
 	rdfs:label "Geographic identifier"@en;
 	skos:definition "Ruimtelijke referentie door een label of code waarmee een locatie wordt geïdentificeerd"@nl;
 	skos:scopeNote "'Nederland' is een voorbeeld voor een identificatie van een land. '6711 AD' is een voorbeeld van een postcode."@nl;
-	dcterms:source referentie:NEN-3610-2011-3.8;
+	dcterms:source referentie:NEN3610-2011-3.8;
 	dcterms:source referentie:NEN-EN-ISO19112-2005;
 .
 concept:GeoInformatie a skos:Concept;
@@ -100,7 +100,7 @@ concept:GeoInformatie a skos:Concept;
 	skos:altLabel "Geographic Information G.I."@en;
 	skos:definition "informatie met een directe of indirecte referentie naar een plaats ten opzichte van de aarde (bijvoorbeeld ten opzichte van het aardoppervlak)"@nl;
 	skos:scopeNote "Geo-informatie is synoniem voor geografische informatie.";
-	dcterms:source referentie:NEN-3610-2011-3.9;
+	dcterms:source referentie:NEN3610-2011-3.9;
 	dcterms:source referentie:NEN-EN-ISO19101-2005;
 .
 concept:GeoObject a skos:Concept;

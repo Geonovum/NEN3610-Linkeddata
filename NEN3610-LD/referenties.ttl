@@ -16,35 +16,35 @@
 # Normatieve verwijzingen (sectie 2 NEN3610-2011)
 #
 referentie:NEN-EN-ISO19101-2005 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19101:2005@nl";
+	rdfs:label "NEN-EN-ISO 19101:2005"@nl;
 	dc:title "NEN-EN-ISO 19101:2005 Geographic information - Reference model"@en;
 .
 referentie:NEN-EN-ISO19107-2005 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19107:2005@nl";
+	rdfs:label "NEN-EN-ISO 19107:2005"@nl;
 	dc:title "NEN-EN-ISO 19107:2005 Geographic information - Spatial schema"@en;
 .
 referentie:NEN-EN-ISO19109-2006 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19109:2006@nl";
+	rdfs:label "NEN-EN-ISO 19109:2006"@nl;
 	dc:title "NEN-EN-ISO 19109:2006 Geographic information - Rules for application schema"@en;
 .
 referentie:NEN-EN-ISO19111-2007 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19111:2007@nl";
+	rdfs:label "NEN-EN-ISO 19111:2007"@nl;
 	dc:title "NEN-EN-ISO 19111:2007 Geographic information - Spatial referencing by coordinates"@en;
 .
 referentie:NEN-EN-ISO19112-2005 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19112:2005@nl";
+	rdfs:label "NEN-EN-ISO 19112:2005"@nl;
 	dc:title "NEN-EN-ISO 19112:2005 Geographic information - Spatial referencing by geographic identifiers"@en;
 .
 referentie:NEN-EN-ISO19115-2005 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19115:2005@nl";
+	rdfs:label "NEN-EN-ISO 19115:2005"@nl;
 	dc:title "NEN-EN-ISO 19115:2005 Geographic information - Metadata"@en;
 .
 referentie:NEN-EN-ISO19117-2006 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19117:2006@nl";
+	rdfs:label "NEN-EN-ISO 19117:2006"@nl;
 	dc:title "NEN-EN-ISO 19117:2006 Geographic information - Portrayal"@en;
 .
 referentie:NEN-EN-ISO19118-2006 a dcterms:BibliographicResource;
-	rdfs:label "NEN-EN-ISO 19118:2006@nl";
+	rdfs:label "NEN-EN-ISO 19118:2006"@nl;
 	dc:title "NEN-EN-ISO 19118:2006 Geographic information - Encoding"@en;
 .
 referentie:NEN-EN-ISO19125-2-2006 a dcterms:BibliographicResource;
