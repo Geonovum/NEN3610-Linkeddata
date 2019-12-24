@@ -13,7 +13,7 @@
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/begrip/>.
 @prefix schema: <http://definities.geostandaarden.nl/id/begrippenkader/>.
 @prefix collectie: <http://definities.geostandaarden.nl/nen3610/id/collectie/>.
-@prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
+@prefix referentie: <http://definities.geostandaarden.nl/nen3610/id/document/>.
 
 # Begrippenkader
 schema:nen3610 a skos:ConceptScheme;

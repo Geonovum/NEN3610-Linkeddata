@@ -25,7 +25,6 @@
 @prefix concept: <http://definities.geostandaarden.nl/nen3610/id/begrip/>.
 @prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
 @prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
-@prefix referentie: <http://definities/geostandaarden.nl/nen3610/id/document/>.
 
 # Shapes
 # Alleen op het niveau van het geo-object zijn shapes vastgesteld. De overige klassen volgen diezelfde shape
