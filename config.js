@@ -20,8 +20,8 @@ var respecConfig = {
   },
   {
     name: "Marinus Vonhof",
-    company: "Sweco",
-    companyURL: "http://www.sweco.nl"
+    company: "Stichting RIONED en Sweco",
+    companyURL: "http://www.riool.net/gwsw"
   },
   {
     name: "Niels Hoffmann",
