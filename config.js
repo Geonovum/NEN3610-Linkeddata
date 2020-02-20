@@ -1,5 +1,5 @@
 var respecConfig = {
-  specStatus: "GN-WV",
+  specStatus: "GN-VV",
   specType: "ST",
   //publishDate: "2019-07-15",
   editors: [{
@@ -53,7 +53,7 @@ var respecConfig = {
   pubDomain: "nen3610",
   github: "https://github.com/Geonovum/NEN3610-Linkeddata",
   issueBase: "https://github.com/Geonovum/NEN3610-Linkeddata/issues/",
-  //previousPublishDate: "2017-01-01",
+  //previousPublishDate: "2019-07-15",
   //previousStatus: "GN-CV",
   //localBiblio: {
   //  "ISO19136": {
