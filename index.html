@@ -3410,15 +3410,14 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		  <p>Van elk parcours willen we het moment van grasmaaien kunnen achterhalen. We onderscheiden dan twee concepten.</p>
 		  <table>
 		  <tr><td>Hole2</td>		<td>is een</td>				<td>Parcours</td></tr>
-		  <tr><td/>					<td>heeft naam</td> 			<td>"Hole 2"</td></tr>
-			<tr/>
+		  <tr><td>&nbsp;</td>					<td>heeft naam</td> 			<td>"Hole 2"</td></tr>
 		  <tr><td>Grasmaaien1</td> 	<td>is een</td>				<td>ActiviteitGrasmaaien</td></tr>
-			<tr><td/>				<td>heeft datum uitvoering</td>		<td>"20190531"</td></tr>
-			<tr><td/>				<td>heeft uitvoerder</td>			<td>Grasmaaier1</td></tr>
+			<tr><td>&nbsp;</td>				<td>heeft datum uitvoering</td>		<td>"20190531"</td></tr>
+			<tr><td>&nbsp;</td>				<td>heeft uitvoerder</td>			<td>Grasmaaier1</td></tr>
 		  </table>
 		  <br/>Vervolgens worden deze concepten als proces beschreven:
 		  <table>
-		  <tr><td>Grasmaaien1</td> 	<td>heeft als invoer</td> 	<td>Hole2</td><tr/>
+		  <tr><td>Grasmaaien1</td> 	<td>heeft als invoer</td> 	<td>Hole2</td>
 		  </table>
 		  <br/>
 
@@ -4045,12 +4044,12 @@ imgolf:Parcours
         </li>
         <li>Een <code>rdfs:label</code> element wordt toegevoegd indien deze nog niet aanwezig was (afgeleid uit de URI van een klasse of eigenschap: het deel na de '#' of na de laatste '/')</li>
         <li>Een nodeshape (<code>sh:NodeShape</code>) wordt aangemaakt voor elke gevonden klasse</li>
-        <li>Een <a>datatype</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden datatype-eigenschap <i>per klasse
+        <li>Een <a>datatype</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden datatype-eigenschap <i>per klasse</i>
           <ul>
             <li>Het datatype wordt afgeleid uit het datatype van het ?object. Dit kunnen (dus) meerdere datatypes zijn</li>
           </ul>
         </li>
-        <li>Een class propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse
+        <li>Een class propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse</i>
           <ul>
             <li>Dit geldt alleen indien het ?object een <a>IRI</a> is (dus geen blank node)</li>
             <li>De class wordt afgeleid uit het type van het ?object (dwz: de triple ?object rdf:type ?type). Dit kunnen (dus) meerdere classes zijn, en het is ook mogelijk dat er geen class is</li>
