@@ -1877,7 +1877,7 @@ representatie van de werkelijkheid.</p>
       <section id="provenance">
         <h4 id="x6-4-2-temporele-kenmerken-en-versies"><span class="secno">6.4.2 </span>Temporele kenmerken en versies</h4>
         In het NEN 3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de eigenschappen van de registratiemetadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a href="#dfn-prov-o" class="internalDFN" data-link-type="dfn">PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.<p></p>
-        <p><img src="media/gegevensregel-provenance.png" alt="NEN3610 provenance, registratie-eigenschappen van objecten" height="136" width="929"></p>
+        <p><img src="media/gegevensregel-provenance.png" alt="NEN3610 provenance, registratie-eigenschappen van objecten"></p>
         <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN 3610 standaarden <em class="rfc2119" title="MOETEN">MOETEN</em> gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN 3610.</p>
         <p>De eigenschappen <code>prov:generatedAtTime</code> en <code>prov:invalidatedAtTime</code> komen daarbij overeen met de formele historie-eigenschappen tijdstipRegistratie en eindRegistratie.</p>
         <p>In het model is niet expliciet de levensduur-eigenschappen opgenomen. Deze zijn af te leiden uit de afzonderlijke eigenschappen en uit de optionele relatie tussen GeoObjectRegistraties.</p>
@@ -3136,7 +3136,7 @@ imgolf:natuurwaarde a owl:DatatypeProperty ;
             <p>
               Bij de transformatie wordt de tekst van de constraint als extra toelichting bij de betreffende modelelementen opgenomen in de ontologie in de vorm van een <code>rdfs:comment</code>.
               </p><figure id="fig-klasse-met-constraint">
-                <img src="media/imgolf-constraint.png" height="291" width="388">
+                <img src="media/imgolf-constraint.png">
                 <figcaption>Figuur <span class="figno">16</span> <span class="fig-title">Klasse met constraint</span></figcaption>
               </figure>
               In bovenstaand voorbeeld is er voor de klasse <code>ParcoursDeel</code> een constraint <code>{HoleInGreen}</code> gedefinieerd die aangeeft dat een hole zich binnen de geometrie van het parcoursdeel van het type <code>green</code> moet bevinden. Dit leidt tot de volgende transformatie naar de ontologie.
@@ -4461,7 +4461,7 @@ IMGolf-otl:Nummer
 		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
 
 		  <figure id="fig-domeinwaarden-type-parcours">
-            <img src="media/Enum parcours.jpg" height="200">
+            <img src="media/Enum-parcours.jpg" height="200">
             <figcaption>Figuur <span class="figno">23</span> <span class="fig-title">Domeinwaarden type parcours</span></figcaption>
           </figure>
 
