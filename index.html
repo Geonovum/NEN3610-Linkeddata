@@ -110,7 +110,7 @@
     <p>NEN 3610 is als standaard in het leven geroepen om geo-informatie eenduidig uit te kunnen wisselen tussen Nederlandse organisaties. Met het oog op bovenstaande ontwikkelingen wordt het relevant om te kijken hoe de NEN 3610 standaard in de context van Linked Data is uit te drukken om uiteindelijk het data integratie proces binnen en ook buiten het geo-domein te bevorderen. Van belang hierbij is ook te beseffen dat beide methoden elkaar niet uitsluiten maar juist complementair zijn in hun toepassing. UML-OO met informatiemodellen voor definitie van data uitwisseling in een gecontroleerde omgeving en Linked Data met kennismodellen als mechanisme voor data-integratie en publicatie in de open web-omgeving.</p>
 
         <figure>
-          <img src="media/UML-OO en LD.png" height="350">
+          <img src="media/UML-OO-en-LD.png" height="350">
           <figcaption>Openen van de data silo's. 'UML-OO NEN 3610' en 'Linked Data methode' naast elkaar.</figcaption>
         </figure>
 
@@ -185,7 +185,7 @@
     </section>
 
     <!-- Sectie 4.4 -->
-    <section id='Betekenisvol verbinden van informatie met BP4mc2-praktijkervaringen'>
+    <section id='bp4mc2'>
       <h2>Betekenisvol verbinden van informatie met BP4mc2-praktijkervaringen</h2>
       <p><b>naam: </b>Betekenisvol verbinden van informatie met BP4mc2-praktijkervaringen</p>
 	    <p><b>url:</b> <a href=http://bp4mc2.org/>http://bp4mc2.org/</a> </p>
@@ -750,14 +750,14 @@
       <!-- Sectie 6.4.1 -->
       <section id="nen3610id">
         <h3>URI template en NEN3610ID</h3>
-        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NEN3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl"/>nen3610-shapes.ttl</a></p>
-        <p><img src="media/gegevensregel-identificatie.png"/></p>
+        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NEN3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl">nen3610-shapes.ttl</a></p>
+        <p><img src="media/gegevensregel-identificatie.png" alt="NEN3610 identificatie"/></p>
         <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de <code>namespace</code>-eigenschap uit de NEN 3610-identificatie al een URI-namespace is, kan als het sjabloon <code>{namespace}{lokaalID}{versie}</code> worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon <code>http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}</code>. De <code>rdf:value</code> mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon <code>{namespace}{lokaalID}{versie}</code></p>
       </section>
       <section id="provenance">
         <h3>Temporele kenmerken en versies</h3>
         In het NEN 3610 UML model wordt geen expliciet onderscheid gemaakt tussen het geo-object zelf (het fenomeen in de werkelijkheid) en de beschrijving van het geo-object (de geregistreerde eigenschappen). Dit leidt ertoe dat eigenschappen van het geo-object, zoals bijvoorbeeld de identificatie, geometrie of een naam in het UML model bij dezelfde klasse staan als de eigenschappen van de registratiemetadata, zoals de versie-eigenschappen beginGeldigheid en eindeGeldigheid. In het Linked Data model zijn deze eigenschappen ondergebracht bij de "eigen" klasse (zie voor meer uitleg hierover secties <a href="#basisprincipes-classificatie">5.3</a> en <a href="#basisprincipes-normalisatie">5.4</a>). Daarbij kunnen we grotendeels gebruiken maken van de standaard <a>PROV-O</a> vocabulaire, zoals is afgebeeld in onderstaand figuur.</p>
-        <p><img src="media/gegevensregel-provenance.png"/></p>
+        <p><img src="media/gegevensregel-provenance.png" alt="NEN3610 provenance, registratie-eigenschappen van objecten"/></p>
         <p>Partijen die Linked Data dataset publiceren die gebaseerd zijn op de NEN 3610 standaarden MOETEN gebruik maken van bovenstaand mechanisme indien zij historie willen modelleren conform de betekenis van NEN 3610.</p>
         <p>De eigenschappen <code>prov:generatedAtTime</code> en <code>prov:invalidatedAtTime</code> komen daarbij overeen met de formele historie-eigenschappen tijdstipRegistratie en eindRegistratie.</p>
         <p>In het model is niet expliciet de levensduur-eigenschappen opgenomen. Deze zijn af te leiden uit de afzonderlijke eigenschappen en uit de optionele relatie tussen GeoObjectRegistraties.</p>
@@ -968,7 +968,7 @@ golfbaan:KoninklijkeHaagseGenCC a imgolf:Golfbaan;
       <section id="basismetamodel">
         <h3>Basis doelmodel: metamodel op basis van <a>W3C</a> standaarden</h3>
         <figure>
-          <img src="media/metamodel_linkeddata.png" heigh="908">
+          <img src="media/metamodel_linkeddata.png" height="908">
           <figcaption>Metamodel van NEN 3610 uitgedrukt als Linked Data</figcaption>
         </figure>
         <p>De kleuren in het figuur geven de onderdelen aan van het Linked Data metamodel. Het lichtgele onderdeel betreft de kern van het Linked Data metamodel. De overige onderdelen betreffen uitbreidingen op deze kern die afhankelijk van de situatie relevant zullen zijn. Dit wordt hieronder verder toegelicht.</p>
@@ -2128,7 +2128,7 @@ imgolf:ParcoursDeel a owl:Class ;
             </pre>
               <h6>Toevoegingen</h6>
               <p>
-                Het DSO metamodel is gebaseerd op het <a href="##basismetamodel">basis doelmodel</a> en maakt onderscheid tussen terminologie (RDF, RDFS, OWL), formele semantiek (RDFS, OWL), gegevensregels (SHACL) en betekenis in de vorm van begrippen (SKOS).
+                Het DSO metamodel is gebaseerd op het <a href="#basismetamodel">basis doelmodel</a> en maakt onderscheid tussen terminologie (RDF, RDFS, OWL), formele semantiek (RDFS, OWL), gegevensregels (SHACL) en betekenis in de vorm van begrippen (SKOS).
                 Voor een klasse wordt altijd, in ieder geval, een instantie van <code>owl:Class</code> en een <code>sh:NodeShape</code> gemaakt conform de standaard transformatieregels, maar ook een instantie van <code>skos:Concept</code> om een begrip te beschrijven die de betekenis van de klasse uitdrukt. Deze wordt vanuit de instantie van <code>owl:Class</code> verbonden via de <code>dct:subject</code> property.
               </p>
               <pre class='ex-turtle'>
@@ -3017,7 +3017,7 @@ imgolf-sh:Green a sh:NodeShape ;
         </section>
       </section>
       <!-- Sectie 7.4.3 -->
-      <section id='Linked Data in de bouwsector:transformatieregels om tot een juist model te komen'>
+      <section id='linked-data-bouwsector'>
         <h2>Bouwsector - Linked Data: Specifieke transformatieregels</h2>
 
             In de bouwsector wordt Linked Data gebruikt bij het modelleren van zogenaamde 'Object Type Libraries' of <a>OTL</a>'s.
@@ -3039,9 +3039,9 @@ imgolf-sh:Green a sh:NodeShape ;
             </p><p>
               De NTA8035 definieert drie ambitieniveaus van toenemende semantische complexiteit:
               <ol>
-                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a></li> (LoC-1)
-                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a></li> (LoC-2)
-                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens</li> (Loc-3a en LoC-3b)
+                <li>Afstemming van termen en definities, gebaseerd op <a>SKOS</a> (LoC-1)</li>
+                <li>Gegevensintegratie door uitwisseling of deling, gebaseerd op <a>RDFS</a> (LoC-2)</li>
+                <li>Verificatie of Afleiding (<a>OWL</a> voor "open world" en <a>SHACL</a> voor "closed world" interpretatie ) van gegevens uit bestaande gegevens (Loc-3a en LoC-3b)</li>
               </ol>
               In zijn algemeenheid wordt er geadviseerd zo dicht mogelijk bij de standaard Linked Data constructies te blijven (de standaard transformatieregels in dit document).
               Voor complexe eigenschappen wordt een uitgebreide variant van de 'Ontology for Property Management' [[OPM]] gevolgd. Grootheden en eenheden worden gemodelleerd via [[QUDT]].
@@ -3310,9 +3310,9 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
                 <h4>Attributen</h4>
                 <a>Datatype</a> properties worden vertaald naar COINS Kenmerken:
             <ol type="a">
-              <ol>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </ol>
-              <ol>DatatypeProperties informatie wordt gebruikt om een subklasse van COINS:EntityProperty te creëren </ol>
-              <ol>Domain en ranges worden goed gezet </ol>
+              <li>DatatypeProperties worden ObjectProperties als subproperties van coins:hasProperties </li>
+              <li>DatatypeProperties informatie wordt gebruikt om een subklasse van COINS:EntityProperty te creëren </li>
+              <li>Domain en ranges worden goed gezet </li>
             </ol>
                 <pre class='ex-turtle'>
       IMGolf-otl:parcours_heeft_nummer
@@ -3377,7 +3377,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           </section>
 
       <!-- Sectie 7.4.4 -->
-      <section id='GWSW-OroX:transformatieregels om tot een juist model te komen'>
+      <section id='transformatieregels-gwsw'>
         <h2>Stedelijk Water - GWSW-OroX: Specifieke transformatieregels</h2>
 
         <section id='transformatieregelsorox'>
@@ -3539,7 +3539,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		  <p>De domeinwaardenlijst in het UML van NEN3610-IMGolf:</p>
 
 		  <figure>
-            <img src="media/Enum natuurwaarde.jpg" height="200">
+            <img src="media/Enum-natuurwaarde.jpg" height="200">
             <figcaption>Domeinwaarden natuurwaarde</figcaption>
           </figure>
 
@@ -3577,7 +3577,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		  In de volgende figuur staan schematisch de GWSW Relaties:
 
           <figure>
-            <img src="media/Metamodel OroX.jpg" width="800">
+            <img src="media/Metamodel-OroX.jpg" width="800">
             <figcaption>Metamodel GWSW-OroX Relaties</figcaption>
           </figure>
 
@@ -3585,7 +3585,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		  In de volgende tabel is dat aangegeven met “CE”.
 
           <figure>
-            <img src="media/OroX Tabel Predicates.png" width="800">
+            <img src="media/OroX-Tabel-Predicates.png" width="800">
             <figcaption>De toegepaste predicates in GWSW-OroX</figcaption>
           </figure>
 
@@ -3593,7 +3593,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		  Daarmee kunnen we klassen expliciet onderscheiden. De GWSW Ontologie bevat de volgende:
 
 		  <figure>
-            <img src="media/OroX Tabel CE.png" height="300">
+            <img src="media/OroX-Tabel-CE.png" height="300">
             <figcaption>De toegepaste restricties in GWSW-OroX</figcaption>
           </figure>
 
@@ -3617,8 +3617,8 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           <br /><br /><b>Relaties</b>
           <table>
             <tr>
-              <th width="200">UML-relatie</th>
-              <th width="500">OroX-relatie</th>
+              <th>UML-relatie</th>
+              <th>OroX-relatie</th>
             </tr>
             <tr>
               <td>Generalisatie</td>
@@ -3641,8 +3641,8 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 
           <table>
             <tr>
-              <th width="200">UML-rubriek</th>
-              <th width="500">OroX-relatie</th>
+              <th>UML-rubriek</th>
+              <th>OroX-relatie</th>
             </tr>
             <tr>
               <td>Annotaties</td>
@@ -3666,11 +3666,11 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
 		</section>
 
         <!-- Sectie 7.4.4.x -->
-        <section id='OroX regels-klassen'>
+        <section id='OroX-regels-klassen'>
           <h4>Klassen</h4>
 
           <!-- Sectie 7.4.4.x.x -->
-		  <section id='OroX regels-klassen-algemeen'>
+		  <section id='OroX-regels-klassen-algemeen'>
             <h5>Klassen algemeen</h5>
             <p>
               De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard. Een klasse is een instantie van <code>owl:Class</code>.
@@ -3695,7 +3695,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-featureType'>
+          <section id='OroX-regels-klassen-featureType'>
             <h5>Klasse met stereotype &laquo;featureType&raquo;</h5>
             <p>
               De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie.
@@ -3703,7 +3703,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-dataType'>
+          <section id='OroX-regels-klassen-dataType'>
             <h5>Klasse met stereotype &laquo;dataType&raquo;</h5>
             <p>
               De GWSW-OroX transformatie past een &laquo;dataType&raquo; vaak toe. Ook om restricties te definiëren, bijvoorbeeld het par-nummer ligt tussen 1 en 6:
@@ -3722,7 +3722,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-union'>
+          <section id='OroX-regels-klassen-union'>
             <h5>Klasse met stereotype &laquo;union&raquo;</h5>
             <p>
               De GWSW-OroX transformatie past geen owl:unionOf toe. In GWSW-OroX wordt dit altijd een verzameling instanties:
@@ -3740,7 +3740,7 @@ imgolf:NatuurwaardeColl
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-external'>
+          <section id='OroX-regels-klassen-external'>
             <h5>Klasse met stereotype &laquo;external&raquo;</h5>
             <p>
               De GWSW-OroX transformatie is identiek aan de eerder beschreven standaard transformatie.
@@ -3748,7 +3748,7 @@ imgolf:NatuurwaardeColl
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-enumeration'>
+          <section id='OroX-regels-klassen-enumeration'>
             <h5>Klasse met stereotype &laquo;enumeration&raquo;</h5>
             <p>
               De GWSW-OroX transformatie kent geen enumeraties (zie ook &laquo;union&raquo;), dit wordt altijd een verzameling instanties:
@@ -3767,7 +3767,7 @@ imgolf:ToegangGolfbaanColl
  </pre>
           </section>
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-klassen-codelist'>
+          <section id='OroX-regels-klassen-codelist'>
             <h5>Klasse met stereotype &laquo;CodeList&raquo;</h5>
             <p>
               De GWSW-OroX transformatie kent geen &laquo;CodeList&raquo; (zie ook &laquo;union&raquo;), dit wordt een verzameling instanties.
@@ -3782,10 +3782,10 @@ imgolf:AfslagplaatsWit
         </section>
 
         <!-- Sectie 7.4.4.x -->
-        <section id='OroX regels-attributen'>
+        <section id='OroX-regels-attributen'>
           <h4>Attributen</h4>
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-algemeen'>
+          <section id='OroX-regels-attributen-algemeen'>
             <h5>Attributen algemeen</h5>
             <p>
               In de GWSW-OroX transformatie wordt attributen ook klassen, Attributen worden toegewezen met de algemene relaties gwsw:hasAspect en gwsw:hasValue of gwsw:hasReference.
@@ -3806,7 +3806,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-identificatie'>
+          <section id='OroX-regels-attributen-identificatie'>
             <h5>Attribuut met stereotype &laquo;identificatie&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3814,7 +3814,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-voidable'>
+          <section id='OroX-regels-attributen-voidable'>
             <h5>Attribuut met stereotype &laquo;voidable&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3822,7 +3822,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-materieleHistorie'>
+          <section id='OroX-regels-attributen-materieleHistorie'>
             <h5>Attribuut met stereotype &laquo;materieleHistorie&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3830,7 +3830,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-formeleHistorie'>
+          <section id='OroX-regels-attributen-formeleHistorie'>
             <h5>Attribuut met stereotype &laquo;formeleHistorie&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3838,7 +3838,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-materieleLevensduur'>
+          <section id='OroX-regels-attributen-materieleLevensduur'>
             <h5>Attribuut met stereotype &laquo;materieleLevensduur&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3846,7 +3846,7 @@ imgolf:Par
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-attributen-formeleLevensduur'>
+          <section id='OroX-regels-attributen-formeleLevensduur'>
             <h5>Attribuut met stereotype &laquo;formeleLevensduur&raquo;</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3856,11 +3856,11 @@ imgolf:Par
         </section>
 
         <!-- Sectie 7.4.4.x -->
-        <section id='OroX regels-associaties'>
+        <section id='OroX-regels-associaties'>
           <h4>Associaties</h4>
           Associaties, of relaties, zijn verbanden die gelegd worden tussen klassen in een UML model.
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-associaties-simpel'>
+          <section id='OroX-regels-associaties-simpel'>
             <h5>Simpele associaties</h5>
             <p>
               De GWSW-OroX transformatie hanteert <code>owl:ObjectProperty</code>, <code>owl:DatatypeProperty</code>, <code>owl:AnnotationProperty</code>, <code>owl:FunctionalProperty</code>
@@ -3877,7 +3877,7 @@ gwsw:hasValue
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-associaties-aggr-comp'>
+          <section id='OroX-regels-associaties-aggr-comp'>
             <h5>Aggregatie en compositie</h5>
             <p>
               De GWSW-OroX transformatie vereist expliciete deel-geheel relaties, zowel voor fysieke als ruimtelijk objecten.
@@ -3900,7 +3900,7 @@ gwsw:isPartOf
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-associaties-gen-spec'>
+          <section id='OroX-regels-associaties-gen-spec'>
             <h5>Generalisatie/Specialisatie</h5>
             <p>
               De GWSW-OroX transformatie vereist een expliciete soortenboom, klassen worden ingedeeld door hun onderscheidende kenmerken.
@@ -3930,7 +3930,7 @@ imgolf:Afslagplaats
           </section>
 
           <!-- Sectie 7.4.4.x.x -->
-          <section id='OroX regels-associaties-associatieklassen'>
+          <section id='OroX-regels-associaties-associatieklassen'>
             <h5>Associatieklassen</h5>
             <p>
               De GWSW-OroX transformatie volgt de eerder beschreven standaard transformatie.
@@ -3939,7 +3939,7 @@ imgolf:Afslagplaats
 
         </section>
 
-        <section id='OroX regels-attributen-kardinaliteit'>
+        <section id='OroX-regels-attributen-kardinaliteit'>
           <h4>Kardinaliteit</h4>
           <p>
             De GWSW-OroX transformatie hanteert vaak cardinaliteits-regels om klassen te beschrijven, de cardinaliteitsvoorwaarden helpen bij het identificeren van de soort.
@@ -3966,7 +3966,7 @@ imgolf:Parcours
   </section>
 
   <!-- Hoofdstuk 8 -->
-  <section id='Voorbeeld: UML-Golfbaan naar ontologie en vocabulaire' class="informative">
+  <section id='voorbeeld-golfbaan' class="informative">
 
     <h1>Voorbeeld: UML-Golfbaan naar vocabulaire</h1>
     <p>Aan de hand van een informatiemodel in NEN 3610 conform <a>UML</a> van een golfbaan, IMGolf, kunnen we een Linked Data model opstellen.</p>
@@ -4037,26 +4037,27 @@ imgolf:Parcours
       <ol>
         <li>Indien de data een subclassificatie bevat, dan wordt deze overgenomen in het model en wordt de superklasse ook in het model gezet.</li>
         <li>Klassen (<code>owl:Class</code>) worden aangemaakt voor elk unieke object op de positie <code>?subject rdf:type ?object</code></li>
-        <li>Eigenschappen worden aangemaakt voor elk unieke predicate op de positie <code>?subject ?predicate ?object</code></li>
+        <li>Eigenschappen worden aangemaakt voor elk unieke predicate op de positie <code>?subject ?predicate ?object</code>
           <ul>
             <li>Een eigenschap <code>owl:ObjectProperty</code> wordt aangemaakt indien het ?object een resource is (<a>IRI</a> en/of <a>blank node</a>)</li>
             <li>Een eigenschap <code>owl:DatatypeProperty</code> wordt aangemaakt indien het ?object een literal is</li>
           </ul>
+        </li>
         <li>Een <code>rdfs:label</code> element wordt toegevoegd indien deze nog niet aanwezig was (afgeleid uit de URI van een klasse of eigenschap: het deel na de '#' of na de laatste '/')</li>
         <li>Een nodeshape (<code>sh:NodeShape</code>) wordt aangemaakt voor elke gevonden klasse</li>
-        <li>Een <a>datatype</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden datatype-eigenschap <i>per klasse</i>
+        <li>Een <a>datatype</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden datatype-eigenschap <i>per klasse
           <ul>
             <li>Het datatype wordt afgeleid uit het datatype van het ?object. Dit kunnen (dus) meerdere datatypes zijn</li>
           </ul>
         </li>
-        <li>Een class propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse</i>
+        <li>Een class propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse
           <ul>
             <li>Dit geldt alleen indien het ?object een <a>IRI</a> is (dus geen blank node)</li>
             <li>De class wordt afgeleid uit het type van het ?object (dwz: de triple ?object rdf:type ?type). Dit kunnen (dus) meerdere classes zijn, en het is ook mogelijk dat er geen class is</li>
             <li>Een class propertyshape kun je zien als een relatie tussen twee klassen</li>
           </ul>
         </li>
-        <li>Een <a>blank node</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse</i>
+        <li>Een <a>blank node</a> propertyshape (<code>sh:PropertyShape</code>) wordt aangemaakt voor elke gevonden object-eigenschap <i>per klasse
           <ul>
             <li>Dit geldt alleen indien het ?object een Blank node is</li>
             <li>De class wordt afgeleid uit het type van het ?object (dwz: de triple ?object rdf:type ?type). Dit kunnen (dus) meerdere classes zijn, en het is ook mogelijk dat er geen class is</li>
@@ -4089,7 +4090,7 @@ imgolf:Parcours
         <li>M2 betreft het niveau met de metamodellen van de data. Hiermee kun je dus zien wat de verschillen zijn tussen de vier modellen, en is het mogelijk om vertalingen te maken van het ene model naar het andere model</li>
         <li>M3 betreft het niveau met het metametamodel. Als metamatamodel hebben we gekozen voor het model dat afkomstig is van het mechanisme uit de vorige sectie, <a>SHACL</a>.</li>
       </ul>
-      <img src="media/mof.png" width="800">
+      <img src="media/mof.png" width="800" alt="metamodel niveau's">
       <p>Van de golfbaan hebben we zowel vier verschijningsvormen op het niveau van M0 (de concrete data) als van M1 (het model):</p>
       <ul>
         <li><i>GolfbaanVoorbeeld_v01.gml</i> betreft de <a>GML</a> representatie (M0) conform NEN 3610 zoals gemodelleerd in <i>nen3610-2011-IMGolf voor LD.eap</i> (M1)</li>
@@ -4100,11 +4101,11 @@ imgolf:Parcours
     </section>
 
     <!-- Sectie 9.3 -->
-    <section id='Linked Data modelstijlen'>
+    <section id='Linked-Data-modelstijlen'>
       <h2>Linked Data modelstijlen</h2>
 
       <!-- Sectie 9.3.1 -->
-      <section id='huidige gebruik'>
+      <section id='huidige-gebruik'>
         <h3>Huidige stijlen in gebruik</h3>
 
         <p>Binnen Nederland zijn er op dit moment drie stijlen actief als het gaat om de representatie van NEN 3610 informatie als Linked Data:</p>
@@ -4388,7 +4389,7 @@ imgolf:Parcours
         <h3>Gegenereerd COINS model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het COINS voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-coins-model.png" width="600" class="scalable">
+          <img src="media/golfbaan-coins-model.png" width="600" class="scalable">
           <figcaption>afgeleid Model van Golfbaan vanuit het COINS uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -4396,7 +4397,7 @@ imgolf:Parcours
         <h3>Gegenereerd GWSW-OROX model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het GWSW-OROX voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-gwsw-model.png" width="600" class="scalable">
+          <img src="media/golfbaan-gwsw-model.png" width="600" class="scalable">
           <figcaption>afgeleid Model van Golfbaan vanuit het OroX uitwisselingsbestand</figcaption>
         </figure>
       </section>
@@ -4404,7 +4405,7 @@ imgolf:Parcours
         <h3>Gegenereerd W3C model</h3>
         <p>Onderstaand diagram is de visualisatie van het RDF/OWL/SHACL model dat gegenereerd is conform bovenstaande aanpak op basis van het W3c RDF/OWL voorbeeldbestand van de Koninklijke Haagse Golf &amp; Country club</p>
         <figure>
-          <img src="LD modellen/visualisaties/golfbaan-w3c-shacl-model.png" width="600" class="scalable">
+          <img src="media/golfbaan-w3c-shacl-model.png" width="600" class="scalable">
           <figcaption>afgeleid Model van Golfbaan vanuit de DSO dataset</figcaption>
         </figure>
       </section>
