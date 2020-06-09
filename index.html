@@ -78,9 +78,9 @@
   <section id='geolodcloudnl' class="informative">
     <h1>Nederlandse LOD Cloud voor geo-datasets</h1>
     <p>Klik op onderstaand plaatje om een interactieve versie van de Nederlandse LOD Cloud te openen.</p>
-    <p><a href="dataset/lod-nen3610.svg"><img src="dataset/lod-nen3610.png" alt="Click for interactive SVG"/></a></p>
+    <p><a href="media/dataset/lod-nen3610.svg"><img src="media/dataset/lod-nen3610.png" alt="Click for interactive SVG"/></a></p>
     <p>De intentie is om -als spin-off van de ontwikkeling van deze standaard- een Nederlandse LOD Cloud voor geodata te maken die ook gepubliceerd kan worden in de internationale <a href="http://lod-cloud.net/">LOD Cloud</a>.</p>
-    <p>De meest actuele versie van de Nederlandse LOD Cloud is <a href="dataset/lod-nen3610.html">hier</a> te vinden. De bron voor deze LOD cloud is ook als Linked Data opvraagbaar: <a href="dataset/lod-nen3610.ttl">lod-nen3610.ttl</a></p>
+    <p>De meest actuele versie van de Nederlandse LOD Cloud is <a href="media/dataset/lod-nen3610.html">hier</a> te vinden. De bron voor deze LOD cloud is ook als Linked Data opvraagbaar: <a href="media/dataset/lod-nen3610.ttl">lod-nen3610.ttl</a></p>
     <p>Voor het beschrijven van een dataset wordt gebruik gemaakt van [[geodcat-ap]], de Linked Data invulling van de ISO-19115 standaard voor het beschrijven van metadata over geometrische datasets.</a>
   </section>
 
@@ -750,7 +750,7 @@
       <!-- Sectie 6.4.1 -->
       <section id="nen3610id">
         <h3>URI template en NEN3610ID</h3>
-        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NEN3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="LD%20modellen/w3c-shacl-owl/nen3610%20shapes.ttl">nen3610-shapes.ttl</a></p>
+        <p>Indien een instantie van een klasse uniek identificeerbaar moet zijn binnen het domein van NEN 3610 dan moet deze klasse de eigenschap <code>nen3610:identificatie</code> hebben die verwijst naar een object met de structuur van een NEN3610ID shape. Dit is afgebeeld in onderstaand figuur en opgenomen bij de gegevensregels die als afzonderlijk bestand gebruikt kunnen worden om te valideren of een model voldoet aan de NEN3610 gegevensregels: <a href="media/ttl/nen3610-shapes.ttl">nen3610-shapes.ttl</a></p>
         <p><img src="media/gegevensregel-identificatie.png" alt="NEN3610 identificatie"/></p>
         <p>Omdat elk geo-object in RDF sowieso een unieke identificatie heeft op basis van een URI, is in RDF het NEN3610ID feitelijk redundant. Het is opgenomen om compliant te zijn aan de originele standaard en om een mogelijkheid te hebben om expliciet de NEN3610ID structuur over te nemen. De URI dient afgeleid te zijn van het NEN3610ID. Indien de <code>namespace</code>-eigenschap uit de NEN 3610-identificatie al een URI-namespace is, kan als het sjabloon <code>{namespace}{lokaalID}{versie}</code> worden gebruikt. Indien dit niet het geval is, dan mag gebruik worden gemaakt van een http-prefix zodat een correcte URI ontstaat, bijvoorbeeld conform het sjabloon <code>http://{domeinnaam}{optioneel-pad}/id/geo-object/{namespace}{lokaalID}{versie}</code>. De <code>rdf:value</code> mag gebruikt worden om het NEN3610ID als één string te beschrijven. Daarbij dient de waarde opbouwd te zijn volgens het sjabloon <code>{namespace}{lokaalID}{versie}</code></p>
       </section>
@@ -2909,7 +2909,7 @@ ex-sh:Huwelijk a sh:NodeShape ;
           <section id='dso-regels-attributen-kardinaliteit'>
             <h4>Kardinaliteit</h4>
             <p>
-              Zoals al opgemerkt in <a href='reges-attributen-kardinaliteit'></a> betekent kardinaliteit in OWL iets anders dan kardinaliteit in UML. De "open-wereld" kardinaliteit in OWL is existentieel, in de zin dat de kardinaliteit die beschreven is over een eigenschap in relatie tot een klasse, in alle gevallen (binnen en buiten een registratie) zo is. In UML beschrijft de kardinaliteit hoe een gegevensobject in een specifieke situatie moet zijn, bijv. in een registratie, of in een servicebericht. Dit zegt niks over de existentiële eigenschappen van een object in de werkelijkheid en beschrijft een "gesloten wereld". Kardinaliteit beschreven in SHACL komt exact overeen met de betekenis in UML.<br>
+              Zoals al opgemerkt in <a href='regels-attributen-kardinaliteit'></a> betekent kardinaliteit in OWL iets anders dan kardinaliteit in UML. De "open-wereld" kardinaliteit in OWL is existentieel, in de zin dat de kardinaliteit die beschreven is over een eigenschap in relatie tot een klasse, in alle gevallen (binnen en buiten een registratie) zo is. In UML beschrijft de kardinaliteit hoe een gegevensobject in een specifieke situatie moet zijn, bijv. in een registratie, of in een servicebericht. Dit zegt niks over de existentiële eigenschappen van een object in de werkelijkheid en beschrijft een "gesloten wereld". Kardinaliteit beschreven in SHACL komt exact overeen met de betekenis in UML.<br>
               Bij de DSO wordt in ieder geval altijd de kardinaliteit in SHACL beschreven. Waar gewenst en mogelijk wordt de existentiële kardinaliteit met OWL beschreven.
             </p>
             <p>
@@ -3241,7 +3241,7 @@ imgolf:ParcoursDeel rdfs:subClassOf bs:PhysicalObject ;
           <p>
           In het OTL-BOR project, uitgevoerd door provincies Noord-Holland en Gelderland, Gemeentes Rotterdam en Amsterdam en de kennisinstituten Geonovum en
           CROW in samenwerking met BuildingBits is er een proof-of-concept uitgevoerd met bovenstaande transformatieregels om van een DSO model naar een COINS model te komen.
-          Meer informatie hierover kan gevonden worden in het <a href="https://www.bimloket.nl/upload/documents/downloads/Standaarden/CB-NL/OTL-BOR%20Eindrapport%20mei%202018.pdf">Eindrapport OTL-BOR</a>.
+          Meer informatie hierover kan gevonden worden in het <a href="https://www.bimloket.nl//documents/OTL-BOR_Eindrapport_mei_2018.pdf">Eindrapport OTL-BOR</a>.
           </p>
 
         <section id='otl-regels-klassen'>

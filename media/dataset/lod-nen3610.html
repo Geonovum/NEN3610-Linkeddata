@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-theme.min.css">
+  <title>De Nederlandse LOD Cloud voor geo-datasets</title>
+  <style>
+    .mb-0 {
+      margin-bottom: 0px;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <p>Downloads: <a href="lod-nen3610.ttl">lod-nen3610.ttl</a>, <a href="lod-nen3610.json">lod-nen3610.json</a></p>
+    <p>Klik op onderstaand plaatje om een interactieve versie van de Nederlandse LOD Cloud te openen.</p>
+    <p><a href="lod-nen3610.svg"><img src="lod-nen3610.png" alt="Click for interactive SVG"/></a></p>
+    <div id="root">
+      <resourceAppearance
+          endpoint="nen3610.json"
+          resource="http://geonovum.github.io/NEN3610-Linkeddata/dataset/nen3610"
+      />
+      <resourceAppearance
+          endpoint="lod-nen3610.json"
+          resource="http://geonovum.github.io/NEN3610-Linkeddata/dataset/top10nl"
+      />
+    <div>
+  </main>
+<script type="text/javascript" src="webcomponents.js"></script></body>
+</html>

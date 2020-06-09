@@ -1,0 +1,131 @@
+# NEN3610 in Linked Data
+#
+# Basis uitgangspunten:
+# - Beschrijvingen als skos:Concepts
+# - Mogelijk maken dat er concrete implementaties worden gemaakt (obv owl:Classes)
+# - In de praktijk vermoedelijk op basis van specialisaties (rdfs:subClassOf)
+# - Niet alleen de concrete klassen opnemen, maar ook properties, stereotypen en terminologie
+#
+# Uitgangsdocumentatie is NEN3610-2011
+#
+@prefix dctypes: <http://purl.org/dc/dcmitype/>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix skosthes: <http://purl.org/iso25964/skos-thes#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix geo: <http://www.opengis.net/ont/geosparql#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+@prefix concept: <http://definities.geostandaarden.nl/nen3610/id/begrip/>.
+@prefix nen3610: <http://definities.geostandaarden.nl/def/nen3610#>.
+@prefix shape: <http://definities.geostandaarden.nl/def/nen3610/>.
+
+# Shapes
+# Alleen op het niveau van het geo-object zijn shapes vastgesteld. De overige klassen volgen diezelfde shape
+shape:GeoObject a sh:NodeShape;
+	rdfs:label "Shape voor GeoObject";
+	sh:name "nen3610:GeoObject";
+	sh:targetClass nen3610:GeoObject;
+	sh:property [
+		sh:name "nen3610:identificatie";
+		sh:path nen3610:identificatie;
+		sh:node shape:NEN3610Identificatie;
+		sh:minCount 1; # In de uitleg staat dat alleen ALS er een NEN3610 identificatie nodig is, DAN moet je dit gebruiken. Het lijkt erop dat de cardinaliteit wel goed is, maar de severity hierop moet worden ingesteld (dwz: niet verplicht om te gebruiken, maar indien je het gebruikt voor een klasse, dan ook altijd).
+		sh:maxCount 1;
+	];
+	sh:property [
+		sh:name "foaf:isPrimaryTopicOf";
+		sh:path foaf:isPrimaryTopicOf;
+		sh:node shape:GeoObjectRegistratie;
+		rdfs:comment "Deze eigenschap verbindt een Geo-object met de verschillende versies van de beschrijving van dit geo-object";
+	];
+.
+# Materiele- en Formele historie zoals beschreven in NEN3610 gaam over de registratie van een geo-object. Hiermee zijn het in beginsel geen eigenschappen van GeoObject, maar eigenschappen van een GeoObjectRegistratie.
+shape:GeoObjectRegistratie a sh:NodeShape;
+	rdfs:label "Shape voor GeoObjectRegistratie";
+	sh:property [
+		sh:name "nen3610:beginGeldigheid";
+		sh:path nen3610:beginGeldigheid;
+		sh:datatype xsd:dateTime;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		sh:name "nen3610:eindGeldigheid";
+		sh:path nen3610:eindGeldigheid;
+		sh:datatype xsd:dateTime;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "tijdstip registratie";
+		sh:name "prov:GeneratedAtTime";
+		sh:path prov:generatedAtTime;
+		sh:minCount 1;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "eindregistratie";
+		sh:name "prov:InvalidatedAtTime";
+		sh:path prov:invalidatedAtTime;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "heeft vorige materieel geldige versie";
+		sh:name "nen3610:vorigeGeldigeVersie";
+		sh:path nen3610:vorigeGeldigeVersie;
+		sh:maxCount 1;
+	];
+	sh:property [
+		rdfs:label "heeft vorige formeel geldige versie";
+		sh:name "nen3610:vorigeGeregistreerdeVersie";
+		sh:path nen3610:vorigeGeregistreerdeVersie;
+		sh:maxCount 1;
+	];
+.
+
+shape:NEN3610Identificatie a sh:NodeShape;
+	rdfs:label "Shape voor NEN3610 identificatie";
+	rdfs:comment "De combinatie van 'namespace' van een registratie, lokale identificatie en versie-informatie maken een object uniek identificeerbaar. Met de informatie van deze klasse kan daardoor met zekerheid worden verwezen naar het geïdentificeerde object." ;
+	sh:property [
+		sh:name "nen3610:namespace";
+		sh:path nen3610:namespace;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:pattern "^[A-Za-z0-9_,.-]*$" ;
+		sh:message "namespace voldoet niet aan de eisen" ;
+	];
+	sh:property [
+		sh:name "nen3610:lokaalID";
+		sh:path nen3610:lokaalID;
+		sh:datatype xsd:string;
+		sh:minCount 1;
+		sh:maxCount 1;
+		sh:pattern "^[A-Za-z0-9_,.-]*$" ;
+		sh:message "lokaalId voldoet niet aan de eisen" ;
+	];
+	sh:property [
+		sh:name "nen3610:versie";
+		sh:path nen3610:versie;
+		sh:datatype xsd:string;
+		sh:maxCount 1;
+		sh:pattern "^[A-Za-z0-9_,.-]*$" ;
+		sh:maxLength 25 ;
+		sh:message "versie voldoet niet aan de eisen" ;
+	];
+	sh:property [
+		rdfs:label "Samengestelde NEN 3610 identificatiestring";
+		rdfs:comment "Deze eigenschap kan gebruikt worden voor het beschrijven van de samengestelde NEN 3610 identitificatiestring";
+		sh:name "rdf:value";
+		sh:path rdf:value;
+		sh:datatype xsd:string;
+		sh:maxCount 1;
+		sh:pattern "^[A-Za-z0-9_,.-]*$" ;
+		sh:message "value voldoet niet aan de eisen" ;
+	];
+.
