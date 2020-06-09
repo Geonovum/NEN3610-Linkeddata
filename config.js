@@ -1,7 +1,7 @@
 var respecConfig = {
-  specStatus: "GN-DEF",
+  specStatus: "GN-WV",
   specType: "ST",
-  publishDate: "2020-03-23",
+  //publishDate: "2020-03-23",
   editors: [{
     name: "Paul Janssen",
     company: "Geonovum",
@@ -53,8 +53,8 @@ var respecConfig = {
   pubDomain: "nen3610",
   github: "https://github.com/Geonovum/NEN3610-Linkeddata",
   issueBase: "https://github.com/Geonovum/NEN3610-Linkeddata/issues/",
-  previousPublishDate: "2020-02-20",
-  previousStatus: "GN-VV",
+  previousPublishDate: "2020-03-23",
+  previousStatus: "GN-DEF",
   //localBiblio: {
   //  "ISO19136": {
   //    "href": "https://www.iso.org/standard/32554.html",
