@@ -1,0 +1,20 @@
+name: Main Workflow
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+
+  publish:
+    if: github.event_name == 'release'
+    needs: build
+    uses: ./.github/workflows/publish.yml
+    secrets:
+      GH_APP_ID: ${{ secrets.GH_APP_ID }}
+      GH_APP_PRIVATE_KEY: ${{ secrets.GH_APP_PRIVATE_KEY }}

@@ -1,0 +1,260 @@
+name: Publish
+on:
+  workflow_call:
+    secrets:
+      GH_APP_ID:
+        required: true
+      GH_APP_PRIVATE_KEY:
+        required: true
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Download snapshot artefact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: snapshot
+          path: .
+
+      - name: Prepare content
+        run: |
+          rm -f *.md index.html
+          mv snapshot.html index.html
+          mkdir content
+          cp index.html content/
+
+          for dir in data media js css; do
+            if [ -d "$dir" ]; then
+              cp -r "$dir" content/
+            else
+              echo "Directory '$dir' bestaat niet, wordt overgeslagen."
+            fi
+          done
+
+      - name: Blokkeer raw.githubusercontent.com-links in publicatie
+        shell: bash
+        run: |
+          set -euo pipefail
+          MATCH_FILE="$(mktemp)"
+          trap 'rm -f "$MATCH_FILE"' EXIT
+
+          GREP_STATUS=0
+          grep -nE 'raw\.githubusercontent\.com' content/index.html > "$MATCH_FILE" || GREP_STATUS=$?
+
+          if [[ "$GREP_STATUS" -gt 1 ]]; then
+            echo "Zoeken naar raw.githubusercontent.com-links in content/index.html mislukte."
+            exit "$GREP_STATUS"
+          fi
+
+          if [[ -s "$MATCH_FILE" ]]; then
+            echo "::error title=Publicatie afgebroken::De te publiceren index.html bevat verwijzingen naar raw.githubusercontent.com. Vervang deze links door verwijzingen naar docs.geostandaarden.nl."
+            echo "Gevonden verwijzingen in content/index.html:"
+            cat "$MATCH_FILE"
+            exit 1
+          fi
+
+      - name: Extract & validate publishing metadata
+        id: metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          CONFIG_FILE=content/js/config.js
+
+          # 0. Strip alle //‑comments (hele regel of inline)
+          CLEAN_CONFIG=$(sed -E 's://.*$::' "$CONFIG_FILE")
+
+          # 1. Helper: haal waarde op en zet om naar lowercase
+          get_value_lower() {
+            echo "$CLEAN_CONFIG" \
+              | grep -Po "${1}:\s*\"\K[^\"]+" \
+              | tr -d '[:space:]' \
+              | tr '[:upper:]' '[:lower:]' || true
+          }
+
+          # 2. Parse + lowercase
+          DOMAIN=$(get_value_lower 'pubDomain')
+          SPEC_STATUS=$(get_value_lower 'specStatus')
+          SPEC_TYPE=$(get_value_lower 'specType')
+          SHORT_NAME=$(get_value_lower 'shortName')
+          PUBLISH_DATE=$(get_value_lower 'publishDate')
+          
+          if [[ "$SPEC_STATUS" == "wv" ]]; then
+            echo "::error title=Ongeldige status voor publicatie::Document met status 'wv' (Werkversie) mag niet gepubliceerd worden."
+            exit 1
+          fi
+          
+          # 3. Check op ontbrekende waarden
+          MISSING=()
+          for VAR in DOMAIN SPEC_STATUS SPEC_TYPE SHORT_NAME PUBLISH_DATE; do
+            if [ -z "${!VAR}" ]; then
+              MISSING+=("$VAR")
+            fi
+          done
+          if [ ${#MISSING[@]} -gt 0 ]; then
+            echo "::error title=Ontbrekende metadata::De volgende verplichte waarden ontbreken in config.js: ${MISSING[*]}"
+            exit 1
+          fi
+
+          # 4. Valideer specStatus tegen toegestane waarden
+          ALLOWED_STATUS=(wv cv vv def ld basis)
+          if [[ ! " ${ALLOWED_STATUS[*]} " =~ " $SPEC_STATUS " ]]; then
+            echo "::error title=Invalid specStatus::$SPEC_STATUS is geen geldige specStatus. Mogelijke waarden: ${ALLOWED_STATUS[*]}"
+            exit 1
+          fi
+
+          # 5. Valideer specType tegen toegestane waarden
+          ALLOWED_TYPES=(no st im pr hr wa al bd bp)
+          if [[ ! " ${ALLOWED_TYPES[*]} " =~ " $SPEC_TYPE " ]]; then
+            echo "::error title=Invalid specType::$SPEC_TYPE is geen geldige specType. Mogelijke waarden: ${ALLOWED_TYPES[*]}"
+            exit 1
+          fi
+
+          echo "Gevonden en gevalideerd (allemaal lowercase):"
+          echo "   pubDomain   = $DOMAIN"
+          echo "   specStatus  = $SPEC_STATUS"
+          echo "   specType    = $SPEC_TYPE"
+          echo "   shortName   = $SHORT_NAME"
+          echo "   publishDate = $PUBLISH_DATE"
+
+          # 6. Download pubDomainList.json indien nog niet aanwezig
+          CONFIG_JSON=pubDomainList.json
+          if [[ ! -f "$CONFIG_JSON" ]]; then
+            curl -sSL \
+              https://docs.geostandaarden.nl/pubDomainList.json \
+              -o "$CONFIG_JSON"
+          fi
+
+          # 7. Check of pubDomain bestaat in de Geonovum-list (case‑insensitive)
+          if ! jq -e --arg domain "$DOMAIN" \
+              '.Geonovum[] | select((.pubDomain|ascii_downcase)==$domain)' \
+              "$CONFIG_JSON" >/dev/null; then
+            echo "::error title=Invalid pubDomain::pubDomain '$DOMAIN' niet gevonden in $CONFIG_JSON"
+            exit 1
+          fi
+
+          # 8. Valideer publishDate-formaat en geldigheid
+          if ! [[ "$PUBLISH_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]; then
+            echo "::error title=Invalid publishDate formaat::publishDate '$PUBLISH_DATE' heeft niet het formaat yyyy-MM-dd"
+            exit 1
+          fi
+          if ! date -d "$PUBLISH_DATE" "+%Y-%m-%d" >/dev/null 2>&1; then
+            echo "::error title=Invalid publishDate::publishDate '$PUBLISH_DATE' is geen geldige datum"
+            exit 1
+          fi
+
+          # 9. Bouw de folder-path en exporteer als output
+          PUBLISH_DATE_COMPACT="$(echo "$PUBLISH_DATE" | tr -d '-')"
+          FOLDER_PATH="${DOMAIN}/${SPEC_STATUS}-${SPEC_TYPE}-${SHORT_NAME}-${PUBLISH_DATE_COMPACT}/"
+
+          echo "folderPath=$FOLDER_PATH"    >> $GITHUB_OUTPUT
+          echo "pubdomain=$DOMAIN"          >> $GITHUB_OUTPUT
+          echo "specStatus=$SPEC_STATUS"    >> $GITHUB_OUTPUT
+          echo "specType=$SPEC_TYPE"        >> $GITHUB_OUTPUT
+          echo "shortName=$SHORT_NAME"      >> $GITHUB_OUTPUT
+          echo "publishDate=$PUBLISH_DATE"  >> $GITHUB_OUTPUT
+
+          echo "Metadata en folder-path gevalideerd en opgeslagen"
+
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        with:
+          app-id: ${{ secrets.GH_APP_ID }}
+          private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
+          owner: Geonovum
+          repositories: |
+            docs.geostandaarden.nl
+
+      - name: Checkout private docs
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          repository: Geonovum/docs.geostandaarden.nl
+          token: ${{ steps.app-token.outputs.token }}
+          path: docs.geostandaarden.nl
+
+      - name: Switch naar develop branch bij pre-release
+        if: ${{ github.event.release.prerelease == true }}
+        run: |
+          cd docs.geostandaarden.nl
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
+          git fetch --all
+          git checkout develop || git checkout -b develop origin/develop
+
+      - name: Copy output to pubDomain folder
+        run: |
+          mkdir -p docs.geostandaarden.nl/${{ steps.metadata.outputs.folderPath }}
+          cp -r content/* docs.geostandaarden.nl/${{ steps.metadata.outputs.folderPath }}/
+          rm docs.geostandaarden.nl/${{ steps.metadata.outputs.folderPath }}/js/config.js
+          
+      - name: Update .htaccess “latest” pointer
+        run: |
+          set -euo pipefail
+
+          FOLDER_PATH="${{ steps.metadata.outputs.folderPath }}"
+          SHORT_NAME="${{ steps.metadata.outputs.shortName }}"
+          REPO_DIR="docs.geostandaarden.nl"
+
+          TOPIC="$(echo "$FOLDER_PATH" | cut -d/ -f1)"
+          VERSION_DIR="$(basename "$FOLDER_PATH")"
+          VERSION_DIR="${VERSION_DIR%/}"
+          LINK_DIR="$TOPIC/$SHORT_NAME"
+
+          mkdir -p "$REPO_DIR/$LINK_DIR"
+
+          # .htaccess updaten: redirect root + subpaden naar nieuwste versie-map
+          cat > "$REPO_DIR/$LINK_DIR/.htaccess" <<'EOF'
+          RewriteEngine On
+          # Redirect map-root en onderliggende paden naar de nieuwste versie-map
+          RewriteRule ^$           /__TOPIC__/__VERSION__/ [R=302,L]
+          RewriteRule ^(.+)$       /__TOPIC__/__VERSION__/$1 [R=302,L]
+          Options -Indexes
+          EOF
+
+          # Variabelen invullen
+          sed -i \
+            -e "s#__TOPIC__#${TOPIC}#g" \
+            -e "s#__VERSION__#${VERSION_DIR}#g" \
+            "$REPO_DIR/$LINK_DIR/.htaccess"
+
+          echo "Updated $REPO_DIR/$LINK_DIR/.htaccess -> /$TOPIC/$VERSION_DIR/"
+
+      - name: Push naar develop bij pre-release
+        if: ${{ github.event.release.prerelease == true }}
+        run: |
+          cd docs.geostandaarden.nl
+          git add .
+          git commit -m "Automatische pre-release update van ${{ github.repository }} (triggered by ${{ github.actor }})"
+          git push origin develop
+
+      - name: Create PR naar main bij release
+        if: ${{ github.event.release.prerelease != true }}
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          path: docs.geostandaarden.nl
+          branch: auto-update-${{ github.run_id }}
+          base: main
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          committer: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+          commit-message: "Automated update from ${{ github.repository }} (triggered by ${{ github.actor }})"
+          title: "Automated update from ${{ github.repository }} to main"
+          body: |
+            Triggered by: @${{ github.actor }}  
+            Release: `${{ github.event.release.tag_name }}`  
+            Update vanuit workflow voor domein ${{ steps.metadata.outputs.pubdomain }}  
+            Folder: `${{ steps.metadata.outputs.folderPath }}`
+            To branch: `main`
+          labels: automated pr
+          delete-branch: true
+          reviewers: wilkoquak,fterpstra,lvdbrink
